@@ -1,0 +1,27 @@
+# Virtual Environments
+venv/
+env/
+estif_env/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+
+# Generated outputs
+*.png
+*.pdf
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+._*
+
+# Testing
+.pytest_cache/
