@@ -1,5 +1,7 @@
 # estif_ec_fd
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17261725.svg)](https://doi.org/10.5281/zenodo.17261725)
+
 ## Classical Alternative Cosmology Model
 
 **Mission:** A complete semi-classical model that reinterprets General Relativity and ΛCDM through inward flow and friction dynamics, without quantum elements. Explains gravity, redshift, and cosmic evolution via classical flow mechanics and friction-derived H(t).
