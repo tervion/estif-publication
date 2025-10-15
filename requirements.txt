@@ -1,6 +1,66 @@
-numpy>=1.26.4,<2.1.0
-scipy>=1.13.0,<1.15.0
-matplotlib>=3.8.0,<4.0.0
-astropy>=6.0.0,<7.0.0
-pytest>=8.4.0,<9.0.0
-corner>=2.2.0,<3.0.0
+# requirements.txt
+
+# ESTIF-Gravity v2.0 - Strong-Field Modifications to General Relativity
+# Core scientific computing dependencies
+
+# ============================================================================
+# Core Scientific Computing
+# ============================================================================
+
+# Numerical computation
+numpy>=1.24.0,<2.0.0
+scipy>=1.10.0,<2.0.0
+
+# Plotting and visualization
+matplotlib>=3.7.0,<4.0.0
+
+# Astronomy and cosmology
+astropy>=5.2.0,<7.0.0
+
+# ============================================================================
+# Optional: Advanced Analysis (not required for basic usage)
+# ============================================================================
+
+# MCMC and statistical analysis (if doing parameter fitting)
+# corner>=2.2.0
+# emcee>=3.1.0
+
+# ============================================================================
+# Development and Testing (optional)
+# ============================================================================
+
+# Testing framework
+# pytest>=7.0.0
+# pytest-cov>=4.0.0
+
+# Code quality
+# black>=23.0.0
+# flake8>=6.0.0
+
+# ============================================================================
+# Notes
+# ============================================================================
+
+# Version constraints:
+# - numpy<2.0.0: Avoid breaking changes in numpy 2.0
+# - scipy<2.0.0: Maintain API stability
+# - matplotlib<4.0.0: Prevent breaking plot code
+# - astropy<7.0.0: Use stable cosmology functions
+
+# Installation:
+#   pip install -r requirements.txt
+
+# For development:
+#   pip install -r requirements.txt
+#   pip install pytest black flake8
+
+# Minimum versions tested:
+#   Python 3.8+
+#   numpy 1.24.0
+#   scipy 1.10.0
+#   matplotlib 3.7.0
+#   astropy 5.2.0
+
+
+#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-16-10-25-V-2
+

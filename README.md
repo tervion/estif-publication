@@ -1,162 +1,339 @@
-# estif_ec_fd
+# ESTIF-Gravity: Strong-Field Modifications to General Relativity
 
-## Classical Alternative Cosmology Model
+[![Status](https://img.shields.io/badge/status-testable_prediction-green)]()
+[![Version](https://img.shields.io/badge/version-2.0-blue)]()
+[![Tests](https://img.shields.io/badge/tests-3%2F3_passing-success)]()
 
-**Mission:** A complete semi-classical model that reinterprets General Relativity and ΛCDM through inward flow and friction dynamics, without quantum elements. Explains gravity, redshift, and cosmic evolution via classical flow mechanics and friction-derived H(t).
+## 🎯 Key Result
 
----
+**LISA-Detectable Gravitational Wave Signal:**
+- **32 microsecond delays** in binary black hole mergers  
+- **3.2σ detection significance**  
+- **Testable when LISA launches (~2034-2037)**
 
-## 🔬 Core Hypothesis
-
-The universe flows inward through a 4th spatial dimension. This inward motion IS time. Mass creates drag/eddies in this flow, which IS gravity. Our inability to perceive the 4th dimension creates the illusion of cosmic expansion.
-
-### The Three Fundamental Mechanisms
-
-1. **Time as 4D Motion**: Time is not a parameter—it's our journey inward through a fourth spatial dimension we cannot perceive
-2. **Gravity as Flow Resistance**: Mass creates drag and eddies in the inward flow (larger mass → larger eddy → stronger "gravity")
-3. **Expansion as Illusion**: We perceive expansion because we're flowing inward; our rulers "shrink" with us (ant analogy)
+This is currently the strongest testable prediction of ESTIF-Gravity.
 
 ---
 
-## 🧮 Mathematical Framework
+## 📋 Project Overview
 
-* **Scale Factor:** S(t) = exp(-∫ H(t') dt'), representing position along the 4th dimension
-* **Variable Flow Rate:** H(t) = H₀ + A/t^0.75 + BETA_DRAG × (Gρ/c²) + BETA_DRAG/S(t)²
-  - Early surge term (A/t^0.75): Rapid early flow, fitted to BBN
-  - Drag terms: Mass-based resistance (larger objects create bigger eddies)
-  - Late illusion term: Apparent acceleration from perspective shift
-* **Metric:** g_μν incorporates friction corrections: g_tt = -(1 - 2GM/(rc²) + friction_terms)
-* **Gravity:** Emerges from flow resistance: Φ = 1 - GM/(rc²), with a = -c²∇Φ
+**ESTIF-Gravity** tests whether friction-like corrections to General Relativity produce observable effects in strong gravitational fields. Unlike the earlier ESTIF-FD version (which attempted to replace ΛCDM cosmology and was ruled out by supernova data), this approach:
 
-**Key Parameters:**
-- H₀ = 2.1927×10⁻¹⁸ s⁻¹ (baseline flow rate)
-- A = 0.0005 (early surge strength, fitted to BBN helium Y_p ~ 0.245)
-- BETA_DRAG = 0.05 (friction coefficient, fitted to supernovae and weak-field GR limits)
+- ✅ **Accepts standard ΛCDM cosmology**
+- ✅ **Tests only strong-field gravity modifications**
+- ✅ **Makes specific, falsifiable predictions**
 
----
+### What Changed from ESTIF-FD?
 
-## ✅ Validation and Current Status
-
-**Matches established physics:**
-- GPS time dilation: 45.7 vs 45.9 μs/day (GR) ✓
-- Mercury precession: 42.99 vs 42.98 arcsec/century (GR) ✓
-- Solar light deflection: 1.751 arcseconds (GR match) ✓
-- CMB age: ~377,000 years (matches ΛCDM ~380,000 years) ✓
-- BBN helium: Y_p = 0.245 (matches observations) ✓
-
-**Fits cosmological data:**
-- Type Ia Supernovae: χ² = 1.10 (excellent fit)
-- BAO sound horizon: r_d = 147 Mpc (matches Planck 2018)
-- CMB constraints: Consistent with Planck 2018
-
-**Novel predictions (under development):**
-- Modified lensing near black holes (~1-3% deviation from GR)
-- GW phase delays from 4D propagation (~10⁻⁵ - 10⁻⁴ s)
-- High-z galaxy asymmetries (~few percent, testable with JWST)
-
-*Note: Prediction magnitudes are being refined—formulas currently use cosmic-average drag rather than local density, producing underestimates.*
+| Aspect | ESTIF-FD (v1.0) | ESTIF-Gravity (v2.0) |
+|--------|-----------------|----------------------|
+| **Cosmology** | Custom exponential S(t) | Standard ΛCDM |
+| **Status** | Ruled out (χ²=3.8× worse) | Uses validated cosmology |
+| **Focus** | Universe expansion | Strong-field gravity only |
+| **Key Prediction** | None testable | LISA GW delays (3.2σ) |
+| **Archived at** | [Zenodo](https://zenodo.org/records/17261725) | Current version |
 
 ---
 
-## 🔍 Key Differences from ΛCDM
+## 🔬 Scientific Approach
 
-| Aspect | ΛCDM | ESTIF |
-|--------|------|-------|
-| **Time** | 4th coordinate dimension | Motion through 4th spatial dimension |
-| **Gravity** | Spacetime curvature | Mass-induced eddies in 4D flow |
-| **Expansion** | Spacetime stretches | Perspective illusion from inward motion |
-| **Dark energy** | Cosmological constant Λ | Emergent from flow perspective + friction |
-| **Redshift** | Wavelength stretched | Geometric effect of 4D position change |
-| **CMB age** | ~380,000 years | ~377,000 years (natural fit, not tuned) |
-| **Parameters** | 6 (H₀, Ωₘ, ΩΛ, Ωb, n_s, σ₈) | 3 (H₀, A, BETA_DRAG) |
-| **Foundation** | GR + quantum fields | Classical mechanics only |
+### Core Hypothesis
 
-**Advantage:** Simpler ontology (Occam's Razor)—reproduces ΛCDM's empirical success with fewer free parameters and no quantum field theory.
+Friction-drag corrections modify light bending and gravitational wave propagation near massive objects via:
 
----
+```
+θ_ESTIF = θ_GR × (1 + β × R_s/(2r))
+```
 
-## 📁 Project Structure
+Where:
+- `θ_GR` = General Relativity prediction
+- `β` = friction coefficient (0.05)
+- `R_s` = Schwarzschild radius
+- `r` = distance from object
 
-* `estif_ec_fd_constants.py`: Physical constants (G, c, M_sun, etc.) and model parameters (H₀, A, BETA_DRAG)
-* `estif_ec_fd_model.py`: Core physics—friction dynamics, H(t), geodesics, metric
-* `estif_ec_fd_run_simulation.py`: Validation tests and data fits
-* `estif_ec_fd_concept.md`: Conceptual explanation (ant/stone analogies, philosophical framework)
-* `estif_ec_fd_ROADMAP.md`: Development plan and milestones
-* `estif_ec_fd_RHAC.md`: Rabbit holes and crossroads (decision tree for avoiding detours)
+### Three Testable Predictions
 
----
+| Observable | Prediction | Detector | Status |
+|------------|-----------|----------|--------|
+| **GW merger delays** | 32 μs | LISA | ✅ **3.2σ detectable** |
+| **BH shadow size** | 1.67% larger | next-gen EHT | ⚠️ Marginal (needs ~0.3% precision) |
+| **Galaxy asymmetry** | 0.0001% | JWST | ❌ Below threshold |
 
-## 🚀 Running the Simulation
-
-1. Install dependencies: `pip install -r requirements.txt`
-2. Run tests: `python estif_ec_fd_run_simulation.py`
-3. Output: Console results + plots (supernova_friction.png, scale_contraction.png, etc.)
-
-**Expected output:**
-- All solar system tests pass (GPS, Mercury, light deflection)
-- Cosmological fits: χ² ~ 1.1 on supernovae, matches BAO/CMB
-- Novel predictions: Currently showing 0% due to cosmic-drag underestimation (fix in progress)
+**Bottom line:** Gravitational wave timing with LISA is the key test.
 
 ---
 
-## 📊 Current Status: Phase 3 (Classical Excellence)
+## 📊 Results Summary
 
-**Completed:**
-- ✅ Weak-field GR equivalence (GPS, Mercury, lensing)
-- ✅ Cosmological data fits (SNe χ² = 1.10, BAO/CMB match)
-- ✅ BBN consistency (Y_p = 0.245)
-- ✅ Conceptual framework (time as 4D motion, gravity as flow resistance)
+### Validation Tests (All Pass)
 
-**In Progress:**
-- ⚠️ Novel predictions (reformulating with local drag instead of cosmic-average)
-- ⚠️ CMB distortion signatures (currently underestimated by 25 orders of magnitude)
-- ⚠️ Documentation updates (reconciling earlier claims with current outputs)
+- ✅ **Weak-field GR compliance:** <1% deviation in solar system tests
+- ✅ **Friction scaling:** Confirmed ∝ M, ∝ 1/r³
+- ✅ **Mathematical consistency:** All equations self-consistent
 
-**Next Steps:**
-1. Implement `friction_drag_local(M, r)` using actual mass density
-2. Update lensing/GW/asymmetry predictions to use local drag
-3. Debug S(t) calculation ("invalid target" warning for z=1100)
-4. Submit to arXiv with honest framing (validated alternative interpretation + testable predictions)
+### Observational Predictions
 
----
+**1. LISA Gravitational Waves** (Strongest Prediction)
+- Prediction: 32 microsecond delays in binary black hole mergers
+- Detection significance: 3.2σ
+- Timeline: LISA launch ~2034-2037
+- **Status: TESTABLE** ✅
 
-## 🎯 Why ESTIF Matters
+**2. EHT Black Hole Shadow**
+- Prediction: 1.67% larger shadow than GR predicts for M87*
+- Current status: Both GR and ESTIF show 7σ tension with observation
+- Timeline: Next-generation EHT by 2030
+- **Status: MARGINAL** ⚠️
 
-**Philosophical Revolution:**
-- Time as spatial motion (not separate dimension)
-- Gravity as flow phenomenon (not fundamental force)
-- Expansion as perspective (not physical stretching)
-
-**Empirical Validation:**
-- Reproduces all ΛCDM successes with simpler physics
-- 3 parameters vs 6 (more parsimonious)
-- No need for quantum field theory in cosmology
-
-**Testable Predictions:**
-- Strong-field deviations (EHT can measure ~1% lensing differences)
-- GW propagation effects (LISA sensitivity ~10⁻⁵ s)
-- High-z galaxy structure (JWST morphology studies)
-
-If correct, ESTIF represents a Copernican-level shift: **we're not in an expanding universe—we're falling through an unseen dimension we experience as time.**
+**3. JWST Galaxy Morphology**
+- Prediction: 0.0001% asymmetry at high redshift
+- Required precision: 0.5% (with 100 galaxies)
+- **Status: UNDETECTABLE** ❌
 
 ---
 
-## 📖 Further Reading
+## 🗂️ Repository Structure
 
-- **Conceptual intro:** See `estif_ec_fd_concept.md` for analogies and intuition
-- **Technical details:** See `estif_ec_fd_model.py` for implementation
-- **Development plan:** See `estif_ec_fd_ROADMAP.md` for milestones
+```
+estif_publication/
+├── README.md                    # This file
+├── CHANGELOG.md                 # Version history
+├── src/                         # Core implementation
+│   ├── estif_ec_gr_constants.py
+│   ├── estif_ec_gr_model.py
+│   └── estif_ec_gr_run_simulation.py
+├── tests/                       # Validation & predictions
+│   ├── observational/           # EHT, LIGO, JWST comparisons
+│   │   ├── compare_eht_m87.py
+│   │   ├── compare_ligo_gw.py
+│   │   └── compare_jwst_galaxies.py
+│   ├── unit/                    # Basic functionality tests
+│   └── run_all_comparisons.py   # Main test runner
+├── results/                     # Generated plots
+│   ├── validated/               # Publication-ready figures
+│   └── work_in_progress/        # Future work
+├── docs/                        # Documentation
+│   ├── STATUS.md                # Technical status
+│   ├── VALIDATION_REPORT.md     # Evidence summary
+│   └── SUMMARY_FOR_REVIEW.md    # For expert review
+├── data/                        # Observational data
+└── archive/                     # Old ESTIF-FD version
+```
 
 ---
 
-## 🔧 Requirements
+## 🚀 Quick Start
 
-See `requirements.txt` for dependencies:
-- numpy, scipy (numerical computation)
-- matplotlib (plotting)
-- astropy (cosmology benchmarks)
+### Installation
 
-No quantum mechanics libraries needed—purely classical framework.
+```bash
+# Clone repository
+git clone https://github.com/tervion/estif-publication
+cd estif_publication
 
-#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-30-09-25-V-5.8.C.
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Run Tests
+
+```bash
+# Run all observational comparisons
+cd tests
+python3 run_all_comparisons.py
+
+# Generated plots appear in tests/ directory
+# - eht_m87_comparison.png
+# - ligo_gw150914_comparison.png
+# - gw_mass_dependence.png
+# - jwst_ceers_comparison.png
+```
+
+### Run Main Simulation
+
+```bash
+# Full validation suite
+cd src
+python3 estif_ec_gr_run_simulation.py
+
+# Generates plots in src/:
+# - friction_scaling.png
+# - lensing_comparison.png
+# - predictions_summary.png
+```
+
+---
+
+## 📈 Key Results
+
+### Gravitational Wave Delays (LISA)
+
+**Prediction:** Binary black hole mergers experience 32 microsecond delays due to friction drag.
+
+```
+For 65 M_sun merger:
+- ESTIF delay: 3.2×10⁻⁵ s
+- LIGO precision: 1 ms (too coarse)
+- LISA precision: 10 μs
+- LISA S/N: 3.2σ ← Detectable!
+```
+
+See: `results/validated/ligo_gw150914_comparison.png`
+
+### Black Hole Shadow (EHT)
+
+**Prediction:** M87* shadow 1.67% larger than GR predicts.
+
+```
+For M87* at photon sphere:
+- GR: 19.85 μas diameter
+- ESTIF: 20.18 μas diameter
+- Observed: 42 μas (both models off by 7σ)
+- ESTIF vs GR: 0.33 μas difference
+- Needs: 0.3% precision (EHT goal: ~1% by 2030)
+```
+
+See: `results/validated/eht_m87_comparison.png`
+
+---
+
+## 📚 Documentation
+
+### For Researchers
+
+- **[STATUS.md](docs/STATUS.md)** - Current development status
+- **[VALIDATION_REPORT.md](docs/VALIDATION_REPORT.md)** - Evidence summary
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history and major changes
+
+### For Expert Review
+
+- **[SUMMARY_FOR_REVIEW.md](docs/SUMMARY_FOR_REVIEW.md)** - One-page overview for experts
+- **[Results Directory](results/validated/)** - All plots with descriptions
+
+### Technical Details
+
+- **[estif_ec_gr_model.py](src/estif_ec_gr_model.py)** - Implementation with inline documentation
+- **[Comparison Scripts](tests/observational/)** - Full observational analysis code
+
+---
+
+## 🎓 Scientific Context
+
+### Motivation
+
+General Relativity has been extensively validated in weak fields (solar system, binary pulsars) but remains less constrained near black hole horizons. The Event Horizon Telescope's imaging of M87* and LIGO's detection of gravitational waves open new windows for testing gravity in extreme environments.
+
+### Relation to Standard Physics
+
+ESTIF-Gravity:
+- ✅ **Preserves:** All weak-field GR predictions
+- ✅ **Uses:** Standard ΛCDM cosmology
+- 🔬 **Tests:** Whether friction-like corrections appear in strong fields
+- ❌ **Not claiming:** To solve dark matter, dark energy, or replace quantum gravity
+
+### Previous Work
+
+An earlier version (ESTIF-FD) attempted to derive cosmic expansion from 4D flow dynamics. This was **ruled out by supernova data:**
+- ESTIF-FD: χ² = 1428
+- ΛCDM: χ² = 376
+- Ratio: 3.8× worse
+
+**Current approach** accepts standard cosmology and tests only strong-field modifications.
+
+---
+
+## 🔬 Current Status
+
+### What's Validated
+
+- ✅ Code works correctly
+- ✅ Predictions are self-consistent
+- ✅ LISA prediction is concrete and testable
+- ✅ Mathematical framework is complete
+
+### What's Not Validated
+
+- ⚠️ Whether the friction mechanism is physically correct
+- ⚠️ Whether β = 0.05 is the right value
+- ⚠️ Whether GW and EM should use same scaling
+
+### Honest Assessment
+
+**Strengths:**
+- Makes specific, testable prediction (LISA)
+- Internal mathematical consistency
+- Simpler than many alternative gravity theories
+
+**Weaknesses:**
+- Developed by non-expert (me)
+- Previous cosmology version failed
+- May have fundamental issues experts can identify
+
+---
+
+## 🤝 Contributing & Feedback
+
+This is exploratory research by an independent researcher. **Expert feedback is crucial and welcome.**
+
+### Questions for Experts
+
+1. Is the lensing equation θ = θ_GR × (1 + β·R_s/2r) physically reasonable?
+2. Should gravitational wave and electromagnetic predictions use the same scaling?
+3. Are there obvious errors or fundamental problems?
+4. Is this worth pursuing further?
+
+### Contact
+
+- **Repository:** https://github.com/tervion/estif-publication
+- **Email:** [your email]
+- **Zenodo (old version):** https://zenodo.org/records/17261725
+
+---
+
+## 📄 Citation
+
+If you reference this work, please cite:
+
+```bibtex
+@software{angelov2025estif_gravity,
+  author = {Angelov, Peter},
+  title = {ESTIF-Gravity: Strong-Field Modifications to General Relativity},
+  year = {2025},
+  version = {2.0},
+  url = {https://github.com/tervion/estif-publication}
+}
+```
+
+Previous version (ESTIF-FD, ruled out):
+```bibtex
+@software{angelov2024estif_fd,
+  author = {Angelov, Peter},
+  title = {ESTIF: Emergent Spacetime from Inward Flow},
+  year = {2024},
+  doi = {10.5281/zenodo.17261725}
+}
+```
+
+---
+
+## 📜 License
+
+MIT License - See [LICENSE](LICENSE) file for details.
+
+---
+
+## ⚠️ Disclaimer
+
+This is independent research by a non-physicist. The framework makes testable predictions, but has not been peer-reviewed by experts in general relativity or gravitational physics. The code is provided for transparency and to enable expert evaluation.
+
+**The strongest prediction (LISA gravitational wave delays) is falsifiable and will be tested when LISA launches in the 2030s.**
+
+---
+
+**Last Updated:** October 15, 2025  
+**Version:** 2.0 (ESTIF-Gravity Fork)  
+**Status:** Ready for expert review
+
+
+#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-15-10-25-V-2
 
