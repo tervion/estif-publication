@@ -1,5 +1,6 @@
 # ESTIF-Gravity: Strong-Field Modifications to General Relativity
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17261725.svg)](https://doi.org/10.5281/zenodo.17261725)
 [![Status](https://img.shields.io/badge/status-testable_prediction-green)]()
 [![Version](https://img.shields.io/badge/version-2.0-blue)]()
 [![Tests](https://img.shields.io/badge/tests-3%2F3_passing-success)]()
