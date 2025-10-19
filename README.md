@@ -96,29 +96,84 @@ Where:
 ## 🗂️ Repository Structure
 
 ```
-estif_publication/
-├── README.md                    # This file
-├── CHANGELOG.md                 # Version history
-├── src/                         # Core implementation
-│   ├── estif_ec_gr_constants.py
-│   ├── estif_ec_gr_model.py
-│   └── estif_ec_gr_run_simulation.py
-├── tests/                       # Validation & predictions
-│   ├── observational/           # EHT, LIGO, JWST comparisons
-│   │   ├── compare_eht_m87.py
-│   │   ├── compare_ligo_gw.py
-│   │   └── compare_jwst_galaxies.py
-│   ├── unit/                    # Basic functionality tests
-│   └── run_all_comparisons.py   # Main test runner
-├── results/                     # Generated plots
-│   ├── validated/               # Publication-ready figures
-│   └── work_in_progress/        # Future work
-├── docs/                        # Documentation
-│   ├── STATUS.md                # Technical status
-│   ├── VALIDATION_REPORT.md     # Evidence summary
-│   └── SUMMARY_FOR_REVIEW.md    # For expert review
-├── data/                        # Observational data
-└── archive/                     # Old ESTIF-FD version
+.
+├──  CHANGELOG.md
+├── CITATION.cff
+├── LICENSE
+├── README.md
+├── archive
+│   ├── DIAGNOSTICS
+│   │   ├── debug_high_z.py
+│   │   ├── early_term_diagnostic.py
+│   │   ├── model_comparison_Type_CL.py
+│   │   ├── test_fixes_Type_CL.py
+│   │   └── test_fixes_Type_GR.py
+│   ├── ESTIF_arXiv_Paper
+│   │   ├── ESTIF_Angelov.pdf
+│   │   ├── cmb_distortions.png
+│   │   ├── lensing_deviations.png
+│   │   ├── main.tex
+│   │   ├── scale_contraction.png
+│   │   ├── supernova_friction.png
+│   │   └── weak_field_deviation.png
+│   └── tests
+│       ├── compare_lcdm
+│       │   └── quick_sanity_check.py
+│       ├── validate_low_z
+│       │   └── model_comparison.py
+│       └── validation
+│           ├── test_cosmology.py
+│           ├── test_fixes_low_z.py
+│           ├── test_novel_predictions.py
+│           └── validate_gravity_fork.py
+├── data
+│   ├── README.md
+│   └── sn_data.txt
+├── docs
+│   ├── LaTeX 
+│   │   └── ESTIF_arXiv_Paper
+│   │       └── main.tex
+│   ├── SUMMARY_FOR_REVIEW.md
+│   ├── guide
+│   │   └── estif_ec_fd_ROADMAP.md
+│   ├── plan
+│   │   └── estif_ec_fd_RHAC.md
+│   └── report
+│       ├── STATUS.md
+│       ├── VALIDATION_REPORT.md
+│       └── estif_ec_fd_concept.md
+├── requirements.txt
+├── results
+│   ├── README.md
+│   ├── validated
+│   │   ├── README.md
+│   │   ├── eht_m87_comparison.png
+│   │   ├── friction_scaling.png
+│   │   ├── gw_mass_dependence.png
+│   │   ├── jwst_ceers_comparison.png
+│   │   ├── lensing_comparison.png
+│   │   ├── ligo_gw150914_comparison.png
+│   │   └── predictions_summary.png
+│   └── work_in_progress
+│       ├── README.md
+│       └── galaxy_asymmetry_prediction.png
+├── setup.py
+├── src
+│   ├── estif_ec_gr_constants.py
+│   ├── estif_ec_gr_model.py
+│   └── estif_ec_gr_run_simulation.py
+└── tests
+    ├── observational
+    │   ├── README.md
+    │   ├── compare_eht_m87.py
+    │   ├── compare_jwst_galaxies.py
+    │   └── compare_ligo_gw.py
+    ├── run_all_comparisons.py
+    ├── unit
+    │   ├── test_model_functions.py
+    │   ├── test_simulation.py
+    │   └── test_weak_field.py
+    └── validation_summary.txt
 ```
 
 ---

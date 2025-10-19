@@ -625,7 +625,7 @@ def plot_lensing_comparison():
                          label='EHT observable range')
         
         plt.tight_layout()
-        plt.savefig('lensing_comparison.png', dpi=150, bbox_inches='tight')
+        plt.savefig('../results/validated/lensing_comparison.png', dpi=150, bbox_inches='tight')
         plt.close()
         
         print("   ✓ Plot saved: lensing_comparison.png")
@@ -682,7 +682,7 @@ def plot_friction_scaling():
         ax2.legend(fontsize=10)
         
         plt.tight_layout()
-        plt.savefig('friction_scaling.png', dpi=150, bbox_inches='tight')
+        plt.savefig('../results/validated/friction_scaling.png', dpi=150, bbox_inches='tight')
         plt.close()
         
         print("   ✓ Plot saved: friction_scaling.png")
@@ -762,7 +762,7 @@ def plot_predictions_summary():
         ax3.set_ylim(0, max(asymmetries)*1.2)
         
         plt.tight_layout()
-        plt.savefig('predictions_summary.png', dpi=150, bbox_inches='tight')
+        plt.savefig('../results/validated/predictions_summary.png', dpi=150, bbox_inches='tight')
         plt.close()
         
         print("   ✓ Plot saved: predictions_summary.png")
