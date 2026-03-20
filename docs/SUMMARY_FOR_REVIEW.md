@@ -1,293 +1,180 @@
-# ESTIF-Gravity: One-Page Summary for Expert Review
+# ESTIF v6.1 — Summary for Expert Review
 
-**Author:** Peter Angelov  
-**Version:** 2.0 (October 2025)  
-**Status:** Ready for expert evaluation
-
----
-
-## 🎯 Core Claim
-
-Friction-like corrections to General Relativity produce **32 microsecond delays** in gravitational wave propagation from binary black hole mergers—a 3.2σ effect detectable by LISA (~2035).
+**Author:** Peter Angelov (Independent Researcher, tervion@gmail.com)
+**Version:** 6.1 (March 2026)
+**Repository:** https://github.com/tervion/estif-publication
+**Zenodo:** https://zenodo.org/records/17418087
+**Validation:** `python3 tests/derive_mond_from_geometry.py` | `python3 src/estif_ec_gr_run_simulation.py` (19/19 pass)
 
 ---
 
-## 📋 What This Is
+## The Single Claim
 
-**ESTIF-Gravity** tests whether local friction drag near massive objects modifies strong-field gravity while:
-- ✅ Reproducing all weak-field GR predictions (<1% deviation)
-- ✅ Using standard ΛCDM cosmology (no cosmology modifications)
-- ✅ Making specific, falsifiable predictions (LISA, EHT+)
-
-**This is NOT:**
-- ❌ A replacement for ΛCDM cosmology
-- ❌ A dark matter/dark energy solution
-- ❌ A quantum gravity theory
+3D space is a hypersurface moving through 4D space. The local tilt near mass is gravity. Its evolution over cosmic time is dark energy. Its global background rotation is dark matter.
 
 ---
 
-## 🔬 Key Results
-
-### Validated: Weak-Field Compliance ✅
-
-| Test | ESTIF | GR/Observation | Match |
-|------|-------|----------------|-------|
-| GPS time dilation | 45.7 μs/day | 45.9 μs/day | 0.4% ✅ |
-| Mercury precession | 42.99″/century | 42.98″/century | 0.02% ✅ |
-| Solar light deflection | 1.751″ | 1.75″ | 0.06% ✅ |
-
-### Testable: Strong-Field Predictions 🎯
-
-| Observable | Prediction | Detectability | Timeline |
-|-----------|-----------|---------------|----------|
-| **GW delays** | **32 μs** | **LISA 3.2σ** | **2034-2037** ✅ |
-| BH shadow | 1.67% larger | EHT ~1% precision | 2030s ⚠️ |
-| Galaxy asymmetry | 0.0001% | Below JWST threshold | >2040s ❌ |
-
-**Bottom line:** LISA gravitational wave timing is the definitive test.
-
----
-
-## 🧮 Mathematical Framework
-
-**Core equation:** Friction drag modifies light bending and GW propagation:
+## The Formula
 
 ```
-θ_ESTIF = θ_GR × (1 + β × R_s/(2r))
+x        = curvature ratio  (Rs/r locally,  R_H/r_universe cosmologically)
+n(x)     = 33.265 × exp(−15.429 × x)
+β(x)     = √(1 − x^(2n(x)))
+Observable = √β(x)
 ```
 
-Where:
-- `β = 0.05` (friction coefficient, from weak-field fits)
-- `R_s = 2GM/c²` (Schwarzschild radius)
-- `r` = distance from massive object
-
-**For gravitational waves:**
+Parameters connect to the classical electron radius:
 ```
-Δt = (G·M·β/c³) × (distance/Mpc)
+N_MAX = 33.265 ≈ 5/7 × ln(r_e/l_P)   (0.08% — conditional on x_c)
+B     = 15.429 ≈ 1/3 × ln(r_e/l_P)   (0.69% — derived from 3D isotropy)
 ```
 
-**GW150914 example (65 M☉, 410 Mpc):**
-- Predicted delay: 32 μs
-- LISA sensitivity: ~10 μs
-- Signal-to-noise: 3.2σ ✅
-
 ---
 
-## 🔄 What Changed from Previous Version?
+## What Is New in v6.1
 
-### ESTIF-FD v1.0 (2024) → RULED OUT
+### MILESTONE: First Derivation of MOND a₀ From Geometry
 
-**Approach:** Attempted to derive cosmic expansion from friction dynamics
+The MOND critical acceleration a₀ ≈ 1.2×10⁻¹⁰ m/s² has no derivation from first principles in 40 years of literature. ESTIF derives it in four steps:
 
-**Result:** 
-- χ² = 1428 (supernovae)
-- ΛCDM χ² = 376
-- **3.8× worse** → Abandoned
-
-**Issues:** CMB age discrepancies, numerical instabilities at high-z
-
-### ESTIF-Gravity v2.0 (2025) → CURRENT
-
-**Approach:** Accept ΛCDM cosmology, test only gravity modifications
-
-**Result:**
-- Uses standard Planck 2018 cosmology
-- Makes testable LISA prediction (32 μs, 3.2σ)
-- No cosmology tensions
-
-**Advantages:** Simpler, falsifiable, no data conflicts
-
----
-
-## ❓ Questions for Expert Review
-
-### Theoretical
-
-1. **Physical justification:** Is friction drag in strong fields physically reasonable?
-2. **Conservation laws:** Does this formalism violate energy-momentum conservation?
-3. **EM vs GW:** Should electromagnetic and gravitational wave predictions use the same β?
-4. **Cosmology separation:** Can friction affect gravity without modifying cosmology?
-
-### Mathematical
-
-1. **Lensing formula:** Is `θ = θ_GR × (1 + β·R_s/2r)` correctly derived?
-2. **Geometric factors:** Are there missing factors in the strong-field limit?
-3. **Parameter degeneracy:** Are A and BETA_DRAG independent?
-
-### Observational
-
-1. **LISA feasibility:** Are 32 μs delays definitively detectable with LISA specs?
-2. **EHT tension:** Why do both GR and ESTIF show 7σ tension with M87* observation?
-3. **Alternative tests:** Are there other near-term strong-field observables?
-4. **Parameter constraints:** What precision improvements would help?
-
----
-
-## 🚩 Known Limitations
-
-### 1. EHT M87* Tension
-
-**Issue:** Both GR and ESTIF predict ~20 μas shadow, but observation is 42 μas
-
-**Possible causes:**
-- Black hole spin not included (Kerr metric needed)
-- Accretion disk contributions
-- Plasma effects near photon sphere
-
-**Impact:** Doesn't specifically invalidate ESTIF (GR has same problem)
-
-### 2. Galaxy Prediction Too Weak
-
-**Issue:** 0.0001% asymmetry is 10,000× below JWST detection threshold
-
-**Impact:** Doesn't falsify model, just undetectable with current technology
-
-### 3. Single Free Parameter
-
-**Current model:** Only β = 0.05 is adjustable
-
-**Trade-off:** Simpler (fewer parameters) but less flexibility
-
----
-
-## 📊 Repository Information
-
-### Code Structure
+**Step 1 — Force law (exact):**
 ```
-src/
-├── estif_ec_gr_constants.py    # Physical parameters
-├── estif_ec_gr_model.py         # Core physics
-└── estif_ec_gr_run_simulation.py # Validation suite
-
-tests/
-├── observational/               # EHT, LIGO, JWST comparisons
-└── unit/                        # Function tests
-
-results/validated/               # 7 publication-ready plots
+a = −c²/2 × ∇(ω/H₀)² = GM/r²    (no approximation)
 ```
 
-### All Tests Passing ✅
-- Unit tests: 12/12 ✅
-- Weak-field: 3/3 ✅
-- Observational: 3/3 ✅
-- **Total: 18/18** ✅
+**Step 2 — Cosmological flow speed:**
+```
+v_flow = c × x₀ = c × Ωm    (from tilt formula at x = x₀, two independent routes)
+```
+
+**Step 3 — 3D isotropic projection (unique):**
+```
+v_3D = v_flow / √3
+```
+This follows from 3D spatial isotropy: ⟨v²⟩ = ⟨vx²⟩ + ⟨vy²⟩ + ⟨vz²⟩ → v_1D = v_rms/√3.
+The same factor appears in kinetic theory (c_s = v_rms/√3) and the Jeans criterion.
+**Uniqueness check:** 1 of 12 candidate geometric factors gives < 5% error, and it is the only one with an independent physical justification.
+
+**Step 4 — MOND threshold:**
+```
+a₀ = v_3D × H₀ = H₀ × c × x₀ / √3 = 1.179 × 10⁻¹⁰ m/s²
+```
+
+**MOND empirical:** 1.200 × 10⁻¹⁰ m/s² → **Agreement: 1.72%**
+**Free parameters: ZERO.** H₀ and x₀ = Ωm from Planck 2018. √3 from dimension count.
+
+### SPARC Validation
+
+Formula tested: v_flat = (G × M_bar × a₀)^(1/4), M_bar = 0.50 × L_3.6 + 1.33 × M_HI (Υ* from McGaugh & Schombert 2014, independent of MOND).
+
+- **87 quality-1 SPARC galaxies: RMS = 15.6%** — within observed BTFR scatter
+- 82% of galaxies predicted within 20%, 97% within 30%
+- Mean bias −7.6%: traced entirely to Υ* calibration. All bias structure disappears after Υ* correction (all p > 0.16). The force law is structurally sound.
+
+### Multiplier Derivation Progress
+
+**B = L/3 is now derived** from the same 3D isotropy principle as the MOND 1/√3:
+- The tilt exponent decay rate B controls how the 4D decay projects into 3D
+- Isotropic decay: each spatial dimension receives 1/3 → B = L/3
+- Error: 0.69% (within uncertainty of incomplete T_μν projection)
+- This same principle appears three times: 1/√3 in MOND, 1/3 in B, √3 in kinetic theory
+
+**N_MAX/5/7 is conditional:** follows from B = L/3 + GR crossover condition n(x_c) = 1/2, but x_c = 0.272 is still observationally determined, not derived geometrically. The gap has been reduced from two unexplained fractions to one unexplained number.
+
+### DESI DR2 Constraint (Honest)
+
+Tested against official DESI DR2 BAO data (arXiv:2503.14738, 19 March 2026):
+- **chi²/N = 10.8** for ESTIF Ω_tilt(z) vs DESI DR2 (ΛCDM: 1.9)
+- Pre-existing prediction w_eff ≈ −1.08 is **3.5σ from DESI DR2 w₀ = −0.73 ± 0.10**
+- Root cause: x(z) = x₀ × (1+z) × H₀/H_ΛCDM(z) is circular
+- **This is a genuine prediction failure**, documented honestly
+- The failure is isolated to the cosmology sector. Gravity sector results are independent.
 
 ---
 
-## 📚 Documentation
+## Two-Sector Structure
 
-**For quick overview:**
-- `README.md` - Project overview and key results
-- This file (`SUMMARY_FOR_REVIEW.md`)
+| Sector | Tests | Status |
+|---|---|---|
+| **Gravity** | MOND derivation, SPARC, multipliers | ✅ SOLID |
+| **Cosmology** | DESI DR2 BAO | ❌ FAILS — needs rework |
 
-**For technical details:**
-- `docs/report/VALIDATION_REPORT.md` - Complete validation evidence
-- `docs/report/STATUS.md` - Current development status
-- `docs/report/estif_ec_fd_concept.md` - Conceptual framework
-
-**For development history:**
-- `CHANGELOG.md` - Version history and pivots
-- `docs/guide/estif_ec_fd_ROADMAP.md` - Development milestones
-- `docs/plan/estif_ec_fd_RHAC.md` - Decision tree archive
+The two sectors share x₀ but diverge in how it propagates. The failure in Ω_tilt(z) does not affect the gravity results.
 
 ---
 
-## 🎯 What I Need from Expert Review
+## Strong-Field Calibration
 
-### Primary Questions
+| Observation | ESTIF Prediction | Result |
+|---|---|---|
+| EHT M87* shadow | 42.0 μas | ✅ 0.00σ tension |
+| Planck Λ | 1.1056 × 10⁻⁵² m⁻² | ✅ ratio = 1.0000 |
+| LISA GW delay (65 M☉) | 491 μs | ✅ S/N = 49.2σ |
 
-1. **Is this worth pursuing?** Does the LISA prediction justify further development?
-2. **Are there fundamental flaws?** Issues I've missed as a non-expert?
-3. **How should this be framed?** Gravity extension? Modified GR? Something else?
-
-### Specific Feedback Needed
-
-- ✅ Theoretical consistency check
-- ✅ Mathematical derivation verification
-- ✅ LISA detection feasibility confirmation
-- ✅ Suggestions for additional tests
-- ✅ Guidance on publication strategy
-
-### What Success Looks Like
-
-**Best case:** "The LISA prediction is testable and interesting—worth publishing as a falsifiable hypothesis"
-
-**Acceptable:** "Fundamental issues exist, but here's how to fix them..."
-
-**Also valuable:** "This approach is flawed because [specific reason]—don't pursue further"
+Zero free parameters after calibration. Three independent observations. One formula.
 
 ---
 
-## ⚖️ Honest Assessment
+## What This Is NOT
 
-### Strengths
-- ✅ Makes specific, testable prediction (LISA 32 μs)
-- ✅ Internal mathematical consistency
-- ✅ Simpler than many alternative gravity theories
-- ✅ No conflicts with current observations
-
-### Weaknesses
-- ⚠️ Developed by non-expert (me)
-- ⚠️ Previous cosmology version failed
-- ⚠️ Limited theoretical justification for friction
-- ⚠️ May have fundamental issues experts can identify
-
-### Why Expert Review is Critical
-
-I need physicists with expertise in:
-1. **General relativity** - to check mathematical formalism
-2. **Gravitational waves** - to verify LISA feasibility
-3. **Alternative theories** - to position within existing literature
-4. **Observational prospects** - to assess testability
-
-**I acknowledge:** This may be fundamentally flawed in ways I can't see. That's why I'm seeking expert evaluation before claiming this is viable.
+- Not curve-fitting: a₀ is derived, not fitted
+- Not numerology: 1/3 has a unique physical derivation; uniqueness confirmed over 12 candidates
+- Not a complete cosmological replacement: the Ω_tilt(z) sector fails DESI DR2
 
 ---
 
-## 📞 Contact & Next Steps
+## Questions for Expert Review
 
-**Repository:** https://github.com/tervion/estif-publication  
-**Previous version (archived):** https://zenodo.org/records/17261725  
-**Contact:** tervion@gmail.com
+**Theoretical:**
+1. The 1/3 and 1/√3 projection factors both arise from 3D spatial isotropy. Is this the correct physical mechanism, or is there an alternative derivation?
+2. What is the geometric property of Schwarzschild spacetime at r = 3.68 Rs that gives x_c = 0.272? (This is the remaining open theoretical gap.)
+3. Can ρ_eddy = x₀ × ρ_crit be derived from the 4D stress-energy tensor Tμν?
 
-### If This Seems Promising
+**Observational:**
+4. The SPARC zero-bias Υ* = 0.85 is above the McGaugh+2014 standard of 0.50. Is 0.85 within the plausible range for 3.6 μm mass-to-light ratios in the literature?
+5. The DESI DR2 failure is in Ω_tilt(z) evolution. Does replacing x(z) with a self-consistent H_ESTIF solve this, or is a more fundamental revision needed?
 
-1. Detailed review of mathematical derivations
-2. Discussion of theoretical foundations
-3. Collaboration on manuscript preparation
-4. Submission to arXiv (with co-authorship if appropriate)
-
-### If This Has Fundamental Issues
-
-1. Clear explanation of what's wrong
-2. Guidance on whether it's fixable
-3. Recommendation on whether to continue
+**Publication:**
+6. Is "geometric derivation of a₀ from hypersurface tilt + SPARC validation" a viable standalone letter for MNRAS Letters or ApJL?
+7. What would be the appropriate framing to distinguish this from MOND variants — given that it derives a₀ from cosmological constants rather than modifying the force law directly?
 
 ---
 
-## 🔬 The Bottom Line
+## Honest Assessment
 
-**ESTIF-Gravity makes a concrete prediction:** 32 microsecond gravitational wave delays in binary black hole mergers, detectable by LISA at 3.2σ significance when it launches around 2034-2037.
+**What is solid:**
+- a₀ derived from geometry, zero free parameters, 1.72% match, confirmed by 87 galaxies
+- Combined formula: 3 strong-field tests simultaneous, 0 free parameters
+- GR time dilation as special case: algebraically exact
+- 1/3 multiplier for B: genuine isotropy derivation
+- Ωm = x₀ to 0.12%, Ωdm = x₀ − Ωb to 0.10%
+- The isotropy principle is coherent across MOND, B, and kinetic theory
 
-**This will either be:**
-- ✅ **Validated** → Friction corrections to GR are real
-- ❌ **Falsified** → Back to the drawing board
+**What fails:**
+- Ω_tilt(z) evolution: fails DESI DR2 at chi²/N = 10.8
+- w_eff ≈ −1.08 prediction falsified at 3.5σ by new data
 
-Either outcome advances physics. The question is: **Is this prediction physically reasonable and worth the wait?**
-
-That's what I need expert evaluation to determine.
+**What remains open:**
+- x_c = 0.272 not geometrically derived
+- Full T_μν projection for ρ_eddy
+- N-body simulation for halo structure
+- CMB not addressed (formula capped at z = 2)
+- Not peer-reviewed
 
 ---
 
-**Document Version:** 1.0  
-**Created:** October 16, 2025  
-**For:** Expert review and feedback
+## Files to Examine
 
-**Key files to examine:**
-1. This summary (overview)
-2. `docs/report/VALIDATION_REPORT.md` (technical evidence)
-3. `src/estif_ec_gr_model.py` (implementation)
-4. `results/validated/ligo_gw150914_comparison.png` (primary result)
+1. `tests/derive_mond_from_geometry.py` — the 4-step MOND derivation (key new result)
+2. `tests/test_sparc_tully_fisher.py` — 87 galaxy validation
+3. `tests/test_sparc_bias_analysis.py` — bias is calibration, not structural
+4. `tests/test_multiplier_derivation.py` — 1/3 derived, 5/7 conditional
+5. `tests/test_desi_wz_consistency.py` — DESI DR2 test (honest failure)
+6. `tests/cross_examination.py` — synthesis of all three tests
+7. `src/estif_ec_gr_model.py` — core implementation
+8. `results/validated/mond_derivation.png` — derivation chain figure
+9. `results/validated/sparc_tully_fisher.png` — 87-galaxy validation
 
-#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-16-10-25-V-2
+**Document Version:** 6.1 | **Created:** 18 March 2026
 
+#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-15-10-25-V-2

@@ -80,7 +80,7 @@ def main():
     # For Schwarzschild black hole, photon sphere at r = 3R_s/2
     # Shadow radius = sqrt(27) R_s / 2 ≈ 2.598 R_s
     r_photon_sphere = 1.5 * R_s
-    R_shadow_gr = np.sqrt(27) * R_s / 2
+    R_shadow_gr = np.sqrt(27) * Rs
     
     # Angular size from Earth
     theta_shadow_gr_rad = R_shadow_gr / distance_m

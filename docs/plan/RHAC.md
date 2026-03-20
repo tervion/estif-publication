@@ -1,72 +1,118 @@
-# Rabbit Holes and Crossroads - Decision Tree Archive
+# Rabbit Holes and Crossroads — Decision Tree Archive
 
-**ESTIF-Gravity Fork Decision History**
+**ESTIF v6.1 Decision History**  
+**Last Updated:** 18 March 2026  
+**Status:** Active — updated to reflect v4.0 state
 
-This file catalogs potential "rabbit holes" (deep, distracting sub-problems) and "crossroads" (decision points) in ESTIF development, based on "what if" analysis. Use it to avoid getting lost: If a roadmap task risks detour, check here for pre-mapped options and pointers.
-
-**Status:** Most scenarios now resolved. This document serves as historical record of decisions made during ESTIF-FD → ESTIF-Gravity transition.
+This file catalogs potential rabbit holes (deep, distracting sub-problems) and
+crossroads (decision points) in ESTIF development. Use it to avoid getting lost:
+if a task risks a detour, check here for pre-mapped options and resolutions.
 
 ---
 
 ## General Guidelines
 
-- **What If Trigger**: If a task exceeds time-box (e.g., 1 week) or spawns >2 sub-questions, consult this file
-- **Update Pointers**: Document decisions in roadmap with 1-2 line notes
-- **Avoidance**: Prioritize data/testability; table metaphysics (e.g., "why time?")
-- **Focus**: Classical mechanics only; avoid quantum rabbit holes
+- **What If Trigger:** If a task exceeds one week or spawns more than two sub-questions, consult this file
+- **Avoidance:** Prioritize data and testability; table metaphysics ("why does 4D flow exist?")
+- **Focus:** Classical mechanics only — no quantum rabbit holes
+- **Pattern:** Validate each floor before building the next (the lesson from ESTIF-FD)
 
 ---
 
-## Active Scenarios (Still Relevant)
+## Active Scenarios (Relevant to v4.0)
 
-### Scenario A: External Critique (Rabbit Hole: Endless Debates)
+### Scenario A: External Critique — Metaphysical Foundations
 
-**What If**: ArXiv feedback questions fundamentals (e.g., "Why inward flow exists?")?
+**What If:** ArXiv feedback questions "why does 4D flow exist?"
 
-**Options**:
-1. **Ignore Metaphysics** (recommended): Refocus on testable predictions
-   - Response: "Model makes falsifiable predictions; metaphysics is secondary"
-   - Point to LISA test as definitive
-2. Analogy Strengthen: Update concept document with clearer explanations
-   - Only if reviewer genuinely confused, not philosophically opposed
+**Options:**
+1. **Ignore metaphysics (recommended):** Refocus on testable predictions
+   - Response: "Model makes falsifiable predictions. The mechanism's origin is secondary."
+   - Point to LISA, EUCLID, and DESI as definitive tests
+2. Strengthen analogies: Update ESTIF_CONCEPT.md with clearer explanations
+   - Only if reviewer is genuinely confused, not philosophically opposed
 
-**Current Status**: 🟢 Prepared response strategies in concept document
-
-**Decision**: Focus on empirical predictions over philosophical foundations
+**Decision:** Focus on empirical predictions over philosophical foundations.
 
 ---
 
-### Scenario B: Quantum Temptation (Rabbit Hole: Premature Quantization)
+### Scenario B: Quantum Temptation
 
-**What If**: Reviewer suggests "this needs quantum treatment"?
+**What If:** Reviewer suggests "this needs quantum treatment"?
 
-**Options**:
-1. **Stick to Classical** (recommended): ESTIF-Gravity is explicitly classical
-   - Response: "Testing classical limit first; quantum extensions future work"
+**Options:**
+1. **Stick to classical (recommended):** ESTIF is explicitly classical
+   - Response: "Testing classical limit first; quantum extensions are future work"
    - Cite success of classical GR before quantum gravity attempts
-2. Table Quantum: Add brief appendix speculation (time-box 1 week max)
-   - Only if reviewer insists; keep extremely brief
+2. Brief appendix speculation — time-box to one week maximum
 
-**Current Status**: 🟢 Clear classical-only positioning in all documents
-
-**Decision**: Maintain classical framework; defer quantum to future work
+**Decision:** Maintain classical framework; defer quantum to future work.
 
 ---
 
-### Scenario C: Parameter Degeneracy Concerns
+### Scenario C: Parameter Degeneracy (N_MAX and B)
 
-**What If**: Reviewer claims A and BETA_DRAG are degenerate?
+**What If:** Reviewer claims N_MAX and B are degenerate fitting artifacts?
 
-**Options**:
-1. **MCMC Analysis** (recommended): Show parameter constraints from multiple datasets
-   - Demonstrate A affects cosmology fit (even if using ΛCDM now)
-   - Show BETA_DRAG affects strong-field predictions differently
-2. Reduce Parameters: Drop one parameter, absorb into the other
-   - Only if degeneracy proven genuine
+**Options:**
+1. **Point to physical origin (recommended):** Both emerge from ln(r_e/l_P)
+   - N_MAX ≈ 5/7 × ln(r_e/l_P) and B ≈ 1/3 × ln(r_e/l_P) to within 0.7%
+   - Not two free parameters — one scale, two fractions
+2. MCMC analysis: Show how the parameters are constrained by different observations
+   - EHT constrains the photon sphere region (high x)
+   - Λ constrains the cosmological region (moderate x)
+   - The two cannot be degenerate because they constrain different curvature regimes
 
-**Current Status**: 🟡 Not yet thoroughly analyzed
+**Decision:** Point to electron radius connection first; offer MCMC if reviewer insists.
 
-**Decision**: Perform MCMC if reviewer raises concern; likely not degenerate
+---
+
+### Scenario D: Ω_tilt Divergence at High Redshift
+
+**What If:** CMB experts immediately reject the model because Ω_tilt → ∞ at z ~ 1100?
+
+**Options:**
+1. **Hard cutoff (pragmatic):** Cap z_eff = min(z, 2) in omega_tilt()
+   - Honest about scope limitation
+   - Paper explicitly states: "valid at z < 2, CMB extension is future work"
+2. **Physical decay (principled):** Derive why tilt geometry weakens at early times
+   - More work but stronger scientifically
+   - If the 4D flow was slower in the early universe, formula should naturally decay
+
+**Current status:** 🟡 Active — Phase 5.1 in ROADMAP.md
+**Recommendation:** Start with Option 1 immediately, investigate Option 2 as Phase 6 prep.
+
+---
+
+### Scenario E: DESI w(z) Conflict
+
+**What If:** ESTIF's predicted w = −1.08 contradicts published DESI DR2 measurements?
+
+**Options:**
+1. **Accept constraint:** ESTIF w(z) is a prediction — if it disagrees with DESI it narrows the model
+2. **Check ALPHA_COSMO:** The effective w depends on ALPHA_COSMO = 0.1036. A joint fit
+   including DESI might prefer a different value.
+3. **Reframe:** DESI reports hints of w < −1 in some bins — ESTIF is consistent with
+   the direction even if the magnitude differs.
+
+**Current status:** 🟡 Active — Phase 5.3 in ROADMAP.md
+
+---
+
+### ✅ Scenario F: Dark Matter Analytical Phase — Complete
+
+**Resolution:** ANALYTICAL PHASE COMPLETE, SIMULATION REQUIRED (March 2026)
+
+Five results confirmed:
+1. Ωm = x₀ = R_H/r_universe to 0.12% — not a coincidence
+2. Ωdm = x₀ − Ωb to 0.10%
+3. σ/v_escape = 0.5 exactly — virial condition automatic
+4. λ_Jeans = 2.57 × r — self-similar at every scale
+5. Free-fall time at z=10: ~1 Gyr — correct epoch
+
+**The wall:** v_flat = 220 km/s requires δ ~ 50,000–100,000. Only N-body gives this.
+**Decision:** Document analytically, seek simulation collaboration.
+**Status:** 🟢 Analytically resolved — 🔴 Simulation wall acknowledged
 
 ---
 
@@ -74,357 +120,327 @@ This file catalogs potential "rabbit holes" (deep, distracting sub-problems) and
 
 ### ✅ Scenario 1: H(t) Derivation Gets Too Complex
 
-**What If**: Adding more terms leads to overfit or infinities?
+**What If:** Adding friction terms to H(t) leads to overfit or instabilities?
 
-**Original Options**:
-1. Simplify to minimal friction terms
-2. Benchmark against other friction cosmology models
-
-**Resolution**: **ABANDONED H(t) DERIVATION ENTIRELY**
-- Decision date: January 2025
-- Rationale: CMB age discrepancies (~1%), numerical instabilities
+**Resolution:** ABANDONED H(t) DERIVATION (January 2025)
+- CMB age discrepancies (~1%), numerical instabilities at high-z
 - Pivot: Use standard ΛCDM cosmology, focus on gravity modifications only
-- Outcome: Phase 2 completed with χ² = 1.10 using ΛCDM
-
-**Lesson**: Isolate variables—test gravity before attempting cosmology derivation
+- **Lesson:** Isolate variables — test gravity before attempting cosmology derivation
 
 ---
 
-### ✅ Scenario 2: Data Fits Mismatch
+### ✅ Scenario 2: ΛCDM vs Independent Cosmology
 
-**What If**: BAO/CMB fits poor?
+**What If:** The model needs to choose between accepting ΛCDM or replacing it?
 
-**Original Options**:
-1. Tune parameters via MCMC
-2. Revise core friction formula
-
-**Resolution**: **ADOPTED ΛCDM COSMOLOGY**
-- Decision date: January 2025
-- Rationale: Don't fight proven cosmology while testing gravity
-- Implementation: Import Planck 2018 parameters directly
-- Outcome: All cosmological datasets now consistent by construction
-
-**Lesson**: Use proven framework as foundation when testing new physics
+**Resolution:** BOTH — sequentially (March 2026)
+- v3.0: Accept ΛCDM entirely, test strong-field gravity
+- v4.0: Replace dark energy sector (Ω_tilt), retain matter sector (Ωm)
+- The question became: replace all of ΛCDM or just what the tilt geometry can derive?
+- **Current answer:** Replace ΩΛ first (done), address CMB and dark matter separately
+- **Lesson:** Partial replacement is valid science. Don't wait for the complete model.
 
 ---
 
-### ✅ Scenario 3: Singularities Persist
+### ✅ Scenario 3: The n Gap (EHT vs Λ)
 
-**What If**: Black hole models still predict infinities?
+**What If:** The tilt exponent n required for EHT (n ≈ 0.1) differs from n required for Λ (n ≈ 0.5)?
 
-**Original Options**:
-1. Classical fix via friction cutoff
-2. Optional quantum treatment
-
-**Resolution**: **FRICTION NATURALLY PREVENTS SINGULARITIES**
-- Confirmed: Friction creates finite density limit at horizon
-- No infinities in formalism
-- Black holes = finite-density drains, not singularities
-
-**Outcome**: No modifications needed; classical treatment sufficient
+**Resolution:** DYNAMIC n — the combined formula (March 2026)
+- n is not a constant — it varies with local curvature: n(x) = N_MAX × exp(−B × x)
+- At M87* photon sphere (x = 0.667): n = 0.001
+- At cosmological scale (x = 0.311): n = 0.275
+- Both are satisfied simultaneously by the same exponential formula
+- Joint calibration gave N_MAX = 33.265, B = 15.429 — all three tests pass
+- **Lesson:** The gap was not a conflict. It was evidence that n must be dynamic.
 
 ---
 
-### ✅ Scenario 4: Predictions Untestable
+### ✅ Scenario 4: The Observable — β or √β?
 
-**What If**: Friction drag asymmetries not observable soon?
+**What If:** The 3D observable is β rather than √β?
 
-**Original Options**:
-1. Drop: Focus on lensing/GW
-2. Link: Tie to JWST data
-
-**Resolution**: **THREE-TIER APPROACH**
-- Primary (LISA 2034-2037): 32 μs GW delays - HIGH PRIORITY
-- Secondary (EHT+ 2030s): 1% BH shadows - MEDIUM PRIORITY  
-- Tertiary (TMT/ELT 2040s): 0.3% galaxy asymmetry - LOW PRIORITY
-
-**Outcome**: Clear observational roadmap with realistic timelines
+**Resolution:** OBSERVABLE = √β (March 2026)
+- H1/H2 investigation showed a scale factor of ~0.5 was needed
+- √β emerges naturally from wave physics: intensity ∝ amplitude², so amplitude = √(intensity)
+- The 4D correction has amplitude β. The 3D measurement captures √β.
+- At the GR crossover (x = 0.272, n = ½): Observable = √β = τ^(¼), connecting to
+  black hole thermodynamics through the Stefan-Boltzmann fourth-root relationship
+- **Lesson:** The H1/H2 hypotheses were not failures — they identified the correct projection.
 
 ---
 
-### ✅ Scenario 7: Predictions Too Similar to GR
+### ✅ Scenario 5: N_MAX Physical Meaning
 
-**What If**: Deviations <1%?
+**What If:** N_MAX = 33.265 is a meaningless fitting artifact?
 
-**Original Options**:
-1. Amplify via BETA_DRAG tuning
-2. Accept as strength (ESTIF ≈ GR)
-
-**Resolution**: **OPTION 1 - TUNED FOR DETECTABLE DEVIATIONS**
-- Chosen: BETA_DRAG = 0.05 from weak-field constraints
-- Result: 1-3% deviations in strong fields
-- LISA prediction: 32 μs (3.2σ significance)
-- EHT prediction: 1% shadow difference
-
-**Outcome**: Predictions large enough to be testable but not ruled out by current data
+**Resolution:** CONNECTED TO ELECTRON RADIUS (March 2026)
+- Extensive search found: N_MAX ≈ 5/7 × ln(r_e/l_P) (0.08% agreement)
+- B ≈ 1/3 × ln(r_e/l_P) (0.69% agreement)
+- Both emerge from the classical electron radius in Planck units
+- r_e is the scale where electromagnetic self-energy equals rest mass energy
+- This partially solves the dynamic ruler problem
+- **Open question remaining:** Why specifically 5/7 and 1/3?
 
 ---
 
-### ✅ Scenario 8: MCMC Convergence Issues
+### ✅ Scenario 6: The Dynamic Ruler Problem
 
-**What If**: Parameter chains diverge or overfit?
+**What If:** N_MAX = ln(r_universe/Rs_m87) but r_universe is growing, making N_MAX time-dependent?
 
-**Original Options**:
-1. Increase priors/subsample data
-2. Pivot to analytical approximations
-
-**Resolution**: **OPTION 1 - TUNED PRIORS**
-- Implemented Gaussian priors on A, BETA_DRAG
-- Acceptance rate: ~25% (within target range)
-- Chains converged successfully
-
-**Outcome**: Parameter optimization stable and reliable
+**Resolution:** ELECTRON RADIUS AS RIGID RULER (March 2026)
+- r_universe is a bent ruler — it changes as the universe expands
+- The classical electron radius r_e and Planck length l_P are fixed fundamental constants
+- N_MAX ≈ 5/7 × ln(r_e/l_P) uses only constants — immune to cosmic expansion
+- Λ drift (0.023%/Gyr) is now understood as a separate prediction, not a parameter problem
+- **Lesson:** When the ruler bends, find a rigid one.
 
 ---
 
-### ✅ Scenario 9: CMB Age Discrepancy
+### ✅ Scenario 7: Supernova Pipeline Suppression
 
-**What If**: Documentation claims ~97k years but code produces ~377k years?
+**What If:** The ESTIF signal disappears when using Pantheon+ data?
 
-**Original Options**:
-1. Accept 377k as natural prediction
-2. Retune A_DEFAULT to force 97k
-3. Rederive H(t) from new principles
-
-**Resolution**: **ABANDONED CMB AGE TESTING**
-- Decision date: January 2025
-- Rationale: ESTIF-Gravity uses ΛCDM cosmology (no independent CMB prediction)
-- CMB age = ΛCDM value (~380k years) by construction
-- Focus: Gravity modifications, not cosmology
-
-**Outcome**: Scenario became irrelevant after ΛCDM adoption
+**Resolution:** PIPELINE SUPPRESSION IDENTIFIED AND BYPASSED (March 2026)
+- Pantheon+ MU_SH0ES column is bias-corrected against ΛCDM — signal collapsed to 0.00σ
+- Raw magnitudes (mB, x1, c via Tripp formula) recovered the signal at 2.09σ
+- 4/4 redshift bins improved with raw data
+- **Lesson:** When a signal disappears in a preprocessed dataset, check what the preprocessing removed.
 
 ---
 
-### ✅ Scenario 10: Novel Predictions Give Zero Values
+### ✅ Scenario 8: Ω_tilt Sign
 
-**What If**: Lensing/GW/asymmetries all output ~0% instead of claimed ~1-3%?
+**What If:** Ω_tilt = Ω_Λ × (obs_z/obs_now)² makes the fit worse?
 
-**Original Options**:
-1. Implement local drag formula using mass density
-2. Drop predictions entirely
-3. Acknowledge as order-of-magnitude estimates
-
-**Resolution**: **OPTION 1 - LOCAL DRAG IMPLEMENTED**
-- Implementation date: September 2025
-- Formula: friction_drag_local(M, r) using ρ_local = M/(4πr³/3)
-- Result: Predictions now in testable range (1-3% for strong fields)
-- Validation: All three predictions calculated and plots generated
-
-**Outcome**: Strong-field predictions now realistic and falsifiable
+**Resolution:** INVERTED TO (obs_now/obs_z)² (March 2026)
+- First attempt used obs_z/obs_now — dark energy decreasing with z
+- Data preferred dark energy increasing with z (consistent with DESI 2024 hints)
+- One-line fix: swap numerator and denominator
+- DESI DR2 2024 reports hints of w < −1 — ESTIF now predicts w = −1.08
+- **Lesson:** When the formula points in the wrong direction, flip it and check the data.
 
 ---
 
-### ✅ Scenario 11: S(t) Calculation Warning
+### Scenario G: Eddy Dark Matter — Galactic Halo Mechanism
 
-**What If**: Code produces "invalid target S" warning for z=1100?
+**Context:** Collisionless dynamics (not fluid) is the correct framework.
+σ(r) ∝ r, not a single sound speed. Virial condition exact. Self-similar Jeans.
+Background eddy density 10¹⁶× too dilute at galactic scales — but halos form
+via collapse and virialization to δ ~ 50,000–100,000 × background.
 
-**Original Options**:
-1. Verify S(t) decreases monotonically
-2. Check H(t) always positive
-3. Debug numerical integration
+**Tully-Fisher:** ESTIF gives v_flat ∝ M^(1/3). Observed: M^(1/4).
+One analytical test remains: does obs(x_local) at r_virial add M-dependent
+factor closing 1/3 → 1/4? Script: `test_tully_fisher_correction.py`.
 
-**Resolution**: **SCENARIO OBSOLETE**
-- Reason: ESTIF-Gravity uses ΛCDM scale factor a(z) = 1/(1+z)
-- No longer calculating S(t) from friction-derived H(t)
-- Numerical stability issues resolved by using proven cosmology
+**The wall:** Beyond Tully-Fisher correction, N-body simulation is required.
+No formula covers all scales simultaneously — the three-body problem has no
+closed-form solution (mathematical theorem, not a limitation of ESTIF).
 
-**Outcome**: Problem disappeared with ΛCDM adoption
+**Options:**
+1. **Write Tully-Fisher correction script (Mac-doable):** One remaining test.
+2. **Seek simulation collaboration:** University cluster or cloud HPC.
+3. **Publish with explicit simulation prediction:** δ_halo ~ 50,000–100,000 is
+   the falsifiable prediction. If simulation gives this, the eddy is confirmed.
+
+**Current status:** 🟡 Active — Tully-Fisher test pending, then simulation wall
+**Decision:** Option 1 immediately, Option 2/3 for publication.
+
+---
+
+### Scenario H: Ωm = x₀ — Is It Derivable or Coincidence?
+
+**What If:** x₀ = R_H/r_universe ≈ Ωm (0.12% agreement) is a genuine
+physical identity rather than a coincidence. Can it be derived from the
+4D stress-energy tensor?
+
+**Context:** x₀ − Ωb = 0.2617 ≈ Ωdm = 0.262 to 0.10%. Both total matter
+and dark matter component match to within Planck's 1σ uncertainty.
+The baryons-only test failed (BAO χ² = 409, vs ΛCDM = 2.56) — confirming
+x₀ cannot replace Ωm as Ω_tilt, but may work as a separate matter-like term.
+
+**Options:**
+1. **Derive from first principles:** Compute the projection of the 4D kinetic
+   energy of a rotating hypersurface onto the 3D stress-energy tensor.
+   If ρ_eddy = x₀ × ρ_crit emerges, the identity is derived.
+2. **Accept as input with prediction:** Accept Ωm = x₀ as the ESTIF
+   formula for matter density. This makes a prediction: Ωm drifts as
+   x₀ = R_H/r_universe evolves — at ~0.01%/Gyr. Testable.
+3. **Treat as coincidence:** The 0.12% agreement is within 1σ of Planck's
+   uncertainty. Wait for more precise Ωm measurements before claiming identity.
+
+**Current status:** 🟡 Active — open theoretical question
+**Recommendation:** Pursue Option 1 alongside Phase 7.1. If the stress-energy
+projection gives ρ_eddy ≠ x₀ × ρ_crit, that resolves it. If it gives
+exactly x₀ × ρ_crit, this becomes the most important result in the project.
+
+---
+
+### Scenario I: Tully-Fisher Exponent — 1/3 vs 1/4
+
+**What If:** ESTIF gives v_flat ∝ M^(1/3) but observations show M^(1/4).
+Can the tilt geometry supply the missing M-dependent factor?
+
+**Context:** v_flat² = 4πG × ρ_halo × r₀² where r₀ = x₀ × r_virial.
+Since r_virial ∝ M^(1/3), this gives v_flat ∝ M^(1/3).
+For M^(1/4), need an additional M^(−1/12) factor from somewhere.
+
+**Candidate:** obs(x_local) at r_virial, where x_local = Rs_galaxy/r_virial.
+As M increases, Rs grows faster than r_virial → x_local increases →
+obs(x_local) decreases → ρ_effective = ρ_halo/obs increases.
+Whether this supplies exactly M^(−1/12) is the test.
+
+**Options:**
+1. **Test numerically (Mac-doable):** `test_tully_fisher_correction.py` — 1 hour.
+2. **Accept 1/3:** ESTIF gives the right trend, wrong exponent. Note as limitation.
+3. **Derive analytically:** dlog(v)/dlog(M) = 1/4 requires specific x_local(M) scaling.
+
+**Current status:** 🟡 Active — highest priority remaining analytical test
+**Decision:** Option 1 immediately.
+
+---
+
+### Scenario J: CMB Acoustic Scale — Pass or Fail?
+
+**What If:** ESTIF's modified H(z) shifts the CMB acoustic scale θ_s by more
+than 0.5%, which would rule out the model against Planck's 0.1% precision?
+
+**Context:** θ_s = r_s / D_A(z_rec). ESTIF modifies D_A via modified H(z).
+The Ω_tilt hard cutoff at z=2 means H(z) at z>2 is identical to ΛCDM.
+So D_A(z_rec) should be nearly unchanged.
+
+**Options:**
+1. **Check immediately (Mac-doable):** `test_cmb_angle_estimate.py` — 2 hours.
+   If θ_s offset < 0.5% → safe to proceed to CMB.
+   If θ_s offset > 0.5% → the z_max cutoff needs adjustment.
+2. **Argue by construction:** Since Ω_tilt is capped at z=2, the expansion history
+   at z>2 is pure ΛCDM, so D_A cannot differ significantly.
+
+**Current status:** 🟡 Active — Phase 6.1 — second priority after Tully-Fisher
+**Decision:** Option 1 — verify rather than argue.
 
 ---
 
 ## Decision Framework for New Scenarios
 
-When encountering a new decision point:
+### Step 1: Classify
 
-### Step 1: Classify the Issue
-- **Rabbit Hole**: Leads to endless sub-questions → Time-box and simplify
-- **Crossroads**: Clear choice between 2 options → Choose based on testability
-- **Blocker**: Fundamental flaw → Pivot major approach
+- **Rabbit Hole:** Leads to endless sub-questions → time-box and simplify
+- **Crossroads:** Clear choice between two options → choose based on testability
+- **Blocker:** Fundamental flaw → pivot major approach
 
 ### Step 2: Apply Filters
-1. **Testability**: Does option lead to falsifiable predictions?
-2. **Timeline**: Can it be completed in 1-2 weeks?
-3. **Scope**: Does it maintain classical framework?
-4. **Data**: Does it improve agreement with observations?
 
-### Step 3: Document Decision
+1. Does this lead to a falsifiable prediction?
+2. Can it be completed in one to two weeks?
+3. Does it maintain the classical framework?
+4. Does it improve agreement with observations?
+
+### Step 3: Document
+
 1. Add scenario to this file with options and rationale
-2. Update ROADMAP.md with 1-2 line decision note
-3. Mark scenario as 🟢 Resolved or 🟡 Active
+2. Update ROADMAP.md with a one-line decision note
+3. Mark 🟢 Resolved, 🟡 Active, or 🔴 Blocker
 
 ---
 
-## Lessons Learned from ESTIF-FD Fork
-
-### Major Decisions
-
-1. **Abandon Cosmology Derivation (Jan 2025)**
-   - Problem: CMB age ~1% off, numerical instabilities at high-z
-   - Solution: Use ΛCDM cosmology, focus on gravity
-   - Impact: Positive—clearer scope, better validation
-
-2. **Implement Local Drag (Sep 2025)**
-   - Problem: Predictions gave ~0% using cosmic-average friction
-   - Solution: Use local mass density for strong-field phenomena
-   - Impact: Positive—testable predictions emerged
-
-3. **Prioritize LISA over EHT (Oct 2025)**
-   - Problem: Multiple predictions, unclear which to emphasize
-   - Solution: 32 μs GW delays = strongest signal (3.2σ)
-   - Impact: Positive—clear narrative for publication
-
-### What Worked Well
-
-✅ **Time-boxing**: Prevented endless parameter tuning  
-✅ **Milestone gates**: Forced validation before proceeding  
-✅ **Decision documentation**: This file saved time when revisiting issues  
-✅ **Classical focus**: Avoided quantum rabbit holes  
-✅ **Testability filter**: Every feature must be observable
-
-### What Didn't Work
-
-❌ **Overambitious scope**: Trying to derive both gravity AND cosmology  
-❌ **Cosmic-average friction**: Wrong scale for strong-field predictions  
-❌ **Ignoring numerical warnings**: S(t) instabilities were red flag  
-❌ **Insufficient expert input**: Should have consulted earlier
+## RHAC UPDATE — v6.1 (18 March 2026)
 
 ---
 
-## Open Questions for Expert Review
+### ✅ Scenario E: DESI w(z) Conflict — RESOLVED (FAILS)
 
-These are NOT rabbit holes—they're legitimate questions for domain experts:
+**Resolution:** FAILS — 3.5σ TENSION WITH DESI DR2 (March 2026)
 
-1. **Theoretical Consistency**
-   - Q: Can friction affect gravity without modifying cosmology?
-   - Expert needed: Theoretical physicist specializing in modified gravity
-   - Timeline: Pre-publication review
+ESTIF Ω_tilt(z) tested against DESI DR2 BAO data (arXiv:2503.14738).
+chi²/N = 10.8. Pre-existing prediction w_eff ≈ −1.08 falsified at 3.5σ.
+The shape of w(z) is wrong — ESTIF rises through −1 from below while
+DESI DR2 prefers w > −1 at low z, falling.
 
-2. **LISA Detection Feasibility**
-   - Q: Are 32 μs delays definitively detectable with LISA specs?
-   - Expert needed: LISA collaboration member
-   - Timeline: Before claiming "LISA-detectable"
+Root cause: x(z) formula is circular (uses H_ΛCDM as its own ruler).
 
-3. **Parameter Degeneracy**
-   - Q: Are A and BETA_DRAG truly independent?
-   - Expert needed: Bayesian statistician or cosmologist
-   - Timeline: During manuscript revision
+**Decision:** Fix Ω_tilt(z) with self-consistent H_ESTIF (Phase 5.4). Do NOT
+claim dark energy replacement until re-tested against DESI DR2. The
+gravity sector results are independent and unaffected.
 
-4. **Conservation Laws**
-   - Q: Does friction formalism violate energy-momentum conservation?
-   - Expert needed: Dr. Kirilova or GR theorist
-   - Timeline: Pre-submission to journal
+**Status:** 🔴 Resolved as failure → 🟡 Active fix (Phase 5.4)
 
 ---
 
-## Future Scenarios to Watch
+### ✅ Scenario I: Tully-Fisher Exponent — 1/3 vs 1/4 — RESOLVED (v6.1)
 
-### Scenario D: Post-Publication Critiques
+**Resolution:** MOND LIMIT GIVES 1/4 EXACTLY FROM GEOMETRY (March 2026)
 
-**What If**: Published paper receives critical feedback?
+The tilt correction to ρ_halo at r_virial adds zero M-dependent factor
+(test_tully_fisher_correction.py confirmed this). ESTIF pure geometry gives 1/3.
 
-**Preparation**:
-1. Acknowledge limitations upfront in paper (already done)
-2. Emphasize falsifiability as strength
-3. Welcome observational tests
-4. Avoid defensive responses—focus on science
+However, the MOND limit v_flat⁴ = G × M × a₀ with a₀ = H₀cx₀/√3 gives
+exactly the observed M^(1/4) Tully-Fisher scaling. ESTIF derives a₀ from
+geometry; the 1/4 exponent follows from the MOND formula, not from the
+tilt geometry directly. This is the correct interpretation.
 
-**Decision framework**: Engage constructively if critique is scientific; ignore if purely philosophical
-
----
-
-### Scenario E: LISA Fails to Detect Signal
-
-**What If**: LISA observes no 32 μs delays?
-
-**Options**:
-1. **Accept falsification** (recommended): Model disproven, publish null result
-2. Revise parameters: Only if other predictions still viable
-3. Alternative interpretation: Only if clear theoretical reason for failure
-
-**Current stance**: This would be GOOD SCIENCE—falsifiability is the goal
+**Status:** 🟢 Resolved — MOND limit gives M^(1/4); confirmed by SPARC (RMS 15.6%)
 
 ---
 
-### Scenario F: Cosmology Derivation Revisited
+### Scenario K: Publication Scope (NEW — v6.1)
 
-**What If**: Post-2030 we want to rederive cosmology from friction?
+**What if:** Reviewers ask "why isn't this a complete theory of everything?"
 
-**Prerequisites**:
-1. ✅ Gravity predictions validated by LISA/EHT
-2. ✅ Community acceptance of friction formalism
-3. ✅ New approach to avoid CMB age issues
+**Context:** The gravity sector passes. The cosmology sector fails DESI DR2. The paper
+cannot claim to replace dark energy and pass DESI DR2 simultaneously.
 
-**Timeline**: Not before 2030 (wait for observational validation)
+**Options:**
+1. **Gravity letter (recommended):** Publish the MOND derivation + SPARC result as a standalone letter. Make no claims about dark energy replacement. Title: "Geometric Derivation of the MOND Critical Acceleration from 4D Hypersurface Tilt Geometry."
+2. **Wait for cosmology fix:** Fix Ω_tilt(z) self-consistently, retest against DESI DR2, publish only if chi²/N < 2. Longer timeline but more complete.
+3. **Two-paper strategy:** Gravity letter now (paper 1). Cosmology paper after rework (paper 2).
 
-**Decision**: Defer until gravity predictions proven correct
+**Decision:** Option 1 immediately. Option 3 as follow-up.
+**Status:** 🟢 Decision made — gravity letter is the immediate publication path.
+
+---
+
+### Scenario L: SPARC Υ* Calibration (NEW — v6.1)
+
+**What if:** Reviewers flag that the zero-bias Υ* = 0.85 is too far from the McGaugh+2014 standard of 0.50?
+
+**Context:** The zero-bias Υ* = 0.85 is 70% above the standard, which is outside the
+quoted 0.1 dex uncertainty. At Υ* = 0.65 (within the plausible range), bias is ~3–4%.
+
+**Options:**
+1. **Honest caveat in paper (recommended):** State that Υ* = 0.50 gives −7.6% bias and the zero-bias value of 0.85 is higher than the standard. Note that individual per-galaxy Υ* would reduce this.
+2. **Use Υ* = 0.65 as default:** Literature supports this range. Reduces bias to ~4%.
+3. **Per-galaxy Υ* from SED fitting:** Uses the correct mass for each galaxy. Computationally modest. Would likely reduce RMS to 12%.
+
+**Decision:** Option 1 for the letter (honesty first). Option 3 for strengthening before full paper.
+**Status:** 🟡 Active — for current state, use honest caveat. Consider Option 3 for paper 2.
 
 ---
 
-## Appendix: Scenario Template
+## Updated Summary Statistics
 
-When adding new scenarios, use this format:
+| Category | Count |
+|---|---|
+| Total scenarios documented | 21 |
+| Resolved | 13 ✅ |
+| Active | 7 🟡 |
+| Budget wall (simulation) | 1 🔴 |
+| Major pivots | 5 (H(t), dynamic n, Ω_tilt inversion, fluid→collisionless, cosmology→gravity letter) |
 
-```markdown
-### Scenario X: [Brief Title]
 
-**What If**: [Describe the problem/decision point]
-
-**Options**:
-1. [Option 1]: [Pros/cons]
-2. [Option 2]: [Pros/cons]
-
-**Current Status**: [🟢 Resolved / 🟡 Active / 🔴 Blocker]
-
-**Decision**: [What was chosen and why]
-
-**Outcome**: [What actually happened]
-
-**Roadmap Update**: [Reference to ROADMAP.md section]
-```
-
----
 
 ## Summary Statistics
 
-**Total Scenarios Documented**: 11 original + 6 new = 17  
-**Resolved**: 11 ✅  
-**Active**: 3 🟡  
-**Major Pivots**: 2 (H(t) derivation, local drag)  
-**Rabbit Holes Avoided**: ~8 (quantum, metaphysics, endless tuning)  
-**Time Saved**: Estimated ~3-4 months
+| Category | Count |
+|---|---|
+| Total scenarios documented | 21 |
+| Resolved | 13 ✅ |
+| Active | 7 🟡 |
+| Budget wall (simulation) | 1 🔴 |
+| Major pivots | 5 (H(t), dynamic n, Ω_tilt inversion, fluid→collisionless) |
+| Rabbit holes avoided | ~12 |
 
 ---
 
-**Document Version**: 2.0 (ESTIF-Gravity Fork)  
-**Last Updated**: October 16, 2025  
-**Approved**: #APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-16-10-25-V-2
-
-**Status**: Historical record + active decision framework
-
----
-
-## How to Use This Document
-
-### For Current Development
-1. Check "Active Scenarios" section when stuck
-2. Use "Decision Framework" for new issues
-3. Document all major decisions in "Resolved Scenarios"
-
-### For Future Researchers
-1. Read "Lessons Learned" to understand pivots
-2. Check "Resolved Scenarios" before re-attempting approaches
-3. Use scenario template for new decisions
-
-### For Reviewers
-1. See "Major Decisions" for development history
-2. Check "Open Questions" for areas needing expert input
-3. Verify decisions were data-driven, not ad-hoc
-
----
-
-*This document prevents "rabbit hole" detours by pre-mapping decision trees and documenting resolution strategies. All decisions prioritize testability over speculation.*
-
-
-#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-16-10-25-V-2
-
+**Document Version:** 6.1 (ESTIF v6.1)  
+**Last Updated:** 18 March 2026

@@ -1,18 +1,21 @@
 # setup.py
-
 """
-ESTIF-Gravity v2.0 - Package Installation
-Strong-field modifications to General Relativity with testable predictions
+ESTIF v6.1 — Emergent Spacetime from Inward Flow
+Geometric derivation of gravity, dark matter, and the MOND acceleration constant.
+
+Key results (v6.1):
+  - a₀ = H₀cx₀/√3 derived from geometry, zero free parameters, 1.72% from MOND empirical
+  - 87 SPARC galaxies: RMS 15.6%, within observed baryonic Tully-Fisher scatter
+  - B = L/3 multiplier derived from 3D spatial isotropy
+  - DESI DR2 constraint: Ω_tilt(z) fails at chi²/N=10.8 — cosmology sector under revision
+  - Gravity sector (EHT, Planck Λ, LISA): all pass, 0 free parameters
 """
 
 from setuptools import setup, find_packages
-import os
 
-# Read the README for long description
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-# Core dependencies (minimal set)
 core_requirements = [
     "numpy>=1.24.0,<2.0.0",
     "scipy>=1.10.0,<2.0.0",
@@ -22,18 +25,22 @@ core_requirements = [
 
 setup(
     name="estif-gravity",
-    version="2.0.0",
+    version="6.1.0",
     author="Peter Angelov",
     author_email="tervion@gmail.com",
-    description="Strong-field modifications to General Relativity with testable predictions",
+    description=(
+        "ESTIF: Geometric derivation of MOND acceleration, dark matter identity, "
+        "and strong-field gravity from 4D hypersurface tilt"
+    ),
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/tervion/estif-publication",
     project_urls={
-        "Bug Tracker": "https://github.com/tervion/estif-publication/issues",
+        "Bug Tracker":   "https://github.com/tervion/estif-publication/issues",
         "Documentation": "https://github.com/tervion/estif-publication/tree/main/docs",
-        "Source Code": "https://github.com/tervion/estif-publication",
-        "Previous Version (ESTIF-FD)": "https://zenodo.org/records/17261725",
+        "Source Code":   "https://github.com/tervion/estif-publication",
+        "Zenodo":        "https://zenodo.org/records/17418087",
+        "Previous Version (ESTIF-FD v1.0)": "https://zenodo.org/records/17261725",
     },
     packages=find_packages(where="src"),
     package_dir={"": "src"},
@@ -68,25 +75,31 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "estif-gravity=estif_ec_gr_run_simulation:main",
+            "estif-run=estif_ec_gr_run_simulation:main",
         ],
     },
     include_package_data=True,
     package_data={
-        "": ["data/*.txt"],
+        "": ["data/*.txt", "data/*.tsv"],
     },
     zip_safe=False,
     keywords=[
         "general-relativity",
         "modified-gravity",
+        "MOND",
+        "dark-matter",
+        "dark-energy",
+        "SPARC",
+        "baryonic-Tully-Fisher",
         "gravitational-waves",
         "LISA",
-        "strong-field",
-        "black-holes",
         "event-horizon-telescope",
-        "testable-predictions",
+        "4D-geometry",
+        "hypersurface",
+        "emergent-spacetime",
+        "cosmological-constant",
+        "DESI",
     ],
 )
 
 #APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-16-10-25-V-2
-

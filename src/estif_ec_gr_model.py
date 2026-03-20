@@ -1,25 +1,21 @@
 # estif_ec_gr_model.py
 
 """
-Emergent Spacetime from Inward Flow (ESTIF) - Gravity Modifications Only
+Emergent Spacetime from Inward Flow (ESTIF)
 
-Core Principles (ESTIF-Gravity Fork):
-1. Accept ΛCDM cosmology (standard expansion history)
-2. Test friction-drag corrections to GR in strong fields only
-3. Make falsifiable predictions: lensing, GW, galaxy rotation
+Core Principles (v6.0 — March 2026):
+1. ΛCDM matter sector retained (Ωm, radiation)
+2. Dark energy (ΩΛ) replaced by tilt geometry: Ω_tilt(z)
+3. Combined formula calibrated to EHT, Planck Λ, and LISA simultaneously
+4. Three project goals confirmed analytically:
+   - Goal 1: Gravity = Time = Eddies (β=τ at n=½, ω²=H₀²x at crossover)
+   - Goal 2: Expansion = 4D inward fall (Option A dark energy, 6 tests pass)
+   - Goal 3: No dark matter — Ωm=x₀ (0.12%), a₀=H₀cx₀/√3 (1.72% MOND)
 
-This fork separates:
-- Cosmology (ΛCDM - no modifications)
-- Gravity (friction corrections - testable)
+The tilt formula at three scales:
+    Observable(r) = √β(x_local) × √β(x_galactic) × √β(x_cosmic)
 
-Validation:
-- Matches GR in weak fields (GPS, Mercury, light deflection)
-- Novel predictions in strong fields:
-  * Modified lensing near BHs (~1% deviation)
-  * GW propagation delays (~10⁻⁵-10⁻⁴ s)
-  * High-z galaxy asymmetries (~few %)
-
-Note: Prediction magnitudes pending observational validation (see WIP sections)
+At Earth: local=1.000, galactic=1.000, cosmic=0.830 (dark matter dominates 10⁶×)
 """
 
 import numpy as np
@@ -79,6 +75,110 @@ sys.setrecursionlimit(5000)
 
 EPS = 1e-12  # Numerical stability epsilon
 
+# ============================================================================
+# COMBINED FORMULA (v6.0 — March 2026)
+# Jointly calibrated to satisfy EHT M87* shadow, Planck Λ, and LISA GW
+# simultaneously. Three independent observations, one formula, zero free
+# parameters after calibration.
+#
+# n(x) = 33.265 × exp(-15.429 × x)   ← dynamic tilt exponent
+# β(x) = √(1 - x^(2n(x)))            ← tilt suppression
+# Observable = √β(x)                  ← square root projection
+#
+# where x = curvature ratio:
+#   local:         x = Rs / r
+#   cosmological:  x = R_H / r_universe  (= x₀ ≈ Ωm at z=0)
+#
+# THREE IDENTITIES at x = 0.272 (n = ½):
+#   β(x) = τ(x) = √(1-x)           — GR time dilation = ESTIF tilt
+#   (ω/H₀)² = x                    — eddy spin = curvature
+#   a = −c² × ∇(ω/H₀)²/2 = GM/r² — gravity = gradient of eddy spin
+#
+# MULTI-SCALE OBSERVABLE:
+#   Observable(r) = √β(x_local) × √β(x_galactic) × √β(x_cosmic)
+#   x_cosmic = x₀ = R_H/r_universe ≈ Ωm (dark matter = cosmic eddy)
+#
+# See: tests/test_joint_calibration.py, tests/test_gravity_time_connection.py
+#      tests/test_eddy_time_gravity.py, tests/test_eddy_dark_matter.py
+# ============================================================================
+
+# Calibrated parameters (do not modify without re-running test_joint_calibration.py)
+N_MAX_COMBINED = 33.265   # tilt exponent in flat space
+B_COMBINED     = 15.429   # exponential decay rate
+
+
+def n_dynamic(curvature):
+    """
+    Dynamic tilt exponent from H4 (bounded exponential form).
+
+    n varies with local curvature — exactly as gravitational acceleration g
+    varies planet to planet in Newton's formula. The tilt formula is
+    universal; what changes is the environment-dependent input n.
+
+    n(x) = N_MAX × exp(-B × x)
+
+    Limits:
+        x → 0 (flat space):  n → 33.265  (maximum lean available)
+        x = 0.272:           n = 0.500   (GR time dilation crossover)
+        x = 0.667 (M87*):    n ≈ 0.001   (almost fully suppressed)
+        x → 1 (horizon):     n → 0       (complete suppression)
+
+    Args:
+        curvature: x = Rs/r (local) or R_H/r_universe (cosmological)
+
+    Returns:
+        Dynamic tilt exponent n (dimensionless)
+    """
+    return N_MAX_COMBINED * np.exp(-B_COMBINED * np.asarray(curvature))
+
+
+def beta_combined(curvature):
+    """
+    Tilt suppression factor from combined formula.
+
+    β(x) = cos(θ) = √(1 - x^(2n(x)))
+
+    This is the fraction of the 4D correction that remains visible
+    in 3D. It generalizes the Schwarzschild time dilation factor:
+    when n = ½ (at x = 0.272), β(x) = √(1-x) = τ_GR exactly.
+
+    Args:
+        curvature: x = Rs/r (local) or R_H/r_universe (cosmological)
+
+    Returns:
+        Suppression factor β (dimensionless, 0 to 1)
+    """
+    x   = np.asarray(curvature, dtype=float)
+    n   = n_dynamic(x)
+    val = np.where(x > 0, x ** (2.0 * n), 0.0)
+    return np.where(val >= 1.0, 0.0, np.sqrt(np.maximum(0.0, 1.0 - val)))
+
+
+def observable_combined(curvature):
+    """
+    3D observable from combined formula: √β(x)
+
+    The 3D measurement captures the square root of the 4D amplitude.
+    This follows from wave physics: intensity ∝ amplitude², so the
+    observable amplitude is √(energy correction) = √β.
+
+    At the GR crossover (x = 0.272, n = ½):
+        observable = √β = τ_GR^(1/4) = (1-x)^(1/4)
+    which connects to black hole thermodynamics through the
+    Stefan-Boltzmann fourth-root relationship.
+
+    Args:
+        curvature: x = Rs/r (local) or R_H/r_universe (cosmological)
+
+    Returns:
+        Observable correction factor (dimensionless, 0 to 1)
+    """
+    return np.sqrt(beta_combined(curvature))
+
+# ============================================================================
+# End Combined Formula Section
+# ============================================================================
+
 # ------------------------------
 # Friction Functions (Core Predictions)
 # ------------------------------
@@ -136,6 +236,21 @@ def friction_drag_local(M, r, beta_drag=None):
     
     # Drag scales with local density
     return beta_drag * rho_local
+    
+def beta_tilt(r, M, n=0.05):
+    """
+    Geometric suppression factor from 4D hypersurface tilt.
+    
+    sin(θ) = (Rs/r)^n  →  β(r) = cos(θ) = √(1 - (Rs/r)^(2n))
+    
+    EHT-constrained range: n = 0.05 – 0.215
+    Default n = 0.05 (best fit to EHT M87* observation).
+    """
+    rs = 2 * const.G * M / const.c**2
+    ratio = (rs / r) ** (2 * n)
+    if np.isscalar(ratio):
+        return 0.0 if ratio >= 1.0 else np.sqrt(1.0 - ratio)
+    return np.where(ratio >= 1.0, 0.0, np.sqrt(np.maximum(0.0, 1.0 - ratio)))
 
 
 # ============================================================================
@@ -302,6 +417,357 @@ def t_from_z(z: float, t_obs: float = 4.35e17, H0=None, A=None, beta_drag=None):
 # End Deprecated Section
 # ============================================================================
 
+# ============================================================================
+# ESTIF COSMOLOGY (Option A — Geometric Dark Energy Replacement, v6.0)
+# ============================================================================
+# Replaces ΩΛ with Ω_tilt(z) derived from the tilt geometry.
+# Matter sector (Ωm) retained from ΛCDM.
+#
+# ESTIF Option A Friedmann equation:
+#   H²(z) = H₀² × [Ωm(1+z)³ + Ω_tilt(z)]
+#
+# Ω_tilt(z) uses the EXACT geometric formula for x(z):
+#   x(z) = x₀ × (1+z) × H₀ / H_ΛCDM(z)
+#
+# This is geometrically derivable — ALPHA_COSMO is NOT a free parameter.
+# The power law x ∝ (1+z)^α with α≈0.077–0.089 brackets x(z) from both sides.
+#
+# HIGH-z CUTOFF (Phase 5.1 — DONE):
+#   z_eff = min(z, 2.0) in x(z) calculation.
+#   Prevents Ω_tilt divergence at recombination (z~1100).
+#   Model is valid at z < 2. CMB extension is future work.
+#   All SN, BAO, age results are UNCHANGED by this cutoff.
+#
+# Six low-redshift tests pass simultaneously:
+#   Pantheon+ SN: 2.08–2.33σ improvement
+#   BAO scale:    5/5 redshifts improved
+#   Age:          13.63 Gyr (oldest stars ≥ 13.5 Gyr)
+#   H₀ tension:  2.7σ → 2.3σ
+#   w_eff:       −1.08 (DESI 2024 consistent)
+#   Λ drift:     0.023%/Gyr (EUCLID/LSST approaching)
+# ============================================================================
+
+# Planck 2018 cosmological parameters
+OMEGA_M      = 0.3111    # matter density (= x₀ to 0.12%)
+OMEGA_LAMBDA = 0.6889    # dark energy density (replaced by tilt below)
+ALPHA_COSMO  = 0.1036    # reference tilt exponent (within 2σ of geometric range)
+
+_x_0 = (const.c / const.H_0) / 4.4e26   # x₀ = R_H / r_universe today ≈ 0.3107
+_Z_EFF_MAX = 2.0                           # High-z cutoff for Ω_tilt validity
+
+
+def omega_tilt(z):
+    """
+    ESTIF dark energy density parameter at redshift z (v6.0).
+
+    Replaces ΩΛ in the Friedmann equation with a geometrically
+    derived quantity from the tilt formula.
+
+    Uses EXACT geometric formula:
+        x(z) = x₀ × (1+z) × H₀ / H_ΛCDM(z)
+
+    with a hard cutoff at z_eff = min(z, 2.0) to prevent divergence
+    at recombination. Model is validated at z < 2 only.
+
+    At z=0: Ω_tilt = Ω_Λ (matches Planck 2018 exactly)
+    At z>0: Ω_tilt evolves with tilt geometry (dark energy was stronger)
+
+    Args:
+        z: Redshift (scalar or array)
+
+    Returns:
+        Tilt-derived dark energy density (dimensionless)
+    """
+    z_arr  = np.asarray(z, dtype=float)
+    # Apply high-z cutoff (Phase 5.1) — model valid at z < 2
+    z_eff  = np.minimum(z_arr, _Z_EFF_MAX)
+
+    # Exact geometric x(z) — uses ΛCDM as ruler to avoid circular dependency
+    H_lcdm = const.H_0 * np.sqrt(OMEGA_M*(1+z_eff)**3 + OMEGA_LAMBDA)
+    x_z    = _x_0 * (1.0 + z_eff) * const.H_0 / H_lcdm
+    x_now  = _x_0
+
+    obs_z   = observable_combined(x_z)
+    obs_now = observable_combined(x_now)
+
+    if obs_now <= 0:
+        return OMEGA_LAMBDA
+
+    return OMEGA_LAMBDA * (obs_now / obs_z) ** 2
+
+
+def H_estif(z):
+    """
+    ESTIF Hubble parameter at redshift z.
+
+    H²(z) = H₀² × [Ωm(1+z)³ + Ω_tilt(z)]
+
+    Matter sector identical to ΛCDM.
+    Dark energy replaced by tilt geometry.
+
+    Args:
+        z: Redshift (scalar or array)
+
+    Returns:
+        H(z) in s⁻¹
+    """
+    z  = np.asarray(z, dtype=float)
+    Hz = const.H_0 * np.sqrt(
+        OMEGA_M * (1.0 + z)**3 + omega_tilt(z)
+    )
+    return Hz
+
+
+def comoving_distance_estif(z):
+    """
+    ESTIF comoving distance at redshift z.
+
+    d_C(z) = c × ∫₀ᶻ dz' / H_estif(z')
+
+    Numerically integrated using scipy.
+
+    Args:
+        z: Redshift (scalar or array)
+
+    Returns:
+        Comoving distance in Mpc
+    """
+    from scipy.integrate import quad as _quad
+
+    MPC_METRES = 3.085677581e22
+
+    def integrand(zp):
+        return const.c / H_estif(zp)
+
+    z = np.atleast_1d(np.asarray(z, dtype=float))
+    result = np.zeros_like(z)
+
+    for i, zi in enumerate(z):
+        if zi <= 0:
+            result[i] = 0.0
+        else:
+            val, _ = _quad(integrand, 0, zi, limit=100)
+            result[i] = val / MPC_METRES   # convert m → Mpc
+
+    return result[0] if result.size == 1 else result
+
+
+def distance_modulus_estif(z):
+    """
+    ESTIF distance modulus at redshift z.
+
+    Uses ESTIF comoving distance with standard luminosity distance:
+        d_L = (1+z) × d_C
+
+    μ = 5 × log₁₀(d_L / Mpc) + 25
+
+    Args:
+        z: Redshift (scalar or array)
+
+    Returns:
+        Distance modulus μ in magnitudes
+    """
+    z   = np.atleast_1d(np.asarray(z, dtype=float))
+    d_C = comoving_distance_estif(z)          # Mpc
+    d_L = (1.0 + z) * d_C                    # Mpc
+    mu  = 5.0 * np.log10(np.maximum(d_L, 1e-10)) + 25.0
+    return mu[0] if mu.size == 1 else mu
+
+# ============================================================================
+# End ESTIF Cosmology Section
+# ============================================================================
+
+# ============================================================================
+# EDDY DARK MATTER (v6.0 — March 2026)
+# ============================================================================
+# Goal 3: No dark matter — the background eddy of the 4D inward flow
+# accounts for what we measure as dark matter.
+#
+# KEY RESULTS (all analytically confirmed):
+#
+# 1. Ωm = x₀ = R_H/r_universe = 0.3107  ≈  Planck Ωm = 0.3111  (0.12%)
+#    x₀ − Ωb = 0.2617  ≈  Ωdm = 0.262  (0.10%)
+#
+# 2. Virial condition: σ(r)/v_escape(r) = 0.5000 exactly at every scale
+#    → Bound orbits are the generic outcome (Earth-Moon condition)
+#
+# 3. Self-similar Jeans: λ_Jeans(r) = √(2π²/3) × r = 2.565 × r
+#    → Every scale marginally unstable simultaneously (true hierarchy)
+#
+# 4. MOND connection: a₀ = H₀ × c × x₀ / √3 = 1.179×10⁻¹⁰ m/s²
+#    MOND empirical: 1.200×10⁻¹⁰ m/s²  →  1.72% agreement
+#    The √3 is the 3D projection factor (same as kinetic theory c_s = v/√3)
+#
+# 5. Multi-scale observable:
+#    Observable(r) = √β(x_local) × √β(x_galactic) × √β(x_cosmic)
+#    At Earth: local=1.000, galactic=1.000, cosmic=0.830 (dark matter 10⁶× dominant)
+#
+# What requires N-body simulation (cannot be computed analytically):
+#    v_flat = 220 km/s requires internal halo δ ~ 50,000–100,000 × ρ_eddy
+#    → Falsifiable prediction for future simulation collaboration
+#
+# See: tests/test_eddy_dark_matter.py, tests/test_collisionless_eddy.py
+#      tests/test_tully_fisher_correction.py, tests/test_mond_sqrt3.py
+# ============================================================================
+
+_RHO_CRIT_0 = 3 * const.H_0**2 / (8 * np.pi * const.G)   # Critical density today
+
+
+def eddy_density_background():
+    """
+    Background eddy density: ρ_eddy = x₀ × ρ_crit
+
+    This equals Ωm × ρ_crit to within 0.12% — the eddy dark matter identity.
+    Not a particle density. The energy density of the cosmic hypersurface spin.
+
+    Returns:
+        Background eddy density [kg/m³]
+    """
+    return _x_0 * _RHO_CRIT_0
+
+
+def eddy_density_at_z(z):
+    """
+    Eddy background density at redshift z.
+
+    Scales with volume: ρ_eddy(z) = ρ_eddy_0 × (1+z)³
+
+    At z=10 (galaxy formation epoch): 1331× denser than today.
+    Free-fall time at z=10: ~1 Gyr — consistent with observed galaxy formation.
+
+    Args:
+        z: Redshift
+
+    Returns:
+        Eddy density at redshift z [kg/m³]
+    """
+    return eddy_density_background() * (1.0 + z)**3
+
+
+def velocity_dispersion_eddy(r_m):
+    """
+    Scale-dependent velocity dispersion of the eddy background.
+
+    σ(r) = r × √(2πG × ρ_eddy / 3)
+
+    This is the COLLISIONLESS velocity dispersion — not a fluid sound speed.
+    σ grows linearly with r because objects orbit, not collide.
+
+    Key property: σ(r)/v_escape(r) = 0.5000 exactly at every scale.
+    → Bound orbits (Earth-Moon condition) are generic — not mergers, not flybys.
+
+    Args:
+        r_m: Radius [m]
+
+    Returns:
+        Velocity dispersion [m/s]
+    """
+    rho = eddy_density_background()
+    return r_m * np.sqrt(2 * np.pi * const.G * rho / 3)
+
+
+def jeans_length_eddy(r_m):
+    """
+    Jeans length at scale r from the eddy background (collisionless).
+
+    λ_Jeans(r) = √(2π²/3) × r = 2.5651 × r
+
+    This universal constant (√(2π²/3)) means every scale is marginally
+    unstable simultaneously — true hierarchical fragmentation from
+    first principles, without tuning.
+
+    Args:
+        r_m: Scale [m]
+
+    Returns:
+        Jeans length [m]
+    """
+    return np.sqrt(2 * np.pi**2 / 3) * r_m
+
+
+def a0_mond_estif():
+    """
+    MOND critical acceleration derived from ESTIF geometry.
+
+    a₀ = H₀ × c × x₀ / √3
+
+    The √3 comes from isotropic 3D projection of the 4D eddy kinetic energy:
+    each spatial dimension receives 1/3 of the total energy → v_1D = v_4D/√3.
+
+    Same factor as kinetic theory (c_s = v_rms/√3) and Jeans criterion.
+
+    Agreement with MOND empirical value (1.2×10⁻¹⁰ m/s²): 1.72%
+
+    This is a PREDICTION, not a fit. MOND may be the galactic weak-field
+    limit of the ESTIF cosmic eddy — as Newton is the weak-field limit of GR.
+
+    Returns:
+        ESTIF-derived MOND acceleration [m/s²]
+    """
+    return const.H_0 * const.c * _x_0 / np.sqrt(3)
+
+
+def v_flat_mond_estif(M):
+    """
+    Flat rotation velocity from ESTIF MOND limit.
+
+    v_flat⁴ = G × M × a₀    (Tully-Fisher relation, M^(1/4) scaling)
+
+    Uses a₀ = H₀ × c × x₀ / √3 derived from geometry.
+
+    Args:
+        M: Galaxy mass [kg]
+
+    Returns:
+        Flat rotation velocity [m/s]
+    """
+    a0 = a0_mond_estif()
+    return (const.G * M * a0)**0.25
+
+
+def multi_scale_observable(r_m, M_local, M_host=None, r_in_host=None):
+    """
+    Three-level ESTIF observable at position r from a local mass.
+
+    Observable(r) = √β(x_local) × √β(x_galactic) × √β(x_cosmic)
+
+    where:
+        x_local    = Rs_local / r          (local mass eddy)
+        x_galactic = Rs_host / r_in_host   (host galaxy eddy, optional)
+        x_cosmic   = x₀ = R_H/r_universe  (cosmic background = Ωm)
+
+    At Earth (r=1AU, M_sun):
+        x_local ≈ 2×10⁻⁸ → obs = 1.0000000
+        x_gal   ≈ 3×10⁻⁷ → obs = 1.0000000
+        x_cosmic = 0.311 → obs = 0.8300
+    Cosmic term dominates by 10⁶×.
+
+    Args:
+        r_m: Distance from local mass [m]
+        M_local: Local mass (e.g. Sun, black hole) [kg]
+        M_host: Host galaxy mass [kg] (optional)
+        r_in_host: Distance in host galaxy [m] (optional)
+
+    Returns:
+        Combined observable (dimensionless, 0 to 1)
+    """
+    Rs_local = 2 * const.G * M_local / const.c**2
+    x_local  = Rs_local / r_m
+    obs_local = observable_combined(x_local)
+
+    obs_galactic = 1.0
+    if M_host is not None and r_in_host is not None:
+        Rs_host = 2 * const.G * M_host / const.c**2
+        x_gal   = Rs_host / r_in_host
+        obs_galactic = observable_combined(x_gal)
+
+    obs_cosmic = observable_combined(_x_0)
+
+    return obs_local * obs_galactic * obs_cosmic
+
+# ============================================================================
+# End Eddy Dark Matter Section
+# ============================================================================
 
 # ------------------------------
 # Distance Functions (Now Using ΛCDM)
@@ -390,8 +856,9 @@ def gw_damping_delay(r, M, t=None):
     rs = 2 * const.G * M / const.c**2
     
     # At merger, use R_s as characteristic scale
-    if r == 0 or r < rs:
-        r = rs
+    r_isco = 3 * rs
+    if r == 0 or r < r_isco:
+        r = r_isco
     
     # Base timescale: light-crossing time of Schwarzschild radius
     tau_base = rs / const.c

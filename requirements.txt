@@ -1,66 +1,70 @@
 # requirements.txt
-
-# ESTIF-Gravity v2.0 - Strong-Field Modifications to General Relativity
-# Core scientific computing dependencies
+# ESTIF v6.1 — Emergent Spacetime from Inward Flow
+# Tested: Python 3.8–3.12, macOS (Apple Silicon + Intel), Linux
 
 # ============================================================================
-# Core Scientific Computing
+# Core Scientific Computing  (required)
 # ============================================================================
 
-# Numerical computation
 numpy>=1.24.0,<2.0.0
 scipy>=1.10.0,<2.0.0
-
-# Plotting and visualization
 matplotlib>=3.7.0,<4.0.0
-
-# Astronomy and cosmology
 astropy>=5.2.0,<7.0.0
 
 # ============================================================================
-# Optional: Advanced Analysis (not required for basic usage)
+# Notes on version constraints
+# ============================================================================
+#
+# numpy<2.0.0
+#   numpy 2.0 introduced breaking API changes. The ESTIF model code uses
+#   numpy 1.x conventions throughout. Constraint is intentional.
+#   Warning: some unrelated system packages (e.g. opencv) may flag this as
+#   incompatible. That warning is harmless — opencv is not used by ESTIF.
+#
+# scipy<2.0.0
+#   Maintains stable API for integrate.quad and optimize.minimize.
+#   scipy 1.10–1.17 all work correctly with the constraint as written.
+#
+# matplotlib<4.0.0
+#   Prevents breaking changes to plot/axes API.
+#
+# astropy<7.0.0
+#   Used for FlatLambdaCDM cosmology class and physical constants.
+#   astropy 5.x and 6.x both work correctly.
+
+# ============================================================================
+# Optional: Parameter fitting and MCMC
 # ============================================================================
 
-# MCMC and statistical analysis (if doing parameter fitting)
 # corner>=2.2.0
 # emcee>=3.1.0
 
 # ============================================================================
-# Development and Testing (optional)
+# Optional: Development and testing
 # ============================================================================
 
-# Testing framework
 # pytest>=7.0.0
 # pytest-cov>=4.0.0
-
-# Code quality
 # black>=23.0.0
 # flake8>=6.0.0
 
 # ============================================================================
-# Notes
+# Installation
 # ============================================================================
-
-# Version constraints:
-# - numpy<2.0.0: Avoid breaking changes in numpy 2.0
-# - scipy<2.0.0: Maintain API stability
-# - matplotlib<4.0.0: Prevent breaking plot code
-# - astropy<7.0.0: Use stable cosmology functions
-
-# Installation:
+#
 #   pip install -r requirements.txt
-
-# For development:
-#   pip install -r requirements.txt
-#   pip install pytest black flake8
-
-# Minimum versions tested:
-#   Python 3.8+
-#   numpy 1.24.0
-#   scipy 1.10.0
-#   matplotlib 3.7.0
-#   astropy 5.2.0
-
+#
+# Quick verification after install:
+#
+#   cd src && python3 -c "import estif_ec_gr_constants as c; print(c.A0_MOND_ESTIF)"
+#   # Should print: 1.179310...e-10
+#
+# SPARC validation (requires data file from VizieR J/AJ/152/157):
+#
+#   cd tests && python3 test_sparc_tully_fisher.py ../data/sparc_vizier.tsv
+#
+# MOND derivation (no external data needed):
+#
+#   cd tests && python3 derive_mond_from_geometry.py
 
 #APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-16-10-25-V-2
-

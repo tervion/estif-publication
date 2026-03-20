@@ -1,0 +1,936 @@
+# StoryCompiler
+
+**A native macOS writing application for novel authors across all genres (fantasy, sci-fi, thrillers, romance, and more) with integrated worldbuilding management, entity tracking, relationship mapping, and a full Project Dashboard for world research and visualisation.**
+
+---
+
+## Vision
+
+StoryCompiler treats a novel the way a compiler treats code. As the author writes prose, the application silently builds a structured knowledge graph of every entity in the world — characters, locations, factions, objects, events — and the relationships between them. By the final chapter, the author has a fully populated worldbuilding database built as a natural byproduct of the writing process itself, with zero separate data entry.
+
+The app's flexible entity types, custom predicates, and visualization tools adapt seamlessly to any genre—whether mapping interstellar politics in sci-fi, suspect relationships in thrillers, or emotional arcs in romance.
+
+The application has two primary modes:
+
+**Writing Workspace** — the 6-zone editor where the author writes prose, tags entities, locks subjects, defines relationships, and captures scenes and dialogue.
+
+**Project Dashboard** — the worldbuilding studio where the author plans, researches, visualises, and understands their world. Timeline, map, mind map, notes, and sheets all live here, all connected to the same entity database the workspace produces.
+
+---
+
+## Platform
+
+| | |
+|---|---|
+| **Language** | Swift 5.9+ |
+| **UI** | SwiftUI |
+| **Data** | SwiftData |
+| **Platform** | macOS 14+ |
+| **Design** | Apple Human Interface Guidelines |
+| **Reference** | Flask prototype at cnws-prot.tervion.eu |
+
+---
+
+## Current Status: Phase 3 In Progress — Workspace UI Active
+
+**Version:** 3.0  
+**Last Updated:** February 28, 2026
+
+### What's working
+- App builds and runs — zero errors, zero warnings
+- Welcome screen — book picker, create new book
+- 6-zone workspace layout (see Workspace Layout below)
+- SwiftData persistence — books, chapters, entities, relationships
+- Syntax parser — full Python-to-Swift port, saves entities to database on parse
+- Entity list + filter panels — browse by type, tap to load details
+- Chapter tab bar — open multiple chapters simultaneously
+- Chapter list panel — create and navigate chapters
+- Entity detail panel — name, type, notes, mention count
+- Subject Lock (`⌘⌥[` / `⌘⌥]`) — lock session manager + status bar + inference engine
+- Define Relationship (`⌘⌥D`) — manual relationship builder with two-tier predicate autocomplete
+- **Scene Stamps** — captured automatically during writing (`⌘⌥(` / `⌘⌥)`) with dialogue and entity tracking (full dual-rail dashboard timeline in progress)
+- **Notes system** — basic manual notes scoped to book, optionally chapter-anchored (full rich-text + entity-linked Notes system in progress)
+
+---
+
+## Core Concepts
+
+### Entity Types
+
+StoryCompiler ships with 10 built-in entity types as a starting template. They cover the most common worldbuilding categories across various novel genres.
+
+| Symbol | Type | Shortcut | Definition |
+|---|---|---|---|
+| `@` | Character | `⌘⌥C` | A person or being |
+| `#` | Location | `⌘⌥L` | A place |
+| `&` | Faction | `⌘⌥F` | Any organised group |
+| `$` | Heritage | `⌘⌥H` | Origin — ethnicity, species, nationality |
+| `*` | Object | `⌘⌥O` | Any significant item |
+| `~` | Event | `⌘⌥E` | Any significant occurrence |
+| `?` | Language | `⌘⌥G` | Any communication system |
+| `+` | Role | `⌘⌥R` | Any title, rank, or occupation |
+| `!` | Concept | `⌘⌥I` | Any system, rule, or force |
+| `%` | Theme | `⌘⌥M` | Narrative themes and motifs |
+
+These 10 types are a **seed template**, not a fixed list. The writer can add any number of custom types to match their specific world — `Spice`, `Weave`, `Sigil`, `Prophecy`, anything.
+
+---
+
+### Custom Entity Types
+
+Every world is different. The 10 built-in types will not cover every book ever written. A writer working on *Dune* needs `Spice`. A writer working on *Wheel of Time* needs `Weave`. A writer working on *Game of Thrones* needs `Sigil`. A thriller writer needs `Suspect`; a romance author needs `Trope`; a sci-fi creator needs `Technology`.
+
+**Manage Entity Types** is accessible from Settings. It shows the full type table — built-ins and custom — and lets the writer add, edit, or remove types freely.
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│ Entity Types                                      + New Type     │
+├────────┬─────────────┬───────────┬───────────────────────────────┤
+│ Symbol │ Name        │ Shortcut  │ Definition                    │
+├──────────────────────────────────────────────────────────────────┤
+│  Built-in · 10 types                                             │
+│   @    Character     ⌘⌥C        A person or being    [built-in] │
+│   #    Location      ⌘⌥L        A place              [built-in] │
+│   ...                                                            │
+├──────────────────────────────────────────────────────────────────┤
+│  Custom · 2 types                                                │
+│   ✦    Spice         ⌘⌥S        Naturally occurring  ✏️  🗑️    │
+│                                  substance (Arrakis)             │
+│   ≋    Weave         ⌘⌥W        A pattern in the One ✏️  🗑️    │
+│                                  Power                           │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+**Rules:**
+- Built-in types can be edited but not deleted
+- Custom types are fully editable and deletable
+- Each type needs a unique name, symbol, keyboard shortcut key, colour, and definition
+- Shortcut conflicts are detected and blocked at save time
+- Custom types participate in everything — inline tagging, Subject Lock, Define Relationship, predicate autocomplete — identically to built-in types
+
+---
+
+### Inline Tagging
+
+While writing, the author tags selected words directly in the prose using keyboard shortcuts. Tagged words render as coloured inline spans — visually distinct but non-intrusive.
+
+**Shortcut:** `⌘⌥` + the type's assigned key
+
+```
+Built-in types:
+⌘⌥C  →  tag as Character    (blue)
+⌘⌥L  →  tag as Location     (green)
+⌘⌥F  →  tag as Faction      (orange)
+⌘⌥H  →  tag as Heritage     (red)
+⌘⌥O  →  tag as Object       (dark red)
+⌘⌥E  →  tag as Event        (cyan)
+⌘⌥G  →  tag as Language     (light blue)
+⌘⌥R  →  tag as Role         (amber)
+⌘⌥I  →  tag as Concept      (green/light)
+⌘⌥M  →  tag as Theme        (brown)
+
+Custom types (examples):
+⌘⌥S  →  tag as Spice        (writer-chosen colour)
+⌘⌥W  →  tag as Weave        (writer-chosen colour)
+```
+
+The underlying file stores raw syntax tokens. The editor deserialises them into coloured spans on load and reserialises on save — the round-trip is invisible to the writer.
+
+> ⚠️ **Implementation status:** Inline tagging shortcuts are designed and specified but not yet wired up. Currently entities are created via the syntax parser on chapter save. TaggedEditorView (NSTextView-based) is the next major milestone.
+
+---
+
+### Subject Lock  `⌘⌥[`  /  `⌘⌥]`
+
+Subject Lock is the mechanism for populating an entity's relationship database while writing prose, without interrupting the writing flow.
+
+**How it works:**
+
+1. Press `⌘⌥[` — a search panel appears in the Dynamic Panel
+2. Search for an entity and select it — the entity is now the **locked subject**
+3. A status bar appears confirming the lock, showing the entity name and colour
+4. Every entity tag inserted while the lock is active is automatically attached to the locked subject as a relationship edge
+5. Press `⌘⌥]` to release the lock
+
+**Example:**
+
+```
+⌘⌥[  →  search "Marco"  →  select  →  [🔵 Subject locked to: Marco]
+
+⌘⌥H  Italian      →  Marco → has_heritage → Italian
+⌘⌥H  American     →  Marco → has_heritage → American
+⌘⌥F  the Mafia    →  Marco → belongs_to   → The Mafia
+⌘⌥R  enforcer     →  Marco → has_role     → Enforcer
+⌘⌥S  the Spice    →  Marco → has_spice    → the Spice   ← custom type, works identically
+
+⌘⌥]  →  lock released. 5 relationships written.
+```
+
+The writer types naturally. The database fills automatically. No separate data entry screen required.
+
+These processes are universal across all genres, allowing authors to build complex relationships in thrillers (e.g., suspect dependencies), romance (e.g., emotional ties), sci-fi (e.g., technological affiliations), or any other style.
+
+---
+
+### Define Relationship  `⌘⌥D`
+
+`⌘⌥D` is always available — with or without an active Subject Lock. It is a deliberate, explicit act. It is never triggered automatically.
+
+**The Dynamic Panel loads with three fields:**
+
+1. **From** — the subject entity
+2. **To** — the object entity
+3. **Predicate** — free text in the writer's own words, with autocomplete
+
+The predicate field accepts any description — no fixed list, no validation:
+
+```
+"knew since childhood"
+"feared more than death"
+"was secretly working against"
+"owns but has never seen"
+"put a hit on"
+"is the ancestral weapon of"
+```
+
+**With Subject Lock active (recommended workflow):**
+
+```
+⌘⌥[  →  lock Tervion                      (declare subject once)
+
+⌘⌥D  →  From: [Tervion 🔒]  (pre-filled, locked)
+         To:   [search "Aldric"] → select
+         "trained under"  → Return         (saved)
+
+⌘⌥D  →  From: [Tervion 🔒]  (still locked)
+         To:   [search "The Order"] → select
+         "was expelled from"  → Return     (saved)
+
+⌘⌥D  →  From: [Tervion 🔒]  (still locked)
+         To:   [search "The Black Sword"] → select
+         "is the only one who can wield"  → Return   (saved)
+
+⌘⌥]  →  release
+```
+
+The lock pre-fills the From field and keeps it locked. Multiple relationships can be defined in sequence without re-declaring the subject each time. The **To** field supports both typing a search and clicking an entity directly from the Entities List panel.
+
+**Without Subject Lock active:**
+
+Both From and To fields are empty. The writer fills both manually — by searching or clicking from the Entities List. All three steps are manual. Slower, but fully self-contained — no lock required.
+
+**Autocomplete** is powered by the writer's own history (Tier 1) with seed defaults as fallback (Tier 2). The more the app is used, the smarter the suggestions — because they are the writer's own phrases, not a generic list.
+
+---
+
+### Predicate Autocomplete — Two-Tier System
+
+**Tier 1 — Writer's history (takes priority)**
+
+Every confirmed predicate is stored in SwiftData. When the writer types in the predicate field, the app searches their history for matches, sorted by frequency.
+
+**Tier 2 — Seed matrix (fallback for empty history)**
+
+On first launch, the seed matrix provides sensible defaults for every built-in type-pair combination so the app is immediately useful. After a few chapters, the writer's own vocabulary overtakes the seed entirely.
+
+---
+
+### Scene Stamps  `⌘⌥(`  /  `⌘⌥)`
+
+A Scene Stamp captures a significant moment in the manuscript — a battle, a revelation, a turning point. It is the foundation of the Timeline view.
+
+`⌘⌥(` opens the scene. `⌘⌥)` seals it. Everything in between is captured automatically:
+- Every entity tagged with a keyboard shortcut during the scene
+- Every dialogue line marked with `⌘⌥<` / `⌘⌥>`
+- Book, chapter, and word position — from context, not manual entry
+- Clean rendered prose — syntax-stripped, exactly what the reader sees
+
+**Example:**
+
+```
+⌘⌥(                    →  bar appears: writer types "The Final Battle"
+                           scene recording begins
+                           auto-captured: Book 1 · Chapter 3 · Word 4821
+
+⌘⌥C  Tervion           →  character tagged, captured into scene's entity list
+
+⌘⌥[  →  select Tervion →  subject locked
+
+⌘⌥<                    →  dialogue capture opens, attributed to Tervion
+type: "This ends now!"
+⌘⌥>                    →  dialogue capture closes
+                           stored: Tervion → "This ends now!" → Scene: The Final Battle
+
+⌘⌥]                    →  subject unlocked
+
+⌘⌥)                    →  scene closes
+                           scene stamp sealed with everything captured
+```
+
+This feature is universal, suitable for capturing key moments in any genre, from high-stakes confrontations in thrillers to pivotal emotional exchanges in romance.
+
+---
+
+### Dialogue Tracking  `⌘⌥<`  /  `⌘⌥>`
+
+Marks a passage of spoken text and attributes it to the currently locked subject.
+
+**The shortcut language is fully symmetric — three bracket pairs:**
+
+```
+⌘⌥[  /  ⌘⌥]   →  subject lock open / close
+⌘⌥(  /  ⌘⌥)   →  scene open / seal
+⌘⌥<  /  ⌘⌥>   →  dialogue open / close
+```
+
+---
+
+## Workspace Layout
+
+StoryCompiler uses a 6-zone persistent workspace. The editor is always visible at the centre. Navigation, tools, and context panels orbit around it — nothing replaces the writing canvas.
+
+```
+┌──────────────────────┬──────────────────────────────────┬────────────┐
+│                      │  🟢 Opened Chapters (tab bar) 5% │            │
+│  🔴 Entities List    ├──────────────────────────────────┤  🩵        │
+│        10%           │                                  │  Chapter   │
+│                      │   ⬜ MAIN WRITING FIELD  50%     │   List     │
+│                      │                                  │   10%      │
+│                      │                                  │ (full ht)  │
+├──────────────────────┼──────────────────────┬───────────┤            │
+│  🟡 Entities Filter  │  🔵 Dynamic Panel   │  🟣       │            │
+│        5%            │        10%           │  Entity   │            │
+│                      │                      │  Details  │            │
+│                      │                      │   15%     │            │
+└──────────────────────┴──────────────────────┴───────────┴────────────┘
+ ── Status bar — scene recording · dialogue capture · word count ────────
+```
+
+**Screen real estate:**
+
+| Zone | % of screen |
+|---|---|
+| ⬜ Main Writing Field | 50% |
+| 🟣 Entity Details | 15% |
+| 🩵 Chapter List | 10% |
+| 🔴 Entities List | 10% |
+| 🔵 Dynamic Panel | 10% |
+| 🟡 Entities Filter | 5% |
+| 🟢 Chapter Tab Bar | 5% |
+| **Total** | **100%** |
+
+**Column widths:** Left (Entities List + Filter) = 10% · Center (Writing + Dynamic + Details) = 80% · Right (Chapter List) = 10%
+
+**Zone behaviours:**
+
+**🔴 Entities List** — scrollable list of entities for the type selected in the filter below. Tap an entity to load it into Entity Details.
+
+**🟡 Entities Filter** — horizontally scrollable row of entity type buttons (Chr, Loc, Fac, Her…). Selecting one reloads the Entities List above.
+
+**🟢 Chapter Tab Bar** — open chapters as closeable tabs. Active chapter highlighted with accent colour underline.
+
+**⬜ Main Writing Field** — the writing canvas. Always visible. Never replaced. Full TextEditor with live word count.
+
+**🔵 Dynamic Panel** — dual purpose. Default (idle): quick notes scratchpad. Active with `⌘⌥[`: Subject Lock search panel. Active with `⌘⌥D`: Define Relationship interface. Operations stack — completing one returns to the previous state.
+
+**🟣 Entity Details** — name, type badge, chapter mention count, and notes for the selected entity. Loads when an entity is tapped in the Entities List, or when Subject Lock activates.
+
+**🩵 Chapter List** — full-height chapter outline for the current book. `+` creates new chapters. Clicking opens a chapter in a tab.
+
+**Status bar** — always-visible strip at the very bottom: scene recording state · dialogue capture state · total word count · current chapter word count.
+
+---
+
+## Keyboard Shortcuts Reference
+
+**Inline entity tagging** *(designed; TaggedEditorView implementation pending)*
+
+| Shortcut | Action |
+|---|---|
+| `⌘⌥C` | Tag selection as Character |
+| `⌘⌥L` | Tag selection as Location |
+| `⌘⌥F` | Tag selection as Faction |
+| `⌘⌥H` | Tag selection as Heritage |
+| `⌘⌥O` | Tag selection as Object |
+| `⌘⌥E` | Tag selection as Event |
+| `⌘⌥G` | Tag selection as Language |
+| `⌘⌥R` | Tag selection as Role |
+| `⌘⌥I` | Tag selection as Concept |
+| `⌘⌥M` | Tag selection as Theme |
+| `⌘⌥` + custom key | Tag as custom entity type |
+
+**Session shortcuts — three symmetric bracket pairs**
+
+| Shortcut | Action |
+|---|---|
+| `⌘⌥[` | Open Subject Lock — search panel loads in Dynamic Panel |
+| `⌘⌥]` | Release Subject Lock |
+| `⌘⌥(` | Open Scene Stamp — title bar appears |
+| `⌘⌥)` | Seal Scene Stamp — saved to Timeline |
+| `⌘⌥<` | Open Dialogue Capture |
+| `⌘⌥>` | Close Dialogue Capture — line saved |
+| `⌘⌥D` | Define Relationship — loads in Dynamic Panel |
+
+---
+
+## File Structure
+
+All files live flat in the Xcode target folder: `StoryCompiler_dir/StoryCompiler/StoryCompiler/`
+
+```
+── App Entry ──────────────────────────────────────────────────────────
+StoryCompilerApp.swift       @main. Switches between WelcomeWindow
+                             and WorkspaceView based on active book.
+
+── Shell ──────────────────────────────────────────────────────────────
+WelcomeWindow.swift          Launch screen. Book picker + create book.
+                             Disappears once inside the workspace.
+WorkspaceView.swift          6-zone layout shell. All panels composed here.
+WorkspaceState.swift         @Observable central coordinator. Single
+                             source of truth for all panels. Manages open
+                             chapter tabs, entity selection, dynamic panel
+                             mode, entity detail selection.
+WorkspaceSettings.swift      Persisted user preferences (@AppStorage).
+
+── Data Models ────────────────────────────────────────────────────────
+Book.swift                   SwiftData — title, synopsis, wordCount,
+                             timestamps. Owns chapters (cascade).
+Chapter.swift                SwiftData — chapterNumber, title, content,
+                             wordCount, inWorldDate. Belongs to Book.
+EntityGraph.swift            SwiftData — Entity + InlineTag models.
+EntityTypeModel.swift        Dynamic type system. EntityTypeRegistry
+                             (in-memory cache). EntityTypeSeed
+                             (first-launch seeding of 10 built-in types).
+Note.swift                   SwiftData — title, body, isPinned, colour,
+                             timestamps. Scoped to book, optionally chapter.
+                             Supports entity links and rich text.
+SceneStamp.swift             SwiftData — SceneStamp + DialogueLine.
+Sheet.swift                  SwiftData — Sheet + SheetRow + SheetCell.
+                             Typed cells: text, number, date, entity-link,
+                             note-link. Scoped to book.
+WorldMap.swift               SwiftData — WorldMap + MapLayer + MapPin.
+                             Layers: terrain, kingdoms, locations, routes.
+                             Pins linked to Entity records.
+MindMapGraph.swift           SwiftData — MindMap + MindMapNode +
+                             MindMapEdge. Auto-generated from entity
+                             relationships or manually authored.
+CustomCalendar.swift         SwiftData — calendar definition for in-world
+                             date systems. Month names, era labels,
+                             days-per-month. Used by Timeline and Sheets.
+
+── Graph / Engine ─────────────────────────────────────────────────────
+EntityRelationship.swift     SwiftData — directed edge with free-text
+                             predicate between any two entities.
+PredicateStore.swift         Two-tier autocomplete. Writer history
+                             takes priority over seed matrix defaults.
+SubjectLockManager.swift     Lock session state. ⌘⌥[ open, lock,
+                             ⌘⌥] release, ⌘⌥D define relationship.
+                             Creates edges in SwiftData automatically.
+                             InferenceEngine for predicate suggestions.
+SceneStampManager.swift      Scene + dialogue session manager.
+                             ⌘⌥( open, ⌘⌥) seal, ⌘⌥< dialogue open,
+                             ⌘⌥> dialogue close.
+SyntaxParser.swift           Parses raw chapter text. Extracts entity
+                             references, dialogue, events, scenes,
+                             notes, custom types.
+TimelineEngine.swift         Computes positions on both rails (Narrative
+                             and Story) from chapter + in-world date data.
+                             Resolves custom calendar dates to sortable
+                             integers for rendering.
+
+── Writing Workspace Views ────────────────────────────────────────────
+DefineRelationshipPopup.swift  ⌘⌥D panel. Subject pre-filled from
+                               lock if active. Free-text predicate
+                               with two-tier autocomplete.
+SubjectLockStatusBar.swift   Always-visible lock indicator strip
+                             shown while ⌘⌥[ is active.
+SceneStampUI.swift           SceneTitleBar, SceneRecordingBar,
+                             DialogueCaptureBar, SceneAwareEditorWrapper.
+EditorView.swift             SwiftUI editor wrapper. TextEditor, parse
+                             trigger, word count. Will be replaced by
+                             TaggedEditorView (NSTextView-based).
+TaggedEditorView.swift       NSTextView via NSViewRepresentable.
+                             Inline tag rendering as coloured spans.
+                             Serialises/deserialises syntax tokens.
+                             [PLANNED — not yet implemented]
+
+── Project Dashboard Views ────────────────────────────────────────────
+ProjectDashboard.swift       Dashboard shell. NavigationSplitView
+                             with sidebar listing all five tools.
+                             Toggled from WorkspaceToolbar.
+
+TimelineView.swift           Dual-rail timeline. Narrative Rail
+                             (chapter order) above Story Rail
+                             (in-world chronological). Connecting
+                             lines between rails. Zoom, scroll, filter.
+                             Entity arc overlays. Scene stamps embedded.
+
+WorldMapView.swift           Temporal world map. Drawing canvas
+                             (PKCanvasView) with layers: terrain,
+                             kingdoms, locations, routes. Entity pins
+                             from database. Story Rail scrubbing changes
+                             map state to reflect that in-world date.
+                             PNG export.
+
+MindMapView.swift            Auto-generated relationship graph from
+                             EntityRelationship records. Nodes typed
+                             by entity type (colour-coded). Edges
+                             labelled with predicate text. Filter by
+                             type, chapter, predicate keywords.
+                             Manual canvas mode for brainstorming.
+
+NotesNavigatorView.swift     Full Apple Notes-style experience.
+                             Rich text editor (bold, italic, headers,
+                             bullets, images). Entity links via @mention.
+                             Folder/tag organisation. Pin state.
+                             Chapter anchor. Bidirectional — entity
+                             details panel shows linked notes.
+                             Embedded sheets supported.
+
+SheetsView.swift             Spreadsheet scoped to book. User-defined
+                             columns with typed cells: text, number,
+                             in-world date, entity-link, note-link.
+                             CSV export. Preset templates: character
+                             roster, timeline events, vocabulary,
+                             world history.
+
+ManageEntityTypesView.swift  Add / edit / delete entity types.
+                             Built-in: edit only. Custom: edit + delete.
+
+CustomCalendarView.swift     Define in-world calendar. Month names,
+                             era system, days-per-month, year zero.
+                             Preview shows how dates render throughout
+                             the app.
+```
+
+---
+
+## Project Dashboard
+
+The Project Dashboard is a separate primary mode alongside the Writing Workspace. It is reached via a toolbar toggle — the Workspace and Dashboard share the same SwiftData container, the same book, the same entity database. Writing populates it; the Dashboard visualises and enriches it.
+
+```
+WelcomeWindow (book picker)
+       │
+       ├── WorkspaceView  ←  write prose, tag entities, build relationships
+       │
+       └── ProjectDashboard  ←  plan, research, visualise the world
+                │
+                ├── Timeline      dual-rail chronology
+                ├── World Map     temporal map with entity pins
+                ├── Mind Map      auto-generated relationship graph
+                ├── Notes         linked rich-text research system
+                └── Sheets        typed spreadsheets linked to notes
+```
+
+These tools are designed to be universal, supporting any novel genre through flexible customization.
+
+---
+
+### Timeline Tool
+
+The Timeline is a dual-rail chronology display. The two rails coexist permanently in the view, one above the other, with connecting lines showing the relationship between them.
+
+#### Rail 1 — Narrative Rail (Chapter Order)
+
+The order in which the reader experiences the story. Fixed sequence: Chapter 1, Chapter 2, Chapter 3... regardless of when those events occur in story time. Every chapter always exists on this rail. This rail cannot be reordered.
+
+```
+Narrative Rail:
+Ch.1 ──────── Ch.2 ──────── Ch.3 ──────── Ch.4 ──────── Ch.5
+[Prologue]   [The War]    [Flashback]   [Present]    [Epilogue]
+```
+
+#### Rail 2 — Story Rail (In-World Chronological Time)
+
+The actual calendar order of events in the story world. The author assigns an in-world date to each chapter. A non-linear narrative where Chapter 3 is a flashback to a different era will show Chapter 3's events far from Chapter 1's events on this rail, even though it comes later in the manuscript.
+
+```
+Story Rail (chronological):
+1066        1944        1991        2026        2031
+  ↓           ↓        ↓  ↓          ↓           ↓
+[Ch.3]     [Ch.2]   [Ch.1][Ch.4]  [new event] [Ch.5]
+```
+
+#### Cross-Reference Lines
+
+Connecting lines run between the two rails, mapping each chapter's narrative position to its story-time position. This instantly reveals structural information invisible in a linear chapter list: flashbacks, foreshadowing jumps, how much story-time a single chapter spans, gaps in the world timeline where no chapter takes place.
+
+#### In-World Date Assignment
+
+The author sets an in-world date per chapter in the Chapter List panel — a small date field below the chapter title. This is the only manual step required. Everything else on the Timeline is computed automatically.
+
+#### Custom Calendar Systems
+
+Worlds in any genre may use unique calendars. The author defines a custom calendar in the Dashboard Settings panel:
+
+- Custom month names and lengths
+- Era system (e.g. "Third Age, Year 412" instead of "2026 AD")
+- Named epochs with start/end years
+- Year zero definition
+
+Once a calendar is defined, all in-world dates throughout the app — Timeline, Sheets, Entity details — display using the author's calendar. If no custom calendar is defined, the app defaults to numeric years.
+
+#### Events on the Timeline
+
+Beyond chapters, the author can stamp discrete **Events** on either rail:
+
+On the **Story Rail**: world events that may not have their own chapter — a war that began 300 years before the story starts, a prophecy made in year 1 that Chapter 5 fulfills. These are created from within the Timeline view and stored as Event entity records.
+
+On the **Narrative Rail**: Scene Stamps from the writing workspace (`⌘⌥(` / `⌘⌥)`) appear automatically as sub-markers within their parent chapter, no manual entry required.
+
+#### Entity Arcs
+
+Any entity can have a life arc drawn across both rails. A character arc shows:
+
+- First mention in the manuscript (Narrative Rail position)
+- Birth / origin date (Story Rail position)
+- Key events in their life on the Story Rail
+- Every chapter they appear in on the Narrative Rail
+
+The arc is **generated automatically** from the entity tagging and relationship data the writer already created — no separate data entry. This is the primary advantage over Aeon Timeline, where all arc data must be entered manually. In StoryCompiler, the writing process is the data entry.
+
+#### Filtering and Zoom
+
+- Filter by entity type: show only character arcs, hide locations
+- Filter by specific entities: show only one character's arc
+- Filter by time range: zoom into a specific decade on the Story Rail
+- Both rails have independent zoom levels
+- The Narrative Rail always shows all chapters; the Story Rail can span millennia
+
+---
+
+### World Map Tool
+
+The World Map is a **temporal map** — it shows the world at a specific point in story time, and its state changes as the Story Rail timeline cursor is dragged.
+
+The connection to the timeline is the defining feature. A territory that belonged to one kingdom in year 1066 may belong to a different kingdom in year 1991. If the author has tagged these territorial changes as Events on the Story Rail, the map reflects the change when the cursor crosses that date. This temporal aspect works for any genre, from a gangster moving between cities in a thriller to a knight traveling across kingdoms in fantasy or space pirates navigating galaxies in sci-fi. The map is scalable, depicting anything from an entire planet to a small town, and tracks entity movements throughout the story timeline.
+
+#### Drawing Layers
+
+The map is a multi-layer canvas:
+
+- **Terrain layer** — coastlines, rivers, mountain ranges, forests. Drawn with freehand and shape tools.
+- **Kingdoms layer** — territory polygons, colour-coded and labelled by Faction entity.
+- **Locations layer** — named pins linked to Location entities in the database.
+- **Routes layer** — roads, trade routes, travel paths. Optionally linked to Event entities.
+
+Each layer can be toggled independently. Layers have temporal states — a kingdom polygon can have different boundaries at different Story Rail dates.
+
+#### Entity Pins
+
+Any entity of type Location, Character, or Faction can be pinned to map coordinates. Tapping a pin opens the entity's details in a popover. The Locations layer populates automatically from all Location entities in the database that have been assigned coordinates.
+
+#### Story Rail Scrubbing
+
+A scrubber bar at the bottom of the map view mirrors the Story Rail. Dragging it forward in time reveals how the map changes — borders shift, cities appear and are destroyed, routes open and close. The scrubber only shows changes the author has explicitly defined; it does not simulate or infer.
+
+#### Export
+
+The current map view at any Story Rail position can be exported as a PNG at print quality — for chapter illustrations, website headers, or sharing with readers.
+
+---
+
+### Mind Map Tool
+
+The Mind Map is a relationship graph generated automatically from the entity and relationship database. It is the visual representation of everything the writer has built through Subject Lock and Define Relationship sessions.
+
+#### Auto-Generated Graph
+
+- Every **Entity** record is a node, colour-coded by entity type
+- Every **EntityRelationship** record is a directed edge, labelled with the predicate text the author wrote
+- The graph updates in real time as new relationships are created in the workspace
+
+This is the primary advantage over Obsidian's graph view: the nodes are typed, the edges are labelled with the author's own language, and the entire structure was built as a byproduct of writing — not by manually building a knowledge graph.
+
+#### Filtering
+
+- By entity type (show only characters and factions, hide locations)
+- By chapter (show only the relationship web that exists as of a specific chapter)
+- By predicate keyword (show only edges containing "fear" or "trained")
+- By entity (isolate one entity and show its entire relationship neighbourhood)
+
+#### Manual Brainstorming Canvas
+
+Alongside the auto-generated graph, the author can create blank Mind Map canvases for freeform brainstorming. Manual nodes and edges on a brainstorming canvas are not connected to the entity database — they are scratch thinking. These canvases save as Note objects scoped to the book.
+
+This tool is versatile for any genre, visualizing complex relationships like alliances in sci-fi, betrayals in thrillers, or family ties in romance.
+
+---
+
+### Notes System
+
+The Notes system is the research and lore layer of the Project Dashboard. The design target is Apple Notes — fast, frictionless, fully featured, rich text — with one capability Apple Notes does not have: every note can link bidirectionally to any entity in the worldbuilding database.
+
+#### What a Note Contains
+
+- Title
+- Rich text body: bold, italic, headers, bullet lists, numbered lists, code blocks, inline images
+- Optional folder for organisation
+- Optional tags (user-defined keywords, separate from entity tags)
+- Optional chapter anchor (note appears in Chapter List context when that chapter is open)
+- Optional entity links (one or more entities this note is about)
+- Pin state (pinned notes appear at top of list)
+- Creation and modification timestamps
+- Colour label (seven colours, user-assigned)
+
+#### Entity Linking
+
+Typing `@EntityName` inside a note body creates a live link to that entity. The link renders as a coloured inline span matching the entity's type colour. Tapping the link navigates to the entity's detail panel.
+
+The reverse is also true: the Entity Details panel shows a **Linked Notes** section listing every note that references that entity. The author can navigate freely between entity details and the notes about that entity without losing context.
+
+#### Note Categories
+
+There are no enforced categories — a note is a note. The author organises their own system using folders and tags. Common uses include:
+
+- **Research notes** — real-world historical research about cultures, technologies, eras
+- **Lore documents** — magic systems, cosmology, physics of the world
+- **Character profiles** — deep backstory, psychology, motivations beyond what fits in the entity notes field
+- **Language notes** — vocabulary lists, grammar rules, example sentences for constructed languages
+- **Culture briefs** — customs, religion, social structure of a faction or heritage group
+- **Worldbuilding reference** — geography, climate, trade routes, political history
+
+#### Embedded Sheets
+
+A note can embed a Sheet inline — a vocabulary table, a cast of characters, a timeline of events. The embedded sheet is a live SwiftData Sheet record, not a static snapshot. Editing the sheet from within the note updates it everywhere.
+
+#### Relationship to the Workspace
+
+Notes are accessible from the Dynamic Panel in the writing workspace. When the Dynamic Panel is in its default (idle) state, it shows the Notes navigator for the current book. The author can consult and edit research notes without leaving the writing environment.
+
+This system is applicable to any genre, providing a flexible space for research and planning.
+
+---
+
+### Sheets Tool
+
+Sheets are typed spreadsheets scoped to a book. They are reference tables — not a calculation engine, not a database replacement. The author uses them for structured lists where a prose note would be too unstructured and a database query would be too technical.
+
+#### Cell Types
+
+Every column has a declared type:
+
+- **Text** — plain or rich text string
+- **Number** — integer or decimal
+- **In-World Date** — uses the book's custom calendar definition if set, otherwise numeric year
+- **Entity Link** — a live link to any entity record; displays the entity name and type badge
+- **Note Link** — a live link to any note; displays the note title
+
+#### Preset Templates
+
+On creation, the author can choose a blank sheet or a preset template:
+
+- **Character Roster** — Name, Age, Faction, Role, First Appearance (chapter), Last Appearance, Status (alive/dead/unknown), Notes link
+- **Timeline Events** — In-World Date, Event Name, Involved Entities, Chapter (if any), Importance
+- **Vocabulary** — Word, Translation, Grammatical Class, Language (entity link), Etymology Notes link
+- **World History** — In-World Date, Era, Event, Kingdoms Involved, Source Notes link
+- **Custom** — start from a blank grid with user-defined columns
+
+Templates are starting points only — every column can be renamed, retyped, reordered, added, or removed.
+
+#### CSV Export
+
+Any sheet can be exported as CSV for use in external tools, sharing, or archiving.
+
+Sheets are versatile tools for organizing data in any novel project, from character inventories in fantasy to plot timelines in mysteries.
+
+---
+
+## Workspace + Dashboard Navigation
+
+The author switches between the two primary modes via a segmented control in the toolbar — present in both modes so the transition is always one tap.
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  StoryCompiler   [✏️ Write]  [🗺 Dashboard]       Book Title │
+└─────────────────────────────────────────────────────────────┘
+```
+
+When the Dashboard is active, the NavigationSplitView sidebar shows:
+
+```
+📅 Timeline
+🗺 Map
+🕸 Mind Map
+📝 Notes
+📊 Sheets
+──────────
+⚙️ Settings
+  └── Entity Types
+  └── Calendar
+  └── Export
+```
+
+Settings surfaces Manage Entity Types and the new Custom Calendar definition screen. Export (to DOCX, PDF) lives here too.
+
+---
+
+## Roadmap
+
+### Complete ✅
+- Dynamic entity type system — 10 seed types, unlimited custom types
+- SwiftData models — Book, Chapter, Entity, EntityRelationship, EntityTypeModel, SceneStamp, Note *(Sheet, WorldMap, MindMapGraph, CustomCalendar and advanced Note features in progress)*
+- First-launch type seeding + EntityTypeRegistry in-memory cache
+- Manage Entity Types screen — add, edit, delete with conflict detection
+- Subject Lock — open, lock, release, status bar, inference engine
+- Define Relationship — free-text predicate with two-tier autocomplete
+- Scene Stamps (`⌘⌥(` / `⌘⌥)`) — title bar, recording indicator, prose capture
+- Dialogue Tracking (`⌘⌥<` / `⌘⌥>`) — attributed speech, per-character log
+- Manual Notes — pinnable, chapter-anchored, book-scoped
+- Welcome Window — book picker, create new book
+- 6-zone workspace layout with correct screen proportions
+- Entity list + filter panels, chapter tab bar, chapter list, entity detail panel
+- App builds and runs — zero errors
+
+### Writing Workspace — In Progress 🚧
+
+**Phase A — Wire the Dynamic Panel (3–4h)**
+- Register ⌘⌥[, ⌘⌥], ⌘⌥D keyboard shortcuts
+- Replace Subject Lock stub in DynamicPanel with real search + lock UI
+- Replace Define Relationship stub with functional DefineRelationshipPopup
+- Surface SubjectLockStatusBar below toolbar when lock is active
+
+**Phase B — Entity Editing (1–2h)**
+- Editable name and notes fields in EntityDetailPanel
+- Delete entity with confirmation
+
+**Phase C — Fix Dynamic Notes Persistence (1h)**
+- Replace floating @State scratchpad with NotesNavigatorView backed by SwiftData Note model
+
+**Phase D — Manage Entity Types in Navigation (1h)**
+- Gear icon in EntityFilterPanel or toolbar → ManageEntityTypesView sheet
+- EntityTypeRegistry refreshes immediately after type changes
+
+**Phase E — Scene Stamps + Dialogue (3–4h)**
+- Pass SceneStampManager through environment
+- Wire ⌘⌥( / ⌘⌥) / ⌘⌥< / ⌘⌥> to SceneStampManager
+- Show SceneTitleBar and SceneRecordingBar above editor when scene is active
+- Update status bar with live scene + dialogue state
+
+**Phase F — Timeline Scene View (1h)**
+- Surface TimelineView via toolbar button or Dashboard
+- Pass current book context
+
+**Phase G — TaggedEditorView (5–8h)**
+- NSTextView via NSViewRepresentable
+- Serialize/deserialize inline tags as coloured NSAttributedString spans
+- Auto-parse on tag insertion (real-time entity updates)
+- Replace manual Parse button with auto-parse on tag insertion
+
+**Phase H — Search Panel (2–3h)**
+- Add search mode to DynamicPanelMode enum
+- Trigger via ⌘F or toolbar icon
+- Results split: manuscript text matches + entity name matches
+
+### Project Dashboard 📋
+
+**Phase J1 — Dashboard Shell + Navigation (2h)**
+- WorkspaceToolbar toggle between Write and Dashboard modes
+- ProjectDashboard.swift with NavigationSplitView sidebar
+- Route to all five tools from sidebar
+
+**Phase J2 — Notes System (8–10h)**  
+*Build first. Every other Dashboard tool either embeds notes or links to them.*
+- Rich TextEditor wrapper (bold, italic, headers, bullets, images)
+- @mention entity linking with live link rendering
+- Folder/tag organisation system
+- Pin state, colour label, chapter anchor
+- Bidirectional: Linked Notes section in Entity Details panel
+- Notes accessible from Dynamic Panel in workspace (idle state)
+
+**Phase J3 — Sheets (6–8h)**
+- SwiftData Sheet + SheetRow + SheetCell models
+- Grid view with user-defined typed columns
+- Cell types: text, number, in-world date, entity-link, note-link
+- Preset templates: character roster, timeline events, vocabulary, world history
+- CSV export
+- Embedded sheet support inside Notes
+
+**Phase J4 — Dual-Rail Timeline (12–16h)**
+- In-world date field per chapter in Chapter List panel
+- CustomCalendar SwiftData model + CustomCalendarView settings screen
+- TimelineEngine: compute positions on both rails from chapter + date data
+- Timeline canvas: two horizontal rails with connecting lines, zoom, scroll
+- Event stamps on both rails
+- Entity arc overlays auto-generated from entity + relationship data
+- Filter controls: by type, entity, date range
+- Scene Stamps from workspace appear automatically on Narrative Rail
+
+**Phase J5 — Mind Map (8–10h)**
+- SwiftUI Canvas graph layout
+- Auto-generate nodes from Entity records, edges from EntityRelationship records
+- Node colour by entity type; edge labels from predicate text
+- Filter controls: by type, chapter, predicate keyword, entity neighbourhood
+- Manual brainstorming canvas mode (saves as Note)
+- Zoom and pan
+
+**Phase J6 — World Map (12–20h)**  
+*Build last. Richest when entity database + timeline are fully populated.*
+- Multi-layer canvas: terrain, kingdoms, locations, routes
+- Freehand and shape drawing tools per layer
+- Faction territory polygons with temporal state (different borders at different dates)
+- Location entity pins with popover to entity details
+- Story Rail scrubber — map state reflects selected in-world date
+- PNG export at print quality
+
+### Future
+- iCloud sync via CloudKit
+- Cover images per book (3:4 ratio, user-uploadable, displayed on Welcome screen)
+- Export to DOCX / PDF with tags stripped
+- iOS companion app (read-only reference while writing)
+- Relationship graph visualisation (separate from mind map — force-directed, interactive)
+
+---
+
+## Estimated Hours — Complete Scope
+
+| Phase | Description | Hours |
+|---|---|---|
+| A | Wire Dynamic Panel | 3–4h |
+| B | Entity editing | 1–2h |
+| C | Notes persistence | 1h |
+| D | Entity types in nav | 1h |
+| E | Scene stamps + dialogue | 3–4h |
+| F | Timeline nav | 1h |
+| G | TaggedEditorView | 5–8h |
+| H | Search panel | 2–3h |
+| I | Polish + App Store | 4–6h |
+| J1 | Dashboard shell | 2h |
+| J2 | Notes system | 8–10h |
+| J3 | Sheets | 6–8h |
+| J4 | Dual-rail timeline | 12–16h |
+| J5 | Mind map | 8–10h |
+| J6 | World map | 12–20h |
+| **Total** | | **69–95h** |
+
+**Recommended build order within Dashboard:** J1 → J2 (Notes) → J3 (Sheets) → J4 (Timeline) → J5 (Mind Map) → J6 (World Map). Notes first because they are embedded by everything else. World Map last because it is most powerful when entity database and timeline are already rich.
+
+---
+
+## Design Principles
+
+**Harvest, don't re-enter.** The writer already expresses context through tagging. The app harvests what's already there rather than asking for it again in a separate form.
+
+**The writer steers.** The app never guesses what a relationship means. Every relationship in the database was put there by an explicit writer action.
+
+**Two modes, one database.** The Writing Workspace and Project Dashboard are two views of the same data. Writing populates the entity database; the Dashboard visualises it. Neither mode duplicates data entry.
+
+**The timeline reflects the manuscript.** The dual-rail Timeline is generated from the writing — chapter order is fixed by the manuscript, in-world dates are set by the author once per chapter, entity arcs emerge from the tagging. The author does not maintain a separate timeline document.
+
+**The map reflects the story.** The World Map is temporal. It does not show one fixed state — it shows the world at any point in story time the author navigates to. Territory, borders, and events change as the story timeline advances.
+
+**Seed data as training wheels.** Entity types, predicate suggestions, and sheet templates all ship with sensible defaults on day one. They get out of the way as the writer builds their own vocabulary. They are never enforced.
+
+**Free text over fixed lists.** Predicates, note bodies, and sheet column definitions are all plain English in the writer's own voice. No dropdowns. No validation rules. If the writer can express it in a sentence, the app can store it.
+
+**The database writes itself.** By the time a manuscript is finished, the worldbuilding database is complete — not because the writer filled in forms, but because the writing process itself was the data entry.
+
+---
+
+*"The compiler for stories."*
+
+---
+
+**Last Updated:** February 28, 2026  
+**Next session:** Phase A — Wire `⌘⌥D` and `⌘⌥[` into Dynamic Panel

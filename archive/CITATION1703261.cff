@@ -1,0 +1,60 @@
+cff-version: 1.2.0
+message: "If you use this software in your research, please cite it as below."
+title: "ESTIF-Gravity: Strong-Field Modifications to General Relativity"
+abstract: >-
+  ESTIF-Gravity tests friction-drag corrections to General Relativity in strong
+  gravitational fields. Unlike the previous ESTIF-FD version (which attempted to
+  replace ΛCDM cosmology and was ruled out by supernova data), this approach
+  accepts standard cosmological expansion and focuses on testable gravity modifications.
+  The framework predicts: (1) black hole shadows 1.67% larger than GR (EHT-testable),
+  (2) gravitational wave delays of 32 microseconds (LISA-detectable at 3.2σ), and
+  (3) galaxy rotation asymmetries (currently below detection threshold). The LISA
+  prediction provides a definitive test when the mission launches around 2034-2037.
+type: software
+authors:
+  - family-names: "Angelov"
+    given-names: "Peter"
+    email: tervion@gmail.com
+    affiliation: "Independent Researcher"
+version: 2.0.0
+date-released: "2025-10-16"
+license: MIT
+repository-code: "https://github.com/tervion/estif-publication"
+keywords:
+  - general-relativity
+  - modified-gravity
+  - strong-field-tests
+  - gravitational-waves
+  - LISA
+  - event-horizon-telescope
+  - black-holes
+  - friction-corrections
+  - testable-predictions
+references:
+  - type: software
+    title: "ESTIF-FD: Emergent Spacetime from Inward Flow (Previous Version)"
+    authors:
+      - family-names: "Angelov"
+        given-names: "Peter"
+    year: 2024
+    version: "1.0.0"
+    repository-code: "https://zenodo.org/records/17261725"
+    notes: "Original cosmology version - ruled out by supernova data (χ² = 3.8× worse than ΛCDM)"
+preferred-citation:
+  type: software
+  title: "ESTIF-Gravity: Strong-Field Modifications to General Relativity"
+  authors:
+    - family-names: "Angelov"
+      given-names: "Peter"
+  year: 2025
+  version: "2.0.0"
+  repository-code: "https://github.com/tervion/estif-publication"
+  doi: "10.5281/zenodo.17261725"
+  notes: >-
+    ESTIF-Gravity v2.0 - Tests strong-field gravity modifications using standard ΛCDM cosmology.
+    Primary prediction: 32 microsecond gravitational wave delays detectable by LISA (3.2σ significance).
+    Previous version (ESTIF-FD v1.0) archived at Zenodo: https://zenodo.org/records/17261725
+
+
+#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-16-10-25-V-2
+

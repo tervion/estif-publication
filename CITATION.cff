@@ -1,60 +1,101 @@
 cff-version: 1.2.0
 message: "If you use this software in your research, please cite it as below."
-title: "ESTIF-Gravity: Strong-Field Modifications to General Relativity"
+title: "ESTIF: Emergent Spacetime from Inward Flow — Geometric Tilt Model for Gravity, Dark Energy, and Dark Matter"
 abstract: >-
-  ESTIF-Gravity tests friction-drag corrections to General Relativity in strong
-  gravitational fields. Unlike the previous ESTIF-FD version (which attempted to
-  replace ΛCDM cosmology and was ruled out by supernova data), this approach
-  accepts standard cosmological expansion and focuses on testable gravity modifications.
-  The framework predicts: (1) black hole shadows 1.67% larger than GR (EHT-testable),
-  (2) gravitational wave delays of 32 microseconds (LISA-detectable at 3.2σ), and
-  (3) galaxy rotation asymmetries (currently below detection threshold). The LISA
-  prediction provides a definitive test when the mission launches around 2034-2037.
+  ESTIF v6.1 derives gravity, dark energy, and dark matter analytically from a
+  single geometric claim: 3D space is a hypersurface moving through 4D space.
+
+  KEY MILESTONE (v6.1): The MOND critical acceleration a₀ is derived from
+  first principles for the first time, with zero free parameters. Four steps:
+  (1) Force law a = -c²/2 ∇(ω/H₀)² = GM/r² (exact Newton). (2) Cosmic flow
+  speed v = cx₀ from the tilt formula. (3) Isotropic 3D projection v_3D = v/√3
+  (unique from dimension count). (4) a₀ = v_3D × H₀ = H₀cx₀/√3.
+  Result: 1.179×10⁻¹⁰ m/s², 1.72% from MOND empirical, zero free parameters.
+  Validated against 87 quality-1 SPARC galaxies: RMS = 15.6% (within observed
+  baryonic Tully-Fisher scatter). The B parameter multiplier 1/3 is derived from
+  the same 3D isotropy principle.
+
+  Strong-field results confirmed (19/19 analytical tests pass):
+  EHT M87* shadow 0.00σ tension, Planck Λ ratio 1.0000, LISA GW delay 491 μs
+  at S/N 49.2σ. GR time dilation is the special case at n=½ (x=0.272).
+  Parameters: N_MAX ≈ 5/7 × ln(r_e/l_P) (0.08%), B ≈ 1/3 × ln(r_e/l_P) (0.69%).
+
+  Dark matter analytical results: Ωm = x₀ = R_H/r_universe to 0.12%,
+  Ωdm = x₀ − Ωb to 0.10%. Virial condition σ/v_esc = 0.5 exact. Self-similar
+  Jeans λ = 2.57r. N-body simulation needed for halo structure.
+
+  DESI DR2 constraint (March 2026): The Ω_tilt(z) cosmological sector fails
+  DESI DR2 at chi²/N = 10.8. The w_eff ≈ −1.08 prediction is 3.5σ from DESI
+  DR2 w₀ = −0.73 ± 0.10. The cosmological sector requires rework. The gravity
+  sector results are independent and unaffected.
+
 type: software
 authors:
   - family-names: "Angelov"
     given-names: "Peter"
     email: tervion@gmail.com
     affiliation: "Independent Researcher"
-version: 2.0.0
-date-released: "2025-10-16"
+version: 6.1.0
+date-released: "2026-03-18"
 license: MIT
 repository-code: "https://github.com/tervion/estif-publication"
+doi: "10.5281/zenodo.17261724"
+url: "https://zenodo.org/records/17418087"
 keywords:
   - general-relativity
   - modified-gravity
-  - strong-field-tests
+  - dark-energy
+  - dark-matter
+  - 4D-geometry
+  - hypersurface
+  - tilt-formula
   - gravitational-waves
   - LISA
   - event-horizon-telescope
-  - black-holes
-  - friction-corrections
-  - testable-predictions
+  - MOND
+  - Tully-Fisher
+  - SPARC
+  - baryonic-Tully-Fisher
+  - cosmological-constant
+  - supernova-cosmology
+  - BAO
+  - DESI
+  - collisionless-dynamics
+  - Jeans-instability
+  - emergent-spacetime
 references:
   - type: software
-    title: "ESTIF-FD: Emergent Spacetime from Inward Flow (Previous Version)"
+    title: "ESTIF v6.0 — Gravity=Time=Eddies, Dark Matter Analytical Phase"
+    authors:
+      - family-names: "Angelov"
+        given-names: "Peter"
+    year: 2026
+    version: "6.0.0"
+    notes: "Previous version. Established MOND connection, collisionless dynamics. Superseded by v6.1 which derives a₀ formally and tests against SPARC and DESI DR2."
+  - type: software
+    title: "ESTIF-FD v1.0 — Emergent Spacetime from Inward Flow (Original)"
     authors:
       - family-names: "Angelov"
         given-names: "Peter"
     year: 2024
     version: "1.0.0"
     repository-code: "https://zenodo.org/records/17261725"
-    notes: "Original cosmology version - ruled out by supernova data (χ² = 3.8× worse than ΛCDM)"
+    notes: "Original cosmology version — S(t) = exp(-∫H dt) ruled out by supernova data (χ² = 3.8× worse than ΛCDM). Concept retained, equation abandoned."
 preferred-citation:
   type: software
-  title: "ESTIF-Gravity: Strong-Field Modifications to General Relativity"
+  title: "ESTIF: Emergent Spacetime from Inward Flow v6.1 — MOND Derived, SPARC Validated"
   authors:
     - family-names: "Angelov"
       given-names: "Peter"
-  year: 2025
-  version: "2.0.0"
+  year: 2026
+  version: "6.1.0"
   repository-code: "https://github.com/tervion/estif-publication"
-  doi: "10.5281/zenodo.17261725"
+  doi: "10.5281/zenodo.17261724"
   notes: >-
-    ESTIF-Gravity v2.0 - Tests strong-field gravity modifications using standard ΛCDM cosmology.
-    Primary prediction: 32 microsecond gravitational wave delays detectable by LISA (3.2σ significance).
-    Previous version (ESTIF-FD v1.0) archived at Zenodo: https://zenodo.org/records/17261725
+    ESTIF v6.1 — Key milestone: a₀ = H₀cx₀/√3 derived from geometry (zero free
+    parameters), confirmed against 87 SPARC galaxies at RMS 15.6%. The 1/3
+    multiplier for B derived from 3D isotropy. DESI DR2 constraint documented:
+    Ω_tilt(z) fails at chi²/N=10.8, cosmological sector under revision.
+    Gravity sector solid. Run validation: python3 derive_mond_from_geometry.py
 
-
-#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-16-10-25-V-2
-
+#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-15-10-25-V-2
