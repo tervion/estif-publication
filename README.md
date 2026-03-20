@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17261724.svg)](https://doi.org/10.5281/zenodo.17261724)
 [![Status](https://img.shields.io/badge/status-active_research-blue)]()
-[![Version](https://img.shields.io/badge/version-6.1-blue)]()
+[![Version](https://img.shields.io/badge/version-6.2-blue)]()
 [![Tests](https://img.shields.io/badge/tests-19%2F19_passing-success)]()
 
 ---
@@ -20,7 +20,7 @@ The matter density of the universe Ωm = x₀ = R_H/r_universe — determined by
 
 ---
 
-## Key Results (March 2026 — v6.1)
+## Key Results (March 2026 — v6.2)
 
 ### The Formula
 
@@ -42,7 +42,7 @@ Step 3  Projection:  v_3D = v_flow / √3               (3D isotropy, unique)
 Step 4  Threshold:   a₀ = v_3D × H₀ = H₀cx₀/√3
 ```
 
-**Result:** a₀ = 1.179×10⁻¹⁰ m/s² — matches MOND empirical 1.200×10⁻¹⁰ m/s² to **1.72%**, zero free parameters.
+**Result:** a₀ = 1.179×10⁻¹⁰ m/s² — matches MOND empirical 1.200×10⁻¹⁰ m/s² to **1.72%**, zero free parameters in the MOND derivation itself.
 The 1/√3 factor is the only geometric projection factor with an independent physical derivation (3D spatial isotropy). Confirmed unique: 1 of 12 candidate factors lands below 5%.
 
 **Validated against SPARC survey (Lelli et al. 2016):**
@@ -119,7 +119,8 @@ A gravity-sector letter is achievable now. The specific publishable claim:
 | **ESTIF-Gravity (v2.0)** | Strong-field β corrections | Superseded |
 | **ESTIF (v4.0)** | Combined formula + Option A cosmology, 6 tests | Previous |
 | **ESTIF (v6.0)** | Gravity=Time=Eddies, Ωm=x₀, MOND connection | Previous |
-| **ESTIF (v6.1)** | MOND derived, SPARC validated, DESI constraint, multipliers | **Current** |
+| **ESTIF (v6.1)** | MOND derived, SPARC validated, DESI constraint, multipliers | Previous |
+| **ESTIF (v6.2)** | a₀ redshift constancy proved, parameter independence, letter drafted | **Current** |
 
 ---
 
@@ -201,6 +202,8 @@ Derivation:
     ├── test_desi_wz_consistency.py       # NEW: DESI DR2 test (fails)
     ├── test_multiplier_derivation.py     # NEW: 1/3 derived, 5/7 conditional
     ├── cross_examination.py              # NEW: synthesis of Tests 1–3
+    ├── test_a0_redshift.py               # NEW: a₀ redshift constancy proof (v6.2)
+    ├── test_a0_parameter_independence.py # NEW: robustness across H₀/Ωm (v6.2)
     ├── test_joint_calibration.py         # EHT + Λ + LISA simultaneous
     ├── test_combined_formula.py          # Combined formula validation
     ├── test_gravity_time_connection.py   # β = τ at n = ½
@@ -235,7 +238,7 @@ python3 derive_mond_from_geometry.py
 ### Run SPARC validation
 
 ```bash
-python3 test_sparc_tully_fisher.py
+python3 test_sparc_tully_fisher.py ../data/sparc_vizier.tsv
 # 87 quality-1 galaxies, RMS = 15.6%
 ```
 
@@ -325,4 +328,4 @@ MIT License — See [LICENSE](LICENSE) for details.
 
 ---
 
-**Last Updated:** 18 March 2026 | **Version:** 6.1 | **Status:** Active research
+**Last Updated:** 20 March 2026 | **Version:** 6.2 | **Status:** Letter ready for submission

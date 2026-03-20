@@ -1,7 +1,7 @@
 # estif_ec_gr_constants.py
 
 """
-ESTIF Physical Constants (v6.1 — March 2026)
+ESTIF Physical Constants (v6.2 — March 2026)
 
 Contains all fundamental constants used by the ESTIF model.
 Grouped by type: physical, cosmological, ESTIF-derived.

@@ -1,7 +1,7 @@
 # Rabbit Holes and Crossroads — Decision Tree Archive
 
-**ESTIF v6.1 Decision History**  
-**Last Updated:** 18 March 2026  
+**ESTIF v6.2 Decision History**  
+**Last Updated:** 20 March 2026
 **Status:** Active — updated to reflect v4.0 state
 
 This file catalogs potential rabbit holes (deep, distracting sub-problems) and
@@ -396,7 +396,7 @@ cannot claim to replace dark energy and pass DESI DR2 simultaneously.
 3. **Two-paper strategy:** Gravity letter now (paper 1). Cosmology paper after rework (paper 2).
 
 **Decision:** Option 1 immediately. Option 3 as follow-up.
-**Status:** 🟢 Decision made — gravity letter is the immediate publication path.
+**Status:** 🟢 Letter drafted (v6.2) — ready for submission.
 
 ---
 
@@ -417,6 +417,29 @@ quoted 0.1 dex uncertainty. At Υ* = 0.65 (within the plausible range), bias is 
 
 ---
 
+### ✅ Scenario M: Pre-publication Blockers — RESOLVED (v6.2)
+
+**Two blockers identified by peer review:**
+
+**Blocker 1 — a₀ redshift evolution:** If a₀ = H₀cx₀/√3 uses today's H₀, does ESTIF predict a₀ ∝ H(z)?
+
+**Resolution:** NO — algebraic identity. In the comoving frame (correct for galaxy dynamics),
+x(z) = c / [H(z) × r_universe_comoving], so H(z) cancels exactly.
+a₀(z) = c² / (r_universe_comoving × √3) = constant.
+Maximum deviation: floating-point epsilon (2.22×10⁻¹⁶).
+Confirmed: Di Teodoro+2021, Übler+2017, Tiley+2019 all consistent at ≤ 2σ.
+
+**Blocker 2 — 1/√3 microscopic foundation:** "You borrowed a result from a different physical context."
+
+**Resolution:** Language reframed across all documents. Now states: "motivated by 3D spatial
+isotropy and consistent with the equipartition theorem; a complete kinetic theory of the eddy
+background is identified as future theoretical work. The factor is physically motivated, not fitted."
+This framing is honest, defensible, and what reviewers will accept.
+
+**Status:** 🟢 Both blockers resolved — letter ready for submission.
+
+---
+
 ## Updated Summary Statistics
 
 | Category | Count |
@@ -427,20 +450,7 @@ quoted 0.1 dex uncertainty. At Υ* = 0.65 (within the plausible range), bias is 
 | Budget wall (simulation) | 1 🔴 |
 | Major pivots | 5 (H(t), dynamic n, Ω_tilt inversion, fluid→collisionless, cosmology→gravity letter) |
 
-
-
-## Summary Statistics
-
-| Category | Count |
-|---|---|
-| Total scenarios documented | 21 |
-| Resolved | 13 ✅ |
-| Active | 7 🟡 |
-| Budget wall (simulation) | 1 🔴 |
-| Major pivots | 5 (H(t), dynamic n, Ω_tilt inversion, fluid→collisionless) |
-| Rabbit holes avoided | ~12 |
-
 ---
 
-**Document Version:** 6.1 (ESTIF v6.1)  
-**Last Updated:** 18 March 2026
+**Document Version:** 6.2 (ESTIF v6.2)  
+**Last Updated:** 20 March 2026

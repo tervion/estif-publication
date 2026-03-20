@@ -1,11 +1,11 @@
-# ESTIF v6.1 — Work in Progress
+# ESTIF v6.2 — Work in Progress
 
 This directory contains results that are either: blocked by computational resources,
 awaiting observational data, or represent documented failures that inform the project's next steps.
 
 ---
 
-## Documented Constraint (v6.1)
+## Documented Constraint (v6.2)
 
 ### `desi_wz_consistency.png` — DESI DR2 Test (FAILS)
 **Status:** Complete — result is a documented failure
@@ -75,12 +75,13 @@ awaiting observational data, or represent documented failures that inform the pr
 
 | Priority | Task | Blocker | Estimate |
 |---|---|---|---|
-| 1 | Self-consistent Ω_tilt(z) | Script needed | 1–2 days |
-| 2 | DESI DR2 retest | After #1 | 0.5 days |
-| 3 | x_c geometric derivation | Theory | Unknown |
-| 4 | SPARC with Υ* = 0.65–0.70 | Script update | 0.5 days |
-| 5 | CMB angle estimate | After #1 | 1 day |
-| 6 | N-body simulation | Cluster/collaboration | Weeks |
+| 1 | Submit gravity letter | None — ready now | This week |
+| 2 | Self-consistent Ω_tilt(z) | Script needed | 1–2 days |
+| 3 | DESI DR2 retest | After #2 | 0.5 days |
+| 4 | x_c geometric derivation | Theory | Unknown |
+| 5 | SPARC with Υ* = 0.65–0.70 | Script update | 0.5 days |
+| 6 | CMB angle estimate | After #2 | 1 day |
+| 7 | N-body simulation | Cluster/collaboration | Weeks |
 
 ---
 
@@ -93,6 +94,4 @@ fails is still science — the failure identifies exactly what needs fixing.
 
 ---
 
-**Document Version:** 6.1 | **Last Updated:** 18 March 2026
-
-#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-15-10-25-V-2
+**Document Version:** 6.2 | **Last Updated:** 20 March 2026

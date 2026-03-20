@@ -1,6 +1,6 @@
 """
 derive_mond_from_geometry.py
-ESTIF v6.0 — March 2026
+ESTIF v6.2 — March 2026
 
 PURPOSE
 -------
@@ -223,7 +223,12 @@ print(f"""
   Isotropy argument (3 equal spatial dimensions):
     <v²> = <vx²> + <vy²> + <vz²>  →  v_1D = v_rms/√3
 
-  This is not a choice — it is the unique consequence of 3D isotropy.
+  This is motivated by 3D spatial isotropy and consistent with the
+  equipartition theorem (which gives v_1D = v_rms/√3 for isotropic
+  motion in 3 spatial dimensions). A complete kinetic theory of the
+  eddy background — formally defining its distribution function and
+  equation of state in the 4D framework — is identified as future
+  theoretical work. The factor is physically motivated, not fitted.
   Same factor appears in kinetic theory, Jeans criterion, virial theorem.
 
   Projected eddy velocity:
@@ -631,3 +636,10 @@ print(f"""
     → Show the μ(a/a₀) interpolation function from the tilt geometry
     → Run N-body simulation with force law a = -c²/2 × ∇(ω/H₀)²
 """)
+
+# See also:
+#   tests/test_mond_sqrt3.py       — numerical uniqueness of 1/√3
+#   tests/test_a0_redshift.py      — redshift constancy proof (H(z) cancels exactly)
+#   tests/test_a0_parameter_independence.py — robustness across H₀/Ωm parameter space
+
+#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-16-10-25-V-2

@@ -1,7 +1,7 @@
 # estif_ec_gr_run_simulation.py
 
 """
-ESTIF Validation Suite (v6.0 — March 2026)
+ESTIF Validation Suite (v6.2 — March 2026)
 
 Proves the three project goals analytically:
 
@@ -574,7 +574,7 @@ def quick_diagnostic():
 def plot_summary():
     """Generate a one-page summary plot of all three goals."""
     fig, axes = plt.subplots(1, 3, figsize=(18, 6))
-    fig.suptitle('ESTIF v6.0 — Three Goals Summary', fontsize=14, fontweight='bold')
+    fig.suptitle('ESTIF v6.2 — Three Goals Summary', fontsize=14, fontweight='bold')
 
     RHO_CRIT = 3 * const.H_0**2 / (8 * np.pi * const.G)
     x0 = estif._x_0
@@ -641,7 +641,7 @@ def plot_summary():
 
 def run_all():
     print("\n" + "█"*70)
-    print("ESTIF v6.0 — COMPLETE VALIDATION SUITE")
+    print("ESTIF v6.2 — COMPLETE VALIDATION SUITE")
     print("█"*70)
 
     cal  = test_calibration()
@@ -713,5 +713,3 @@ if __name__ == "__main__":
             print(f"Unknown option: {arg}. Use --help.")
     else:
         run_all()
-
-#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-15-10-25-V-2

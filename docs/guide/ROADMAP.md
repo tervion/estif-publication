@@ -1,8 +1,8 @@
 # ESTIF Development Roadmap
 
-**Version:** 6.1  
-**Last Updated:** 18 March 2026  
-**Status:** Active research — MOND derived, SPARC validated, cosmology sector failing DESI DR2
+**Version:** 6.2  
+**Last Updated:** 20 March 2026  
+**Status:** Gravity letter ready for submission. Cosmology sector under revision.
 
 ---
 
@@ -619,60 +619,8 @@ Know the boundary of what your tools can do.
 | **v4.0** | **Mar 2026** | **Combined formula + Option A cosmology** |
 | **v5.0** | **Mar 2026** | **Joint SN+BAO fit, ALPHA_COSMO geometric derivation** |
 | **v6.0** | **Mar 2026** | **Gravity=Time=Eddies, Ωm=x₀, collisionless dark matter** |
-
----
-
-## File Structure (Current)
-
-```
-estif_publication/
-├── README.md                              ⚠️  Needs update to v6.0
-├── docs/
-│   ├── report/
-│   │   ├── ESTIF_CONCEPT.md               ✅ v6.0 (March 2026)
-│   │   ├── STATUS.md                      ✅ v6.0 (March 2026)
-│   │   └── VALIDATION_REPORT.md           ✅ v6.0 (March 2026)
-│   └── guide/
-│       ├── ROADMAP.md                     ✅ THIS FILE (v6.0)
-│       └── RHAC.md                        ✅ v4.0 (March 2026)
-├── src/
-│   ├── estif_ec_gr_constants.py          ✅ Current
-│   ├── estif_ec_gr_model.py              ✅ v4.0 (combined formula + Option A)
-│   └── estif_ec_gr_run_simulation.py     ⚠️  Needs update to v4.0
-├── tests/
-│   │   — COMPLETE —
-│   ├── test_joint_calibration.py         ✅ 3 tests pass
-│   ├── test_gravity_time_connection.py   ✅ β = τ at n = ½
-│   ├── test_electron_connection.py       ✅ N_MAX ≈ 5/7 × ln(r_e/l_P)
-│   ├── test_nmax_drift.py                ✅ Λ 0.023%/Gyr
-│   ├── test_estif_cosmology.py           ✅ 3 SN datasets
-│   ├── test_cosmological_consistency.py  ✅ Age/BAO/H₀/EOS
-│   ├── test_pantheon_raw_fit.py          ✅ 2.09σ
-│   ├── test_alpha_from_geometry.py       ✅ ALPHA_COSMO geometric derivation
-│   ├── test_bao_diagnostic.py            ✅ BAO formula verified
-│   ├── test_fixed_h0_fit.py              ✅ 1.80σ, α=0.0765
-│   ├── test_joint_cosmology_fit.py       ✅ 1.72σ, α=0.0894
-│   │   — DARK MATTER ANALYTICAL —
-│   ├── test_eddy_dark_matter.py          ✅ Ωm = x₀ (0.12%)
-│   ├── test_eddy_time_gravity.py         ✅ Gravity = Eddies = Time
-│   ├── test_baryons_only_cosmology.py    ✅ Failed — ruled out
-│   ├── test_x0_matter_term.py            ✅ Failed — wrong z evolution
-│   ├── test_jeans_length_eddy.py         ✅ Fluid approach — incomplete
-│   ├── test_hierarchical_collapse.py     ✅ Hierarchy confirmed
-│   ├── test_collisionless_eddy.py        ✅ σ/v_esc=0.5, λ=2.57r
-│   ├── test_virialized_eddy.py           ✅ δ=200 closes gap partially
-│   ├── test_solar_system_eddy.py         ✅ Formula dormant — GR correct
-│   │   — PENDING (Mac-doable) —
-│   ├── test_tully_fisher_correction.py   📋 Phase 7.1 — write next
-│   ├── test_desi_comparison.py           📋 Phase 5.3 — write next
-│   ├── test_cmb_angle_estimate.py        📋 Phase 6.1
-│   ├── test_isw_prediction.py            📋 Phase 6.2
-│   │   — REQUIRES SUPERCOMPUTER —
-│   └── test_nbody_estif.py               🔴 Phase 7.2 — needs cluster
-└── data/
-    ├── sn_data.txt                        ✅ 580 SNe
-    └── pantheon_plus.dat                  ✅ Pantheon+ 1701 SNe
-```
+| **v6.1** | **Mar 2026** | **MOND derived, SPARC validated, DESI DR2 constraint** |
+| **v6.2** | **Mar 2026** | **a₀ redshift constancy proved, parameter independence, letter drafted** |
 
 ---
 
@@ -804,7 +752,7 @@ Checklist:
 
 | Priority | Task | Type | Estimate |
 |---|---|---|---|
-| 1 | Write gravity-only letter | Writing | 1–2 weeks |
+| 1 | Submit gravity-only letter | Submission | This week |
 | 2 | Self-consistent Ω_tilt(z) | Script | 1–2 days |
 | 3 | DESI DR2 retest after fix | Script | 0.5 days |
 | 4 | Derive x_c geometrically | Theory | Unknown |

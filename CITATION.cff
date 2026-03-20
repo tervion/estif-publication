@@ -35,8 +35,8 @@ authors:
     given-names: "Peter"
     email: tervion@gmail.com
     affiliation: "Independent Researcher"
-version: 6.1.0
-date-released: "2026-03-18"
+version: 6.2.0
+date-released: "2026-03-20"
 license: MIT
 repository-code: "https://github.com/tervion/estif-publication"
 doi: "10.5281/zenodo.17261724"
@@ -92,10 +92,8 @@ preferred-citation:
   repository-code: "https://github.com/tervion/estif-publication"
   doi: "10.5281/zenodo.17261724"
   notes: >-
-    ESTIF v6.1 — Key milestone: a₀ = H₀cx₀/√3 derived from geometry (zero free
-    parameters), confirmed against 87 SPARC galaxies at RMS 15.6%. The 1/3
-    multiplier for B derived from 3D isotropy. DESI DR2 constraint documented:
-    Ω_tilt(z) fails at chi²/N=10.8, cosmological sector under revision.
-    Gravity sector solid. Run validation: python3 derive_mond_from_geometry.py
-
-#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-15-10-25-V-2
+    ESTIF v6.2 — a₀ redshift constancy proved algebraically (H(z) cancels in
+    comoving frame). Parameter independence confirmed across 3,600 cosmological
+    parameter combinations and 8 published datasets. 1/√3 reframed as motivated
+    by 3D isotropy (formal kinetic theory is future work). Gravity-only letter
+    drafted and ready for submission. Run: python3 tests/derive_mond_from_geometry.py

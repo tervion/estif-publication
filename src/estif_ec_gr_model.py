@@ -3,7 +3,7 @@
 """
 Emergent Spacetime from Inward Flow (ESTIF)
 
-Core Principles (v6.0 — March 2026):
+Core Principles (v6.2 — March 2026):
 1. ΛCDM matter sector retained (Ωm, radiation)
 2. Dark energy (ΩΛ) replaced by tilt geometry: Ω_tilt(z)
 3. Combined formula calibrated to EHT, Planck Λ, and LISA simultaneously
@@ -1280,9 +1280,3 @@ if __name__ == "__main__":
         print(f"\n❌ Error during testing: {e}")
         import traceback
         traceback.print_exc()
-
-
-#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-15-10-25-V-2
-
-
-

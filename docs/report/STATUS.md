@@ -1,8 +1,8 @@
 # ESTIF Development Status
 
-**Last Updated:** 18 March 2026
-**Version:** 6.1
-**Status:** Active research — MOND derived, SPARC validated, cosmology sector failing DESI DR2
+**Last Updated:** 20 March 2026
+**Version:** 6.2
+**Status:** Gravity letter ready for submission. Cosmology sector under revision.
 
 ---
 
@@ -75,6 +75,8 @@ v_flat = 220 km/s requires δ ~ 50,000–100,000. Cannot be computed on Mac Mini
 | `test_desi_wz_consistency.py` | DESI DR2 BAO test | ❌ NEW (fails) |
 | `test_multiplier_derivation.py` | 1/3 derived, 5/7 conditional | ⚠️ NEW (mixed) |
 | `cross_examination.py` | Two-sector synthesis | ✅ NEW |
+| `test_a0_redshift.py` | a₀ redshift constancy proof — H(z) cancels | ✅ v6.2 |
+| `test_a0_parameter_independence.py` | Robustness across H₀/Ωm (3,600 combinations) | ✅ v6.2 |
 | `test_joint_calibration.py` | EHT + Λ + LISA | ✅ |
 | `test_gravity_time_connection.py` | β = τ at n = ½ | ✅ |
 | `test_electron_connection.py` | N_MAX ≈ 5/7 × ln(r_e/l_P) | ✅ |
@@ -91,11 +93,12 @@ v_flat = 220 km/s requires δ ~ 50,000–100,000. Cannot be computed on Mac Mini
 
 ## Publication Readiness
 
-### Gravity Letter — ACHIEVABLE NOW ✅
+### Gravity Letter — DRAFTED ✅
 
-Claim: geometric derivation of a₀ + SPARC validation.
+Claim: geometric derivation of a₀ + SPARC validation + redshift constancy proof.
 Scope: 4–6 pages. Venue: MNRAS Letters, ApJL, JCAP.
-Does not depend on cosmological sector.
+File: ESTIF_letter_final.docx
+Both pre-publication blockers resolved in v6.2.
 
 ### Full Paper (Dark Energy + Gravity) — BLOCKED ❌
 
@@ -107,14 +110,12 @@ After fix: retest against DESI DR2 before claiming dark energy replacement.
 
 ## Priority Actions
 
-1. **Gravity letter** — write it up, achievable now
+1. **Submit gravity letter** — ESTIF_letter_final.docx is ready
 2. **Fix Ω_tilt(z)** — self-consistent x(z) with H_ESTIF
 3. **Derive x_c** — geometric condition for the GR crossover
 4. **SPARC with Υ* = 0.65–0.70** — tighten the bias
 
 ---
 
-**Status Document Version:** 6.1
-**Last Updated:** 18 March 2026
-
-#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-15-10-25-V-2
+**Status Document Version:** 6.2
+**Last Updated:** 20 March 2026

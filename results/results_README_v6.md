@@ -1,4 +1,4 @@
-# ESTIF v6.1 Results
+# ESTIF v6.2 Results
 
 ## Directory Structure
 
@@ -8,7 +8,9 @@ results/
 ├── cross_examination.png           ← NEW: two-sector verdict (v6.1)
 │
 ├── validated/                      ← Publication-ready figures
-│   ├── mond_derivation.png         ← NEW: 4-step MOND derivation (v6.1)
+│   ├── a0_redshift.png             ← NEW: a₀ redshift constancy proof (v6.2)
+│   ├── a0_parameter_independence.png ← NEW: 3,600 parameter combinations (v6.2)
+│   ├── mond_derivation.png         ← 4-step MOND derivation (v6.1)
 │   ├── sparc_tully_fisher.png      ← NEW: 87 galaxies, RMS 15.6% (v6.1)
 │   ├── sparc_bias_analysis.png     ← NEW: bias = calibration (v6.1)
 │   ├── multiplier_derivation.png   ← NEW: 1/3 derived, 5/7 conditional (v6.1)
@@ -49,6 +51,8 @@ SPARC bias        = -7.6%              (calibration only, not structural)
 B = L/3           = 15.536             (0.69% off — isotropy derivation)
 DESI DR2 chi²/N   = 10.8              (FAILS — cosmology sector needs rework)
 19/19 analytical tests still pass
+a₀ redshift constancy: H(z) cancels exactly (machine epsilon deviation)
+Parameter independence: 100% of 3,600 H₀/Ωm combinations within SPARC scatter
 ```
 
 ## Validation Run
@@ -72,6 +76,4 @@ python3 src/estif_ec_gr_run_simulation.py     # 19/19 core tests
 - `docs/report/VALIDATION_REPORT.md` — full technical validation
 - `docs/report/STATUS.md` — current project status
 
-**Last Updated:** 18 March 2026 | **Version:** 6.1
-
-#APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-15-10-25-V-2
+**Last Updated:** 20 March 2026 | **Version:** 6.2

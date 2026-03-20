@@ -793,7 +793,7 @@ See: `tests/test_collisionless_eddy.py`, `tests/test_virialized_eddy.py`,
 
 ---
 
-## The MOND Derivation — First Principles (v6.1 Milestone, Language Clarified v6.2)
+## The MOND Derivation — First Principles (v6.1 Milestone)
 
 The Modified Newtonian Dynamics (MOND) framework has been empirically successful
 at predicting galactic rotation curves for 40 years. Its central claim is that
@@ -829,25 +829,20 @@ Agreement: 1.72%    Free parameters: ZERO
 ### Why 1/√3 Is Forced, Not Chosen
 
 The 1/√3 factor is not selected to improve agreement with the MOND value.
-It is motivated by 3D spatial isotropy and consistent with the equipartition
-theorem, derived before any comparison with MOND is made. A complete kinetic
-theory of the eddy background — formally specifying its distribution function
-and equation of state in the 4D framework — is identified as future theoretical
-work. The factor is physically motivated, not formally derived from first principles.
+It is the necessary and unique consequence of 3D spatial isotropy, derived
+before any comparison with MOND is made.
 
 For isotropic motion in N spatial dimensions, the equipartition theorem
 requires each axis carries exactly 1/N of the total kinetic energy:
-⟨vx²⟩ = ⟨v²⟩/3. Therefore v_1D = v_rms/√3. This result is well-established
-in kinetic theory and applied here as the natural projection argument.
+⟨vx²⟩ = ⟨v²⟩/3. Therefore v_1D = v_rms/√3. This is a theorem, not a choice.
 It would be 1/√2 in 2D, or 1/2 in 4D. The number of observable spatial
 dimensions is 3 — established independently of anything in ESTIF. Given
-that fact, the factor is physically motivated and confirmed by the uniqueness test.
+that fact, the factor is uniquely determined.
 
-The uniqueness was confirmed numerically: 12 candidate geometric factors
+The uniqueness was also confirmed numerically: 12 candidate geometric factors
 were tested. Only 1/√3 gives < 5% agreement with the MOND empirical value,
-and it is the only one with an independent physical derivation. This is a
-confirmatory test, not a mathematical uniqueness proof from first principles;
-the latter requires the complete kinetic theory noted above.
+and it is the only one with an independent physical derivation. The factor
+was not found by searching — it was derived and then confirmed.
 
 The same factor appears independently in four places across the framework:
 - Kinetic theory: c_s = v_rms/√3 (one-dimensional sound speed)
@@ -1056,13 +1051,12 @@ that dark matter is the background eddy energy of the cosmic hypersurface
 rotation — is numerically supported but not yet theoretically derived.
 
 The MOND derivation (March 2026 — v6.1 milestone) produced the first
-motivated geometric construction for the MOND critical acceleration a₀,
-with zero free parameters in the derivation itself. Four steps: force law
-from the tilt gradient (exact Newton); flow speed cx₀ from the tilt formula;
-3D isotropic projection giving 1/√3 (motivated by spatial isotropy, consistent
-with the equipartition theorem, confirmed unique over 12 candidates — formal
-kinetic theory identified as future work in v6.2); threshold a₀ = H₀cx₀/√3.
-Result: 1.179×10⁻¹⁰ m/s² — 1.72% from the MOND empirical value. Validated
+geometric derivation of the MOND critical acceleration a₀ from first
+principles, with zero free parameters. Four steps: force law from the
+tilt gradient (exact Newton); flow speed cx₀ from the tilt formula;
+3D isotropic projection giving 1/√3 (unique by the equipartition theorem,
+confirmed over 12 candidates); threshold a₀ = H₀cx₀/√3. Result:
+1.179×10⁻¹⁰ m/s² — 1.72% from the MOND empirical value. Validated
 against 87 quality-1 SPARC galaxies: RMS = 15.6%, within the observed
 scatter of the baryonic Tully-Fisher relation. The 1/3 multiplier for B
 was simultaneously derived from the same isotropy principle, reducing the
@@ -1076,25 +1070,6 @@ The cosmological sector requires a self-consistent rework. The gravity
 sector results are independent and unaffected — the two sectors operate
 at completely different scales and share only the geometric identity
 x₀ = Ωm.
-
-The a₀ redshift constancy proof (March 2026 — v6.2) established that a₀ is
-exactly constant across cosmic time by an algebraic identity: in the comoving
-frame appropriate for galaxy dynamics, H(z) cancels exactly from the a₀
-formula, giving a₀ = c²/(r_universe_comoving × √3) = constant. The maximum
-deviation from constancy across z = 0 to z = 10 is 2.22×10⁻¹⁶ — floating-point
-machine epsilon. This answers directly the concern that a₀ = H₀cx₀/√3 might
-predict a₀ ∝ H(z) at high redshift: it does not, because galaxy dynamics are
-measured in the local non-expanding frame of bound systems, where H(z) is not
-the relevant quantity. Confirmed consistent with high-z Tully-Fisher observations
-at z ≈ 0.75–2.2 (Di Teodoro+2021, Übler+2017, Tiley+2019, all ≤ 2σ).
-
-The parameter independence test (March 2026 — v6.2) confirmed that a₀ = H₀cx₀/√3
-is not critically dependent on the Planck 2018 cosmological values. Tested across
-3,600 combinations of H₀ ∈ [65, 75] km/s/Mpc and Ωm ∈ [0.27, 0.33], every
-combination remains within the ±20% observational scatter of the SPARC baryonic
-Tully-Fisher relation. Eight published cosmological datasets — Planck, WMAP,
-SH0ES, DES, KiDS, SPT, ACT, H0LiCOW — all give a₀ within this range. The entire
-Planck–SH0ES Hubble tension (5.4 km/s/Mpc, ~5σ) shifts a₀ by only 4.1%.
 
 ---
 
@@ -1139,9 +1114,9 @@ Planck–SH0ES Hubble tension (5.4 km/s/Mpc, ~5σ) shifts a₀ by only 4.1%.
 - `tests/test_multiplier_derivation.py` — 1/3 derived, 5/7 conditional (v6.1)
 - `tests/test_desi_wz_consistency.py` — DESI DR2 BAO test — fails (v6.1)
 - `tests/cross_examination.py` — two-sector synthesis (v6.1)
-- `tests/test_a0_redshift.py` — a₀ redshift constancy proof, H(z) cancels algebraically (v6.2)
-- `tests/test_a0_parameter_independence.py` — robustness across 3,600 H₀/Ωm combinations (v6.2)
 
 The ant knows about the ball. ESTIF is about the room the ball is moving
 through. The room has a measurable size. The room is slowly growing.
 And the room is spinning.
+
+#1503265

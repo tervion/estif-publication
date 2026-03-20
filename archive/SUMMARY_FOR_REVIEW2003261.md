@@ -1,7 +1,7 @@
-# ESTIF v6.2 — Summary for Expert Review
+# ESTIF v6.1 — Summary for Expert Review
 
 **Author:** Peter Angelov (Independent Researcher, tervion@gmail.com)
-**Version:** 6.2 (March 2026)
+**Version:** 6.1 (March 2026)
 **Repository:** https://github.com/tervion/estif-publication
 **Zenodo:** https://zenodo.org/records/17418087
 **Validation:** `python3 tests/derive_mond_from_geometry.py` | `python3 src/estif_ec_gr_run_simulation.py` (19/19 pass)
@@ -31,11 +31,11 @@ B     = 15.429 ≈ 1/3 × ln(r_e/l_P)   (0.69% — derived from 3D isotropy)
 
 ---
 
-## What Is New in v6.2
+## What Is New in v6.1
 
 ### MILESTONE: First Derivation of MOND a₀ From Geometry
 
-The MOND critical acceleration a₀ ≈ 1.2×10⁻¹⁰ m/s² has never been derived from first principles in 40 years of MOND research. ESTIF provides a motivated geometric construction that reproduces the MOND normalization without internal tuning, using only the Planck 2018 values of H₀ and Ωm as independently measured inputs. The 1/√3 factor is motivated by 3D spatial isotropy and consistent with the equipartition theorem; a complete kinetic theory of the eddy background is identified as future theoretical work. The factor is physically motivated, not fitted. The four-step derivation:
+The MOND critical acceleration a₀ ≈ 1.2×10⁻¹⁰ m/s² has no derivation from first principles in 40 years of literature. ESTIF derives it in four steps:
 
 **Step 1 — Force law (exact):**
 ```
@@ -51,8 +51,9 @@ v_flow = c × x₀ = c × Ωm    (from tilt formula at x = x₀, two independent
 ```
 v_3D = v_flow / √3
 ```
-This is motivated by 3D spatial isotropy and consistent with the equipartition theorem (⟨v²⟩ = ⟨vx²⟩ + ⟨vy²⟩ + ⟨vz²⟩ → v_1D = v_rms/√3). The same factor appears in kinetic theory (c_s = v_rms/√3) and the Jeans criterion. A complete formal kinetic theory of the eddy background is future work.
-**Uniqueness check:** 1 of 12 candidate geometric factors gives < 5% error, and it is the only one with an independent physical justification. This is a confirmatory test, not a mathematical uniqueness proof from first principles.
+This follows from 3D spatial isotropy: ⟨v²⟩ = ⟨vx²⟩ + ⟨vy²⟩ + ⟨vz²⟩ → v_1D = v_rms/√3.
+The same factor appears in kinetic theory (c_s = v_rms/√3) and the Jeans criterion.
+**Uniqueness check:** 1 of 12 candidate geometric factors gives < 5% error, and it is the only one with an independent physical justification.
 
 **Step 4 — MOND threshold:**
 ```
@@ -60,7 +61,7 @@ a₀ = v_3D × H₀ = H₀ × c × x₀ / √3 = 1.179 × 10⁻¹⁰ m/s²
 ```
 
 **MOND empirical:** 1.200 × 10⁻¹⁰ m/s² → **Agreement: 1.72%**
-**Free parameters in the MOND derivation itself: ZERO.** H₀ and x₀ = Ωm from Planck 2018. √3 from dimension count. (The underlying tilt formula has separately calibrated parameters; those are not used here.)
+**Free parameters: ZERO.** H₀ and x₀ = Ωm from Planck 2018. √3 from dimension count.
 
 ### SPARC Validation
 
@@ -125,7 +126,7 @@ Zero free parameters after calibration. Three independent observations. One form
 ## Questions for Expert Review
 
 **Theoretical:**
-1. The 1/√3 and 1/3 projection factors both arise from 3D spatial isotropy, motivated by the equipartition theorem. A complete kinetic theory of the eddy background is future work. Is the isotropy motivation sufficient as stated, or is the paper weakened by leaving the formal derivation open?
+1. The 1/3 and 1/√3 projection factors both arise from 3D spatial isotropy. Is this the correct physical mechanism, or is there an alternative derivation?
 2. What is the geometric property of Schwarzschild spacetime at r = 3.68 Rs that gives x_c = 0.272? (This is the remaining open theoretical gap.)
 3. Can ρ_eddy = x₀ × ρ_crit be derived from the 4D stress-energy tensor Tμν?
 
@@ -154,8 +155,6 @@ Zero free parameters after calibration. Three independent observations. One form
 - w_eff ≈ −1.08 prediction falsified at 3.5σ by new data
 
 **What remains open:**
-- 1/√3 projection factor: motivated by 3D spatial isotropy, consistent with the equipartition theorem. A complete formal kinetic theory of the eddy background is future work. The factor is physically motivated and confirmed by the uniqueness test.
-- a₀ redshift constancy: proved algebraically in v6.2 — H(z) cancels exactly in the comoving frame. a₀(z) = c²/(r_universe_comoving × √3) = constant. Confirmed consistent with Di Teodoro+2021, Übler+2017, Tiley+2019 at ≤2σ.
 - x_c = 0.272 not geometrically derived
 - Full T_μν projection for ρ_eddy
 - N-body simulation for halo structure
@@ -175,9 +174,5 @@ Zero free parameters after calibration. Three independent observations. One form
 7. `src/estif_ec_gr_model.py` — core implementation
 8. `results/validated/mond_derivation.png` — derivation chain figure
 9. `results/validated/sparc_tully_fisher.png` — 87-galaxy validation
-10. `tests/test_a0_redshift.py` — a₀ redshift constancy proof (H(z) cancels, v6.2)
-11. `tests/test_a0_parameter_independence.py` — robustness across H₀/Ωm parameter space (v6.2)
-12. `results/validated/a0_redshift.png` — constancy plot vs high-z observations
-13. `results/validated/a0_parameter_independence.png` — 3,600 parameter combinations
 
-**Document Version:** 6.2 | **Updated:** 20 March 2026
+**Document Version:** 6.2 | **Created:** 20 March 2026
