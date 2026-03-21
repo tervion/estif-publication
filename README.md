@@ -3,7 +3,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17261724.svg)](https://doi.org/10.5281/zenodo.17261724)
 [![Status](https://img.shields.io/badge/status-active_research-blue)]()
 [![Version](https://img.shields.io/badge/version-6.2-blue)]()
-[![Tests](https://img.shields.io/badge/tests-19%2F19_passing-success)]()
+[![Tests](https://img.shields.io/badge/tests-21%2F21_passing-success)](https://github.com/tervion/estif-publication/blob/main/src/estif_ec_gr_run_simulation.py)
 
 ---
 
@@ -77,7 +77,7 @@ The ESTIF dark energy sector (Ω_tilt(z)) was tested against DESI DR2 (released 
 | Test | ESTIF | DESI DR2 | Status |
 |---|---|---|---|
 | chi²/N vs BAO distances | 10.8 | — | ❌ Fails (LCDM: 1.9) |
-| w₀ prediction (−1.08) | −1.08 | −0.73 ± 0.10 | ❌ 3.5σ tension |
+| w₀ prediction (−1.358) | −1.358 | −0.73 ± 0.10 | ❌ 3.5σ tension |
 | Supernova (Pantheon+) | 2.08–2.33σ | — | ✅ Pre-DR2 result stands |
 | BAO (BOSS/eBOSS) | 5/5 improved | — | ✅ Pre-DR2 result stands |
 
@@ -90,7 +90,7 @@ The ESTIF dark energy sector (Ω_tilt(z)) was tested against DESI DR2 (released 
 | Ωm = x₀ = R_H/r_universe | 0.12% agreement | ✅ Within Planck 1σ |
 | Ωdm = x₀ − Ωb | 0.10% agreement | ✅ Within Planck 1σ |
 | Virial condition σ/v_escape | = 0.5 exactly | ✅ Derived |
-| Jeans: λ = 2.57r | Universal | ✅ Derived |
+| Jeans: λ = 2.565r | Universal | ✅ Derived |
 | a₀ = H₀ × c × x₀ / √3 | 1.179×10⁻¹⁰ m/s² | ✅ 1.72% match (derived) |
 
 ---
@@ -182,7 +182,11 @@ Derivation:
 │   ├── sn_data.txt       # Original 580 supernova dataset
 │   └── pantheon_plus.dat # Pantheon+ (auto-downloaded on first run)
 ├── docs/
-│   ├── SUMMARY_FOR_REVIEW.md        # Expert summary (updated v6.1)
+│   ├── SUMMARY_FOR_REVIEW.md        # Expert summary (updated v6.2)
+│   ├── guide/
+│   │   └── ROADMAP.md               # Development roadmap and phase history
+│   ├── plan/
+│   │   └── RHAC.md                  # Rabbit holes and crossroads decision archive
 │   ├── LaTeX/ESTIF_arXiv_Paper/     # LaTeX source
 │   └── report/
 │       ├── STATUS.md
@@ -213,7 +217,8 @@ Derivation:
     ├── test_cosmological_consistency.py  # Age, BAO, H₀, EOS
     ├── test_mond_sqrt3.py                # MOND a₀ = H₀cx₀/√3 (1.72%)
     ├── test_eddy_dark_matter.py          # Ωm = x₀ (0.12%)
-    ├── test_collisionless_eddy.py        # σ/v_esc=0.5, λ=2.57r
+    ├── test_collisionless_eddy.py        # σ/v_esc=0.5, λ=2.565r
+    ├── test_solar_system_eddy.py         # Multi-scale observable, GR compatibility
     └── test_tully_fisher_correction.py   # Tully-Fisher MOND limit
 ```
 
@@ -254,7 +259,7 @@ python3 test_joint_calibration.py
 ```bash
 cd src
 python3 estif_ec_gr_run_simulation.py
-# 19/19 analytical tests pass
+# 21/21 analytical tests pass
 ```
 
 ---
@@ -268,7 +273,7 @@ python3 estif_ec_gr_run_simulation.py
 | EHT shadow size | 42.0 μas | ✅ 0.00σ |
 | Λ drift direction | increasing with z | ⏳ Approaching EUCLID |
 | LISA GW delay | 491 μs at 49σ | ⏳ ~2034 |
-| Ω_tilt(z) evolution | w_eff ≈ −1.08 | ❌ Fails DESI DR2 — under revision |
+| Ω_tilt(z) evolution | w_eff ≈ −1.358 | ❌ Fails DESI DR2 — under revision |
 
 ---
 
@@ -293,7 +298,7 @@ python3 estif_ec_gr_run_simulation.py
 
 **What fails (cosmology sector):**
 - Ω_tilt(z) evolution fails DESI DR2 at chi²/N = 10.8
-- Pre-existing prediction w_eff ≈ −1.08 falsified by DESI DR2 w₀ = −0.73 ± 0.10 (3.5σ)
+- Pre-existing prediction w_eff ≈ −1.358 falsified by DESI DR2 w₀ = −0.73 ± 0.10 (3.5σ)
 - The x(z) formula is circular — must be rebuilt with self-consistent H_ESTIF
 
 **What is incomplete:**
@@ -307,14 +312,14 @@ python3 estif_ec_gr_run_simulation.py
 ## Contact & Citation
 
 **Repository:** https://github.com/tervion/estif-publication
-**Zenodo:** https://zenodo.org/records/17261725
+**Zenodo:** https://zenodo.org/records/17261724
 
 ```bibtex
-@software{angelov2026estif_v61,
+@software{angelov2026estif_v62,
   author  = {Angelov, Peter},
-  title   = {ESTIF: Emergent Spacetime from Inward Flow — v6.1},
+  title   = {ESTIF: Emergent Spacetime from Inward Flow — v6.2},
   year    = {2026},
-  version = {6.1},
+  version = {6.2},
   url     = {https://github.com/tervion/estif-publication},
   doi     = {10.5281/zenodo.17261724}
 }

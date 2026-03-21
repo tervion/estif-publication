@@ -2,7 +2,7 @@
 
 **ESTIF v6.2 Decision History**  
 **Last Updated:** 20 March 2026
-**Status:** Active — updated to reflect v4.0 state
+**Status:** Active — updated to v6.2. Letter ready for submission. Cosmology sector under revision.
 
 This file catalogs potential rabbit holes (deep, distracting sub-problems) and
 crossroads (decision points) in ESTIF development. Use it to avoid getting lost:
@@ -79,8 +79,8 @@ if a task risks a detour, check here for pre-mapped options and resolutions.
    - More work but stronger scientifically
    - If the 4D flow was slower in the early universe, formula should naturally decay
 
-**Current status:** 🟡 Active — Phase 5.1 in ROADMAP.md
-**Recommendation:** Start with Option 1 immediately, investigate Option 2 as Phase 6 prep.
+**Current status:** 🟢 Option 1 implemented — Phase 5.1 complete.
+**Recommendation:** Investigate Option 2 as Phase 6 prep.
 
 ---
 
@@ -95,7 +95,7 @@ if a task risks a detour, check here for pre-mapped options and resolutions.
 3. **Reframe:** DESI reports hints of w < −1 in some bins — ESTIF is consistent with
    the direction even if the magnitude differs.
 
-**Current status:** 🟡 Active — Phase 5.3 in ROADMAP.md
+**Current status:** 🔴 Resolved as failure. See Scenario E update below.
 
 ---
 
@@ -107,7 +107,7 @@ Five results confirmed:
 1. Ωm = x₀ = R_H/r_universe to 0.12% — not a coincidence
 2. Ωdm = x₀ − Ωb to 0.10%
 3. σ/v_escape = 0.5 exactly — virial condition automatic
-4. λ_Jeans = 2.57 × r — self-similar at every scale
+4. λ_Jeans = 2.565 × r — self-similar at every scale
 5. Free-fall time at z=10: ~1 Gyr — correct epoch
 
 **The wall:** v_flat = 220 km/s requires δ ~ 50,000–100,000. Only N-body gives this.
@@ -295,8 +295,7 @@ Whether this supplies exactly M^(−1/12) is the test.
 2. **Accept 1/3:** ESTIF gives the right trend, wrong exponent. Note as limitation.
 3. **Derive analytically:** dlog(v)/dlog(M) = 1/4 requires specific x_local(M) scaling.
 
-**Current status:** 🟡 Active — highest priority remaining analytical test
-**Decision:** Option 1 immediately.
+**Current status:** 🟢 Resolved — see Scenario I update below.
 
 ---
 
@@ -316,8 +315,8 @@ So D_A(z_rec) should be nearly unchanged.
 2. **Argue by construction:** Since Ω_tilt is capped at z=2, the expansion history
    at z>2 is pure ΛCDM, so D_A cannot differ significantly.
 
-**Current status:** 🟡 Active — Phase 6.1 — second priority after Tully-Fisher
-**Decision:** Option 1 — verify rather than argue.
+**Current status:** 🟡 Active — Phase 6.1 — blocked by cosmology sector failure
+**Decision:** Option 1 — verify rather than argue. But must fix Ω_tilt(z) first.
 
 ---
 

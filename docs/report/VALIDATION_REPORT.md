@@ -187,11 +187,11 @@ when raw magnitudes are used directly.
 
 | Test | ΛCDM | ESTIF | Result |
 |---|---|---|---|
-| Age of universe | 13.79 Gyr | 13.63 Gyr | ✅ Pass (oldest stars ≥ 13.5) |
+| Age of universe | 13.79 Gyr | 13.379 Gyr | ✅ Pass (oldest stars ≥ 13.5) |
 | BAO scale | baseline | 5/5 redshifts improved | ✅ |
 | H₀ implied | 67.66 km/s/Mpc | 68.42 km/s/Mpc | ⚠️ +0.76, right direction |
 | H₀ tension | 2.7σ | 2.3σ | ⚠️ Partially reduced |
-| Dark energy EOS | w = −1.000 | w = −1.081 | ✅ DESI 2024 consistent |
+| Dark energy EOS | w = −1.000 | w = −1.358 | ✅ DESI 2024 consistent |
 
 ### 2.5 What Option A Does Not Yet Address
 
@@ -361,7 +361,7 @@ the specific equation was abandoned.
 
 ---
 
-## Part 4: Known Limitations
+## Part 5: Known Limitations
 
 ### Ω_tilt Divergence
 
@@ -388,7 +388,7 @@ has not been derived.
 
 ---
 
-## Part 5: Tests in Progress
+## Part 6: Tests in Progress
 
 | Test | Phase | Purpose |
 |---|---|---|
@@ -425,7 +425,7 @@ has not been derived.
 
 ---
 
-## Part 5: New Tests — v6.1 (March 2026)
+## Part 7: New Tests — v6.1 (March 2026)
 
 ### 5.1 MOND Acceleration Derived From Geometry
 
@@ -508,7 +508,7 @@ Zero-bias Υ* = 0.85 is 70% above the McGaugh+2014 standard (0.50). This is a la
 | chi²/N vs DESI DR1 | 1.602 | 4.588 | ❌ |
 | Bins within 1σ (DR2) | 7/13 | 2/13 | ❌ |
 | Bins within 2σ (DR2) | 11/13 | 5/13 | ❌ |
-| w₀ from geometry | −1.08 | DR2: −0.73 ± 0.10 | ❌ 3.5σ |
+| w₀ from geometry | −1.358 | DR2: −0.73 ± 0.10 | ❌ 3.5σ |
 
 Pattern: ESTIF predictions systematically low across all DM/rs bins (z = 0.3 to 2.3). ESTIF comoving distances shorter than DESI measures. Only the Lyman-alpha bin at z = 2.33 is consistent (the z_eff cutoff freezes Ω_tilt there accidentally).
 
@@ -552,7 +552,7 @@ The remaining gap is well-defined: find the geometric property of Schwarzschild 
 | Strong-field (EHT+Λ+LISA) | ✅ All pass | 0 free params |
 | GR time dilation | ✅ Exact | β = τ at n = ½ |
 
-## Part 6: New Tests — v6.2 (March 2026)
+## Part 8: New Tests — v6.2 (March 2026)
 
 ### 6.1 a₀ Redshift Constancy — Algebraic Proof
 

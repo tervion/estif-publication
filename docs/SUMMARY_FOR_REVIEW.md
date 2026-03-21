@@ -3,8 +3,8 @@
 **Author:** Peter Angelov (Independent Researcher, tervion@gmail.com)
 **Version:** 6.2 (March 2026)
 **Repository:** https://github.com/tervion/estif-publication
-**Zenodo:** https://zenodo.org/records/17418087
-**Validation:** `python3 tests/derive_mond_from_geometry.py` | `python3 src/estif_ec_gr_run_simulation.py` (19/19 pass)
+**Zenodo:** https://zenodo.org/records/17261724
+**Validation:** `python3 tests/derive_mond_from_geometry.py` | `python3 src/estif_ec_gr_run_simulation.py` (21/21 pass)
 
 ---
 
@@ -89,6 +89,14 @@ Tested against official DESI DR2 BAO data (arXiv:2503.14738, 19 March 2026):
 - **This is a genuine prediction failure**, documented honestly
 - The failure is isolated to the cosmology sector. Gravity sector results are independent.
 
+### New in v6.2 (Pre-Publication Blockers Resolved)
+
+**Blocker 1 — a₀ redshift constancy (resolved):** In the comoving frame appropriate for galaxy dynamics, x(z) = c/[H(z) × r_universe_comoving], so H(z) cancels exactly: a₀(z) = c²/(r_universe_comoving × √3) = constant. Maximum deviation: 2.22×10⁻¹⁶ (floating-point epsilon). Algebraic identity, not numerical. Confirmed consistent with Di Teodoro+2021, Übler+2017, Tiley+2019 (all ≤ 2σ at z = 0.75–2.2). Script: `tests/test_a0_redshift.py`.
+
+**Blocker 2 — 1/√3 language (resolved):** Language updated in all documents from "derived from the equipartition theorem" to "motivated by 3D spatial isotropy and consistent with the equipartition theorem; a complete kinetic theory of the eddy background is identified as future theoretical work."
+
+**Parameter independence test (new):** a₀ = H₀cx₀/√3 tested across 3,600 combinations of H₀ ∈ [65,75] km/s/Mpc and Ωm ∈ [0.27,0.33]: 100% of combinations within ±20% SPARC scatter. 8 published datasets all pass. Planck–SH0ES Hubble tension shifts a₀ by only 4.1%. Script: `tests/test_a0_parameter_independence.py`.
+
 ---
 
 ## Two-Sector Structure
@@ -147,15 +155,15 @@ Zero free parameters after calibration. Three independent observations. One form
 - GR time dilation as special case: algebraically exact
 - 1/3 multiplier for B: genuine isotropy derivation
 - Ωm = x₀ to 0.12%, Ωdm = x₀ − Ωb to 0.10%
-- The isotropy principle is coherent across MOND, B, and kinetic theory
+- a₀ redshift constancy: proved algebraically (H(z) cancels exactly)
+- Parameter independence: confirmed across 3,600 H₀/Ωm combinations
 
 **What fails:**
 - Ω_tilt(z) evolution: fails DESI DR2 at chi²/N = 10.8
 - w_eff ≈ −1.08 prediction falsified at 3.5σ by new data
 
 **What remains open:**
-- 1/√3 projection factor: motivated by 3D spatial isotropy, consistent with the equipartition theorem. A complete formal kinetic theory of the eddy background is future work. The factor is physically motivated and confirmed by the uniqueness test.
-- a₀ redshift constancy: proved algebraically in v6.2 — H(z) cancels exactly in the comoving frame. a₀(z) = c²/(r_universe_comoving × √3) = constant. Confirmed consistent with Di Teodoro+2021, Übler+2017, Tiley+2019 at ≤2σ.
+- 1/√3 projection factor: motivated by 3D spatial isotropy, consistent with equipartition theorem. Formal kinetic theory is future work.
 - x_c = 0.272 not geometrically derived
 - Full T_μν projection for ρ_eddy
 - N-body simulation for halo structure

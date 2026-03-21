@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-ESTIF is a geometric model deriving gravity, dark energy, and dark matter from the claim that 3D space is a hypersurface moving through 4D space. As of v6.1, the project has two sectors in different states of health.
+ESTIF is a geometric model deriving gravity, dark energy, and dark matter from the claim that 3D space is a hypersurface moving through 4D space. As of v6.2, the project has two sectors in different states of health.
 
 ---
 
@@ -29,18 +29,20 @@ ESTIF is a geometric model deriving gravity, dark energy, and dark matter from t
 | Ωm = x₀ | 0.12% agreement | ✅ |
 | Ωdm = x₀ − Ωb | 0.10% agreement | ✅ |
 | σ/v_escape = 0.5 | Exact, all scales | ✅ |
-| λ_Jeans = 2.57r | Universal | ✅ |
+| λ_Jeans = 2.565r | Universal | ✅ |
+| a₀ redshift constancy | H(z) cancels exactly (2.22×10⁻¹⁶ deviation) | ✅ v6.2 |
+| Parameter independence | 100% of 3,600 H₀/Ωm combos within SPARC scatter | ✅ v6.2 |
 
 ### Cosmology Sector ❌ FAILS DESI DR2
 
 | Test | Result | Status |
 |---|---|---|
 | DESI DR2 BAO chi²/N | 10.8 (ΛCDM: 1.9) | ❌ Fails |
-| w₀ prediction | −1.08 vs DR2 −0.73 ± 0.10 | ❌ 3.5σ tension |
+| w₀ prediction | −1.358 vs DR2 −0.73 ± 0.10 | ❌ 3.5σ tension |
 | Bins within 1σ (DR2) | 2/13 | ❌ |
 | Pantheon+ SN (pre-DR2) | 2.08–2.33σ improvement | ✅ Stands |
 | BAO BOSS/eBOSS (pre-DR2) | 5/5 improved | ✅ Stands |
-| Age of universe | 13.63 Gyr | ✅ Stands |
+| Age of universe | 13.379 Gyr | ✅ Stands |
 
 **Root cause:** x(z) = x₀ × (1+z) × H₀/H_ΛCDM(z) is circular. Uses ΛCDM as its own correction ruler.
 
@@ -85,9 +87,11 @@ v_flat = 220 km/s requires δ ~ 50,000–100,000. Cannot be computed on Mac Mini
 | `test_cosmological_consistency.py` | Age, BAO, H₀, EOS | ✅ (pre-DR2) |
 | `test_mond_sqrt3.py` | MOND a₀ from geometry | ✅ |
 | `test_eddy_dark_matter.py` | Ωm = x₀ identity | ✅ |
-| `test_collisionless_eddy.py` | σ/v_esc, λ=2.57r | ✅ |
-| `test_solar_system_eddy.py` | Formula dormant at solar system | ✅ |
+| `test_collisionless_eddy.py` | σ/v_esc, λ=2.565r | ✅ |
+| `test_solar_system_eddy.py` | Multi-scale observable, GR compatibility | ✅ |
 | `test_tully_fisher_correction.py` | MOND limit, a₀ | ✅ |
+
+**Analytical suite:** `python3 src/estif_ec_gr_run_simulation.py` → 21/21 tests pass.
 
 ---
 

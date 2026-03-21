@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software in your research, please cite it as below."
 title: "ESTIF: Emergent Spacetime from Inward Flow — Geometric Tilt Model for Gravity, Dark Energy, and Dark Matter"
 abstract: >-
-  ESTIF v6.1 derives gravity, dark energy, and dark matter analytically from a
+  ESTIF v6.2 derives gravity, dark energy, and dark matter analytically from a
   single geometric claim: 3D space is a hypersurface moving through 4D space.
 
   KEY MILESTONE (v6.1): The MOND critical acceleration a₀ is derived from
@@ -15,17 +15,28 @@ abstract: >-
   baryonic Tully-Fisher scatter). The B parameter multiplier 1/3 is derived from
   the same 3D isotropy principle.
 
-  Strong-field results confirmed (19/19 analytical tests pass):
+  NEW IN v6.2: (1) a₀ redshift constancy proved algebraically — in the comoving
+  frame appropriate for galaxy dynamics, H(z) cancels exactly from a₀ = H₀cx₀/√3,
+  giving a₀(z) = c²/(r_universe_comoving × √3) = constant. Maximum deviation from
+  constancy: 2.22×10⁻¹⁶ (floating-point epsilon). Confirmed consistent with
+  Di Teodoro+2021, Übler+2017, Tiley+2019 at z = 0.75–2.2 (all ≤ 2σ).
+  (2) Parameter independence confirmed across 3,600 combinations of H₀ ∈ [65,75]
+  km/s/Mpc and Ωm ∈ [0.27,0.33]: 100% within ±20% SPARC scatter. All 8 published
+  cosmological datasets (Planck, WMAP, SH0ES, DES, KiDS, SPT, ACT, H0LiCOW) pass.
+  The Planck–SH0ES Hubble tension shifts a₀ by only 4.1%.
+  (3) Gravity-only letter drafted and ready for submission (MNRAS Letters, ApJL, JCAP).
+
+  Strong-field results confirmed (21/21 analytical tests pass):
   EHT M87* shadow 0.00σ tension, Planck Λ ratio 1.0000, LISA GW delay 491 μs
   at S/N 49.2σ. GR time dilation is the special case at n=½ (x=0.272).
   Parameters: N_MAX ≈ 5/7 × ln(r_e/l_P) (0.08%), B ≈ 1/3 × ln(r_e/l_P) (0.69%).
 
   Dark matter analytical results: Ωm = x₀ = R_H/r_universe to 0.12%,
   Ωdm = x₀ − Ωb to 0.10%. Virial condition σ/v_esc = 0.5 exact. Self-similar
-  Jeans λ = 2.57r. N-body simulation needed for halo structure.
+  Jeans λ = 2.565r. N-body simulation needed for halo structure.
 
   DESI DR2 constraint (March 2026): The Ω_tilt(z) cosmological sector fails
-  DESI DR2 at chi²/N = 10.8. The w_eff ≈ −1.08 prediction is 3.5σ from DESI
+  DESI DR2 at chi²/N = 10.8. The w_eff ≈ −1.358 prediction is 3.5σ from DESI
   DR2 w₀ = −0.73 ± 0.10. The cosmological sector requires rework. The gravity
   sector results are independent and unaffected.
 
@@ -40,7 +51,7 @@ date-released: "2026-03-20"
 license: MIT
 repository-code: "https://github.com/tervion/estif-publication"
 doi: "10.5281/zenodo.17261724"
-url: "https://zenodo.org/records/17418087"
+url: "https://zenodo.org/records/17261724"
 keywords:
   - general-relativity
   - modified-gravity
@@ -65,13 +76,13 @@ keywords:
   - emergent-spacetime
 references:
   - type: software
-    title: "ESTIF v6.0 — Gravity=Time=Eddies, Dark Matter Analytical Phase"
+    title: "ESTIF v6.1 — MOND Derived, SPARC Validated, DESI Constraint, Multipliers"
     authors:
       - family-names: "Angelov"
         given-names: "Peter"
     year: 2026
-    version: "6.0.0"
-    notes: "Previous version. Established MOND connection, collisionless dynamics. Superseded by v6.1 which derives a₀ formally and tests against SPARC and DESI DR2."
+    version: "6.1.0"
+    notes: "Previous version. Derived a₀ = H₀cx₀/√3 formally, validated against 87 SPARC galaxies (RMS 15.6%), tested against DESI DR2 (fails chi²/N = 10.8), derived B = L/3 from isotropy. Superseded by v6.2 which adds a₀ redshift constancy proof and parameter independence test."
   - type: software
     title: "ESTIF-FD v1.0 — Emergent Spacetime from Inward Flow (Original)"
     authors:
@@ -79,16 +90,16 @@ references:
         given-names: "Peter"
     year: 2024
     version: "1.0.0"
-    repository-code: "https://zenodo.org/records/17261725"
+    repository-code: "https://zenodo.org/records/17261724"
     notes: "Original cosmology version — S(t) = exp(-∫H dt) ruled out by supernova data (χ² = 3.8× worse than ΛCDM). Concept retained, equation abandoned."
 preferred-citation:
   type: software
-  title: "ESTIF: Emergent Spacetime from Inward Flow v6.1 — MOND Derived, SPARC Validated"
+  title: "ESTIF: Emergent Spacetime from Inward Flow v6.2 — a₀ Redshift Constancy Proved, Letter Ready"
   authors:
     - family-names: "Angelov"
       given-names: "Peter"
   year: 2026
-  version: "6.1.0"
+  version: "6.2.0"
   repository-code: "https://github.com/tervion/estif-publication"
   doi: "10.5281/zenodo.17261724"
   notes: >-

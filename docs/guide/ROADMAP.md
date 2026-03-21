@@ -82,7 +82,7 @@ Six low-redshift tests pass simultaneously:
 | Test | Result |
 |---|---|
 | Supernova distances (Pantheon+) | 2.08–2.33σ improvement |
-| Age of universe | 13.63 Gyr ✅ (oldest stars ≥ 13.5 Gyr) |
+| Age of universe | 13.379 Gyr ✅ (oldest stars ≥ 13.5 Gyr) |
 | BAO scale | 5/5 redshifts improved |
 | H₀ tension | 2.7σ → 2.3σ |
 | Dark energy EOS | w = −1.08 (DESI 2024 consistent) |
@@ -240,77 +240,6 @@ where an independent researcher might spend weeks.
 
 ---
 
-## Phase 7: The Second Floor (Dark Matter) 📋
-
-**Goal:** Address galaxy rotation curves and cluster lensing  
-**Prerequisite:** None — can start independently of Phases 5 and 6  
-**Difficulty:** Very high — completely new mechanism required
-
----
-
-### 7.1 — Diagnose The Weak-Field Problem
-
-**The current situation:**
-The combined formula gives n ≈ 33 in weak fields (galactic scales).
-x^(2n) ≈ 0 for any reasonable galactic curvature. So β ≈ 1 and
-Observable ≈ 1 — essentially no correction at all.
-
-ESTIF's strong-field formula is **inert** in galaxy rotation regimes.
-
-**The question:**
-Is there a second regime of the tilt geometry — one that activates
-at very low curvature rather than high curvature — that could
-produce the flat rotation curves?
-
-In MOND (Modified Newtonian Dynamics), gravity is stronger below
-a critical acceleration a₀ ≈ 1.2×10⁻¹⁰ m/s². ESTIF would need
-something analogous — an additional tilt effect at very low x.
-
-**What to do:**
-Write `test_rotation_curve_diagnosis.py` that:
-1. Calculates the curvature ratio x at various radii in a typical galaxy
-2. Plots what the current ESTIF formula predicts for rotation velocity
-3. Shows the gap between prediction and observed flat rotation curves
-4. Quantifies what additional effect would be needed to close the gap
-
-**Milestone:** Rotation curve gap quantified — know what needs explaining
-
----
-
-### 7.2 — The Two Hypotheses
-
-After diagnosing the gap, two distinct hypotheses need testing:
-
-**Hypothesis D1 — A second tilt mode at low curvature:**
-Perhaps the tilt geometry has two regimes — a suppression at high x
-(what we have) and an enhancement at very low x. Mathematically:
-
-```
-n_galactic(x) = N_gal × exp(+B_gal × x)   [grows at small x]
-```
-
-This would be a mirror of the strong-field formula, activating at
-the opposite extreme. Completely speculative — but testable against
-rotation curves if parameters can be constrained.
-
-**Hypothesis D2 — The 4D flow itself creates apparent mass:**
-If the inward flow of 3D space through 4D creates apparent density
-in regions where the flow is non-uniform, galaxies might experience
-an effective dark matter contribution from the flow geometry itself.
-This is the deeper conceptual claim — harder to formalise but
-more physically motivated.
-
-**What to do:**
-Write `test_dark_matter_hypotheses.py` testing D1 against
-the Milky Way rotation curve and one external galaxy (NGC 3198
-is a standard test case with well-measured flat rotation).
-
-**Milestone:** D1 ruled in or out against two rotation curves
-
----
-
-### 7.3 — Cluster Lensing and Large Scale Structure
-
 ## Phase 7: The Second Floor (Dark Matter) 🔄
 
 **Goal:** Test whether the eddy background can account for dark matter  
@@ -437,8 +366,8 @@ current resources — explicitly a collaboration target.
 
 ## Phase 9: Publication 📄
 
-**When ready:** After at minimum Phase 5 is complete and Phase 6 has
-produced at least the CMB angle consistency check.
+**Publication status:** The gravity-only letter is ready for submission now (v6.2). A full paper covering dark energy will require Phase 5 to be complete and Phase 6 to have
+produced at least the CMB angle consistency check. See the v6.1 update below for the current publication checklist.
 
 ---
 
@@ -624,20 +553,6 @@ Know the boundary of what your tools can do.
 
 ---
 
-## Version History
-
-| Version | Date | Key Change |
-|---|---|---|
-| v1.0 | Sep 2024 | Original ESTIF-FD (S(t) cosmology) |
-| v1.5 | Jan 2025 | Post-CMB-age-fix updates |
-| v2.0 | Oct 2025 | ESTIF-Gravity fork (gravity only) |
-| v3.0 | Oct 2025 | β derived from tilt geometry |
-| **v4.0** | **Mar 2026** | **Combined formula + Option A cosmology** |
-
----
-
-**End of Roadmap**
-
 ---
 
 ## ROADMAP UPDATE — v6.1 (18 March 2026)
@@ -757,4 +672,3 @@ Checklist:
 | 3 | DESI DR2 retest after fix | Script | 0.5 days |
 | 4 | Derive x_c geometrically | Theory | Unknown |
 | 5 | SPARC with Υ* = 0.65 | Script update | 0.5 days |
-

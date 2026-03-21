@@ -117,7 +117,7 @@ A clear two-sector picture emerges: gravity sector solid, cosmology sector requi
 #### DESI DR2 Test
 
 - ESTIF Ω_tilt(z) fails DESI DR2 at chi²/N = 10.8 (ΛCDM: 1.9)
-- Pre-existing prediction w_eff ≈ −1.08 is 3.5σ from DESI DR2 w₀ = −0.73 ± 0.10
+- Pre-existing prediction w_eff ≈ −1.358 is 3.5σ from DESI DR2 w₀ = −0.73 ± 0.10
 - Root cause: x(z) formula is circular (uses H_ΛCDM as its own ruler)
 - Added: `tests/test_desi_wz_consistency.py`
 

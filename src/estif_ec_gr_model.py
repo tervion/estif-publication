@@ -259,9 +259,9 @@ def beta_tilt(r, M, n=0.05):
 # The functions below implement S(t) = exp(-∫H dt) which attempted to explain
 # cosmic expansion via 4D inward flow. This was ruled out by supernova data
 # (χ² = 3.8× worse than ΛCDM in fair comparison with M_offset).
-# 
+#
 # ESTIF-Gravity fork uses standard ΛCDM (functions at top) for cosmology.
-# 
+#
 # These are kept commented out for:
 # 1. Historical reference
 # 2. Comparison with original ESTIF-FD implementation
@@ -443,7 +443,7 @@ def t_from_z(z: float, t_obs: float = 4.35e17, H0=None, A=None, beta_drag=None):
 #   BAO scale:    5/5 redshifts improved
 #   Age:          13.63 Gyr (oldest stars ≥ 13.5 Gyr)
 #   H₀ tension:  2.7σ → 2.3σ
-#   w_eff:       −1.08 (DESI 2024 consistent)
+#   w_eff:       −1.358 (⚠️  falsified by DESI DR2 March 2026 at 3.5σ — cosmology sector under revision)
 #   Λ drift:     0.023%/Gyr (EUCLID/LSST approaching)
 # ============================================================================
 
