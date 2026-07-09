@@ -4,8 +4,6 @@
 **Companion script:** `tests/estif_jwst_growth_spec.py` (runs the LCDM baseline + target on a laptop)
 **Date:** 8 July 2026
 
-> **Target location in repo:** `docs/report/JWST_TEST_SPEC.md`
-
 ---
 
 ## 1. The claim being tested
@@ -155,4 +153,4 @@ takes the growth enhancement as a knob until D_ESTIF(z) is derived.
 
 ---
 
-**Specification version:** 1.0 · **Date:** 8 July 2026 · **Companion:** `estif_jwst_growth_spec.py`
+**Specification version:** 1.1 (σ8/S8 hard filter added per CORRECTIONS_v6.3.1 C3) · **Date:** 9 July 2026 · **Companion:** `estif_jwst_growth_spec.py`

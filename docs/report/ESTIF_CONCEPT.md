@@ -4,7 +4,6 @@
 **Purpose:** Explains the physical intuition behind ESTIF before any equations
 **Version:** 6.3 (July 2026) — "The Split"
 
-> **Target location in repo:** `docs/report/ESTIF_CONCEPT.md`
 >
 > **What changed in v6.3 (read this first):**
 > 1. **The gravity field equation is now derived, not borrowed.** Earlier versions
@@ -210,7 +209,19 @@ assumed. The consequences, all engine-verified:
   correct Newtonian source.
 
 So the old "Poisson postulate" is now a **theorem** for vacuum, Newton, and
-Schwarzschild. The naive alternative — space draining like water down a plughole
+Schwarzschild.
+
+> **What "derived" means precisely (C6).** The axioms uniquely *select* the
+> constraint (energy) sector of General Relativity in Painlevé–Gullstrand gauge.
+> That is what forces mass continuity, hence exact Schwarzschild in vacuum and the
+> Newtonian source in the weak field — **without matching to the Schwarzschild
+> solution**, which was the actual gap. What is *adopted*, not derived from below, is
+> the gravitational *coupling*: the identification of the geometric constraint scalar
+> with 8πG × energy density. ESTIF does not derive Newton's G or the factor 8π. The
+> honest claim is that the force law is no longer matched to GR's vacuum solution;
+> the coupling to matter is still the standard Einstein–Hilbert one.
+
+The naive alternative — space draining like water down a plughole
 (volume-conserving flow) — was tested and *fails*, giving a 1/r⁵ force; the vacuum
 condition instead conserves the free-fall energetics that give exactly Newton. The
 axiom picks the right law automatically; it is not tuned.
@@ -279,9 +290,17 @@ no free parameters after calibration:
 
 | Test | Result | Status |
 |---|---|---|
-| EHT M87\* shadow | 0.00σ tension, shadow = 42.0 μas | ✅ |
-| Planck Λ (as a local-tilt scale) | ratio = 1.0000 | ✅ |
-| LISA GW delay (65 M☉) | 491 μs, S/N = 49σ | ✅ |
+| EHT M87\* shadow | 0.00σ tension, shadow = 42.0 μas | ⚠️ consistent; *deviation* conditional |
+| Planck Λ (as a local-tilt scale) | ratio = 1.0000 | ✅ calibration match |
+| LISA GW delay (65 M☉) | 491 μs, S/N = 49σ | ⚠️ conditional |
+
+> ⚠️ **Conditional (C1).** The derived vacuum is *exactly* Schwarzschild, so a
+> deviation from GR in shadows or in vacuum GW propagation cannot come from the
+> vacuum. It must be sourced by the non-vacuum eddy background — a sector not yet
+> derived. The observations remain *consistent* with ESTIF; the predicted *deviation
+> from GR* awaits derivation. A single-speed flow forces p_r = −ρ, which is precisely
+> why the ansatz has no vacuum deviation to offer. The Λ entry is a calibration match,
+> not a vacuum deviation, and is unaffected.
 
 **Why √β:** you measure amplitude, but energy scales as amplitude squared. The 4D
 correction has amplitude β; the 3D measurement captures √β. **Why n is dynamic:** n
@@ -463,7 +482,14 @@ x₀ = R_H/r_universe = 0.310734     Ωm (Planck) = 0.311100     (0.12%)
 x₀ − Ωb = 0.261734                 Ωdm (Planck) = 0.262000     (0.10%)
 ```
 
-**Collisionless dynamics (not a fluid):** velocity dispersion `σ(r) = r√(2πGρ_eddy/3)`
+> **This is a consistency relation, not a prediction (C2).** Here r_universe is the
+> ΛCDM particle horizon — an integral that itself contains Ωm. The 0.12% agreement is
+> a self-consistency of the geometric picture with Planck-calibrated values, not an
+> Ωm-independent derivation. Making it a prediction requires deriving r_universe from
+> the flow framework without the Ωm-dependent horizon integral. The numbers stand;
+> the word "predicted" does not.
+
+**Collisionless dynamics (not a fluid):**velocity dispersion `σ(r) = r√(2πGρ_eddy/3)`
 grows linearly with scale; the virial ratio `σ/v_escape = 0.5` holds *exactly* at
 every scale (bound orbits are generic); the Jeans length `λ_Jeans = √(2π²/3) r =
 2.565 r` is self-similar (every scale marginally unstable at once).
@@ -506,7 +532,7 @@ The results above split the project into two tracks. See
 - Derive the *leading correction* to `w = −1` from the full rotating-shear /
   vorticity stress tensor — the cosmological half of the T_μν work, aimed correctly
   (a small perturbation on top of the frozen limit, not a new dominant term).
-- Target the mild DESI thawing (χ²/N ≈ 0.66). The two naive reductions are already
+- Target the mild DESI thawing (χ²/N ≈ 0.66) ⚠️ under-marginalized, see C4. The two naive reductions are already 
   falsified; the full off-diagonal stress tensor is required.
 
 ---
@@ -514,9 +540,10 @@ The results above split the project into two tracks. See
 ## The Honest Open Questions
 
 **Answered in v6.3:**
-- *Is the gravity force law derived or borrowed?* → **Derived.** The vacuum condition
-  forces `v² = 2GM/r` (exact Schwarzschild); mass continuity = Poisson follows from
-  the flow metric. No Schwarzschild match.
+- *Is the gravity force law derived or borrowed?* → **Derived, with one qualifier.**
+  The vacuum condition forces `v² = 2GM/r` (exact Schwarzschild); mass continuity =
+  Poisson follows from the flow metric. No Schwarzschild match. The *coupling* to
+  matter (8πG) is adopted from Einstein–Hilbert, not derived (C6).
 - *Do the flow axioms hold Lorentzian time and SR?* → Yes; signature and SR kinematics
   emerge from a Euclidean bulk plus the speed-*c* constraint.
 - *What is ESTIF's honest cosmology?* → A frozen cosmic eddy = cosmological constant,

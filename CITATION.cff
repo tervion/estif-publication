@@ -15,9 +15,13 @@ abstract: >-
   uniform-density source returns rho0 exactly. The former "Poisson postulate" is
   now a theorem for vacuum, Newton, and Schwarzschild. Lorentzian signature and
   special-relativistic kinematics also emerge from a Euclidean bulk plus the
-  universal speed-c constraint. Scripts: estif_task4_field_equation.py,
-  estif_flow_signature_dynamics.py, estif_converse_flow_law.py,
-  estif_tmunu_gauss_codazzi.py.
+  universal speed-c constraint. PRECISION: what the axioms establish is that they
+  uniquely select the constraint (energy) sector of General Relativity in
+  Painleve-Gullstrand gauge, without matching to the Schwarzschild solution. The
+  gravitational coupling (geometric constraint scalar to 8*pi*G times energy
+  density) is adopted from Einstein-Hilbert, not derived from below. Scripts:
+  estif_task4_field_equation.py, estif_flow_signature_dynamics.py,
+  estif_converse_flow_law.py, estif_tmunu_gauss_codazzi.py.
 
   PROJECT SPLIT (v6.3): the project forks into Path One (ESTIF-Core, clean) and
   Path Two (ESTIF-Extended, hard). Path One: gravity on the derived field
@@ -40,15 +44,29 @@ abstract: >-
   (H(z) cancels in the comoving frame); parameter independence across 3,600
   H0/Omega_m combinations. Strong-field local tilt: EHT M87* shadow 0.00 sigma,
   Planck Lambda ratio 1.0000, LISA GW delay 491 us at S/N 49.2 sigma; GR time
-  dilation is the special case at n=1/2 (x=0.272).
+  dilation is the special case at n=1/2 (x=0.272). CAVEAT: because the derived
+  ESTIF vacuum is exactly Schwarzschild, any predicted DEVIATION from GR in
+  black-hole shadows or in vacuum gravitational-wave propagation must be sourced
+  by the non-vacuum eddy background, a sector not yet derived. The observations
+  above are consistent with ESTIF; the deviation-from-GR figures are conditional
+  on that open derivation. The Planck Lambda entry is a calibration match, not a
+  vacuum deviation, and is unaffected.
 
   Dark matter analytical results: Omega_m = x0 = R_H/r_universe to 0.12%,
-  Omega_dm = x0 - Omega_b to 0.10%. N-body simulation needed for halo structure.
+  Omega_dm = x0 - Omega_b to 0.10%. These are CONSISTENCY RELATIONS, not
+  Omega_m-independent predictions: r_universe is here the LCDM particle horizon,
+  an integral that itself depends on Omega_m. The numerical agreement stands; an
+  independent prediction requires deriving r_universe from the flow framework.
+  N-body simulation needed for halo structure.
 
   A fidelity audit (estif_fidelity_audit.py) found that the axioms of universal
-  speed c and "empty space is not a source" currently live only in the derivation
-  scripts, and that the concept document runs a competing shrinking-ruler
-  narrative; writing these into the theory is a Path One consolidation task.
+  speed c (A2) and "empty space is not a source" (A3) lived only in the derivation
+  scripts, and that the concept document ran a competing shrinking-ruler
+  narrative. Both were corrected in the v6.3 concept rewrite: A1-A3 are now stated
+  explicitly in ESTIF_CONCEPT.md, the shrinking-ruler picture is retired in favour
+  of the flat-slice flow (Painleve-Gullstrand) picture, and v_flow = c*x0 is
+  relabelled as the sideways component of a total-c motion rather than the full
+  flow speed.
 
 type: software
 authors:
@@ -56,8 +74,8 @@ authors:
     given-names: "Peter"
     email: tervion@gmail.com
     affiliation: "Independent Researcher"
-version: 6.3.0
-date-released: "2026-07-08"
+version: 6.3.1
+date-released: "2026-07-09"
 license: MIT
 repository-code: "https://github.com/tervion/estif-publication"
 doi: "10.5281/zenodo.17261724"
@@ -109,14 +127,15 @@ preferred-citation:
     - family-names: "Angelov"
       given-names: "Peter"
   year: 2026
-  version: "6.3.0"
+  version: "6.3.1"
   repository-code: "https://github.com/tervion/estif-publication"
   doi: "10.5281/zenodo.17261724"
   notes: >-
     ESTIF v6.3 — the gravitational field equation is derived from the flow axioms
     (mass continuity = Poisson) via Gauss-Codazzi, giving exact Schwarzschild in
-    vacuum and Newtonian rho0 for a source, with no Poisson postulate. The
-    cosmology circularity is fixed (self-consistent x(z)); the frozen-eddy limit
+    vacuum and Newtonian rho0 for a source, with no Poisson postulate and no
+    match to the Schwarzschild solution; the matter coupling (8*pi*G) is adopted,
+    not derived. The cosmology circularity is fixed (self-consistent x(z)); the frozen-eddy limit
     (w=-1) ties LCDM on DESI DR2 (chi^2/N = 1.92) and the Omega_tilt apparatus is
     retired. The project splits into Path One (Core, clean) and Path Two
     (Extended, hard). Run: python3 tests/estif_task4_field_equation.py

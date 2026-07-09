@@ -3,7 +3,6 @@
 **Report date:** 9 July 2026
 **Work window:** July 2026 session series (Tasks 1–6, the Split, errata, bootstrap)
 **Prepared for:** repo record + document-update planning
-**Target location in repo:** `docs/report/PROGRESS_REPORT_2026-07-09.md`
 
 ---
 

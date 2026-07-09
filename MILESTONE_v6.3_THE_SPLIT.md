@@ -2,7 +2,14 @@
 
 **Date:** 8 July 2026
 **Supersedes headline status in:** STATUS.md, ROADMAP.md, README.md, CHANGELOG.md
-**Target location in repo:** project root (alongside README.md)
+
+> ⚠️ **Frozen snapshot, with errata.** This document records the state of the
+> project on the day of the split and is not updated as work proceeds. Three of its
+> claims were corrected the following day by `CORRECTIONS_v6.3.1.md`: the precise
+> sense of "derived" (C6), the conditional status of strong-field deviation claims
+> (C1), and the under-marginalized Path Two target (C4). The corrections are marked
+> inline below. Later developments — including the Ωm bootstrap — deliberately do
+> **not** appear here; see `CHANGELOG.md` and `docs/report/STATUS.md`.
 
 ---
 
@@ -46,7 +53,17 @@ assumed. Consequences, engine-verified:
 - a uniform-density ball → rho_eff = rho0 **exactly** (correct Newtonian source).
 
 The old "D2 postulate" that every previous script had to type in by hand is now
-a theorem for vacuum, Newton, and Schwarzschild. Script:
+a theorem for vacuum, Newton, and Schwarzschild.
+
+> **Corrected 9 July (C6).** "Derived, not borrowed" is precise only in this sense:
+> the three flow axioms uniquely *select* the constraint (energy) sector of General
+> Relativity in Painlevé–Gullstrand gauge, forcing mass continuity and hence exact
+> Schwarzschild in vacuum — **without matching to the Schwarzschild solution**, which
+> was the actual gap. What is *adopted*, not derived from below, is the gravitational
+> coupling: the identification of the geometric constraint scalar with 8πG × energy
+> density. ESTIF does not derive G or the factor 8π.
+
+Script:
 `tests/estif_task4_field_equation.py` (5/5 checks pass). Supporting derivations:
 `estif_flow_signature_dynamics.py` (18/18), `estif_converse_flow_law.py`
 (Birkhoff's theorem in flow variables), `estif_tmunu_gauss_codazzi.py`
@@ -126,6 +143,11 @@ honest cosmology is a cosmological constant that ties ΛCDM.
 Scope:
 - Gravity sector as-is, now strengthened: the a₀/MOND derivation sits on a
   *derived* field equation (Task 4), not a Schwarzschild match.
+  > **Corrected 9 July (C1).** Because the ESTIF vacuum is *exactly* Schwarzschild,
+  > the strong-field *deviation* claims (EHT shadow offset, LISA GW delay) cannot be
+  > sourced by the vacuum. They are conditional on the un-derived eddy-stress sector.
+  > The observations remain consistent with ESTIF; the deviation from GR awaits
+  > derivation. The a₀/MOND chain is unaffected — it never invokes a vacuum deviation.
 - Cosmology = frozen cosmic eddy → cosmological constant (χ²/N = 1.92, derived,
   zero tilt parameters).
 - The tilt apparatus (Ω_tilt(z), N_MAX, B, sign-flip, z<2 cutoff) is **retired**
@@ -140,7 +162,13 @@ strengthened) plus a short, honest cosmology statement. Defensible today.
 ### Path Two — ESTIF-Extended (the hard path) 🔬 high-risk research
 
 **Thesis:** the cosmic eddy produces a *small, near-frozen thawing* on top of
-w = −1 that matches the newest DESI preference (target χ²/N ≈ 0.66).
+w = −1 that matches the newest DESI preference (nominal target χ²/N ≈ 0.66).
+
+> **Corrected 9 July (C4).** The 0.66 target comes from a BAO-alone CPL fit with rd,
+> H₀, and Ωm held fixed at Planck values. Fixing nuisance parameters inflates the
+> apparent evolving-dark-energy advantage; DESI's own BAO-alone preference is much
+> milder. The target must be re-derived under marginalization before it is used to
+> justify Path Two.
 
 Scope:
 - Start from the derived w = −1 frozen limit and compute the **leading

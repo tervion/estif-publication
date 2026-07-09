@@ -4,8 +4,6 @@
 **Companion script:** `tests/estif_jwst_growth_spec.py` (runs the LCDM baseline + target on a laptop)
 **Date:** 8 July 2026
 
-> **Target location in repo:** `docs/report/JWST_TEST_SPEC.md`
-
 ---
 
 ## 1. The claim being tested
@@ -73,6 +71,17 @@ an **analytic ODE calculation — laptop-tractable, not N-body**.
 The physical question it answers: does ESTIF's flow give perturbations an
 **effective gravitational source stronger than 4πGρ** (an effective G_eff > G, or an
 extra eddy-clustering term)? If yes, growth is enhanced and structure forms earlier.
+
+> **Where the enhancement cannot come from.** Task 4 shows that a uniform-density
+> source returns ρ_eff = ρ₀ *exactly* — the derived field equation reproduces
+> Newtonian Poisson with no enhancement. So G_eff > G cannot arise from the derived
+> equation as it stands. Furthermore, a single-speed static flow forces p_r = −ρ
+> (`estif_tmunu_task4.py`, L1), so it cannot represent a dust-dominated cosmology at
+> all: the linearized FRW calculation necessarily uses a *generalized* flow (second
+> metric function or explicit time dependence). Any D_ESTIF/D_ΛCDM > 1 must therefore
+> originate in that generalization — the same structural extension Path Two requires.
+> If the generalized flow reduces to standard Poisson at linear order, outcome 4
+> (honest null) is forced, and that should be stated as the prior expectation.
 
 ---
 
@@ -183,4 +192,4 @@ takes the growth enhancement as a knob until D_ESTIF(z) is derived.
 
 ---
 
-**Specification version:** 1.0 · **Date:** 8 July 2026 · **Companion:** `estif_jwst_growth_spec.py`
+**Specification version:** 1.1 (σ8/S8 hard filter added per CORRECTIONS_v6.3.1 C3) · **Date:** 9 July 2026 · **Companion:** `estif_jwst_growth_spec.py`

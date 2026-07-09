@@ -6,7 +6,6 @@ documents. None reverses a v6.3 decision (the split, the tilt retirement, the
 de-circularization, the frozen-eddy reframe all stand). These harden the position
 against peer review. Apply before submitting the gravity letter.
 
-> **Target location in repo:** project root `CORRECTIONS_v6.3.1.md`
 > Priority: **C1, C2, C6 are pre-submission critical.** C3, C4, C5 are honesty/
 > future-work fixes.
 

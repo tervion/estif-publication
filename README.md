@@ -123,10 +123,9 @@ python3 src/estif_ec_gr_run_simulation.py           # 21/21
 - **Path Two cosmology:** deriving the leading w(z) correction from the full
   vorticity stress tensor. The two naive reductions (stiff spin, expansion
   tracker) are already falsified against DESI.
-- **Writing tasks (Path One):** put axioms A2 (universal c) and A3 (vacuum
-  sources nothing) into the theory documents; retire the shrinking-ruler
-  narrative in `ESTIF_CONCEPT.md`; relabel v_flow = cx₀ ≈ 0.31c as the sideways
-  component of a total-c flow.
+- ~~Writing tasks (Path One)~~ — **done in v6.3.** A2 and A3 are now stated in
+  `ESTIF_CONCEPT.md`; the shrinking-ruler narrative is retired; v_flow = cx₀ is
+  relabelled as the sideways component of a total-c flow.
 - **Dark-matter halos:** N-body simulation (collaboration target).
 
 ---

@@ -1,8 +1,26 @@
 # ESTIF Development Roadmap
 
-**Version:** 6.2  
-**Last Updated:** 20 March 2026  
-**Status:** Gravity letter ready for submission. Cosmology sector under revision.
+**Version:** 6.3.1
+**Last Updated:** 9 July 2026
+**Status:** Project split into Path One (ESTIF-Core) and Path Two (ESTIF-Extended). Gravity letter ready. Ω_tilt cosmology retired.
+
+> ⚠️ **Read the v6.3 update at the bottom of this file first.** Everything between
+> here and the *ROADMAP UPDATE — v6.3* heading is the **v6.2 plan, preserved as
+> history**. Large parts of it are superseded and should not be worked from:
+>
+> - **Phases 5.3, 5.4, 6.1, 6.2, 6.3, 8.2** build on the evolving Ω_tilt(z)
+>   dark-energy law, which is **retired** (it fits DESI DR2 worse than the plain
+>   cosmological constant underneath it — χ²/N 3.35 vs 1.92).
+> - The **"Dark Energy — Partial"** section's six passing low-z tests and the
+>   **w = −1.08** prediction are retired to an appendix; see
+>   `docs/report/VALIDATION_REPORT.md` Part 2.
+> - The **Λ drift = 0.023%/Gyr** prediction is no longer load-bearing.
+> - The **EHT / Λ / LISA** ✅ marks are now ⚠️ conditional: the derived ESTIF vacuum
+>   is exactly Schwarzschild, so any *deviation* from GR must be sourced by the
+>   un-derived eddy-stress sector (`CORRECTIONS_v6.3.1.md`, C1).
+> - **Ωm = x₀** is a consistency relation, not a prediction (C2).
+>
+> The v6.2 mission statement, lessons learned, and dark-matter analytics stand.
 
 ---
 
@@ -672,10 +690,6 @@ Checklist:
 | 3 | DESI DR2 retest after fix | Script | 0.5 days |
 | 4 | Derive x_c geometrically | Theory | Unknown |
 | 5 | SPARC with Υ* = 0.65 | Script update | 0.5 days |
-<!--
-  APPEND THIS BLOCK TO THE END OF docs/guide/ROADMAP.md
-  (it follows the existing "ROADMAP UPDATE — v6.1" pattern)
--->
 
 ---
 
@@ -716,12 +730,13 @@ revealed the tilt shape is the problem; Task 6 then showed the frozen-eddy limit
 
 #### PATH ONE — ESTIF-Core (clean) ✅ recommended default
 
-- **P1.1 Write the axioms into the theory.** Add A2 (universal speed c) and A3
-  (empty space is not a source) to `ESTIF_CONCEPT.md`; the fidelity audit found
-  they exist only in the derivation scripts.
-- **P1.2 Resolve the A1 conflict.** Retire the shrinking-ruler narrative in
-  favour of the flow (Painlevé–Gullstrand) picture. Relabel v_flow = cx₀ ≈ 0.31c
-  as the *sideways component* of a total-c flow, not the full speed.
+- **P1.1 Write the axioms into the theory.** ✅ **DONE (v6.3 concept rewrite.)**
+  A1–A3 are now stated explicitly in `ESTIF_CONCEPT.md`.
+- **P1.2 Resolve the A1 conflict.** ✅ **DONE.** The shrinking-ruler narrative is
+  retired in favour of the flow (Painlevé–Gullstrand) picture, and v_flow = cx₀ is
+  relabelled as the *sideways component* of a total-c flow.
+- **P1.2b Apply the v6.3.1 errata (C1–C6)** across the repo. ⬜ This is now the
+  gating item before submission — checklist P-2.
 - **P1.3 Rewrite the cosmology sector** as "constant cosmic eddy → cosmological
   constant, χ²/N = 1.92 (ties ΛCDM)." Move Ω_tilt(z), N_MAX, B, the sign-flip and
   the z<2 cutoff to an "explored and set aside" appendix.
@@ -731,7 +746,7 @@ revealed the tilt shape is the problem; Task 6 then showed the frozen-eddy limit
 
 - **P2.1 Vorticity stress tensor.** Derive the leading correction to w = −1 from
   the full rotating-shear / vorticity T_μν (the cosmological half of the T_μν
-  work). Target the mild DESI thawing (χ²/N ≈ 0.66). The naive reductions E1
+  work). Target the mild DESI thawing (nominal χ²/N ≈ 0.66 — ⚠️ under-marginalized, see C4; re-derive with rd, H₀, Ωm marginalized before committing). The naive reductions E1
   (stiff, χ²=3232) and E2 (tracker, χ²=754) are already falsified; the full
   off-diagonal tensor is required.
 - **P2.2 CMB / ISW** only after P2.1 produces a well-behaved, DESI-consistent
@@ -743,11 +758,14 @@ revealed the tilt shape is the problem; Task 6 then showed the frozen-eddy limit
 
 | Priority | Task | Path | Type | Estimate |
 |---|---|---|---|---|
-| 1 | Adopt Path One; write A2 + A3 into theory; retire shrinking-ruler | One | Writing | days |
-| 2 | Rewrite cosmology sector around frozen-eddy = Λ | One | Writing | days |
-| 3 | Submit gravity letter (now on derived field equation) | One | Submission | this week |
+| 1 | Apply the v6.3.1 errata (C1–C6) across the repo | One | Writing | days |
+| 2 | Preferred-frame / simultaneity section (barrier 5, checklist C-11) | One | Writing | weeks |
+| 3 | Submit gravity letter (derived field equation + C1/C6 wording) | One | Submission | after 1–2 |
 | 4 | Strong-field pressure/stress sector (full T_μν) | Both | Theory | unknown |
 | 5 | Vorticity stress-tensor derivation of leading w(z) | Two | Theory | unknown (hard) |
+
+> This table is a summary. `docs/plan/PATH_ONE_CHECKLIST.md` is the authoritative
+> item-level tracker; where the two disagree, the checklist wins.
 
 ---
 

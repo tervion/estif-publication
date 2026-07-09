@@ -4,7 +4,6 @@
 **Status date:** 8 July 2026 (v6.3 + v6.3.1 errata)
 **Companions:** `MILESTONE_v6.3_THE_SPLIT.md` · `CORRECTIONS_v6.3.1.md` · `docs/plan/RHAC.md`
 
-> **Target location in repo:** `docs/plan/PATH_ONE_CHECKLIST.md`
 > Maintenance rule (RHAC discipline): update status here when a scenario closes;
 > never delete items — mark them ✅ / ❌ and date them.
 

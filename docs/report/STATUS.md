@@ -4,8 +4,6 @@
 **Version:** 6.3 — "The Split"
 **Status:** Gravity letter ready (and strengthened). Project split into Path One (ESTIF-Core, clean) and Path Two (ESTIF-Extended, hard). See `MILESTONE_v6.3_THE_SPLIT.md`.
 
-> **Target location in repo:** `docs/report/STATUS.md`
-
 ---
 
 ## Executive Summary
@@ -16,6 +14,8 @@ ESTIF is a geometric model deriving gravity, dark energy, and dark matter from t
 - **Path Two — ESTIF-Extended (hard, high-risk):** attempt to derive a small thawing correction to w = −1 from the full vorticity stress tensor.
 
 The single most important change since v6.2: **the gravity field equation is now derived from the flow axioms rather than matched to the Schwarzschild solution.**
+
+> **Precision (C6).** The axioms uniquely *select* the constraint (energy) sector of General Relativity in Painlevé–Gullstrand gauge, forcing mass continuity and hence exact Schwarzschild in vacuum — without matching to the Schwarzschild solution. The gravitational *coupling* (geometric constraint scalar ↔ 8πG × energy density) is adopted, not derived from below. The force law is no longer matched to GR's vacuum solution; the coupling to matter is still Einstein–Hilbert.
 
 ---
 
@@ -31,12 +31,14 @@ The single most important change since v6.2: **the gravity field equation is now
 | Signature + SR derived from Euclidean bulk + universal-c | (−,+,+,+) and dτ/dt = √(1−v²/c²) | ✅ NEW v6.3 (signature suite) |
 | MOND a₀ derived (now on derived field eq) | H₀cx₀/√3 = 1.179×10⁻¹⁰ m/s² | ✅ 1.72% match |
 | SPARC BTFR (87 galaxies, Qual-1) | RMS = 15.6% | ✅ Within observed scatter |
-| EHT M87* shadow | 42.0 μas, 0.00σ | ✅ |
-| Planck Λ (local tilt, unchanged) | ratio = 1.0000 | ✅ |
-| LISA GW delay | 491 μs, S/N = 49.2σ | ✅ |
+| EHT M87* shadow | 42.0 μas, 0.00σ | ⚠️ consistent; *deviation* conditional (C1) |
+| Planck Λ (local tilt, unchanged) | ratio = 1.0000 | ✅ calibration match, not a vacuum deviation |
+| LISA GW delay | 491 μs, S/N = 49.2σ | ⚠️ conditional (C1) |
 | β = τ at n = ½ (x = 0.272) | GR as special case | ✅ |
 | a₀ redshift constancy | H(z) cancels exactly | ✅ v6.2 |
 | Parameter independence | 3,600 H₀/Ωm combos within SPARC scatter | ✅ v6.2 |
+
+> ⚠️ **Conditional (C1).** The ESTIF vacuum is exactly Schwarzschild (Task 4), so any *deviation* from GR in photon-sphere shadows or in vacuum GW propagation must be sourced by the non-vacuum eddy background — the sector below. The observations remain *consistent* with ESTIF; the *deviation from GR* is what awaits derivation. The single-speed flow ansatz forces p_r = −ρ, so it can represent only vacuum and Λ-like sources — which is *why* no vacuum deviation is available (`estif_tmunu_task4.py`, limitation L1).
 
 **Open in gravity:** the strong-field pressure/stress sector (relativistic interior with pressure) still needs the full off-diagonal T_μν. Not needed for vacuum, Newton, or Schwarzschild.
 
@@ -47,7 +49,7 @@ The single most important change since v6.2: **the gravity field equation is now
 | **Frozen eddy = cosmological constant (DERIVED)** | χ²/N = 1.92 (ties ΛCDM) | ✅ NEW v6.3 — the honest best |
 | DESI DR2 — circular Ω_tilt(z) | χ²/N = 10.80 | ❌ superseded |
 | DESI DR2 — self-consistent Ω_tilt(z) (Task 5) | χ²/N = 3.35 | 🔄 fixed circularity, still short of ΛCDM |
-| Best evolving-w flow (fitted, Task 5b) | χ²/N = 0.66 at w0=−0.85, wa=−0.45 | ℹ️ fitted ceiling / Path Two target |
+| Best evolving-w flow (fitted, Task 5b) | χ²/N = 0.66 at w0=−0.85, wa=−0.45 | ⚠️ under-marginalized (C4); rd, H₀, Ωm fixed at Planck — re-derive before use as the Path Two bar |
 | Derived eddy E1 (conserved-L spin) | χ²/N = 3232 | ❌ falsified (Task 6) |
 | Derived eddy E2 (tracker) | χ²/N = 754 | ❌ falsified (Task 6) |
 | Age of universe | 13.379 Gyr | ✅ Stands |
@@ -56,7 +58,9 @@ The single most important change since v6.2: **the gravity field equation is now
 
 ### Dark Matter Sector 🟡 Analytical phase complete, simulation wall
 
-Unchanged from v6.2. Ωm = x₀ (0.12%), Ωdm = x₀ − Ωb (0.10%), σ/v_esc = 0.5 exact, λ_Jeans = 2.565r. v_flat = 220 km/s requires δ ~ 50,000–100,000 — N-body, off-Mac. The stress-energy derivation of ρ_eddy = x₀ρ_crit is now connected to the Task 4 machinery (the local field equation is derived; the homogeneous-source version is the same calculation).
+Ωm = x₀ (0.12%), Ωdm = x₀ − Ωb (0.10%), σ/v_esc = 0.5 exact, λ_Jeans = 2.565r. v_flat = 220 km/s requires δ ~ 50,000–100,000 — N-body, off-Mac. The stress-energy derivation of ρ_eddy = x₀ρ_crit is now connected to the Task 4 machinery (the local field equation is derived; the homogeneous-source version is the same calculation).
+
+> **Epistemic status of Ωm = x₀ (C2).** This is a **consistency relation**, not an Ωm-independent prediction. r_universe = 4.4×10²⁶ m is the ΛCDM particle horizon, an integral that itself contains Ωm. The 0.12% agreement is a self-consistency of the geometric picture with Planck values. An independent prediction requires deriving r_universe from the flow framework without the Ωm-dependent horizon integral (RHAC Scenario H). The numerical agreement stands; the claim of derivation is withdrawn.
 
 ---
 
@@ -70,7 +74,7 @@ Unchanged from v6.2. Ωm = x₀ (0.12%), Ωdm = x₀ − Ωb (0.10%), σ/v_esc =
 
 ### Path Two — ESTIF-Extended (hard) 🔬 high-risk
 1. Derive the leading w(z) correction to w = −1 from the full rotating-shear / vorticity stress tensor (the cosmological half of the T_μν work).
-2. Target the mild thawing DESI prefers (χ²/N ≈ 0.66). The two naive reductions (E1, E2) are already proven wrong; the full off-diagonal tensor is required.
+2. Target the mild thawing DESI prefers. The two naive reductions (E1, E2) are already proven wrong; the full off-diagonal tensor is required. ⚠️ The nominal χ²/N ≈ 0.66 bar comes from a BAO-alone CPL fit with rd, H₀, Ωm fixed at Planck; fixing nuisance parameters inflates the evolving-DE advantage. Re-derive under marginalization before committing (C4). Note also that a single-speed flow forces p_r = −ρ (L1), so any thawing requires leaving that class — a second metric function or explicit time dependence.
 
 ---
 
@@ -104,12 +108,10 @@ The a₀ derivation now sits on a *derived* field equation (Task 4) rather than 
 
 ## Priority Actions
 
-1. **Adopt Path One as the default** and write A2 + A3 into the theory; retire the shrinking-ruler narrative.
-2. **Submit the gravity letter** (strengthened by Task 4).
+1. **Apply the v6.3.1 errata (C1–C6)** across the repo before anything ships. This is checklist item P-2.
+2. **Submit the gravity letter** (strengthened by Task 4, wording corrected by C1 + C6).
 3. **Rewrite the cosmology sector** around the frozen-eddy = Λ result; move Ω_tilt(z) to an appendix.
 4. **(Path Two, optional)** attempt the vorticity stress-tensor derivation of the leading w(z) correction.
 
 ---
-
-**Status Document Version:** 6.3
-**Last Updated:** 8 July 2026
+**Status Document Version:** 6.3.1 / **Last Updated:** 9 July 
