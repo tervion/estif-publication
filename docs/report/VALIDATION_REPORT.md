@@ -4,7 +4,6 @@
 **Date:** 8 July 2026
 **Status:** Gravity field equation DERIVED (not matched to Schwarzschild). Strong-field complete. MOND derived, SPARC validated. Cosmology reframed: frozen eddy = cosmological constant ties ΛCDM; Ω_tilt(z) retired. Project split into Path One (Core) and Path Two (Extended). Gravity letter ready and strengthened.
 
-> **Target location in repo:** `docs/report/VALIDATION_REPORT.md`
 > **See also:** `MILESTONE_v6.3_THE_SPLIT.md` for the full v6.3 narrative.
 
 ---

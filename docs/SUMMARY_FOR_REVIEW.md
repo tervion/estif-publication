@@ -6,7 +6,6 @@
 **Zenodo:** https://zenodo.org/records/17261724
 **Validation:** `python3 tests/estif_task4_field_equation.py` | `python3 tests/derive_mond_from_geometry.py` | `python3 src/estif_ec_gr_run_simulation.py` (21/21)
 
-> **Target location in repo:** `docs/SUMMARY_FOR_REVIEW.md`
 > **See also:** `MILESTONE_v6.3_THE_SPLIT.md`
 
 ---
@@ -45,6 +44,15 @@ Lorentzian signature (−,+,+,+) and special-relativistic kinematics emerge from
 same Euclidean-bulk-plus-speed-c construction. The former "Poisson postulate" is now
 a theorem for vacuum, Newton, and Schwarzschild.
 
+**Precision on "derived" (C6).** What the axioms establish is that they uniquely
+*select* the constraint (energy) sector of General Relativity in Painlevé–Gullstrand
+gauge, forcing mass continuity and hence exact Schwarzschild in vacuum — **without
+matching to the Schwarzschild solution**, which was the previous gap. What is
+*adopted*, not derived from below, is the gravitational coupling: the identification
+of the geometric constraint scalar with 8πG × energy density. ESTIF does not derive
+G or the factor 8π. This qualifier is the honest form of the headline, and it is the
+subject of reviewer question #1.
+
 **Open:** the strong-field pressure/stress sector (full off-diagonal T_μν), needed
 for none of {vacuum, Newton, Schwarzschild}.
 
@@ -73,8 +81,11 @@ Scripts: `estif_task5_desi_selfconsistent.py`, `estif_task5b_cosmo_eos.py`,
 - **Path One — ESTIF-Core (clean, recommended):** derived gravity + frozen-eddy
   cosmological constant (ties ΛCDM). Publishable now.
 - **Path Two — ESTIF-Extended (hard):** derive the small thawing correction to
-  w = −1 that DESI hints at (target χ²/N ≈ 0.66), from the full vorticity stress
-  tensor. The naive reductions are already falsified.
+  w = −1 that DESI hints at, from the full vorticity stress tensor. The naive
+  reductions are already falsified. ⚠️ The nominal target χ²/N ≈ 0.66 comes from a
+  BAO-alone CPL fit with rd, H₀, and Ωm held fixed at Planck values; fixing nuisance
+  parameters inflates the evolving-DE advantage, so this bar must be re-derived under
+  marginalization before it is used to justify Path Two (C4).
 
 ### Fidelity audit and consolidation
 
@@ -119,7 +130,8 @@ constancy:** H(z) cancels in the comoving frame (deviation 2.22×10⁻¹⁶).
 | Sector | Status |
 |---|---|
 | **Gravity — field equation** | ✅ **DERIVED** (vacuum → exact Schwarzschild) |
-| Gravity — a₀/MOND/SPARC, EHT/Λ/LISA | ✅ Solid, now on a derived foundation |
+| Gravity — a₀/MOND/SPARC | ✅ Solid, now on a derived foundation |
+| Gravity — EHT/Λ/LISA strong-field | ⚠️ Consistent; *deviation* claims conditional on the un-derived eddy-stress sector (C1) |
 | **Cosmology (Path One)** | ✅ Frozen eddy = Λ, ties ΛCDM (χ²/N = 1.92) |
 | Cosmology — Ω_tilt(z) | 🔴 Retired (net negative on DESI) |
 | Cosmology (Path Two) | 🔬 Open (derive thawing from vorticity T_μν) |
@@ -127,13 +139,20 @@ constancy:** H(z) cancels in the comoving frame (deviation 2.22×10⁻¹⁶).
 
 ---
 
-## Strong-Field Calibration (unchanged)
+## Strong-Field Calibration (numbers unchanged; status qualified — C1)
 
 | Observation | ESTIF Prediction | Result |
 |---|---|---|
-| EHT M87\* shadow | 42.0 μas | ✅ 0.00σ |
-| Planck Λ (local tilt) | 1.1056 × 10⁻⁵² m⁻² | ✅ ratio = 1.0000 |
-| LISA GW delay (65 M☉) | 491 μs | ✅ S/N = 49.2σ |
+| EHT M87\* shadow | 42.0 μas | ✅ consistent, 0.00σ |
+| Planck Λ (local tilt) | 1.1056 × 10⁻⁵² m⁻² | ✅ ratio = 1.0000 (calibration match) |
+| LISA GW delay (65 M☉) | 491 μs | ⚠️ conditional, S/N = 49.2σ |
+
+> ⚠️ **Conditional (C1).** The ESTIF vacuum is exactly Schwarzschild, so any
+> *deviation* from GR in photon-sphere shadows or in vacuum GW propagation must be
+> sourced by the non-vacuum eddy background — a sector not yet derived. The
+> observations remain *consistent* with ESTIF; the predicted *deviation from GR* is
+> conditional on the open eddy-stress derivation. The Λ entry is a calibration match,
+> not a vacuum deviation, and is unaffected.
 
 ---
 
@@ -165,9 +184,11 @@ constancy:** H(z) cancels in the comoving frame (deviation 2.22×10⁻¹⁶).
 
 **Observational:**
 5. On DESI DR2 BAO alone, a cosmological constant ties ΛCDM (1.92) and a best-fit
-   evolving w reaches 0.66; ESTIF's self-consistent tilt (3.35) sits near DESI's own
-   published-parameter fit on this subset (3.09). Is the frozen-eddy = Λ claim the
-   right one to publish now, with the thawing correction as future work?
+   evolving w reaches 0.66 *with rd, H₀, Ωm fixed at Planck*; ESTIF's self-consistent
+   tilt (3.35) sits near DESI's own published-parameter fit on this subset (3.09). Is
+   the frozen-eddy = Λ claim the right one to publish now, with the thawing correction
+   as future work — and how much of the 0.66 advantage survives marginalization over
+   rd, H₀, and Ωm?
 6. The SPARC zero-bias Υ* = 0.85 is above the McGaugh+2014 standard of 0.50. Is 0.85
    within the plausible 3.6 μm mass-to-light range?
 
@@ -190,7 +211,9 @@ constancy:** H(z) cancels in the comoving frame (deviation 2.22×10⁻¹⁶).
 - a₀ derived from geometry (1.72%, zero params), 87-galaxy SPARC RMS 15.6%.
 - Combined strong-field formula: EHT + Λ + LISA, zero free params.
 - GR time dilation as the n = ½ special case; B = L/3 from isotropy.
-- Ωm = x₀ (0.12%), Ωdm = x₀ − Ωb (0.10%).
+- Ωm = x₀ (0.12%), Ωdm = x₀ − Ωb (0.10%) — but as a **consistency relation**, not an
+  Ωm-independent prediction: r_universe is the ΛCDM particle horizon, which itself
+  contains Ωm (C2). The numerical agreement stands; the claim of derivation does not.
 - a₀ redshift constancy (algebraic); parameter independence (3,600 combinations).
 - **Cosmology:** frozen eddy = cosmological constant ties ΛCDM on DESI DR2 (1.92).
 
@@ -226,4 +249,4 @@ constancy:** H(z) cancels in the comoving frame (deviation 2.22×10⁻¹⁶).
 13. `docs/report/ESTIF_CONCEPT.md` — conceptual foundation (v6.3, axioms A1–A3)
 14. `MILESTONE_v6.3_THE_SPLIT.md` — the split and honest status
 
-**Document Version:** 6.3 | **Updated:** 8 July 2026
+**Document Version:** 6.3.1 | **Updated:** 9 July 2026
