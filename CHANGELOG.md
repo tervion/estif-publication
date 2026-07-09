@@ -4,6 +4,55 @@ All notable changes to this project are documented in this file.
 
 ---
 
+## [6.3.1] — 2026-07-09 — Adversarial errata
+
+Six corrections from an adversarial review pass of the v6.3 documents. **None
+reverses a v6.3 decision** — the split, the tilt retirement, the de-circularization,
+the frozen-eddy reframe, and the derived constraint sector all stand. C1, C2, and C6
+are pre-submission critical. See `CORRECTIONS_v6.3.1.md`.
+
+### Changed — epistemic status of three claims
+
+- **C1 — strong-field deviations are conditional.** The derived ESTIF vacuum is
+  *exactly* Schwarzschild (full Einstein tensor = 0), so it produces zero deviation
+  from GR in photon-sphere shadows or in vacuum GW propagation. The EHT M87\* and
+  LISA figures are therefore demoted from ✅ predictions to ⚠️ predictions
+  **conditional on the un-derived eddy-stress sector**. The observations remain
+  *consistent* with ESTIF; the *deviation from GR* is what awaits derivation. The
+  weak-field a₀/MOND chain is unaffected. Planck Λ is a calibration match, not a
+  vacuum deviation, and is unaffected.
+- **C2 — Ωm = x₀ is a consistency relation, not a prediction.** Here
+  r_universe = 4.4×10²⁶ m is the ΛCDM particle horizon, an integral that itself
+  contains Ωm. The 0.12% agreement is a self-consistency of the geometric picture
+  with Planck-calibrated values, not an Ωm-independent derivation. An independent
+  prediction requires deriving r_universe from the flow framework (RHAC Scenario H).
+  The numerical agreement stands; the word "predicted" is withdrawn.
+- **C6 — "derived, not borrowed" made precise.** The three flow axioms uniquely
+  *select* the constraint (energy) sector of General Relativity in
+  Painlevé–Gullstrand gauge, forcing mass continuity and hence exact Schwarzschild in
+  vacuum — without matching to the Schwarzschild solution, which was the actual gap.
+  The gravitational *coupling* (geometric constraint scalar ↔ 8πG × energy density)
+  is **adopted** from Einstein–Hilbert, not derived from below. ESTIF does not derive
+  G or the factor 8π.
+
+### Added — a hard constraint and a caveat
+
+- **C3 — σ8/S8 hard filter on the JWST test.** A growth enhancement that persists to
+  z = 0 at the 8 Mpc/h scale is grossly excluded: a scale-independent +13% boost
+  gives σ8 ≈ 0.917, ~18σ above Planck and in the *wrong direction* for weak-lensing
+  S8. D_ESTIF(z) must therefore be **two-sided** — ≳13% enhancement at z ≈ 9,
+  decaying to ≈ 1 by z ≲ 2 — or scale-dependent. This makes the derivation target
+  more specific, not merely larger. (`docs/report/JWST_TEST_SPEC.md` §5a.)
+- **C4 — Path Two target is under-marginalized.** The χ²/N ≈ 0.66 CPL bar comes from
+  a BAO-alone fit with rd, H₀, and Ωm held fixed at Planck values. Fixing nuisance
+  parameters inflates the evolving-dark-energy advantage; DESI's own BAO-alone
+  preference is milder. Re-derive with those parameters marginalized before using
+  0.66 to justify Path Two, and repeat the frozen-eddy vs fitted-CPL AIC comparison
+  under the same
+
+Major milestone. The project forks into **Path One (ESTIF-Core, clean)** and
+**Path Two (ESTIF-Extended, hard)**. See `MILESTONE_v6.3_THE_SPLIT.md`.
+
 ## [6.3.0] — 2026-07-08 — "The Split"
 
 Major milestone. The project forks into **Path One (ESTIF-Core, clean)** and
