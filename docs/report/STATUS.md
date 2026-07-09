@@ -1,125 +1,115 @@
 # ESTIF Development Status
 
-**Last Updated:** 20 March 2026
-**Version:** 6.2
-**Status:** Gravity letter ready for submission. Cosmology sector under revision.
+**Last Updated:** 8 July 2026
+**Version:** 6.3 — "The Split"
+**Status:** Gravity letter ready (and strengthened). Project split into Path One (ESTIF-Core, clean) and Path Two (ESTIF-Extended, hard). See `MILESTONE_v6.3_THE_SPLIT.md`.
+
+> **Target location in repo:** `docs/report/STATUS.md`
 
 ---
 
 ## Executive Summary
 
-ESTIF is a geometric model deriving gravity, dark energy, and dark matter from the claim that 3D space is a hypersurface moving through 4D space. As of v6.2, the project has two sectors in different states of health.
+ESTIF is a geometric model deriving gravity, dark energy, and dark matter from the claim that 3D space is a flat hypersurface carried through a 4D bulk. As of v6.3 the project has been restructured into two tracks after a sequence of derivations (Tasks 4–6, July 2026):
+
+- **Path One — ESTIF-Core (clean, recommended default):** gravity now rests on a *derived* field equation; cosmology is a plain cosmological constant that ties ΛCDM. The tilt apparatus is retired.
+- **Path Two — ESTIF-Extended (hard, high-risk):** attempt to derive a small thawing correction to w = −1 from the full vorticity stress tensor.
+
+The single most important change since v6.2: **the gravity field equation is now derived from the flow axioms rather than matched to the Schwarzschild solution.**
 
 ---
 
-## Two-Sector Status
+## Three-Sector Status
 
-### Gravity Sector ✅ SOLID
+### Gravity Sector ✅ SOLID — and now on a DERIVED foundation
 
 | Result | Value | Status |
 |---|---|---|
-| MOND a₀ derived (4 steps, zero params) | H₀cx₀/√3 = 1.179×10⁻¹⁰ m/s² | ✅ 1.72% match |
+| **Field equation derived (mass continuity = Poisson)** | rho_eff = m′(r)/(4πr²) forced by flow metric | ✅ NEW v6.3 (Task 4) |
+| **Vacuum → exact Schwarzschild** | v² = 2GM/r unique, full Einstein tensor = 0 | ✅ NEW v6.3 |
+| **Weak-field source → Newtonian ρ₀** | uniform ball returns rho0 exactly | ✅ NEW v6.3 |
+| Signature + SR derived from Euclidean bulk + universal-c | (−,+,+,+) and dτ/dt = √(1−v²/c²) | ✅ NEW v6.3 (signature suite) |
+| MOND a₀ derived (now on derived field eq) | H₀cx₀/√3 = 1.179×10⁻¹⁰ m/s² | ✅ 1.72% match |
 | SPARC BTFR (87 galaxies, Qual-1) | RMS = 15.6% | ✅ Within observed scatter |
-| SPARC bias | −7.6% → calibration only | ✅ No structural issue |
-| 1/3 multiplier for B | Derived from 3D isotropy | ✅ 0.69% off |
 | EHT M87* shadow | 42.0 μas, 0.00σ | ✅ |
-| Planck Λ | ratio = 1.0000 | ✅ |
+| Planck Λ (local tilt, unchanged) | ratio = 1.0000 | ✅ |
 | LISA GW delay | 491 μs, S/N = 49.2σ | ✅ |
 | β = τ at n = ½ (x = 0.272) | GR as special case | ✅ |
-| Ωm = x₀ | 0.12% agreement | ✅ |
-| Ωdm = x₀ − Ωb | 0.10% agreement | ✅ |
-| σ/v_escape = 0.5 | Exact, all scales | ✅ |
-| λ_Jeans = 2.565r | Universal | ✅ |
-| a₀ redshift constancy | H(z) cancels exactly (2.22×10⁻¹⁶ deviation) | ✅ v6.2 |
-| Parameter independence | 100% of 3,600 H₀/Ωm combos within SPARC scatter | ✅ v6.2 |
+| a₀ redshift constancy | H(z) cancels exactly | ✅ v6.2 |
+| Parameter independence | 3,600 H₀/Ωm combos within SPARC scatter | ✅ v6.2 |
 
-### Cosmology Sector ❌ FAILS DESI DR2
+**Open in gravity:** the strong-field pressure/stress sector (relativistic interior with pressure) still needs the full off-diagonal T_μν. Not needed for vacuum, Newton, or Schwarzschild.
+
+### Cosmology Sector 🔄 REFRAMED — frozen eddy ties ΛCDM; tilt retired
 
 | Test | Result | Status |
 |---|---|---|
-| DESI DR2 BAO chi²/N | 10.8 (ΛCDM: 1.9) | ❌ Fails |
-| w₀ prediction | −1.358 vs DR2 −0.73 ± 0.10 | ❌ 3.5σ tension |
-| Bins within 1σ (DR2) | 2/13 | ❌ |
-| Pantheon+ SN (pre-DR2) | 2.08–2.33σ improvement | ✅ Stands |
-| BAO BOSS/eBOSS (pre-DR2) | 5/5 improved | ✅ Stands |
+| **Frozen eddy = cosmological constant (DERIVED)** | χ²/N = 1.92 (ties ΛCDM) | ✅ NEW v6.3 — the honest best |
+| DESI DR2 — circular Ω_tilt(z) | χ²/N = 10.80 | ❌ superseded |
+| DESI DR2 — self-consistent Ω_tilt(z) (Task 5) | χ²/N = 3.35 | 🔄 fixed circularity, still short of ΛCDM |
+| Best evolving-w flow (fitted, Task 5b) | χ²/N = 0.66 at w0=−0.85, wa=−0.45 | ℹ️ fitted ceiling / Path Two target |
+| Derived eddy E1 (conserved-L spin) | χ²/N = 3232 | ❌ falsified (Task 6) |
+| Derived eddy E2 (tracker) | χ²/N = 754 | ❌ falsified (Task 6) |
 | Age of universe | 13.379 Gyr | ✅ Stands |
 
-**Root cause:** x(z) = x₀ × (1+z) × H₀/H_ΛCDM(z) is circular. Uses ΛCDM as its own correction ruler.
+**Root cause of the tilt failure (now understood):** the tilt *shape* fits worse than the frozen-eddy limit underneath it. The Ω_tilt apparatus (N_MAX, B, sign-flip, z<2 cutoff) is a net negative on DESI and is **retired** from the cosmology claim under Path One.
+
+### Dark Matter Sector 🟡 Analytical phase complete, simulation wall
+
+Unchanged from v6.2. Ωm = x₀ (0.12%), Ωdm = x₀ − Ωb (0.10%), σ/v_esc = 0.5 exact, λ_Jeans = 2.565r. v_flat = 220 km/s requires δ ~ 50,000–100,000 — N-body, off-Mac. The stress-energy derivation of ρ_eddy = x₀ρ_crit is now connected to the Task 4 machinery (the local field equation is derived; the homogeneous-source version is the same calculation).
 
 ---
 
-## What's Incomplete or Open
+## The Two Paths
 
-### Open Theoretical Gap (Priority)
-x_c = 0.272 is still observationally determined. Deriving it geometrically would complete the multiplier derivation (5/7 follows from 1/3 + x_c). Approach: look at Schwarzschild thermodynamics at r = 3.68 Rs — Hawking temperature, Bekenstein-Hawking entropy.
+### Path One — ESTIF-Core (clean) ✅ recommended default
+1. Write A2 (universal speed c) and A3 (empty space is not a source) into the theory documents — the fidelity audit found they live only in the derivation scripts.
+2. Resolve the A1 conflict: retire the shrinking-ruler narrative in `ESTIF_CONCEPT.md` in favour of the flow (Painlevé–Gullstrand) picture.
+3. State cosmology as: constant cosmic eddy → cosmological constant, χ²/N = 1.92 (ties ΛCDM). Retire Ω_tilt(z) to an "explored and set aside" appendix.
+4. Submit the gravity letter (unaffected, strengthened by the derived field equation).
 
-### Cosmology Rework (Blocking for cosmology claims)
-Fix: compute x(z) self-consistently using H_ESTIF rather than H_ΛCDM. This is computationally tractable (iterative solve) but not yet done.
-
-### CMB (Not started)
-Ω_tilt capped at z = 2. Cannot begin without fixing cosmological sector first.
-
-### N-body (Collaboration needed)
-v_flat = 220 km/s requires δ ~ 50,000–100,000. Cannot be computed on Mac Mini.
-
-### Stellar mass calibration (SPARC)
-Υ* = 0.50 gives −7.6% bias. Literature supports 0.60–0.70. Per-galaxy Υ* would reduce RMS below 12%.
+### Path Two — ESTIF-Extended (hard) 🔬 high-risk
+1. Derive the leading w(z) correction to w = −1 from the full rotating-shear / vorticity stress tensor (the cosmological half of the T_μν work).
+2. Target the mild thawing DESI prefers (χ²/N ≈ 0.66). The two naive reductions (E1, E2) are already proven wrong; the full off-diagonal tensor is required.
 
 ---
 
-## Test Suite Status
+## Test Suite Status (new scripts, v6.3)
 
 | Test Script | Purpose | Status |
 |---|---|---|
-| `derive_mond_from_geometry.py` | 4-step MOND derivation, zero params | ✅ NEW |
-| `test_sparc_tully_fisher.py` | 87 SPARC galaxies, RMS 15.6% | ✅ NEW |
-| `test_sparc_bias_analysis.py` | Bias = calibration not structural | ✅ NEW |
-| `test_desi_wz_consistency.py` | DESI DR2 BAO test | ❌ NEW (fails) |
-| `test_multiplier_derivation.py` | 1/3 derived, 5/7 conditional | ⚠️ NEW (mixed) |
-| `cross_examination.py` | Two-sector synthesis | ✅ NEW |
-| `test_a0_redshift.py` | a₀ redshift constancy proof — H(z) cancels | ✅ v6.2 |
-| `test_a0_parameter_independence.py` | Robustness across H₀/Ωm (3,600 combinations) | ✅ v6.2 |
-| `test_joint_calibration.py` | EHT + Λ + LISA | ✅ |
-| `test_gravity_time_connection.py` | β = τ at n = ½ | ✅ |
-| `test_electron_connection.py` | N_MAX ≈ 5/7 × ln(r_e/l_P) | ✅ |
-| `test_nmax_drift.py` | Λ drift 0.023%/Gyr | ✅ |
-| `test_estif_cosmology.py` | Option A vs 3 SN datasets | ✅ (pre-DR2) |
-| `test_cosmological_consistency.py` | Age, BAO, H₀, EOS | ✅ (pre-DR2) |
-| `test_mond_sqrt3.py` | MOND a₀ from geometry | ✅ |
-| `test_eddy_dark_matter.py` | Ωm = x₀ identity | ✅ |
-| `test_collisionless_eddy.py` | σ/v_esc, λ=2.565r | ✅ |
-| `test_solar_system_eddy.py` | Multi-scale observable, GR compatibility | ✅ |
-| `test_tully_fisher_correction.py` | MOND limit, a₀ | ✅ |
+| `estif_tmunu_gauss_codazzi.py` | ADM/Gauss–Codazzi engine, validated vs FRW + de Sitter | ✅ NEW |
+| `estif_flow_signature_dynamics.py` | Signature + SR + Newton from Euclidean bulk + universal-c | ✅ NEW (18/18) |
+| `estif_converse_flow_law.py` | Vacuum forces v²=2A/r (Birkhoff in flow variables) | ✅ NEW |
+| `estif_task4_field_equation.py` | Field equation derived (mass continuity = Poisson) | ✅ NEW (5/5) |
+| `estif_task5_desi_selfconsistent.py` | De-circularized DESI DR2 test (10.8 → 3.35) | ✅ NEW |
+| `estif_task5b_cosmo_eos.py` | DESI-preferred w(z); tilt tracks it within ~0.05 | ✅ NEW |
+| `estif_task6_eddy_eos.py` | Frozen-eddy reframe (1.92 beats tilt 3.35) | ✅ NEW |
+| `estif_fidelity_audit.py` | Axiom-presence audit of the corpus | ✅ NEW |
 
-**Analytical suite:** `python3 src/estif_ec_gr_run_simulation.py` → 21/21 tests pass.
+Prior analytical suite (`src/estif_ec_gr_run_simulation.py` → 21/21) unchanged.
 
 ---
 
 ## Publication Readiness
 
-### Gravity Letter — DRAFTED ✅
+### Gravity Letter — DRAFTED ✅ and STRENGTHENED
+The a₀ derivation now sits on a *derived* field equation (Task 4) rather than a Schwarzschild match. This directly answers the "borrowed recipe" concern. Venue: MNRAS Letters, ApJL, JCAP. Both prior blockers remain resolved.
 
-Claim: geometric derivation of a₀ + SPARC validation + redshift constancy proof.
-Scope: 4–6 pages. Venue: MNRAS Letters, ApJL, JCAP.
-File: ESTIF_letter_final.docx
-Both pre-publication blockers resolved in v6.2.
-
-### Full Paper (Dark Energy + Gravity) — BLOCKED ❌
-
-Blocked by: Ω_tilt(z) fails DESI DR2 at 3.5σ.
-Fix needed: self-consistent x(z) using H_ESTIF.
-After fix: retest against DESI DR2 before claiming dark energy replacement.
+### Cosmology — RESTRUCTURED
+- Path One: publishable now as "constant cosmic eddy → cosmological constant, competitive with ΛCDM." Honest, defensible, no failing tests.
+- Path Two: blocked on the vorticity stress-tensor derivation.
 
 ---
 
 ## Priority Actions
 
-1. **Submit gravity letter** — ESTIF_letter_final.docx is ready
-2. **Fix Ω_tilt(z)** — self-consistent x(z) with H_ESTIF
-3. **Derive x_c** — geometric condition for the GR crossover
-4. **SPARC with Υ* = 0.65–0.70** — tighten the bias
+1. **Adopt Path One as the default** and write A2 + A3 into the theory; retire the shrinking-ruler narrative.
+2. **Submit the gravity letter** (strengthened by Task 4).
+3. **Rewrite the cosmology sector** around the frozen-eddy = Λ result; move Ω_tilt(z) to an appendix.
+4. **(Path Two, optional)** attempt the vorticity stress-tensor derivation of the leading w(z) correction.
 
 ---
 
-**Status Document Version:** 6.2
-**Last Updated:** 20 March 2026
+**Status Document Version:** 6.3
+**Last Updated:** 8 July 2026
