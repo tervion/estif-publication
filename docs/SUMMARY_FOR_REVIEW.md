@@ -1,7 +1,7 @@
 # ESTIF v6.3 — Summary for Expert Review
 
 **Author:** Peter Angelov (Independent Researcher, tervion@gmail.com)
-**Version:** 6.3 (July 2026) — "The Split"
+**Version:** 6.3.2 (July 2026) — "The Split"
 **Repository:** https://github.com/tervion/estif-publication
 **Zenodo:** https://zenodo.org/records/17261724
 **Validation:** `python3 tests/estif_task4_field_equation.py` | `python3 tests/derive_mond_from_geometry.py` | `python3 src/estif_ec_gr_run_simulation.py` (21/21)
@@ -98,6 +98,35 @@ speed).
 
 ---
 
+### The Ωm bootstrap (v6.3.2 — conditional)
+
+Correction C2 showed that `Ωm = x₀` is circular: r_universe is the ΛCDM particle
+horizon, an integral containing Ωm. The bootstrap solves the circularity instead of
+removing it. Adopting principle **P** (`Ωm = R_H/r_p`) closes it into Ωm · I(Ωm) = 1
+which has a **unique** root: 0.3043 with zero measured inputs; **0.31408** with
+radiation included (inputs = T_CMB, N_eff, h) — **0.96% from Planck, 0.53σ inside
+its error bar**. It back-predicts r_universe = 4.353×10²⁶ m (−1.07%), eliminating
+the Ωm-dependent import C2 objected to.
+
+**Closure:** propagating the bootstrap Ωm gives a₀ = 1.1920×10⁻¹⁰ m/s², improving
+MOND agreement **1.72% → 0.66%** (SPARC insensitive, v_flat × 1.00269), and DESI DR2
+χ²/N = **1.618** vs ΛCDM's 1.919 — *within the fixed-(H₀, rd) test*.
+
+**Input ledger after adopting P:** measured = {H₀, T_CMB, N_eff}; computed =
+{Ωm, Ω_Λ, x₀, r_universe, a₀}.
+
+**Identity:** P ⇔ mean matter pull at the horizon = cH₀/2 — the same cH₀ that sets
+a₀; the ratio computes to 1.00000.
+
+**This is conditional and is presented as such.** P is *not* derived from A1–A3;
+that is Part B, and it is untouched (three candidate routes, none attempted). The
+adjacency to Gaztañaga's causal-universe scale (≈ 0.3176 H₀, via inflation) is
+unresolved and blocks any novelty claim. The DESI figure is fixed-ruler. a₀'s
+empirical target carries ~10% scatter, so 0.66% is pleasing, not decisive. Scripts:
+`estif_omega_bootstrap.py`, `estif_bootstrap_closure.py`.
+
+---
+
 ## The Tilt Formula (strong-field deviations — unchanged)
 
 ```
@@ -118,6 +147,7 @@ Step 1 — Force law:  a = −c²/2 ∇(ω/H₀)² = GM/r²    [underwritten by 
 Step 2 — Cosmic flow (sideways component):  v_flow = c x₀ = c Ωm
 Step 3 — 3D isotropic projection:  v_3D = v_flow/√3
 Step 4 — Threshold:  a₀ = H₀ c x₀/√3 = 1.179×10⁻¹⁰ m/s²   (1.72% from empirical, zero params)
+                     with bootstrap Ωm: 1.1920×10⁻¹⁰       (0.66%, conditional on P)
 ```
 **SPARC:** 87 quality-1 galaxies, RMS = 15.6% (within BTFR scatter). **a₀ redshift
 constancy:** H(z) cancels in the comoving frame (deviation 2.22×10⁻¹⁶).
@@ -136,6 +166,7 @@ constancy:** H(z) cancels in the comoving frame (deviation 2.22×10⁻¹⁶).
 | Cosmology — Ω_tilt(z) | 🔴 Retired (net negative on DESI) |
 | Cosmology (Path Two) | 🔬 Open (derive thawing from vorticity T_μν) |
 | Dark matter | 🟡 Analytical done; N-body wall |
+| **Ωm bootstrap** | 🔶 Conditional on P: unique root 0.31408 (0.53σ); Part B open |
 
 ---
 
@@ -200,6 +231,14 @@ constancy:** H(z) cancels in the comoving frame (deviation 2.22×10⁻¹⁶).
    from cosmological constants and the field equation from the flow axioms rather
    than by modifying the force law directly?
 
+**On the bootstrap:**
+9. Is principle P (Ωm = R_H/r_p) derivable from the flow axioms A1–A3? It is
+   equivalent to requiring that the mean matter pull at the particle horizon equal
+   cH₀/2 — the same cH₀ that sets a₀ (ratio 1.00000). Is that equivalence a mechanism
+   or a coincidence? And how does the resulting root (0.31408) relate to Gaztañaga's
+   causal-boundary scale (≈ 0.3176 H₀), which is reached by a different route
+   (inflation)? Is this the same result in different notation?
+
 ---
 
 ## Honest Assessment
@@ -214,6 +253,13 @@ constancy:** H(z) cancels in the comoving frame (deviation 2.22×10⁻¹⁶).
 - Ωm = x₀ (0.12%), Ωdm = x₀ − Ωb (0.10%) — but as a **consistency relation**, not an
   Ωm-independent prediction: r_universe is the ΛCDM particle horizon, which itself
   contains Ωm (C2). The numerical agreement stands; the claim of derivation does not.
+
+**What is conditional (new in v6.3.2):**
+- The Ωm bootstrap: unique root 0.31408 (0.53σ from Planck), a₀ → 0.66%, r_universe
+  back-predicted to −1.07%, DESI 1.618. **All of it rests on principle P, which is
+  not derived.** If P falls, the bootstrap falls with it and §C2's downgrade is the
+  final word. Part B is the test.
+- The Gaztañaga comparison is unwritten. No priority is claimed on the Ωm result.
 - a₀ redshift constancy (algebraic); parameter independence (3,600 combinations).
 - **Cosmology:** frozen eddy = cosmological constant ties ΛCDM on DESI DR2 (1.92).
 
@@ -248,5 +294,7 @@ constancy:** H(z) cancels in the comoving frame (deviation 2.22×10⁻¹⁶).
 12. `src/estif_ec_gr_model.py` — core implementation
 13. `docs/report/ESTIF_CONCEPT.md` — conceptual foundation (v6.3, axioms A1–A3)
 14. `MILESTONE_v6.3_THE_SPLIT.md` — the split and honest status
+15. estif_omega_bootstrap.py
+16. estif_bootstrap_closure.py
 
-**Document Version:** 6.3.1 | **Updated:** 9 July 2026
+**Document Version:** 6.3.2 | **Updated:** 9 July 2026

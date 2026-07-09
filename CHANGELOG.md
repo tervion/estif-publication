@@ -4,6 +4,41 @@ All notable changes to this project are documented in this file.
 
 ---
 
+## [6.3.2] — 2026-07-09 — The Ωm bootstrap (conditional)
+
+### Added
+
+- **Ωm bootstrap (Door 2).** Principle P (Ωm = R_H/r_p) inverts the C2 circularity
+  into the closed equation **Ωm·I(Ωm) = 1**, with a **unique** root: **0.3043** from
+  zero measured inputs; **0.31408** with radiation (inputs = T_CMB, N_eff, h) —
+  **0.96% from Planck, 0.53σ** inside its error bar. Back-predicts
+  r_universe = 4.353×10²⁶ m (−1.07% vs the import C2 flagged). Identity: P ⇔ mean
+  matter pull at the horizon = cH₀/2 — the same cH₀ that sets a₀ (ratio 1.00000).
+  (`estif_omega_bootstrap.py`)
+- **Closure.** Propagating the bootstrap Ωm: a₀ = 1.1920×10⁻¹⁰ m/s², MOND agreement
+  **1.72% → 0.66%** (SPARC insensitive, v_flat ×1.00269); DESI DR2 χ²/N = **1.618**
+  vs ΛCDM 1.919, *within the fixed-(H₀, rd) test*. **Input ledger after adopting P:**
+  measured = {H₀, T_CMB, N_eff}; computed = {Ωm, Ω_Λ, x₀, r_universe, a₀}.
+  (`estif_bootstrap_closure.py`)
+- RHAC **Scenario Q**; checklist items **B-4b** (Gaztañaga memo) and **B-4c** (derive P).
+
+### Honest flags
+
+- **Conditional on P**, which is *not* derived from A1–A3. Part B open; three
+  candidate routes, none attempted. Without it this reparametrizes C2's circularity
+  rather than escaping it.
+- **Gaztañaga adjacency** (causal-universe scale ≈ 0.3176 H₀, via inflation).
+  Comparison memo is a prerequisite for any novelty claim; it does not exist yet.
+- **DESI 1.618 is fixed-ruler.** Could reorder under C4 marginalization.
+- **a₀'s empirical target carries ~10% scatter.** 0.66% is pleasing, not decisive.
+
+### Still pending
+
+- Script-side C2 (`estif_pathone_cosmology.py`), C4 (`estif_pathone_aic_bic.py`),
+  and C5 (`estif_task6_eddy_eos.py`) remain unapplied.
+
+---
+
 ## [6.3.1] — 2026-07-09 — Adversarial errata
 
 Six corrections from an adversarial review pass of the v6.3 documents. **None
@@ -47,11 +82,36 @@ are pre-submission critical. See `CORRECTIONS_v6.3.1.md`.
   a BAO-alone fit with rd, H₀, and Ωm held fixed at Planck values. Fixing nuisance
   parameters inflates the evolving-dark-energy advantage; DESI's own BAO-alone
   preference is milder. Re-derive with those parameters marginalized before using
-  0.66 to justify Path Two, and repeat the frozen-eddy vs fitted-CPL AIC comparison
-  under the same
+0.66 to justify Path Two, and repeat the frozen-eddy vs fitted-CPL AIC comparison
+  under the same marginalization.
 
-Major milestone. The project forks into **Path One (ESTIF-Core, clean)** and
-**Path Two (ESTIF-Extended, hard)**. See `MILESTONE_v6.3_THE_SPLIT.md`.
+### Fixed
+
+- **C5** — ⬜ *not yet applied.* The Task 6 E1 (conserved-angular-momentum spin)
+  explanatory block in `tests/estif_task6_eddy_eos.py` still contains a mid-thought
+  fragment and an exponent placeholder. Replacement text is specified in
+  `CORRECTIONS_v6.3.1.md`. The numerical result (χ²/N = 3232, falsified) is
+  unaffected either way.
+- **Documentation writing tasks closed.** The v6.3 concept rewrite is confirmed
+  complete: A1–A3 are stated explicitly in `ESTIF_CONCEPT.md`, the shrinking-ruler
+  narrative is retired in favour of the flat-slice flow picture, and v_flow = c·x₀
+  is relabelled as the *sideways component* of a total-c motion. Four documents that
+  still listed this as outstanding work were corrected; `CITATION.cff`'s abstract no
+  longer states that A2 and A3 live only in the derivation scripts.
+
+### Repository structure
+
+- v6.3 document suite placed at canonical paths (`MILESTONE_v6.3_THE_SPLIT.md` and
+  `CORRECTIONS_v6.3.1.md` to root; `STATUS.md`, `VALIDATION_REPORT.md`, and
+  `JWST_TEST_SPEC.md` to `docs/report/`; `PATH_ONE_CHECKLIST.md` to `docs/plan/`).
+- `CHANGELOG.md`, `docs/plan/RHAC.md`, and `docs/guide/ROADMAP.md` reconstituted from
+  their v6.2 originals plus the v6.3 append/prepend blocks.
+- `ROADMAP.md`'s superseded v6.2 phases (5.3, 5.4, 6.1–6.3, 8.2 — all built on the
+  retired Ω_tilt law) marked as preserved history, not a working plan.
+- `MILESTONE_v6.3_THE_SPLIT.md` kept frozen as the split-day snapshot; its three
+  corrected claims carry inline errata notes rather than rewrites.
+
+---
 
 ## [6.3.0] — 2026-07-08 — "The Split"
 

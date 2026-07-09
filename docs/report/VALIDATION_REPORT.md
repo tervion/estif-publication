@@ -266,6 +266,61 @@ derived." That is Path Two.
 
 ## Part 3: Dark Matter — Analytical Phase (unchanged; now connected to Part 0)
 
+### 3.0 The Ωm Bootstrap (v6.3.2 — conditional on principle P)
+
+Correction C2 established that `Ωm = x₀` is circular: r_universe is the ΛCDM particle
+horizon, an integral containing Ωm. The bootstrap asks whether that circularity can
+be *solved* rather than removed.
+
+**Principle P (adopted, not derived):** `Ωm = R_H / r_p`, with r_p the particle
+horizon. Substituting the horizon integral closes the loop into Ωm · I(Ωm) = 1
+which has a **unique** root.
+
+| Case | Measured inputs | Root Ωm | vs Planck (0.3111 ± 0.0056) |
+|---|---|---|---|
+| Matter + Λ only | none | 0.3043 | −2.2% |
+| **With radiation** | **T_CMB, N_eff, h** | **0.31408** | **+0.96%, 0.53σ** |
+
+**Back-prediction:** r_universe = 4.353×10²⁶ m, −1.07% against the 4.4×10²⁶ m import
+that C2 flagged as Ωm-dependent. The import is no longer needed.
+
+**Identity:** P is equivalent to the statement that the mean matter pull at the
+horizon equals `cH₀/2`. This is the same cH₀ that sets a₀; the ratio computes to
+1.00000. Whether that is the mechanism or a coincidence is undetermined.
+
+**Closure — propagating the bootstrap Ωm through the framework:**
+
+| Quantity | With Planck Ωm | With bootstrap Ωm | Note |
+|---|---|---|---|
+| a₀ | 1.179×10⁻¹⁰ (1.72%) | **1.1920×10⁻¹⁰ (0.66%)** | vs MOND empirical |
+| SPARC v_flat | — | ×1.00269 | insensitive |
+| DESI DR2 χ²/N | 1.919 (ΛCDM) | **1.618** | fixed-(H₀, rd) |
+
+**Input ledger after adopting P:**
+measured  = { H₀, T_CMB, N_eff }
+computed  = { Ωm, Ω_Λ, x₀, r_universe, a₀ }
+#### Honest flags (all four, none hidden)
+
+1. **Everything above is conditional on P**, which is *not* derived from A1–A3. Part
+   B — deriving P — is open. Three candidate routes exist (flow-budget amplitude;
+   horizon-acceleration balance; homogeneous field equation); none has been attempted
+   in earnest. Without Part B this is a reparametrization of the C2 circularity, not
+   an escape from it.
+2. **Gaztañaga adjacency.** The causal-universe scale (≈ 0.3176 H₀, reached via
+   inflation) sits next to this root. A comparison memo is a **prerequisite for any
+   novelty claim** and does not yet exist. No priority is asserted here.
+3. **DESI 1.618 is a fixed-ruler result.** Under C4-style marginalization over rd,
+   H₀, and Ωm the ordering against ΛCDM could change.
+4. **a₀'s empirical target carries ~10% scatter.** Improving 1.72% → 0.66% inside a
+   10% band is pleasing, not decisive. It is not a detection.
+
+**Scripts:** `estif_omega_bootstrap.py`, `estif_bootstrap_closure.py`.
+
+**Status:** 🔶 Part A resolved (conditional); Part B open. Until Part B lands and the
+Gaztañaga memo clears, §3.1's C2 downgrade stands unchanged — see RHAC Scenario Q.
+
+---
+
 ### 3.1 The Ωm = x₀ Consistency Relation
 
 ```
@@ -383,6 +438,7 @@ published datasets pass. Scripts: `derive_mond_from_geometry.py`,
 | a₀ redshift constancy | ✅ Proved | H(z) cancels (2.22×10⁻¹⁶) |
 | Parameter independence | ✅ Confirmed | 3,600 combos within SPARC scatter |
 | Ωm = x₀ consistency relation | 🔶 Downgraded (C2) | 0.12%, but r_universe is the Ωm-dependent ΛCDM horizon |
+| **Ωm bootstrap** (conditional on P) | 🔶 **NEW v6.3.2** | Ωm·I(Ωm)=1, unique root 0.31408 (0.53σ); a₀ → 0.66%; DESI 1.618 fixed-ruler |
 | Collisionless dark matter | ✅ Confirmed | σ/v_esc = 0.5, λ = 2.565r |
 | **Cosmology (Path One)** | ✅ **Frozen eddy = Λ** | ties ΛCDM (χ²/N = 1.92) |
 | Cosmology Ω_tilt(z) | 🔴 Retired | net negative on DESI vs the Λ limit |
@@ -411,4 +467,4 @@ independence) stand unchanged. The v6.2 DESI entry (`test_desi_wz_consistency.py
 
 ---
 
-**Validation Report Version:** 6.3.1 / **Last Updated:** 9 July 2026
+**Validation Report Version:** 6.3.2 / 9 July 2026.

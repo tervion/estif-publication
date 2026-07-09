@@ -22,10 +22,18 @@
 | 5 | Preferred-frame nature of A2 (absolute bulk time; simultaneity reinterpreted, not derived) | New explicit section in the paper | weeks (writing) |
 | 6 | Peer review — the only external test yet faced | Submit the gravity letter | process |
 
-**Single highest-value open derivation:** D_ESTIF(z), the linear growth factor
-(perturbed field equation on FRW). Laptop-analytic. Feeds three checklist items at
-once: the dark-matter mass function (B6), the CMB anisotropy prediction (A5), and
-the JWST distinguishing test (A6). Must pass the two-sided σ8 filter (C3).
+**Two highest-value open derivations:**
+
+1. **D_ESTIF(z)**, the linear growth factor (perturbed field equation on FRW).
+   Laptop-analytic. Feeds three checklist items at once: the dark-matter mass
+   function (B6), the CMB anisotropy prediction (A5), and the JWST distinguishing
+   test (A6). Must pass the two-sided σ8 filter (C3). ⚠️ Note that Task 4 returns
+   ρ_eff = ρ₀ *exactly* for a uniform source — the derived field equation is standard
+   Poisson, so G_eff > G cannot come from it as it stands. Any enhancement must arise
+   from the generalized (non-single-speed) flow.
+2. **Principle P** (B-4c). If derived, it converts the Ωm bootstrap from conditional
+   to a genuine zero-parameter prediction of Ωm, Ω_Λ, r_universe, and a₀ from three
+   measured inputs — the single largest available upgrade to Path One's claims.
 
 ---
 
@@ -55,7 +63,9 @@ the JWST distinguishing test (A6). Must pass the two-sided σ8 filter (C3).
 | B-1 | a₀ = H₀cx₀/√3 derived (1.72% from empirical, zero free parameters); Step 1 now underwritten by the derived field equation | ✅ |
 | B-2 | SPARC validation: 87 quality-1 galaxies, RMS = 15.6% (within BTFR scatter) | ✅ |
 | B-3 | a₀ redshift constancy (H(z) cancels; 2.22×10⁻¹⁶) + parameter independence (3,600 H₀/Ωm combos; 8 datasets) | ✅ |
-| B-4 | Ωm = x₀ (0.12%) — **downgraded (C2)** to a consistency relation (r_universe is the ΛCDM horizon, Ωm-dependent); becomes a prediction only if r_universe is derived internally (RHAC Scenario H) | 🔶 |
+| B-4 | Ωm = x₀ — **downgraded (C2)** to a consistency relation, then **partially recovered (Door 2)**: principle P ("Ωm = R_H/r_p") inverts the circularity into the closed equation Ωm·I(Ωm) = 1 with a unique root — 0.3043 with zero inputs, **0.31408** with radiation (measured T_CMB, N_eff, h): **0.96% from Planck, 0.53σ inside its error bar**. Closure: a₀ improves 1.72% → **0.66%**; r_universe back-predicted to −1.07%; DESI DR2 χ²/N = **1.618** (fixed-ruler). Ledger after adopting P: measured = {H₀, T_CMB, N_eff}; computed = {Ωm, Ω_Λ, x₀, r_universe, a₀}. **Conditional on P — Part B (deriving P from A1–A3) is open; three candidate routes, none attempted.** | 🔶 |
+| B-4b | Gaztañaga comparison memo — the causal-universe scale (≈ 0.3176 H₀, via inflation) is adjacent to the bootstrap root. **Prerequisite for any Ωm novelty claim.** | ⬜ |
+| B-4c | Part B: derive principle P from the flow axioms. Routes: (i) flow-budget amplitude; (ii) horizon-acceleration balance (P ⇔ g_horizon = cH₀/2 — the same cH₀ that sets a₀, ratio computes to 1.00000); (iii) homogeneous field equation (needs the vorticity attachment shared with Path Two). | ⬜ |
 | B-5 | ρ_eddy = x₀ρ_crit from the homogeneous field equation (well-posed since Task 4) | ⬜ |
 | B-6 | D_ESTIF(z) linear growth — laptop-analytic; must pass the two-sided σ8/S8 filter (C3: transient or scale-dependent) | ⬜ |
 | B-7 | Weak-lensing BTFR check (KiDS flat circular velocities to ~1 Mpc) against the derived a₀ — **lowest-hanging fruit on the tree** | ⬜ |
@@ -79,16 +89,17 @@ the JWST distinguishing test (A6). Must pass the two-sided σ8 filter (C3).
 | # | Item | Status |
 |---|---|---|
 | P-1 | v6.3 documentation suite + v6.3.1 errata + canonical Path One scripts (DESI parity; AIC/BIC) delivered | ✅ |
-| P-2 | Apply the errata (C1–C6) across the repo; commit as v6.3.1 | ⬜ |
+| P-2 | Apply the errata (C1–C6) across the repo; commit as v6.3.1 | ✅ 9 July 2026 |
+| P-4 | Apply the bootstrap amendments across the repo; commit as v6.3.2 | ⬜ |
 | P-3 | Gravity-letter final pass (C1/C6 wording + preferred-frame section) → submit (barrier 6) | ⬜ |
 
 ---
 
-## Tally (32 tracked items)
+## Tally (34 tracked items)
 
 | ✅ complete | 🔶 partial | ⬜ open | ❌ blocked/retired |
 |---|---|---|---|
-| **16** | **1** | **13** | **2** |
+| **16** | **1** | **15** | **2** |
 
 **Pattern:** the derivation core of Path One is finished (all of Goal C's physics,
 the a₀ chain, the frozen-eddy parity). What remains is documentation hygiene

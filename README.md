@@ -1,12 +1,12 @@
 # ESTIF: Emergent Spacetime from Inward Flow
 
-**Version 6.3 — "The Split"** · 8 July 2026
+**Version 6.3.2 — "The Split"** · 9 July 2026
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.17261724-blue)](https://zenodo.org/records/17261724)
 
 A geometric framework in which **3D space is a flat hypersurface carried through
 a 4D bulk.** From that single picture:
 
-- - **Gravity** is the local tilt/slowing of the flow near mass — and its field
+- **Gravity** is the local tilt/slowing of the flow near mass — and its field
   equation is now *derived* from the axioms rather than matched to the
   Schwarzschild solution (the matter coupling, 8πG, is still adopted — see C6).
 - **Time** is motion through the 4th dimension at the speed of light; time
@@ -67,6 +67,7 @@ The old Poisson "postulate" is now a theorem for vacuum, Newton, and Schwarzschi
 | Cosmology — honest best | ✅ Frozen eddy = Λ, ties ΛCDM (1.92) |
 | Cosmology — tilt Ω_tilt(z) | 🔴 Retired (fits worse than the Λ limit under it) |
 | Dark matter | 🟡 Analytical phase complete; N-body wall |
+| Ωm bootstrap (conditional on P) | 🔶 Unique root 0.31408 (0.53σ); a₀ → 0.66%; Part B open |
 
 > ⚠️ **Conditional (C1).** The ESTIF vacuum is exactly Schwarzschild (Task 4), so any
 > *deviation* from GR in shadows or GW propagation must be sourced by the non-vacuum
@@ -109,10 +110,16 @@ python3 src/estif_ec_gr_run_simulation.py           # 21/21
    condition forces exactly Schwarzschild.
 2. **Expansion = 4D inward fall.** Honest best form is the frozen-eddy
    cosmological constant (ties ΛCDM); the evolving-dark-energy version is Path Two.
-3. 3. **No dark matter / dark energy.** Ωm = x₀ = (c/H₀)/r_universe holds to 0.12%, but
-   this is a **consistency relation**, not an Ωm-independent prediction: r_universe is
-   the ΛCDM particle horizon, which itself depends on Ωm (C2). a₀ = H₀cx₀/√3 (1.72%
-   from empirical MOND). Halo structure needs N-body (documented wall).
+3. **No dark matter / dark energy.** Ωm = x₀ = (c/H₀)/r_universe holds to 0.12%, but
+   this is a **consistency relation** (C2): r_universe is the ΛCDM particle horizon,
+   which itself depends on Ωm. **The bootstrap (v6.3.2)** solves that circularity
+   *conditionally*: adopting principle P (Ωm = R_H/r_p) closes it into Ωm·I(Ωm) = 1,
+   whose unique root is **0.31408** — 0.96% from Planck, 0.53σ inside its error bar —
+   from three measured inputs {H₀, T_CMB, N_eff}. Closure: a₀ → 1.1920×10⁻¹⁰
+   (**0.66%** from MOND), r_universe back-predicted to −1.07%, DESI DR2 χ²/N = 1.618
+   (fixed-ruler). ⚠️ **P is not derived from the axioms** — Part B is open, and the
+   Gaztañaga comparison (≈0.3176 H₀) must clear before any novelty claim. Halo
+   structure needs N-body (documented wall).
 
 ---
 
@@ -135,13 +142,17 @@ python3 src/estif_ec_gr_run_simulation.py           # 21/21
 ```bibtex
 @software{angelov2026estif_v63,
   author  = {Angelov, Peter},
-  title   = {ESTIF: Emergent Spacetime from Inward Flow — v6.3 "The Split"},
+  title   = {ESTIF: Emergent Spacetime from Inward Flow — v6.3.2 "The Split"},
   year    = {2026},
-  version = {6.3},
+  version = {6.3.2},
   url     = {https://github.com/tervion/estif-publication},
   doi     = {10.5281/zenodo.17261724}
 }
 ```
+
+# The Omega_m bootstrap (conditional on principle P)
+python3 tests/estif_omega_bootstrap.py              # Omega_m*I(Omega_m)=1, unique root
+python3 tests/estif_bootstrap_closure.py            # bootstrap propagated: a0, r_u, DESI
 
 **Author:** Peter Angelov (Independent Researcher) · tervion@gmail.com
 **License:** MIT

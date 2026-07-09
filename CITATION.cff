@@ -59,6 +59,18 @@ abstract: >-
   independent prediction requires deriving r_universe from the flow framework.
   N-body simulation needed for halo structure.
 
+  OMEGA_M BOOTSTRAP (v6.3.2, CONDITIONAL): adopting principle P (Omega_m = R_H/r_p)
+  closes the C2 circularity into Omega_m * I(Omega_m) = 1, which has a unique root:
+  0.3043 with zero measured inputs, 0.31408 with radiation (inputs T_CMB, N_eff, h)
+  -- 0.96% from Planck, 0.53 sigma inside its error bar. It back-predicts
+  r_universe = 4.353e26 m (-1.07%). Closure: a0 = 1.1920e-10 m/s^2 (MOND agreement
+  1.72% -> 0.66%); DESI DR2 chi^2/N = 1.618 (fixed-ruler). Input ledger: measured =
+  {H0, T_CMB, N_eff}; computed = {Omega_m, Omega_Lambda, x0, r_universe, a0}.
+  Identity: P is equivalent to mean matter pull at the horizon = c*H0/2, the same
+  c*H0 that sets a0. CONDITIONAL: P is not derived from the flow axioms (open); a
+  comparison with Gaztanaga's causal-universe scale (~0.3176 H0) is a prerequisite
+  for any novelty claim. Scripts: estif_omega_bootstrap.py, estif_bootstrap_closure.py.
+
   A fidelity audit (estif_fidelity_audit.py) found that the axioms of universal
   speed c (A2) and "empty space is not a source" (A3) lived only in the derivation
   scripts, and that the concept document ran a competing shrinking-ruler
@@ -74,7 +86,7 @@ authors:
     given-names: "Peter"
     email: tervion@gmail.com
     affiliation: "Independent Researcher"
-version: 6.3.1
+version: 6.3.2
 date-released: "2026-07-09"
 license: MIT
 repository-code: "https://github.com/tervion/estif-publication"
@@ -127,7 +139,7 @@ preferred-citation:
     - family-names: "Angelov"
       given-names: "Peter"
   year: 2026
-  version: "6.3.1"
+  version: "6.3.2"
   repository-code: "https://github.com/tervion/estif-publication"
   doi: "10.5281/zenodo.17261724"
   notes: >-

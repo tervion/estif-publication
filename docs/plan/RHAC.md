@@ -569,13 +569,74 @@ kept well-behaved. **Status:** 🟢 Superseded.
 
 ---
 
-### Scenario H (re-update): Ωm = x₀ — now connected to the derived machinery
+### Scenario H (re-update): Ωm = x₀ — sharpened, and reduced to deriving principle P
 
 The Task 4 result derives the *local* field equation (rho_eff = m′/4πr²) from the
 flow metric. The homogeneous version of the same calculation is the natural route
-to test whether ρ_eddy = x₀ρ_crit emerges. This remains the most important
-theoretical target for the dark-matter sector and is now well-posed rather than
-abstract. **Status:** 🟡 Active, sharpened.
+to test whether ρ_eddy = x₀ρ_crit emerges. Errata C2 then showed the identity as
+stated is circular — r_universe is the ΛCDM horizon, which contains Ωm. Scenario Q
+below breaks that circularity *conditionally*, and in doing so reduces this whole
+scenario to one question: **can principle P be derived from A1–A3?**
+
+Three candidate routes to P, none yet attempted in earnest:
+1. **Flow-budget amplitude** — fix the sideways component of the cosmic flow from
+   the axioms rather than reading it off Ωm.
+2. **Horizon-acceleration balance** — P is equivalent to the statement that the mean
+   matter pull at the horizon equals cH₀/2. Note this is the *same* cH₀ that sets a₀;
+   the ratio computes to 1.00000. That is either the mechanism or a coincidence, and
+   deciding which is the shortest path.
+3. **Homogeneous field equation** — requires the vorticity attachment, which is the
+   same structural extension Path Two needs. If Path Two moves, this route opens.
+
+**Status:** 🟡 Active, sharpened → now reduces to Part B of Scenario Q.
+
+---
+
+### 🔶 Scenario Q: The Ωm bootstrap — can the C2 circularity be inverted? (Door 2)
+
+**What if** the circularity C2 identifies is not a flaw to be removed but an equation
+to be *solved*? x₀ = (c/H₀)/r_universe is circular because r_universe depends on Ωm.
+So close the loop: demand self-consistency and see whether it has a unique solution.
+
+**Principle P (adopted, not derived):** Ωm = R_H/r_p, where r_p is the particle
+horizon. Substituting the horizon integral turns the circularity into Ωm · I(Ωm) = 1
+**Resolution (Part A — the computation, done):** the equation has a **unique** root.
+- Pure matter + Λ, **zero measured inputs**: Ωm = **0.3043** (2.2% from Planck).
+- With radiation (inputs = measured T_CMB, N_eff, h): Ωm = **0.31408** — **0.96% from
+  Planck, 0.53σ inside Planck's error bar**.
+- Back-predicts r_universe = 4.353×10²⁶ m (−1.07% against the 4.4×10²⁶ import).
+- Identity: P ⇔ mean-matter pull at the horizon = cH₀/2 — the same cH₀ that sets a₀
+  (ratio computes to 1.00000).
+
+**Closure (propagating the bootstrap Ωm):**
+- a₀ = 1.1920×10⁻¹⁰ m/s² — MOND agreement improves **1.72% → 0.66%**. SPARC is
+  insensitive (v_flat × 1.00269).
+- DESI DR2: χ²/N = **1.618** vs ΛCDM's 1.919 — *within the fixed-(H₀, rd) test*.
+- **Input ledger after adopting P:** measured = {H₀, T_CMB, N_eff}; computed =
+  {Ωm, Ω_Λ, x₀, r_universe, a₀}.
+
+Scripts: `estif_omega_bootstrap.py`, `estif_bootstrap_closure.py`.
+
+**Why this is 🔶 and not 🟢 — the honest flags:**
+1. **Everything above is conditional on P.** P is *not* derived from A1–A3. That is
+   Part B, and it is untouched. Without it the bootstrap is a reparametrization of
+   the circularity, not an escape from it.
+2. **Gaztañaga adjacency.** The causal-universe scale (≈ 0.3176 H₀, reached via
+   inflation) sits next to this root. A comparison memo is a **prerequisite for any
+   novelty claim** — see checklist B-4b. Until it exists, no priority is asserted.
+3. **DESI 1.618 is a fixed-ruler result.** Under C4-style marginalization over rd,
+   H₀, and Ωm the ordering against ΛCDM could change.
+4. **a₀'s empirical target carries ~10% scatter.** 0.66% is pleasing, not decisive;
+   improving 1.72% → 0.66% inside a 10% band is not a detection.
+
+**Decision:** report the bootstrap as an explicitly conditional result. Do not
+upgrade any Ωm language from "consistency relation" (C2) until *both* Part B lands
+and the Gaztañaga memo clears. Applying this file's own Step 2 filter — *"does this
+lead to a falsifiable prediction?"* — Part B is the only step that converts a yes-in-
+principle into a yes-in-fact.
+
+**Status:** 🔶 Part A resolved (conditional); Part B open — the single largest
+available upgrade to Path One's claims.
 
 ---
 
@@ -583,13 +644,14 @@ abstract. **Status:** 🟡 Active, sharpened.
 
 | Category | Count |
 |---|---|
-| Total scenarios documented | 24 |
+| Total scenarios documented | 25 |
 | Resolved | 16 ✅ |
+| Conditional | 1 🔶 (Scenario Q, Part A) |
 | Active | 6 🟡 |
 | Budget wall (simulation) | 1 🔴 |
 | Major pivots | 6 (H(t), dynamic n, Ω_tilt inversion, fluid→collisionless, cosmology→gravity letter, **tilt→frozen-eddy split**) |
 
 ---
 
-**Document Version:** 6.3 (ESTIF v6.3 — "The Split")
-**Last Updated:** 8 July 2026
+**Document Version:** 6.3.2 (ESTIF v6.3 — "The Split", + v6.3.1 errata, + Ωm bootstrap)
+**Last Updated:** 9 July 2026
