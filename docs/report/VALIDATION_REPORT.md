@@ -84,6 +84,16 @@ of {vacuum, Newton, Schwarzschild}, and is the remaining rigorous gravity step.
 **Verdict:** ✅ The former "Poisson postulate" is now a theorem for vacuum, Newton,
 and Schwarzschild. The gravity sector rests on a derived foundation.
 
+> **Precision (C6).** What is established is that the three flow axioms uniquely
+> *select* the constraint (energy) sector of General Relativity in
+> Painlevé–Gullstrand gauge — forcing mass continuity, hence exact Schwarzschild in
+> vacuum and the Newtonian source in the weak field — **without matching to the
+> Schwarzschild solution**. What is *adopted*, not derived, is the gravitational
+> coupling: the identification of the geometric constraint scalar with 8πG × energy
+> density. ESTIF does not derive G or the factor 8π from below. The correct claim is
+> that the force law is no longer matched to GR's vacuum solution; the coupling to
+> matter is still the standard Einstein–Hilbert one.
+
 ---
 
 ## Part 1: Strong-Field Gravity (deviations from GR — unchanged)
@@ -122,9 +132,19 @@ and Schwarzschild. The gravity sector rests on a derived foundation.
 | x at ISCO | 0.3333 |
 | Observable √β | 0.7677 |
 | GW delay predicted | 491.7 μs |
-| LISA S/N | **49.2σ** ✅ |
+| LISA S/N | **49.2σ** ⚠️ conditional — see C1 note below |
 
-**Verdict:** All three pass simultaneously with zero free parameters after calibration.
+**Verdict:** All three are *consistent* with observation simultaneously, with zero
+free parameters after calibration.
+
+> ⚠️ **Conditional (C1).** The ESTIF vacuum is exactly Schwarzschild (Part 0), so
+> any *deviation* from GR in photon-sphere shadows or in gravitational-wave
+> propagation through vacuum must be sourced by the non-vacuum eddy background — a
+> sector not yet derived. The EHT and LISA figures above are therefore predictions
+> **conditional on** the open eddy-stress derivation, not established results. The
+> observations remain consistent with ESTIF; the *deviation from GR* is what awaits
+> derivation. The Planck Λ entry is a calibration match, not a vacuum deviation, and
+> is unaffected by this caveat.
 
 ### 1.2 Gravity = Generalized Time Dilation
 
@@ -147,15 +167,20 @@ ln(r_e/l_P) = 46.608
 B = L/3 is derived from 3D isotropy; N_MAX = 5/7 × L is conditional on the
 still-open geometric derivation of x_c = 0.272. See `test_electron_connection.py`.
 
-### 1.4 GW Delay Mass Dependence (n = 0.05)
+### 1.4 GW Delay Mass Dependence (n = 0.05) — conditional (C1)
+
+> ⚠️ Every entry in this table is a *deviation from GR* in vacuum GW propagation.
+> Under the exact-Schwarzschild vacuum result (Part 0) these deviations require the
+> non-vacuum eddy background as their source. They are conditional on the open
+> eddy-stress sector, not established predictions.
 
 | Binary Mass | GW Delay | LISA S/N | Status |
 |---|---|---|---|
-| 10 M☉ | 32 μs | 3.2σ | ✅ |
-| 30 M☉ | 95 μs | 9.5σ | ✅ |
-| 65 M☉ | 207 μs | 20.7σ | ✅ |
-| 100 M☉ | 318 μs | 31.8σ | ✅ |
-| 500 M☉ | 1.6 ms | 158σ | ✅ |
+| 10 M☉ | 32 μs | 3.2σ | ⚠️ conditional |
+| 30 M☉ | 95 μs | 9.5σ | ⚠️ conditional |
+| 65 M☉ | 207 μs | 20.7σ | ⚠️ conditional |
+| 100 M☉ | 318 μs | 31.8σ | ⚠️ conditional |
+| 500 M☉ | 1.6 ms | 158σ | ⚠️ conditional |
 
 > **Retired in v6.3:** the Λ-drift prediction (0.023%/Gyr) depended on reading N_MAX
 > as a cosmological ratio ln(r_universe/Rs_m87). Under the electron-scale anchoring
@@ -198,7 +223,7 @@ failed DESI DR2 at χ²/N = 10.8, for two reasons now understood:
 | Derived eddy E1 (conserved spin) | w = +1 stiff | 3232 | falsified (Task 6) |
 | Derived eddy E2 (tracker) | thaws to ~0 | 754 | falsified (Task 6) |
 | ΛCDM reference | w = −1 | 1.92 | — |
-| Best-fit evolving (CPL, fitted) | w0=−0.85, wa=−0.45 | 0.66 | Path Two target |
+| Best-fit evolving (CPL, fitted) | w0=−0.85, wa=−0.45 | 0.66 | Path Two target ⚠️ under-marginalized, see C4 |
 
 **Conclusion:** on DESI, the entire Ω_tilt apparatus (dynamic n, N_MAX, B, sign
 choice, z<2 cutoff) is a **net negative** relative to the plain cosmological
@@ -225,6 +250,15 @@ So the honest picture is not "ESTIF fails DESI" — it is "a cosmological consta
 ties ΛCDM, and a small *derived* thawing correction could do better if it can be
 derived." That is Path Two.
 
+> ⚠️ **Caveat (C4).** The χ²/N ≈ 0.66 CPL target comes from a BAO-alone fit with rd,
+> H₀, and Ωm held fixed at Planck values. Fixing nuisance parameters inflates the
+> apparent evolving-dark-energy advantage; DESI's own BAO-alone preference for
+> evolving DE is considerably milder, and the strong combined-data significance
+> comes from adding CMB and supernovae. This target must be re-derived with rd, H₀,
+> and Ωm marginalized (or at least profiled) before it is used to justify Path Two.
+> The AIC comparison (frozen eddy vs fitted CPL) should be repeated under the same
+> marginalization.
+
 > **Retired to appendix:** the Hubble-radius Λ bridge, the Ω_tilt(z) evolution law,
 > the six pre-2026 low-z fits (Pantheon+ 2.08–2.33σ, BAO 5/5, age, H₀ tension), and
 > the w_eff = −1.358 prediction. Documented as explored; no longer load-bearing.
@@ -233,12 +267,21 @@ derived." That is Path Two.
 
 ## Part 3: Dark Matter — Analytical Phase (unchanged; now connected to Part 0)
 
-### 3.1 The Ωm = x₀ Identity
+### 3.1 The Ωm = x₀ Consistency Relation
 
 ```
 x₀ = R_H / r_universe = 0.310734     Ωm (Planck) = 0.311100     (0.12%)
 x₀ − Ωb = 0.261734                   Ωdm (Planck) = 0.262000     (0.10%)
 ```
+> **Epistemic status (C2).** This is a **consistency relation**, not an
+> Ωm-independent prediction. Here r_universe = 4.4×10²⁶ m is the ΛCDM particle
+> horizon — an integral that itself contains Ωm. The 0.12% agreement is therefore a
+> self-consistency of the geometric picture with Planck-calibrated values, not a
+> derivation of Ωm. An independent prediction requires deriving r_universe from the
+> flow framework without the Ωm-dependent horizon integral — an open task (RHAC
+> Scenario H). The numerical agreement is real and stands; only its status as a
+> "prediction" is withdrawn.
+
 **v6.3 connection:** the derived field equation gives the *local* ρ_eff = m′/4πr².
 Whether ρ_eddy = x₀ρ_crit emerges is the *homogeneous* version of the same
 calculation — now well-posed. See `test_eddy_dark_matter.py`.
@@ -334,13 +377,13 @@ published datasets pass. Scripts: `derive_mond_from_geometry.py`,
 |---|---|---|
 | **Gravity field equation** | ✅ **Derived** | mass continuity = Poisson; vacuum → exact Schwarzschild |
 | Signature + SR from flow axioms | ✅ Derived | (−,+,+,+) and dτ/dt = √(1−v²/c²) |
-| Strong-field formula (EHT+Λ+LISA) | ✅ Complete | 3 tests simultaneous, 0 free params |
+| Strong-field formula (EHT+Λ+LISA) | ⚠️ Consistent; *deviations* conditional (C1) | 3 tests simultaneous, 0 free params |
 | Gravity = time = eddies | ✅ Confirmed | β = τ at n = ½; Newton from gradient |
 | Natural scale (electron radius) | ✅ Identified | N_MAX ≈ 5/7 × L, B = L/3 (derived) |
 | MOND a₀ (on derived foundation) | ✅ Derived | 1.72%, zero params, SPARC RMS 15.6% |
 | a₀ redshift constancy | ✅ Proved | H(z) cancels (2.22×10⁻¹⁶) |
 | Parameter independence | ✅ Confirmed | 3,600 combos within SPARC scatter |
-| Ωm = x₀ identity | ✅ Confirmed | 0.12%; now connected to Part 0 |
+| Ωm = x₀ consistency relation | 🔶 Downgraded (C2) | 0.12%, but r_universe is the Ωm-dependent ΛCDM horizon |
 | Collisionless dark matter | ✅ Confirmed | σ/v_esc = 0.5, λ = 2.565r |
 | **Cosmology (Path One)** | ✅ **Frozen eddy = Λ** | ties ΛCDM (χ²/N = 1.92) |
 | Cosmology Ω_tilt(z) | 🔴 Retired | net negative on DESI vs the Λ limit |
@@ -369,5 +412,4 @@ independence) stand unchanged. The v6.2 DESI entry (`test_desi_wz_consistency.py
 
 ---
 
-**Validation Report Version:** 6.3
-**Last Updated:** 8 July 2026
+**Validation Report Version:** 6.3.1 / **Last Updated:** 9 July 2026
