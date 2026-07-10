@@ -656,25 +656,63 @@ term-dominance of a single equation ("gradient dial").
 ---
 
 ## RHAC-002 · 2026-07-10 · The Unification Fence — mapped, not razed
-Claim 2 (gravity+EM+nuclear = one machine) blocked by three missing parts:
+Claim 2 splits into two very different sub-claims after Peter's
+"modify" clarification (gravity does not alter the other forces;
+gravity arranges the meeting at which the other forces act):
+
+Claim 2-WEAK — gravity as arranger. Gravity delivers masses to
+close range; nuclear/electric interactions then proceed by their
+own laws. Already inherited by ESTIF for free the moment its
+gravity sector works. No new machinery, no fence, no work.
+Example: stars — gravity crushes hydrogen, nuclear force fuses.
+
+Claim 2-STRONG — one machine for all forces. Blocked by three
+missing parts:
   P1 no +/- label — flow carries one unsigned currency (energy);
      charge needs a second, signed one, born only in cancelling pairs
   P2 no internal knob-shapes — EM = 1-handed dial, strong = 3-handed;
      ESTIF owns one knob: spacetime bending
   P3 classical engine — other forces are irreducibly quantum; and the
      ratio chasm (grav/EM ~ 1e-36 protons, 1e-43 electrons) unexplained
-Gates (far shelf, post-Path-Two at the earliest):
+Gates (far shelf, post-Path-Two at the earliest, 2-STRONG only):
   G1 Kaluza slot — does the flow's shift vector obey Maxwell-form eqs?
      Expected best case: gravitomagnetism analog, NOT electromagnetism.
      One bounded symbolic session. Magnetars = test bed IF G1 yields.
-  G2 Kelvin gate — eddy-as-particle (vortex atoms 1867 -> solitons);
-     requires internal symmetry + quantum sector the flow lacks.
+  G2 Kelvin gate — CLOSED 2026-07-11 by AUTHOR DECISION (declared
+     no-go zone). Not a physics verdict. Not to be explored.
+
 Audit of the particle-ladder idea: principle right (mass = trapped
-energy; proton is 99% cage-energy), mechanism wrong (nature converts
-at quantum thresholds; gravity is a spectator at particle scale),
-bottom rungs not composite (three generations, masses underived by
-anyone). Kept: the instinct. Discarded: gravitational clumping as
-the particle-maker.
+energy; proton is 99% cage-energy, confirmed by pair production
+bookkeeping), mechanism wrong (nature converts at quantum thresholds;
+gravity is a spectator at particle scale), bottom rungs not composite
+(three generations, masses underived by anyone). Kept: the instinct.
+Discarded: gravitational clumping as the particle-maker.
+
+---
+
+## RHAC-003 · 2026-07-11 · Time, decay, and the far future (v2)
+AUTHOR POSITION: the flow (3D through 4D) drives decay; gravity sets
+  the local flow rate (deeper well -> slower flow -> slower decay,
+  consistent with observed time dilation). Maintained.
+AUDITOR POSITION: flow supplies proper time (necessary condition);
+  nuclear structure sets rates. Same-conditions spread (Po-214 164 us
+  vs U-238 4.5 Gyr) attributed to tunneling barriers, not flow.
+  DISAGREEMENT OPEN.
+CORRECTED (author's bet, won): Fe-56 is breakable by energy input —
+  photodisintegration at ~1e10 K drives core-collapse supernovae;
+  e-capture at NS-crust pressure transmutes it. Defensible claim is
+  only: no SPONTANEOUS channel (waiting alone never breaks it).
+KEPT: mass <-> proper time; massless particles do not age or decay;
+  muon lifetime dilation (CERN) confirms decay runs on proper time.
+RETRACTED (auditor): earlier gravity-as-hammer sign argument.
+FAR FUTURE: author rejects heat-death endpoint; instinct = vacuum
+  flow itself produces a product (post-ESTIF project, no mechanism,
+  no paper contact). Auditor notes: (a) forecast is conditional on
+  w = -1 forever + no new vacuum physics; (b) mainstream cousin
+  exists (de Sitter horizon temperature ~1e-30 K, Gibbons-Hawking);
+  (c) ESTIF Path One (frozen eddy = Lambda) is already a vacuum-
+  flow-product claim; (d) the operational handle is w(a) = Path Two.
+  First battle already scheduled and pre-registered.
 
 ---
 
