@@ -1,0 +1,26 @@
+==========================================================================
+PATH TWO - TARGET LOCK: CPL (w0, wa) on Path One DESI DR2 pipeline
+  bins N = 13 | Om = x0 = 0.3107 FIXED | RD = 147.09 FIXED | H0 = 67.66 FIXED
+==========================================================================
+
+[0] Pipeline check, (w0,wa)=(-1,0) must equal Path One ESTIF-Core:
+    chi2 = 25.542   chi2/N = 1.965   (Path One printed 1.965)
+
+[1] Best-fit thawing shape (2 knobs, for TARGET definition only):
+    w0 = -0.860   wa = -0.410
+    chi2 = 8.539   chi2/N = 0.657   chi2/dof(11) = 0.776
+    Delta chi2 vs w=-1:  17.00   (AIC penalty for 2 params = 4)
+    w(z=0) = -0.860   w(z=1) = -1.065
+
+[2] 1-sigma box (Delta chi2 <= 2.30) on the coarse grid:
+    w0 in [-0.94, -0.78]
+    wa in [-0.80, -0.05]
+
+[3] PRE-REGISTERED PASS/FAIL for the Phase 2 derivation (zero knobs):
+    PASS  : derived w(a) lands inside the 1-sigma box above AND
+            chi2 <= 8.5 + 2.3 on these exact bins
+    SIGN  : w(z=0) > -1 with w rising toward z=0 (thawing), else FAIL
+    NULL  : derivation returns exactly w = -1 -> Path Two closes,
+            Path One stands as final (still publishable)
+    CAVEAT: fixed rd, H0 (C4) -- ordering may shift under marginalization
+

@@ -640,6 +640,44 @@ available upgrade to Path One's claims.
 
 ---
 
+## RHAC-001 · 2026-07-10 · The Two-Machine Crossroads
+Finding: tilt sector (dynamic n) read locally gives g/g_N → 0 below x≈0.2
+(mu_extraction.py); Newton limit requires frozen n. No rule exists for
+where n is evaluated. μ(a/a₀) confirmed underived.
+Roads:
+  R1 per-system n rule — heals inconsistency, yields no μ — PARKED
+  R2 background-curvature composition — slope wrong (~r^-0.27 sag),
+     pencil check only, never run — CLOSED
+  R3 vorticity T_μν → field equation — one machine; μ and the Path Two
+     thawing term come from the same object — TAKEN
+Principle adopted: no per-regime formulas. Regimes must emerge as
+term-dominance of a single equation ("gradient dial").
+
+---
+
+## RHAC-002 · 2026-07-10 · The Unification Fence — mapped, not razed
+Claim 2 (gravity+EM+nuclear = one machine) blocked by three missing parts:
+  P1 no +/- label — flow carries one unsigned currency (energy);
+     charge needs a second, signed one, born only in cancelling pairs
+  P2 no internal knob-shapes — EM = 1-handed dial, strong = 3-handed;
+     ESTIF owns one knob: spacetime bending
+  P3 classical engine — other forces are irreducibly quantum; and the
+     ratio chasm (grav/EM ~ 1e-36 protons, 1e-43 electrons) unexplained
+Gates (far shelf, post-Path-Two at the earliest):
+  G1 Kaluza slot — does the flow's shift vector obey Maxwell-form eqs?
+     Expected best case: gravitomagnetism analog, NOT electromagnetism.
+     One bounded symbolic session. Magnetars = test bed IF G1 yields.
+  G2 Kelvin gate — eddy-as-particle (vortex atoms 1867 -> solitons);
+     requires internal symmetry + quantum sector the flow lacks.
+Audit of the particle-ladder idea: principle right (mass = trapped
+energy; proton is 99% cage-energy), mechanism wrong (nature converts
+at quantum thresholds; gravity is a spectator at particle scale),
+bottom rungs not composite (three generations, masses underived by
+anyone). Kept: the instinct. Discarded: gravitational clumping as
+the particle-maker.
+
+---
+
 ### Updated Summary Statistics (v6.3)
 
 | Category | Count |
@@ -653,5 +691,5 @@ available upgrade to Path One's claims.
 
 ---
 
-**Document Version:** 6.3.2 (ESTIF v6.3 — "The Split", + v6.3.1 errata, + Ωm bootstrap)
-**Last Updated:** 9 July 2026
+**Document Version:** 6.3.2 (ESTIF v6.3 — "The Split", + v6.3.1 errata, + Ωm bootstrap) #1007225
+**Last Updated:** 10 July 2026
