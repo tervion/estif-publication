@@ -729,5 +729,7 @@ FAR FUTURE: author rejects heat-death endpoint; instinct = vacuum
 
 ---
 
-**Document Version:** 6.3.2 (ESTIF v6.3 — "The Split", + v6.3.1 errata, + Ωm bootstrap) #1007225
-**Last Updated:** 10 July 2026
+**Document Version:** 6.3.2 (ESTIF v6.3 — "The Split", + v6.3.1 errata, + Ωm bootstrap)
+**Last Updated:** 11 July 2026
+
+#11070126
