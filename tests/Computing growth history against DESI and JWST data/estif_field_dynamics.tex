@@ -1,0 +1,168 @@
+% =====================================================================
+%  FIELD DYNAMICS SECTION  --  insert into main.tex
+%  Suggested placement: immediately after "Goal 1: Gravity = Time = Eddies"
+%  (which defines the eddy field and the force law), or as a standalone
+%  section before "Testable Predictions Summary".
+%  NOTE: requires one bibliography entry for the GW-speed bound, cited below
+%  as \cite{LIGO2017GW170817} (GW170817 / GRB 170817A, |c_gw-c|/c < ~1e-15).
+% =====================================================================
+
+\section{Field Dynamics: The Eddy Wave Equation}
+\label{sec:dynamics}
+
+Sections~\ref{sec:dynamics} onward supply a component absent from the framework
+as stated so far. The eddy field $\omega$ and the response of matter to it are
+specified---the latter through the force law
+$a = -c^2\nabla(\omega/H_0)^2/2$---but the \emph{self-dynamics} of the field, i.e.
+how $\omega$ evolves in time, are not. Without them the field cannot support
+propagating disturbances, so quantities that depend on wave propagation (notably
+the LISA delay of Sec.~\ref{sec:predictions}) rest on a kinematic assumption rather
+than a dynamical result. This section provides the minimal dynamical completion,
+addresses the ``complete kinetic theory of the eddy background'' identified as
+future work in the abstract, and shows that eddy ripples propagate at $c$ under a
+single, explicitly stated assumption.
+
+\subsection{The field and the missing dynamics}
+
+Define the dimensionless eddy field
+\begin{equation}
+\varphi \equiv \frac{\omega}{H_0}, \qquad
+\varphi_0(x) = x^{\,n(x)} \ \ \text{(equilibrium profile, Eq.~\ref{eq:n}--\ref{eq:obs})}.
+\end{equation}
+The force law $a = -\tfrac{c^2}{2}\nabla\varphi^2$ is a \emph{static} relation: given
+the configuration $\varphi(\mathbf{x})$ it returns the acceleration of test matter,
+but it does not determine the time evolution of $\varphi$. A propagating ripple
+requires $\varphi$ to be able to depart from $\varphi_0$ and relax back---that is, it
+requires a term encoding inertia (resistance to change in time) alongside the
+stiffness (resistance to spatial bending) already implied by the force law.
+
+\subsection{Minimal quadratic action}
+
+The most general local action quadratic in the field and its first derivatives is
+\begin{equation}
+S = \int \! dt\,d^3x
+\left[\ \frac{\mu}{2}\left(\partial_t\varphi\right)^2
+      - \frac{\kappa}{2}\left(\nabla\varphi\right)^2
+      - V(\varphi)\ \right],
+\label{eq:action}
+\end{equation}
+where $\mu$ is the inertia coefficient (dimensions of mass per unit length),
+$\kappa$ is the stiffness coefficient (dimensions of tension, i.e.\ force), and
+$V(\varphi)$ is a restoring potential with minimum at the equilibrium profile
+$\varphi_0$. The Euler--Lagrange equation is
+\begin{equation}
+\mu\,\partial_t^2\varphi \;-\; \kappa\,\nabla^2\varphi \;+\; V'(\varphi) \;=\; 0 .
+\label{eq:eom}
+\end{equation}
+
+\subsection{Ripple speed and the propagation fork}
+
+Linearising about the equilibrium, $\varphi = \varphi_0 + \delta\varphi$ with
+$\delta\varphi \propto \exp[i(\mathbf{k}\cdot\mathbf{x} - \omega_k t)]$, and using that
+$\varphi_0$ satisfies the static balance $\kappa\nabla^2\varphi_0 = V'(\varphi_0)$,
+Eq.~\eqref{eq:eom} gives the dispersion relation
+\begin{equation}
+\mu\,\omega_k^2 \;=\; \kappa\,k^2 \;+\; V''(\varphi_0).
+\label{eq:disp_general}
+\end{equation}
+At large $k$ (or for $V''=0$) the propagation speed is
+\begin{equation}
+\frac{\omega_k}{k} \;\longrightarrow\; \sqrt{\frac{\kappa}{\mu}} \;\equiv\; c_\text{eddy},
+\label{eq:speed}
+\end{equation}
+the classical wave speed $\sqrt{\text{tension}/\text{linear density}}$ of a stretched
+medium. Crucially, the static results of the preceding sections fix \emph{neither}
+$\mu$ \emph{nor} $\kappa$ individually, and therefore do not determine
+$c_\text{eddy}$: at this level the eddy ripple speed is a free parameter, not a
+derived quantity. We state this explicitly rather than absorb it silently.
+
+\subsection{The relativistic closure}
+
+The force law already contains the speed of light: $a = -\tfrac{c^2}{2}\nabla\varphi^2$.
+The minimal completion consistent with this is that $\varphi$ is a Lorentz scalar, i.e.\
+that inertia and stiffness are locked by
+
+\begin{center}
+\fbox{\ \ \parbox{0.85\textwidth}{\centering
+\textbf{Assumption A (relativistic eddy sector).}\\[2pt]
+$\displaystyle \mu = \kappa/c^2 \quad\Longrightarrow\quad c_\text{eddy} = c.$}\ \ }
+\end{center}
+
+\noindent
+Equivalently, the action~\eqref{eq:action} takes the Lorentz-invariant form
+\begin{equation}
+S = \int\! dt\,d^3x\ \frac{\kappa}{2}
+\left[\frac{1}{c^2}\left(\partial_t\varphi\right)^2 - \left(\nabla\varphi\right)^2\right]
+- V(\varphi),
+\qquad
+\kappa\,\Box\,\varphi + V'(\varphi) = 0,
+\label{eq:covariant}
+\end{equation}
+with $\Box \equiv c^{-2}\partial_t^2 - \nabla^2$. Assumption~A is a hypothesis, not a
+theorem: it is the minimal choice compatible with the $c$ already present in the force
+law, and it is the unique choice yielding causal (subluminal-bounded, luminal-limit)
+signal propagation with no superluminal modes. We adopt it and mark each result that
+depends on it.
+
+\subsection{Consequences}
+
+Under Assumption~A the ripple dispersion relation~\eqref{eq:disp_general} becomes
+\begin{equation}
+\omega_k^2 = c^2 k^2 + m^2, \qquad m^2 \equiv \frac{c^2}{\kappa}\,V''(\varphi_0).
+\label{eq:disp_rel}
+\end{equation}
+Two consequences follow.
+\begin{itemize}
+\item \textbf{Luminal massless limit.} For $V''\to 0$, $\omega_k = c\,k$ exactly:
+eddy ripples are non-dispersive and propagate at $c$. This is consistent with the
+multimessenger bound $|c_\text{gw}-c|/c \lesssim 10^{-15}$ from GW170817/GRB\,170817A
+\cite{LIGO2017GW170817}.
+\item \textbf{Gravitational waves as a dynamical output.} The eddy ripples are
+gravitational waves. Their luminal local speed, combined with the tilt profile
+$\beta(x)$, produces a Shapiro-type propagation delay for signals traversing curved
+regions, placing the LISA delay prediction of Sec.~\ref{sec:predictions} on a
+dynamical footing rather than a kinematic postulate.
+\end{itemize}
+
+\subsection{Consistency constraint on the inertia}
+
+If the inertia is identified with the eddy spin-energy density---the physically natural
+choice for a rotational field, and consistent with $E=mc^2$---then $\mu \propto \varphi^2$
+is field dependent. Equation~\eqref{eq:speed} would then give
+$c_\text{eddy}^2 = \kappa/\mu \propto \varphi^{-2}$, a \emph{position-dependent} wave
+speed (since $\varphi=\varphi_0(x)$), which is excluded by the observed universality of
+$c_\text{gw}$. Universality therefore requires the stiffness to carry the same field
+dependence, $\kappa \propto \varphi^2$, so that the ratio $\kappa/\mu = c^2$ remains
+constant everywhere. This is precisely the content of Assumption~A generalised to a
+field-dependent normalisation: a spin-energy inertia is admissible \emph{only} if
+paired with a stiffness of matching dependence. The two ingredients are thus not
+independent---the observational constraint links them.
+
+\subsection{What is assumed versus derived}
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Status & Statement \\
+\midrule
+Derived (given A) & Eddy field obeys a wave equation, Eq.~\eqref{eq:covariant} \\
+Derived (given A) & Ripples propagate at $c$; massless limit luminal, non-dispersive \\
+Derived (given A) & GW propagation is a dynamical consequence, underpinning LISA delay \\
+\midrule
+Assumed & Lorentz invariance of the eddy sector (Assumption~A) \\
+Motivation & The $c$ already in the force law; required for causal propagation \\
+\midrule
+Open & Shape of $V(\varphi)$ (hence any GW mass term / low-$k$ dispersion) \\
+Open & Microscopic derivation of Assumption~A from the eddy background \\
+Open (unchanged) & The $O(1)$ coefficient in $a_0 = H_0 c\,x_0/\sqrt{3}$; the \\
+                 & $\sqrt{3}$ prefactor is independent of the dynamics introduced here \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The dynamics of this section close the gap between the static force law and
+wave propagation, at the cost of one explicit assumption (relativistic eddy sector).
+They do not alter the derivation or the open status of the MOND coefficient $a_0$,
+which depends on the equilibrium profile and the $\sqrt{3}$ projection, not on the
+field's time evolution.

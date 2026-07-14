@@ -1,7 +1,7 @@
 # ESTIF v6.3 — Summary for Expert Review
 
 **Author:** Peter Angelov (Independent Researcher, tervion@gmail.com)
-**Version:** 6.3.2 (July 2026) — "The Split"
+**Version:** 6.4.0 (July 2026) — "The Split" + Phase 2 null + A1′
 **Repository:** https://github.com/tervion/estif-publication
 **Zenodo:** https://zenodo.org/records/17261724
 **Validation:** `python3 tests/estif_task4_field_equation.py` | `python3 tests/derive_mond_from_geometry.py` | `python3 src/estif_ec_gr_run_simulation.py` (21/21)
@@ -232,12 +232,16 @@ constancy:** H(z) cancels in the comoving frame (deviation 2.22×10⁻¹⁶).
    than by modifying the force law directly?
 
 **On the bootstrap:**
-9. Is principle P (Ωm = R_H/r_p) derivable from the flow axioms A1–A3? It is
-   equivalent to requiring that the mean matter pull at the particle horizon equal
-   cH₀/2 — the same cH₀ that sets a₀ (ratio 1.00000). Is that equivalence a mechanism
-   or a coincidence? And how does the resulting root (0.31408) relate to Gaztañaga's
-   causal-boundary scale (≈ 0.3176 H₀), which is reached by a different route
-   (inflation)? Is this the same result in different notation?
+9. ~~Is principle P derivable from A1–A3?~~ **Resolved internally 12 July 2026
+   (RHAC-009): NO.** P holds only at our epoch (Ωm(a) = R_H/d_p crosses once, at
+   a≈1; →1 vs ½ at high z), so it is not a theorem of the time-symmetric axioms —
+   it is a predictive postulate. The cH₀/2 equivalence is that today-condition, not
+   a mechanism. Remaining live question for reviewers: how does the postulated root
+   (0.31408) relate to Gaztañaga's causal-boundary scale (≈ 0.3176 H₀, via
+   inflation)? The comparison memo is still owed (B-4b).
+
+   See docs/plan/GAZTANAGA_COMPARISON.md: the memo concludes there is no defensible novelty claim
+   on Ωm (Gaztañaga has priority); ESTIF's distinctive thread is the a₀ = cH₀/2 link.
 
 ---
 
@@ -257,8 +261,9 @@ constancy:** H(z) cancels in the comoving frame (deviation 2.22×10⁻¹⁶).
 **What is conditional (new in v6.3.2):**
 - The Ωm bootstrap: unique root 0.31408 (0.53σ from Planck), a₀ → 0.66%, r_universe
   back-predicted to −1.07%, DESI 1.618. **All of it rests on principle P, which is
-  not derived.** If P falls, the bootstrap falls with it and §C2's downgrade is the
-  final word. Part B is the test.
+  not derived — and (RHAC-009, 12 Jul 2026) is not derivable as a law.** §C2's
+  downgrade is therefore final: Ωm is fixed by a predictive postulate, not derived.
+  P's falsifiable content (Ωm = 0.3141) stands as a postulate.
 - The Gaztañaga comparison is unwritten. No priority is claimed on the Ωm result.
 - a₀ redshift constancy (algebraic); parameter independence (3,600 combinations).
 - **Cosmology:** frozen eddy = cosmological constant ties ΛCDM on DESI DR2 (1.92).
@@ -271,7 +276,9 @@ constancy:** H(z) cancels in the comoving frame (deviation 2.22×10⁻¹⁶).
 
 **What remains open:**
 - Strong-field pressure/stress sector (full off-diagonal T_μν).
-- Path Two: derive the leading w(z) thawing correction from the vorticity stress tensor.
+- ~~Path Two: derive the leading w(z) thawing correction~~ — CLOSED (Phase 2, honorable null,
+  11 July 2026): the residual dark-energy sector the axioms permit is provably empty; w = −1
+  exactly; Λ imported. Any evolving-w must come from outside the flow sector. docs/plan/PHASE2_DECLARATION.md.
 - x_c = 0.272 geometric origin; ρ_eddy = x₀ρ_crit homogeneous derivation.
 - N-body simulation for halo structure; CMB (standard ΛCDM check on Path One).
 - Not peer-reviewed.
@@ -297,4 +304,19 @@ constancy:** H(z) cancels in the comoving frame (deviation 2.22×10⁻¹⁶).
 15. estif_omega_bootstrap.py
 16. estif_bootstrap_closure.py
 
-**Document Version:** 6.3.2 | **Updated:** 9 July 2026
+### What is new in v6.4 (11 July 2026)
+
+- **Phase 2 closed — honorable null (strong form).** The residual dark-energy stress permitted
+  by A1–A3 was computed in full (pre-registered) and is provably empty; w = −1 exactly; Λ is a
+  bare imported constant. ESTIF does not derive dark energy — and it is now proven it cannot,
+  from these axioms. docs/plan/PHASE2_DECLARATION.md (RHAC-004).
+- **Axiom A1 → A1′.** Slices are even *on average*; matter sources local dents; the mean spatial
+  curvature is identically zero at all epochs (registered falsifier, current 0.0007 ± 0.0019).
+  This restores the growing density mode (D₊ = GR growth, f(z=0.5) = 0.76) and the radiative
+  sector — gravitational waves at speed = c, forced by A2, GW170817-consistent (RHAC-005/006).
+  All strict-A1 results survive as the exact-evenness limit.
+- **Gaztañaga comparison delivered.** docs/plan/GAZTANAGA_COMPARISON.md — the causal-horizon →
+  Ωm ≈ 0.3 / no-DE result is Gaztañaga's (peer-reviewed, 2019+). No ESTIF novelty on Ωm; the
+  a₀ link is the only distinctive thread.
+
+**Document Version:** 6.4.0 | **Updated:** 12 July 2026

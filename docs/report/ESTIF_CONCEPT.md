@@ -2,7 +2,7 @@
 
 **Document type:** Conceptual framework — not a mathematical derivation
 **Purpose:** Explains the physical intuition behind ESTIF before any equations
-**Version:** 6.3 (July 2026) — "The Split"
+**Version:** 6.4.0 (12 July 2026) — A1 amended to A1′; Phase 2 closed; Part B (derive P) closed
 
 >
 > **What changed in v6.3 (read this first):**
@@ -15,11 +15,24 @@
 > 3. **The shrinking-ruler picture is retired.** It conflicted with the flat-slice
 >    flow picture the derivations require. Cosmic expansion is now described as
 >    projected inward flow, not universal shrinkage.
-> 4. **Cosmology is reframed.** The honest best result is a frozen cosmic eddy =
->    cosmological constant (ties ΛCDM on DESI DR2). The evolving Ω_tilt(z) apparatus
->    is retired to an "explored and set aside" status (see *The Cosmology Reframe*).
+> 4. **Cosmology is reframed.** The honest best result is a constant cosmic term =
+>    an imported cosmological constant (ties ΛCDM on DESI DR2). The evolving Ω_tilt(z)
+>    apparatus is retired to an "explored and set aside" status (see *The Cosmology Reframe*).
 > 5. **The project splits into two paths** (see *The Two Paths*).
-
+>
+> **What changed in v6.4 (11–12 July 2026):**
+> 6. **Axiom A1 → A1′** (even *on average*; matter dents locally; ⟨curvature⟩ ≡ 0 as law).
+>    Restores linear growth and the radiative sector; strict-A1 results survive as the
+>    exact-evenness limit (RHAC-006).
+> 7. **Phase 2 closed — honorable null.** The residual dark-energy sector the axioms permit
+>    is provably empty; w = −1 exactly; Λ is imported. **Path Two (derive a thawing
+>    correction) is CLOSED** (RHAC-004, docs/plan/PHASE2_DECLARATION.md). Where sections
+>    below still describe Path Two as active, read it as closed.
+> 8. **"Frozen eddy" retracted** (RHAC-004): the cosmological constant is *not* a spinning
+>    frozen eddy. Read "frozen cosmic eddy" as "imported cosmological constant." (The
+>    *local* gravity–eddy identity ω(x) near masses is a separate construct, unaffected.)
+> 9. **Part B closed** (RHAC-009): principle P is a predictive postulate, not derivable;
+>    Ωm stays a consistency relation (C2 final).
 ---
 
 ## The Central Idea
@@ -45,12 +58,24 @@ Everything in ESTIF follows from three statements about the moving sheet. In
 v6.3 they are stated explicitly, because the gravity derivation (below) rests on
 exactly these and nothing else.
 
-**A1 — Space flows, it does not stretch.**
-The 3D sheet is *flat* (its internal geometry has no curvature of its own) and is
-carried bodily through the 4D bulk. This is the Painlevé–Gullstrand picture: flat
-spatial slices plus a flow. It is *not* a picture of space stretching like rubber,
-nor of everything shrinking together (that older idea is retired in v6.3 — see the
-note under *Cosmic Expansion*).
+**A1′ — Space flows, it does not stretch (amended 11 July 2026).**
+The 3D sheet is even *on average* — its internal geometry carries no curvature of
+its own except where matter sources a local deviation (a dent); where nothing
+sources a dent, exact evenness returns. The spatial average of the curvature is
+identically zero at all epochs — this is law, not an initial condition, and it is
+the registered falsifier (current measurement: 0.0007 ± 0.0019). This is the
+Painlevé–Gullstrand picture: even spatial slices plus a flow. It is *not* a picture
+of space stretching like rubber, nor of everything shrinking together (that older
+idea is retired in v6.3 — see the note under *Cosmic Expansion*).
+
+> **Why the amendment.** The strict form (exactly even, everywhere, always) was
+> proven to forbid both the growing density mode (galaxies could not form;
+> RHAC-005) and the radiative sector (vs. LIGO). A1′ pulls exactly that one
+> over-constraint. All strict-A1 results survive as the exact-evenness limit —
+> vacuum Schwarzschild, the a₀ chain, the Friedmann background, and the Phase 2
+> null (RHAC-004). What A1′ adds: linear growth (f(z=0.5) = 0.76, matching GR and
+> DESI RSD) and a container for the ζ = 10⁻⁵ seed. Record: RHAC-006;
+> receipts: tests/phase2_a1prime/.
 
 **A2 — Everything moves through the bulk at the speed of light.**
 Every object — you, a planet, a photon — moves through the 4D bulk at exactly one
@@ -121,7 +146,7 @@ the shadow of the flow.
 > and universal shrinkage are two different geometries and cannot both be the
 > foundation. v6.3 keeps the flow and drops the shrinkage. Under the flow picture,
 > the 3D sheet expands as in standard cosmology, driven by matter plus a
-> cosmological constant that ESTIF identifies as the frozen cosmic eddy (see *The
+> cosmological constant, entering as an imported constant (the earlier "frozen eddy" interpretation was retracted 11 July 2026, RHAC-004 — see *The
 > Cosmology Reframe*). The scale-and-speed intuition that motivated the old analogy
 > is preserved — a smaller sheet moving at the same bulk speed *c* covers proper
 > distance differently — but the mechanism is projection of motion, not shrinking of
@@ -408,11 +433,12 @@ This is the sector that changed most. The short version: **ESTIF's honest best
 cosmology is a plain cosmological constant, and it comes for free from the derived
 gravity.**
 
-### The frozen cosmic eddy is a cosmological constant
+### The constant cosmic term is a cosmological constant
 
 The derived field equation has a clean corollary: a flow whose effective energy
 density is *constant* is exact de Sitter space — a cosmological constant, `w = −1`.
-The cosmic eddy, if it does not dilute, *is* dark energy as a cosmological constant.
+A cosmic flow term that does not dilute *is* dark energy as a cosmological constant —
+imported, not derived (Phase 2 shows the axioms manufacture no such term, RHAC-004).
 Tested against real DESI DR2 BAO data, this frozen-eddy limit scores
 
 ```
@@ -459,9 +485,11 @@ today from more negative in the past; best-fit CPL χ²/N ≈ 0.66). ESTIF's
 self-consistent tilt already leans this way — its w(z) tracks DESI's published curve
 to within ~0.05 — and its 3.35 is essentially where DESI's *own* published w0,wa land
 on this BAO-only subset (3.09). So the honest picture is not "ESTIF fails DESI"; it
-is "a plain cosmological constant ties ΛCDM, and a small derived thawing correction
-*could* do better — if it can be derived." That derivation is Path Two.
-Scripts: `estif_task5b_cosmo_eos.py`, `estif_task6_eddy_eos.py`.
+is "an imported cosmological constant ties ΛCDM." A small *derived* thawing correction was
+the Path Two hope — but **Phase 2 (RHAC-004) proved the residual dark-energy sector the
+axioms permit is empty (w = −1 exactly), so Path Two is closed**; any evolving-w must come
+from outside the single-speed-flow class.
+Scripts: `estif_task5b_cosmo_eos.py`, `estif_task6_eddy_eos.py`; `tests/test_UKN.py` (Phase 2).
 
 > **Retired to appendix:** the Hubble-radius Λ bridge, the Λ-drift (0.023%/Gyr)
 > prediction, the Ω_tilt(z) evolution law, and the pre-2026 six-low-z-test fits.
@@ -520,7 +548,7 @@ The results above split the project into two tracks. See
 
 ### Path One — ESTIF-Core (clean) ✅ recommended default
 - Gravity on the *derived* field equation (Task 4).
-- Cosmology = frozen cosmic eddy → cosmological constant (ties ΛCDM, χ²/N = 1.92).
+- Cosmology = constant cosmic term → imported cosmological constant (ties ΛCDM, χ²/N = 1.92).
 - The Ω_tilt(z) apparatus retired to an appendix.
 - Remaining writing already done in v6.3: axioms A2 and A3 written into this
   document; the shrinking-ruler narrative retired; v_flow = cx₀ relabelled as the
@@ -528,13 +556,14 @@ The results above split the project into two tracks. See
 - Deliverable: the gravity letter (unaffected, and strengthened by the derived
   field equation), plus a short honest cosmology statement. Defensible today.
 
-### Path Two — ESTIF-Extended (hard) 🔬 high-risk research
-- Derive the *leading correction* to `w = −1` from the full rotating-shear /
-  vorticity stress tensor — the cosmological half of the T_μν work, aimed correctly
-  (a small perturbation on top of the frozen limit, not a new dominant term).
-- Target the mild DESI thawing (χ²/N ≈ 0.66) ⚠️ under-marginalized, see C4. The two naive reductions are already 
-  falsified; the full off-diagonal stress tensor is required.
-
+### Path Two — ESTIF-Extended — 🟢 CLOSED 11 July 2026 (honorable null)
+- **Attempted (now retired):** derive the leading correction to `w = −1` from the full
+  rotating-shear / vorticity stress tensor.
+- **Why closed:** Phase 2 computed the *entire* residual stress the axioms permit
+  (pre-registered, submitted unmodified) and it is **empty** — w = −1 exactly, Λ imported.
+  The naive reductions (E1, E2) were already falsified; Phase 2 proves the whole class is
+  empty. Any future evolving-w must leave the single-speed-flow class (p_r = −ρ). See
+  RHAC-004, `docs/plan/PHASE2_DECLARATION.md`.
 ---
 
 ## The Honest Open Questions
@@ -546,16 +575,19 @@ The results above split the project into two tracks. See
   matter (8πG) is adopted from Einstein–Hilbert, not derived (C6).
 - *Do the flow axioms hold Lorentzian time and SR?* → Yes; signature and SR kinematics
   emerge from a Euclidean bulk plus the speed-*c* constraint.
-- *What is ESTIF's honest cosmology?* → A frozen cosmic eddy = cosmological constant,
-  tying ΛCDM on DESI DR2.
+- *What is ESTIF's honest cosmology?* → An imported cosmological constant (w = −1), tying
+  ΛCDM on DESI DR2. Phase 2 proves the axioms permit no residual dark-energy sector (RHAC-004).
 
 **Still open:**
 - **Strong-field pressure/stress sector** of gravity (full off-diagonal T_μν). Needed
   for none of vacuum/Newton/Schwarzschild, but the remaining rigorous gravity step.
-- **Path Two cosmology:** derive the leading `w(z)` correction from the vorticity
-  stress tensor. The naive reductions (stiff spin; expansion tracker) are falsified.
-- **Why Ωm = x₀?** The homogeneous version of the Task 4 calculation — whether
-  `ρ_eddy = x₀ρ_crit` emerges — is the central dark-matter target, now well-posed.
+- ~~**Path Two cosmology**~~ — **closed (Phase 2 honorable null, RHAC-004):** the residual
+  dark-energy sector the axioms permit is proven empty; w = −1 exactly. No longer open.
+- **Why Ωm = x₀?** Reframed 12 July 2026 (RHAC-009): the bootstrap principle P
+  (Ωm = R_H/r_p) that would fix Ωm is a **predictive postulate, not derivable**
+  from the axioms — it holds only at our epoch. Ωm = x₀ stays a consistency
+  relation. Whether ρ_eddy = x₀ρ_crit emerges from the homogeneous field equation
+  is a separate, still-open question.
 - **Why x_c = 0.272?** The geometric origin of the GR crossover; closing it completes
   the N_MAX = 5/7 × L chain.
 - **What is the 4th dimension?** Geometrically well-defined (the direction the flow
@@ -567,7 +599,7 @@ The results above split the project into two tracks. See
 ## Summary
 
 ESTIF begins from three statements about a moving sheet: 3D space is flat and carried
-through a 4D bulk (A1); everything moves through the bulk at the speed of light, so
+through a 4D bulk, even on average with matter-sourced local dents (A1′); everything moves through the bulk at the speed of light, so
 that time is motion through the 4th dimension (A2); and empty space sources nothing
 (A3).
 
@@ -585,11 +617,11 @@ galaxies at RMS 15.6%), now underwritten by the derived force law.
 
 Cosmology is reframed honestly. The evolving Ω_tilt(z) dark-energy law failed DESI
 DR2 (χ²/N = 10.8); de-circularizing it helped (3.35) but did not reach ΛCDM, and the
-frozen-eddy limit — a plain cosmological constant, derived for free from the gravity
+constant-Λ limit — a plain cosmological constant, derived for free from the gravity
 sector — ties ΛCDM at 1.92 and beats the tilt. So the tilt cosmology is set aside,
-and the project splits: **Path One** publishes the derived gravity plus the frozen-
-eddy cosmological constant; **Path Two** attempts to derive the small thawing
-correction DESI hints at, from the full vorticity stress tensor.
+and the project splits: **Path One** publishes the derived gravity plus the imported
+cosmological constant; **Path Two** is closed (Phase 2 honorable null, RHAC-004) — the
+residual dark-energy sector the axioms permit is proven empty, w = −1 exactly.
 
 The ant knows about the ball. ESTIF is about the room the ball moves through — and in
 v6.3, about the one fact that ties the whole picture together: we move through that

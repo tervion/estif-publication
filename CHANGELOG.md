@@ -4,7 +4,60 @@ All notable changes to this project are documented in this file.
 
 ---
 
-## [6.3.2] — 2026-07-09 — The Ωm bootstrap (conditional)
+## [6.4.0] — 2026-07-12 — Phase 2 null, A1 → A1′, C-15 and Part B closed
+
+The residual dark-energy question is settled (against a derived sector), the flow
+axiom is amended to admit structure and radiation, and two open items (the GW wave
+equation, and the derivability of principle P) are closed. **None of this reverses a
+prior decision**; the derived gravity, the tilt retirement, the frozen-limit ΛCDM
+parity, and the conditional bootstrap all stand. Terminology: the cosmological term is
+now called an **imported cosmological constant**; the "frozen eddy" label is retracted.
+
+### Added / resolved — Phase 2 (RHAC-004)
+- **Phase 2 CLOSED — honorable null (strong form).** The *entire* residual stress the
+  axioms permit was computed (pre-registered, submitted unmodified) and is **empty**:
+  shape and rate FORBIDDEN (A1, A2), slosh ZERO (pure-divergence theorem), swirl
+  FORBIDDEN free / NEGATIVE if sourced (⟨δρ⟩ = −⟨ω²⟩/32πG, slaved, ~10¹¹× below ρ_Λ).
+  **w = −1 exactly; Λ is a bare imported constant.** ESTIF does not derive dark energy,
+  and it is now *proven* it cannot from these axioms. Path Two (derive a thawing
+  correction) is closed as a target. (`tests/test_UKN.py`; `docs/plan/PHASE2_DECLARATION.md`)
+- **Retracted:** the "frozen eddy" interpretation of the constant Λ (author objected
+  pre-derivation; the swirl/spin sector is precisely the forbidden one). The constant
+  survives; the "eddy/spin" reading does not. Full rename pending `NAMING.md`.
+
+### Changed — axiom A1 → A1′ (RHAC-005, RHAC-006)
+- **Strict-A1 growth no-go theorem (RHAC-005):** under matter, A1–A3 force
+  δ̈ = −(3/2)Ωm(a)Hδ with unique solution δ = H(a)/H₀ (decaying); f(0.5) = −0.91 vs
+  +0.76 measured. Structure cannot form under strict A1; the strict flow sector also
+  carries no free radiative modes (vs LIGO). Audited (5 attacks, all bounced).
+  (`tests/test_UKN2.py`)
+- **A1 → A1′ (RHAC-006):** slices are even *on average*; matter may source local dents;
+  the spatial-curvature average is identically zero at all epochs — **law, and the
+  registered falsifier** (current 0.0007 ± 0.0019). Restores (one purchase, three items):
+  linear growth D₊ = H·∫da/(aH)³ = GR growth, **f(z=0.5) = 0.76** (DESI RSD-consistent);
+  the radiative/GW sector; and a container for the ζ = 10⁻⁵ seed (value still imported).
+  **All strict-A1 results survive as the exact-evenness limit** (vacuum Schwarzschild,
+  the a₀ chain, the Friedmann background, the Phase 2 null — re-audited under A1′, holds).
+
+### Added — gravitational-wave sector derived (RHAC-008, C-15 closed)
+- **c_gw = c derived.** In the single-geometry flow, gravitational waves and light
+  share the null cone for arbitrary flow; the GW propagation speed equals c with no
+  free parameter, GW170817-consistent. C-15 moves from open to result.
+
+### Changed — Part B closed; the "Ωm derived" claim retired (RHAC-009)
+- **Principle P is not derivable as a law.** P (Ωm = R_H/r_p) holds only at our epoch:
+  Ωm(a) = R_H/d_p crosses the required value once, near a ≈ 1, and diverges from it at
+  high z (→ 1 vs ½), so it cannot follow from the time-symmetric axioms. Escape routes
+  closed: a dynamical attractor breaks the Phase-2 null; anthropic selection cannot
+  reproduce 0.31408. **P is a predictive postulate, not a theorem; Ωm's status is
+  "fixed by P," and the "Ωm derived" language is retired.** The C2 consistency-relation
+  downgrade is therefore final. Foundational effort redirected to x_c = 0.272 and the
+  √3 / cH₀ scale — both of which underwrite a₀'s *value*, unlike P.
+
+### Added — documents
+- `docs/plan/PHASE2_DECLARATION.md` (the honorable-null record; referenced across the repo).
+- `docs/plan/GAZTANAGA_COMPARISON.md` — verdict 🔴 **no Ωm novelty**: the causal-horizon →
+  Ωm ≈ 0.3 / no-dark-energy result is Gaztañaga's (peer-reviewed,
 
 ### Added
 
@@ -82,7 +135,7 @@ are pre-submission critical. See `CORRECTIONS_v6.3.1.md`.
   a BAO-alone fit with rd, H₀, and Ωm held fixed at Planck values. Fixing nuisance
   parameters inflates the evolving-dark-energy advantage; DESI's own BAO-alone
   preference is milder. Re-derive with those parameters marginalized before using
-0.66 to justify Path Two, and repeat the frozen-eddy vs fitted-CPL AIC comparison
+  0.66 to justify Path Two, and repeat the frozen-eddy vs fitted-CPL AIC comparison
   under the same marginalization.
 
 ### Fixed

@@ -4,6 +4,8 @@
 **Date:** 8 July 2026
 **Status:** Gravity field equation DERIVED (not matched to Schwarzschild). Strong-field complete. MOND derived, SPARC validated. Cosmology reframed: frozen eddy = cosmological constant ties ΛCDM; Ω_tilt(z) retired. Project split into Path One (Core) and Path Two (Extended). Gravity letter ready and strengthened.
 
+> ⚠️ **v6.4.0 banner (12 July 2026) — this report predates the A1′ amendment.** Throughout, "A1 (flat slices)" now reads **A1′ (even on average; matter dents locally; ⟨curvature⟩ ≡ 0 as law)** — RHAC-006. All strict-A1 results below survive as the exact-evenness limit. Added since: linear growth D₊ and the radiative sector (opened by A1′); **the GW sector c_gw = c is DERIVED** (RHAC-008); the four exactness locks (RHAC-007); and **Principle P proven NOT derivable as a law** (RHAC-009) — the §3.0 bootstrap's Part B is closed and its "Ωm derived" path is retired. **Phase 2 CLOSED — honorable null (RHAC-004):** the residual dark-energy sector the axioms permit is provably empty, w = −1 exactly, Λ imported — so **Path Two (derive a thawing correction) is CLOSED**; where Parts 5, 7, and the Summary still show it as an open derivation, read it as closed. **Terminology:** the cosmological term is an **imported cosmological constant**; the "frozen eddy" label is retracted (RHAC-004).
+
 > **See also:** `MILESTONE_v6.3_THE_SPLIT.md` for the full v6.3 narrative.
 
 ---
@@ -194,7 +196,7 @@ This sector changed the most. The evolving Ω_tilt(z) dark-energy law is retired
 honest best result is a cosmological constant that comes for free from the derived
 gravity.
 
-### 2.1 The frozen cosmic eddy is a cosmological constant
+### 2.1 The constant cosmic term is a cosmological constant
 
 A corollary of the derived field equation (Part 0): a flow whose effective energy
 density is *constant* is exact de Sitter — a cosmological constant, w = −1. Tested
@@ -301,14 +303,15 @@ measured  = { H₀, T_CMB, N_eff }
 computed  = { Ωm, Ω_Λ, x₀, r_universe, a₀ }
 #### Honest flags (all four, none hidden)
 
-1. **Everything above is conditional on P**, which is *not* derived from A1–A3. Part
-   B — deriving P — is open. Three candidate routes exist (flow-budget amplitude;
-   horizon-acceleration balance; homogeneous field equation); none has been attempted
-   in earnest. Without Part B this is a reparametrization of the C2 circularity, not
-   an escape from it.
-2. **Gaztañaga adjacency.** The causal-universe scale (≈ 0.3176 H₀, reached via
-   inflation) sits next to this root. A comparison memo is a **prerequisite for any
-   novelty claim** and does not yet exist. No priority is asserted here.
+1. **Everything above is conditional on P**, which is *not* derived from A1–A3 —
+   and as of 12 July 2026 (RHAC-009) **cannot be**: P holds only at our epoch
+   (Ωm(a) = R_H/d_p crosses once, at a≈1), so no time-symmetric-axiom derivation
+   exists. Part B is CLOSED. The bootstrap is therefore a reparametrization of the
+   C2 circularity resting on a predictive postulate, not an escape from it.
+2. **Gaztañaga — no novelty (memo delivered).** docs/plan/GAZTANAGA_COMPARISON.md: the
+   causal-horizon → Ωm ≈ 0.3 / no-dark-energy result is Gaztañaga's (peer-reviewed,
+   2019–2023; headline Ω_Λ ≈ 0.70 ⇒ Ω_m ≈ 0.30). Verdict 🔴 — no ESTIF priority on Ωm; the
+   a₀ = cH₀/2 link is the only distinctive thread. Cite prominently; lead with a₀.
 3. **DESI 1.618 is a fixed-ruler result.** Under C4-style marginalization over rd,
    H₀, and Ωm the ordering against ΛCDM could change.
 4. **a₀'s empirical target carries ~10% scatter.** Improving 1.72% → 0.66% inside a
@@ -316,8 +319,9 @@ computed  = { Ωm, Ω_Λ, x₀, r_universe, a₀ }
 
 **Scripts:** `estif_omega_bootstrap.py`, `estif_bootstrap_closure.py`.
 
-**Status:** 🔶 Part A resolved (conditional); Part B open. Until Part B lands and the
-Gaztañaga memo clears, §3.1's C2 downgrade stands unchanged — see RHAC Scenario Q.
+**Status:** 🔶 Part A resolved (conditional); **Part B CLOSED (RHAC-009): P is not derivable
+as a law.** So §3.1's C2 downgrade is now *final* — Ωm is "fixed by the predictive postulate P,"
+not derived. See RHAC Scenario Q and RHAC-009.
 
 ---
 
@@ -400,7 +404,7 @@ published datasets pass. Scripts: `derive_mond_from_geometry.py`,
 | | Path One — ESTIF-Core (clean) ✅ default | Path Two — ESTIF-Extended (hard) 🔬 |
 |---|---|---|
 | Gravity | derived field equation (Part 0) | same |
-| Cosmology | frozen eddy → Λ, ties ΛCDM (χ²/N = 1.92) | derive small thawing from vorticity T_μν (target 0.66) |
+| Cosmology | constant Λ (imported), ties ΛCDM (χ²/N = 1.92) | 🟢 CLOSED — Phase 2 null: residual sector empty, w = −1 exactly (RHAC-004) |
 | Ω_tilt(z) | retired to appendix | — |
 | Risk | low, publishable now | high, timeline unknown |
 
@@ -416,7 +420,7 @@ published datasets pass. Scripts: `derive_mond_from_geometry.py`,
 ## Part 7: Known Limitations (v6.3)
 
 - **Strong-field pressure/stress sector:** full off-diagonal T_μν remaining (Part 0.3).
-- **Path Two cosmology:** leading w(z) correction from the vorticity stress tensor; naive reductions (E1, E2) falsified.
+- ~~**Path Two cosmology**~~ — **CLOSED (Phase 2, honorable null, RHAC-004):** the residual dark-energy sector the axioms permit is proven empty; w = −1 exactly, Λ imported. Not an open derivation. Any evolving-w must leave the single-speed-flow class (p_r = −ρ, L1).
 - **x_c = 0.272:** not yet geometrically derived (closes N_MAX = 5/7 × L).
 - **ρ_eddy = x₀ρ_crit:** homogeneous version of the derived field equation; open.
 - **Dark-matter halos:** N-body simulation (collaboration target).
@@ -440,9 +444,9 @@ published datasets pass. Scripts: `derive_mond_from_geometry.py`,
 | Ωm = x₀ consistency relation | 🔶 Downgraded (C2) | 0.12%, but r_universe is the Ωm-dependent ΛCDM horizon |
 | **Ωm bootstrap** (conditional on P) | 🔶 **NEW v6.3.2** | Ωm·I(Ωm)=1, unique root 0.31408 (0.53σ); a₀ → 0.66%; DESI 1.618 fixed-ruler |
 | Collisionless dark matter | ✅ Confirmed | σ/v_esc = 0.5, λ = 2.565r |
-| **Cosmology (Path One)** | ✅ **Frozen eddy = Λ** | ties ΛCDM (χ²/N = 1.92) |
+| **Cosmology (Path One)** | ✅ **Constant Λ (imported)** | ties ΛCDM (χ²/N = 1.92) |
 | Cosmology Ω_tilt(z) | 🔴 Retired | net negative on DESI vs the Λ limit |
-| Cosmology (Path Two) | 🔬 Open | derive thawing from vorticity T_μν |
+| Cosmology (Path Two) | 🟢 Closed (Phase 2 null) | residual sector empty; w = −1 exactly; Λ imported |
 | Strong-field pressure sector | 🔄 Open | full off-diagonal T_μν |
 | v_flat from simulation | 🔴 Budget wall | N-body, cluster/HPC |
 
@@ -467,4 +471,4 @@ independence) stand unchanged. The v6.2 DESI entry (`test_desi_wz_consistency.py
 
 ---
 
-**Validation Report Version:** 6.3.2 / 9 July 2026.
+**Validation Report Version:** 6.4.0 / 12 July 2026 (A1′ banner; P closed; GW sector added).

@@ -1,8 +1,8 @@
 # Rabbit Holes and Crossroads — Decision Tree Archive
 
 **ESTIF v6.3 Decision History**
-**Last Updated:** 8 July 2026
-**Status:** Active — updated to v6.3 "The Split". Gravity letter ready. Path One / Path Two fork recorded below.
+**Last Updated:** 12 July 2026
+**Status:** Active — v6.4.0. Gravity letter ready. Fronts 1–3 + C-15 filed (RHAC-007/008); Principle P closed as non-derivable (RHAC-009).
 
 This file catalogs potential rabbit holes (deep, distracting sub-problems) and
 crossroads (decision points) in ESTIF development. Use it to avoid getting lost:
@@ -588,7 +588,7 @@ Three candidate routes to P, none yet attempted in earnest:
 3. **Homogeneous field equation** — requires the vorticity attachment, which is the
    same structural extension Path Two needs. If Path Two moves, this route opens.
 
-**Status:** 🟡 Active, sharpened → now reduces to Part B of Scenario Q.
+**Status:** 🔴 CLOSED as a derivation (RHAC-009): it reduces to Scenario Q Part B, now proven non-derivable. Ωm = x₀ remains a consistency relation / predictive postulate, never a theorem.
 
 ---
 
@@ -635,8 +635,7 @@ and the Gaztañaga memo clears. Applying this file's own Step 2 filter — *"doe
 lead to a falsifiable prediction?"* — Part B is the only step that converts a yes-in-
 principle into a yes-in-fact.
 
-**Status:** 🔶 Part A resolved (conditional); Part B open — the single largest
-available upgrade to Path One's claims.
+**Status:** 🔶 Part A resolved (conditional); **Part B CLOSED 12 Jul 2026 (RHAC-009) — P is not derivable as a law (epoch-dependence obstruction). P is a predictive postulate; the "Ωm derived" path is retired.**
 
 ---
 
@@ -716,6 +715,146 @@ FAR FUTURE: author rejects heat-death endpoint; instinct = vacuum
 
 ---
 
+## RHAC-004 · 2026-07-11 · Phase 2 executed — honorable null (strong form)
+Binding declaration (pre-derivation): total residual stress from A1–A3,
+submitted unmodified; no post-hoc sector selection.
+Census: shape FORBIDDEN (A1) · rate FORBIDDEN (A2; lapse carries no stress)
+· slosh ZERO (pure-divergence theorem) · swirl FORBIDDEN free /
+NEGATIVE sourced (<drho> = -<omega^2>/32piG, slaved, ~1e11 below rho_L).
+VERDICT: residual sector EMPTY. w = -1 exactly. Lambda = bare imported
+constant. Path One 1.92 parity unaffected. 0.66 thawing ambition dead.
+RETRACTED: "frozen eddy" interpretation — auditor-introduced, author
+objected pre-derivation ("whatever motion it is, it is most certainly
+not spinning"), falsified by the constraint algebra. Constant survives.
+FLAGGED: strict flow sector carries no free radiative modes (vs LIGO).
+Receipts: tests/test_UKN.py · docs/plan/PHASE2_DECLARATION.md
+
+---
+
+## RHAC-005 · 2026-07-11 · Strict-A1 growth no-go theorem (audited)
+THEOREM: with matter, A1–A3 force delta-dot = -(3/2)*Om(a)*H*delta;
+unique solution delta = H(a)/H0 (decaying). f(0.5) = -0.91 vs +0.76
+measured. Structure disperses; galaxies cannot form under strict A1.
+AUDIT (5 attacks, all bounced): gate identity + force-free riders;
+DOF counting (3 constraints vs 2 gauge freedoms -> first-order eq,
+no hidden growing configuration); LTB correspondence (even-grid
+condition == E(r) = 0, the known growing-mode container); Raychaudhuri
+closure; nonlinear + swirl escapes shut.
+C-11 SHARPENED: strict ESTIF = GR minus exactly one configuration —
+provably NOT a repaint, and falsified in the growth sector.
+Receipts: tests/test_UKN2.py (prints [0,0,0], 0, 0, 0).
+
+---
+
+## RHAC-006 · 2026-07-11 · Fork decision: A1 → A1′ (author decision)
+A1': slices even ON AVERAGE; matter may dent locally; unsourced
+evenness returns. Pulls exactly the one over-constraining nail.
+BUYS (one purchase, three items): growth (D+ = H*Int da/(aH)^3,
+f(0.5) = 0.76 = DESI RSD; strict solution embedded as the fade mode),
+gravitational waves (speed = c forced by A2; GW170817-consistent),
+and a container for the zeta = 1e-5 seed (value still imported).
+COSTS: C-11 repaint question live again at linear order; July
+uniqueness softens to "banked solutions + radiating transients";
+naming batch owed (lineage tag; old tag carries a taboo term).
+KILL-SHOT REGISTERED: mean spatial curvature == 0 exactly, all epochs
+(current 0.0007 +/- 0.0019); confirmed nonzero mean falsifies A1'.
+PHASE-2 RE-AUDIT under A1': five sectors, no Lambda-printer — null
+stands. Receipts: tests/test_UKN2.py.
+
+
+---
+
+## AXIOM AMENDMENT · 2026-07-11 · A1 → A1′
+
+OLD A1: the 3D hypersurface is exactly flat (even internal grid),
+everywhere, at all times.
+
+NEW A1′: the 3D hypersurface is even ON AVERAGE. Matter may source
+local deviations (dents) in the slice geometry; where nothing
+sources a dent, exact evenness returns. The spatial average of the
+curvature is identically zero at all epochs — this is law, not an
+initial condition, and it is the registered falsifier
+(current measurement: 0.0007 ± 0.0019).
+
+UNCHANGED: A2 (universal speed c through the bulk) and A3 (empty
+space is not a source).
+
+SCOPE: all strict-A1 results survive as the exact-evenness limit
+(vacuum Schwarzschild, a₀ chain, Friedmann background, Phase 2 null).
+What A1′ adds: the growing density mode and the radiative sector.
+Record of decision and consequences: RHAC-005, RHAC-006.
+
+---
+
+## RHAC-007 · 2026-07-12 · Fronts 1–3 executed — growth, first holes, second lock
+FRONT 1 (growth under A1'): D+ clumping history computed; f(0.5)=0.7603 = DESI
+  RSD anchor; fsigma8 pulls -0.12 / +1.03 sigma (PV z=0.07; FS BGS z=0.295).
+  JWST verdict = OUTCOME 4 (honest null): g(9.1)=0.998, too-big-too-early tension
+  INHERITED from LCDM, not relieved, not worsened. Strict-A1 counterfactual would
+  have scored outcome 5 (falsified) — the fork rescued this test.
+FRONT 2 (first-black-hole recipe): fold-back rule nu*sigma(M,0)*D(z)=delta_c.
+  Star channel -> ~1e2 Msun hole at t~28 Myr (earliest-in-volume) / ~212 Myr
+  (typical 3-sigma). Direct-collapse (no-star) channel -> 1e4-1e6 Msun holes;
+  the only comfortable route to 1e9 Msun by z=7 (heavy seed OK, light strained).
+  Primordial channel CLOSED under the zeta=1e-5 passport. All numbers inherited
+  (LCDM growth); ESTIF content is structural (strict A1 forms NO hole).
+FRONT 3 (second differing number): growth index gamma forced to ~0.55 by the
+  empty residual sector + GR-equivalent D+; computed 0.5455-0.5544 over z=0-5;
+  measured 0.58+/-0.11 (DESI PV+ShapeFit), pull -0.23 sigma, PASS. Companion
+  slip lock (Sigma,eta,mu)=(1,1,1) exact.
+FOUR-LOCK LEDGER (ESTIF-Core forces a POINT; GR family fits a REGION, 0 free
+  dark params vs 1-3 fitted): Omega_k=0 (kill-shot) . gamma~0.55 & slip=1
+  (Front 3) . w=-1 (RHAC-004) . c_gw=c (RHAC-008). HONEST: none separates
+  ESTIF-Core from FLAT LCDM at linear order; all separate it from GR's extra
+  freedoms. Distinguishing content lives OFF the linear sheet (nonlinear halos,
+  N-body wall) + the exactness-as-law structure.
+Receipts: tests/estif_front1_growth_sigma8_jwst.py,
+  estif_front2_first_hole_recipe.py, estif_front3_second_discriminator.py.
+
+## RHAC-008 · 2026-07-12 · C-15 closed — GW sector derived (c_gw = c)
+CLAIM (asserted RHAC-006, now DERIVED): gravitational waves propagate at c.
+DERIVATION: under A1'+A2 the world is ONE Lorentzian geometry (even-on-average
+  slices + a flow); A3 + the empty residual sector (RHAC-004) forbid any second
+  metric/field. TT waves are ripples OF that geometry; light rides null cones OF
+  that geometry; the vacuum wave operator's PRINCIPAL SYMBOL is g^{mu nu} k_mu
+  k_nu = the light cone. Shown symbolically for an ARBITRARY flow v: radial null
+  speed u = v +/- c, identical for GW and light (flow tilts both cones the same).
+  Flow friction (~H) and dent curvature are lower-order and cannot move the
+  characteristic speed.
+GW170817: predicts |c_gw/c - 1| = 0 exactly (measured bound ~1e-15). PASS
+  STRUCTURALLY -- no dial exists to break it (the extra field every c_gw != c
+  theory needs is forbidden by A3 + the empty residual sector).
+A1' HINGE: strict A1 froze the TT sector (a ripple = a local deviation from exact
+  evenness, forbidden) -- the SAME over-constraint that killed the growing mode
+  (RHAC-005). A1' opened growth and radiation together, one mechanism, one fork.
+Receipt: tests/estif_C15_gw_sector.py. Checklist item C-15 -> DONE.
+
+## RHAC-009 · 2026-07-12 · Principle P is NOT derivable as a law (obstruction proven)
+QUESTION (Scenario Q Part B / checklist B-4c / SUMMARY reviewer Q9): can P
+  (Omega_m = R_H/r_p) be derived from A1-A3? Prior status: OPEN, billed as "the
+  single largest available upgrade to Path One's claims."
+RESULT: NO -- structural obstruction, not a cleverness gap. P's core equality
+  (instantaneous Omega_m(a) = R_H(a)/d_p(a)) holds ONLY at a~=1; both quantities
+  fall monotonically through cosmic history and CROSS ONCE, at today. High-z
+  limit: Omega_m -> 1 while R_H/d_p -> 1/2 (EdS Schwarzschild-horizon value). A
+  law derivable from time-symmetric axioms must hold at EVERY epoch; P does not;
+  therefore P is not a theorem of A1-A3. The repo's own Route (ii) (g_horizon =
+  cH0/2) IS this today-condition, re-expressed.
+ESCAPE ROUTES (both closed): (a) ATTRACTOR -- fixing a preferred Omega_m ratio
+  needs dynamical/coupled dark energy, FORBIDDEN by the Phase-2 null (RHAC-004:
+  residual sector empty, w=-1 exactly); pursuing it breaks a locked result.
+  (b) ANTHROPIC -- explains the O(1) coincidence in the weak sense but CANNOT
+  reproduce P's 0.3141 precision (broad window), and is not ESTIF-specific (same
+  move available to LCDM). It restates the coincidence, does not solve it.
+STATUS: P is a PREDICTIVE POSTULATE (route c) -- honest, publishable as such,
+  with the falsifiable number Omega_m = 0.3141 (0.53 sigma from Planck). The
+  claim "Omega_m derived from the axioms" is RETIRED. Priority redirect: derive-P
+  is CLOSED; the tractable foundational targets that actually underwrite a0's
+  VALUE are x_c = 0.272 (pure Schwarzschild geometry) and the sqrt(3)/cH0
+  acceleration scale.
+Receipt: tests/estif_P_derivation_attempt.py. Downgrades Scenario Q Part B and
+  Scenario H from "open upgrade" to "closed as a derivation."
+
 ### Updated Summary Statistics (v6.3)
 
 | Category | Count |
@@ -729,7 +868,7 @@ FAR FUTURE: author rejects heat-death endpoint; instinct = vacuum
 
 ---
 
-**Document Version:** 6.3.2 (ESTIF v6.3 — "The Split", + v6.3.1 errata, + Ωm bootstrap)
-**Last Updated:** 11 July 2026
+**Document Version:** 6.4.0 (+ Fronts 1–3, C-15 GW sector derived, P non-derivable)
+**Last Updated:** 12 July 2026
 
-#11070126
+#14070125

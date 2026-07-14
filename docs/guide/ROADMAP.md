@@ -1,8 +1,10 @@
 # ESTIF Development Roadmap
 
-**Version:** 6.3.1
-**Last Updated:** 9 July 2026
-**Status:** Project split into Path One (ESTIF-Core) and Path Two (ESTIF-Extended). Gravity letter ready. Ω_tilt cosmology retired.
+**Version:** 6.4.0
+**Last Updated:** 12 July 2026
+**Status:** v6.4.0 — A1→A1′; Phase 2 null; Fronts 1–3; C-15 (GW sector) DERIVED; Principle P proven non-derivable as a law (RHAC-009). Gravity letter ready.
+
+> ⚠️ **v6.4.0 (12 July 2026):** this roadmap body is the v6.2/v6.3 plan preserved as history and is largely superseded. Authoritative current state: `docs/plan/PATH_ONE_CHECKLIST.md` (item tracker) + `docs/plan/RHAC.md` (RHAC-001…009). Key correction since: "derive Principle P" — listed below and elsewhere as a top target — is **CLOSED** (P is a predictive postulate, not derivable from the axioms; RHAC-009). Redirect foundational effort to x_c = 0.272 or the √3/cH₀ scale.
 
 > ⚠️ **Read the v6.3 update at the bottom of this file first.** Everything between
 > here and the *ROADMAP UPDATE — v6.3* heading is the **v6.2 plan, preserved as
@@ -769,5 +771,5 @@ revealed the tilt shape is the problem; Task 6 then showed the frozen-eddy limit
 
 ---
 
-**Roadmap Version:** 6.3 — "The Split"
-**Last Updated:** 8 July 2026
+**Roadmap Version:** 6.4.0
+**Last Updated:** 12 July 2026

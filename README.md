@@ -1,6 +1,6 @@
 # ESTIF: Emergent Spacetime from Inward Flow
 
-**Version 6.3.2 — "The Split"** · 9 July 2026
+**Version 6.4.0** · 12 July 2026 · *(nickname pending NAMING.md)*
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.17261724-blue)](https://zenodo.org/records/17261724)
 
 A geometric framework in which **3D space is a flat hypersurface carried through
@@ -51,7 +51,7 @@ The old Poisson "postulate" is now a theorem for vacuum, Newton, and Schwarzschi
 | | **Path One — ESTIF-Core (clean)** ✅ default | **Path Two — ESTIF-Extended (hard)** 🔬 |
 |---|---|---|
 | Gravity | Derived field equation (above) | same |
-| Cosmology | Frozen cosmic eddy → **cosmological constant, ties ΛCDM** (χ²/N = 1.92, derived) | Derive a *small thawing* correction to w = −1 from the vorticity stress tensor (target χ²/N ≈ 0.66) |
+| Cosmology | Constant cosmic term → **cosmological constant (imported), ties ΛCDM** (χ²/N = 1.92) | **CLOSED (11 July 2026): honorable null.** The total residual stress permitted by the axioms is provably empty — w = −1 exactly; Λ is imported. See docs/plan/PHASE2_DECLARATION.md|
 | Tilt Ω_tilt(z) | Retired to appendix (net negative on DESI) | — |
 | Risk | Low, publishable now | High, timeline unknown |
 
@@ -64,10 +64,12 @@ The old Poisson "postulate" is now a theorem for vacuum, Newton, and Schwarzschi
 | Gravity — field equation | ✅ **Derived** (Task 4); strong-field pressure sector open |
 | Gravity — a₀ / MOND / SPARC | ✅ Solid (RMS 15.6%, 87 galaxies), now on a derived foundation |
 | Gravity — EHT / Λ / LISA (local tilt) | ⚠️ Consistent (0.00σ / ratio 1.0000 / 49.2σ); *deviation* claims conditional — see note |
-| Cosmology — honest best | ✅ Frozen eddy = Λ, ties ΛCDM (1.92) |
+| Cosmology — honest best | ✅ Λ (imported constant), ties ΛCDM (1.92); residual sector provably empty (Phase 2) |
+| Growth of structure (A1′) | ✅ D₊ reproduces GR linear growth; f(z=0.5) = 0.76 (DESI-consistent) |
+| Gravitational waves (A1′) | ✅ c_gw = c **derived** (C-15 closed, RHAC-008, 12 Jul); GW & light share the null cone; GW170817-consistent |
 | Cosmology — tilt Ω_tilt(z) | 🔴 Retired (fits worse than the Λ limit under it) |
 | Dark matter | 🟡 Analytical phase complete; N-body wall |
-| Ωm bootstrap (conditional on P) | 🔶 Unique root 0.31408 (0.53σ); a₀ → 0.66%; Part B open |
+| Ωm bootstrap (conditional on P) | 🔶 Unique root 0.31408 (0.53σ); a₀ → 0.66%. Part B **closed** (RHAC-009): P not derivable as a law — Ωm "fixed by postulate P," not derived |
 
 > ⚠️ **Conditional (C1).** The ESTIF vacuum is exactly Schwarzschild (Task 4), so any
 > *deviation* from GR in shadows or GW propagation must be sourced by the non-vacuum
@@ -108,18 +110,23 @@ python3 src/estif_ec_gr_run_simulation.py           # 21/21
 1. **Gravity = Time = Eddies.** Now backed by a derived field equation:
    flow-speed gradients *are* gravitational acceleration, and the vacuum
    condition forces exactly Schwarzschild.
-2. **Expansion = 4D inward fall.** Honest best form is the frozen-eddy
+2. **Expansion = 4D inward fall.** Honest best form is the constant-Λ
    cosmological constant (ties ΛCDM); the evolving-dark-energy version is Path Two.
 3. **No dark matter / dark energy.** Ωm = x₀ = (c/H₀)/r_universe holds to 0.12%, but
    this is a **consistency relation** (C2): r_universe is the ΛCDM particle horizon,
-   which itself depends on Ωm. **The bootstrap (v6.3.2)** solves that circularity
+   which itself depends on Ωm. **The bootstrap (v6.3.2)** addresses that circularity
    *conditionally*: adopting principle P (Ωm = R_H/r_p) closes it into Ωm·I(Ωm) = 1,
-   whose unique root is **0.31408** — 0.96% from Planck, 0.53σ inside its error bar —
-   from three measured inputs {H₀, T_CMB, N_eff}. Closure: a₀ → 1.1920×10⁻¹⁰
-   (**0.66%** from MOND), r_universe back-predicted to −1.07%, DESI DR2 χ²/N = 1.618
-   (fixed-ruler). ⚠️ **P is not derived from the axioms** — Part B is open, and the
-   Gaztañaga comparison (≈0.3176 H₀) must clear before any novelty claim. Halo
-   structure needs N-body (documented wall).
+   whose unique root is **0.31408** — 0.96% from Planck, 0.53σ — from three measured
+   inputs {H₀, T_CMB, N_eff}. Closure: a₀ → 1.1920×10⁻¹⁰ (**0.66%** from MOND),
+   r_universe back-predicted to −1.07%, DESI DR2 χ²/N = 1.618 (fixed-ruler).
+   ⚠️ **Part B closed (RHAC-009): P is not derivable as a law** — it holds only at our
+   epoch — so Ωm's status is "fixed by the predictive postulate P," and the "Ωm
+   derived" claim is **retired**. The Gaztañaga comparison is delivered
+   (docs/plan/GAZTANAGA_COMPARISON.md): 🔴 **no Ωm novelty** — the causal-horizon →
+   Ωm ≈ 0.3 / no-DE result is Gaztañaga's (peer-reviewed, 2019–2023; his headline
+   Ω_Λ ≈ 0.70 ⇒ Ω_m ≈ 0.30). Cite him prominently; lead with the a₀ link. Note also
+   dark energy is **not eliminated** — Λ is imported (Phase 2 null). Halo structure
+   needs N-body (documented wall).
 
 ---
 
@@ -127,9 +134,12 @@ python3 src/estif_ec_gr_run_simulation.py           # 21/21
 
 - **Strong-field pressure/stress sector** of the gravity T_μν (a relativistic
   interior with pressure). Not needed for vacuum, Newton, or Schwarzschild.
-- **Path Two cosmology:** deriving the leading w(z) correction from the full
-  vorticity stress tensor. The two naive reductions (stiff spin, expansion
-  tracker) are already falsified against DESI.
+- **~~Path Two cosmology~~ — CLOSED (11 July 2026).** Phase 2 derived every residual
+  sector the axioms permit: all forbidden, zero, or negative. w = −1 exactly (honorable
+  null); Λ enters imported, as in ΛCDM. `docs/plan/PHASE2_DECLARATION.md`, RHAC-004.
+- **C-11 discriminator:** A1′ reproduces GR at linear order; registered kill-shot —
+  mean spatial curvature ≡ 0 exactly, forever (current: 0.0007 ± 0.0019).
+| Gravitational waves (A1′) | ✅ c_gw = c **derived** (C-15 closed, RHAC-008, 12 Jul); GW & light share the null cone; GW170817-consistent |
 - ~~Writing tasks (Path One)~~ — **done in v6.3.** A2 and A3 are now stated in
   `ESTIF_CONCEPT.md`; the shrinking-ruler narrative is retired; v_flow = cx₀ is
   relabelled as the sideways component of a total-c flow.
@@ -140,19 +150,15 @@ python3 src/estif_ec_gr_run_simulation.py           # 21/21
 ## Citation
 
 ```bibtex
-@software{angelov2026estif_v63,
+@software{angelov2026estif,
   author  = {Angelov, Peter},
-  title   = {ESTIF: Emergent Spacetime from Inward Flow — v6.3.2 "The Split"},
+  title   = {ESTIF: Emergent Spacetime from Inward Flow — v6.4.0},
   year    = {2026},
-  version = {6.3.2},
+  version = {6.4.0},
   url     = {https://github.com/tervion/estif-publication},
   doi     = {10.5281/zenodo.17261724}
 }
 ```
-
-# The Omega_m bootstrap (conditional on principle P)
-python3 tests/estif_omega_bootstrap.py              # Omega_m*I(Omega_m)=1, unique root
-python3 tests/estif_bootstrap_closure.py            # bootstrap propagated: a0, r_u, DESI
 
 **Author:** Peter Angelov (Independent Researcher) · tervion@gmail.com
 **License:** MIT
