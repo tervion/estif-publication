@@ -1,9 +1,17 @@
 # estif_ec_gr_run_simulation.py
 
 """
-ESTIF Validation Suite (v6.2 — March 2026)
+ESTIF Validation Suite (v6.4.1 — July 2026)
 
-Proves the three project goals analytically:
+Frozen v6.2 analytical receipt suite — computations unchanged; 21/21 must
+pass identically. Claim-status labels updated to v6.4.1:
+    Goal 2 (Ω_tilt dark energy) is RETIRED as a cosmology claim (v6.3,
+    Task 6; honest cosmology = imported Λ, RHAC-004) — its tests run as
+    historical receipts. Ωm = x₀ is a consistency relation (C2). a₀ is
+    horizon-set (a₀ ≈ c·H); the √3 prefactor is a working form, NOT
+    derived (doctrine of 13 Jul 2026).
+
+Checks the three v6.2 project goals analytically:
 
     Goal 1 — Gravity = Time = Eddies
         β(x) = τ(x) at n = ½, x = 0.272   [GR as special case of ESTIF]
@@ -183,7 +191,7 @@ def test_goal2():
     Ω_tilt(z) replaces ΩΛ. Six low-z tests pass.
     """
     print("\n" + "="*70)
-    print("GOAL 2: EXPANSION = 4D INWARD FALL (DARK ENERGY)")
+    print("GOAL 2: EXPANSION = 4D INWARD FALL (DARK ENERGY) — RETIRED CLAIM, HISTORICAL RECEIPT")
     print("="*70)
 
     results = []
@@ -574,7 +582,7 @@ def quick_diagnostic():
 def plot_summary():
     """Generate a one-page summary plot of all three goals."""
     fig, axes = plt.subplots(1, 3, figsize=(18, 6))
-    fig.suptitle('ESTIF v6.2 — Three Goals Summary', fontsize=14, fontweight='bold')
+    fig.suptitle('ESTIF v6.4.1 — Three Goals Summary (frozen v6.2 receipts)', fontsize=14, fontweight='bold')
 
     RHO_CRIT = 3 * const.H_0**2 / (8 * np.pi * const.G)
     x0 = estif._x_0
@@ -641,7 +649,8 @@ def plot_summary():
 
 def run_all():
     print("\n" + "█"*70)
-    print("ESTIF v6.2 — COMPLETE VALIDATION SUITE")
+    print("ESTIF v6.4.1 — COMPLETE VALIDATION SUITE")
+    print("(frozen v6.2 analytical receipts — claim status: see module docstring)")
     print("█"*70)
 
     cal  = test_calibration()
@@ -655,11 +664,11 @@ def run_all():
     print(f"""
    Calibration (EHT + Λ + LISA):          {'✅' if cal else '❌'}
    Goal 1 (Gravity = Time = Eddies):       {'✅ Complete' if g1 else '❌ Incomplete'}
-   Goal 2 (Expansion = 4D inward fall):    {'✅ Complete (low-z)' if g2 else '❌ Incomplete'}
+   Goal 2 (Expansion = 4D inward fall):    {'✅ Receipt intact (claim RETIRED v6.3 — imported Λ)' if g2 else '❌ Incomplete'}
    Goal 3 (No dark matter — analytical):   {'✅ Analytical phase complete' if g3 else '❌ Incomplete'}
 
-   Ωm = x₀ = {estif._x_0:.4f}  (Planck: {estif.OMEGA_M})
-   a₀ = H₀cx₀/√3 = {estif.a0_mond_estif():.4e} m/s²  (MOND: 1.2×10⁻¹⁰)
+   Ωm = x₀ = {estif._x_0:.4f}  (Planck: {estif.OMEGA_M}) — consistency relation (C2)
+   a₀ = H₀cx₀/√3 = {estif.a0_mond_estif():.4e} m/s²  (MOND: 1.2×10⁻¹⁰) — horizon-set; prefactor not derived
 
    N-body simulation required for:
    → v_flat = 220 km/s (δ ~ 50,000–100,000 halo overdensity)

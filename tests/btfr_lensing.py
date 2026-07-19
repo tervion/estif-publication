@@ -37,6 +37,13 @@ def report(name, pts, a0):
     print(f"  chi2/N (stat + 0.1dex) = {chi2s/N:.3f}")
     return chi2s/N
 
+# --- SUPERSESSION NOTE (v6.4.2, 19 Jul 2026) -------------------------------
+# The inverted-a0 block below (best_a0) propagates the 0.1 dex M*/L systematic
+# PER BIN and is SUPERSEDED by a0_tension_corrected.py (fully correlated
+# treatment: +1.17 sigma kinematic, +1.52 sigma lensing, letter section 6.3
+# item vii). The forward chi2/N test (report) above remains the current
+# data-level receipt.
+# ---------------------------------------------------------------------------
 def best_a0(pts):
     # deep-MOND: V^4 = G Mb a0  ->  a0_i = V^4/(G Mb); inverse-variance weight in log
     la, lw = [], []

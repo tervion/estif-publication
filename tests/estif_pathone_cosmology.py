@@ -136,8 +136,8 @@ def main():
     print("  HONEST SCOPE: cannot beat LCDM on expansion data (same H(z)). ESTIF's")
     print("  distinguishing content is the DERIVED gravity sector and, if derivable,")
     print("  the Path Two thawing correction. Path One cosmology provides parity +")
-    print("  geometric Omega_m + a physical dark-energy interpretation, zero fitted")
-    print("  cosmological parameters.")
+    print("  a geometric Omega_m CONSISTENCY relation + a physical dark-energy")
+    print("  interpretation, with no fitted DARK-ENERGY parameters (w=-1 fixed).")
     print("=" * 74)
 
 if __name__ == "__main__":

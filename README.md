@@ -1,6 +1,6 @@
 # ESTIF: Emergent Spacetime from Inward Flow
 
-**Version 6.4.0** · 12 July 2026 · *(nickname pending NAMING.md)*
+**Version 6.4.1** · 13 July 2026 · *(nickname pending NAMING.md)*
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.17261724-blue)](https://zenodo.org/records/17261724)
 
 A geometric framework in which **3D space is a flat hypersurface carried through
@@ -62,14 +62,14 @@ The old Poisson "postulate" is now a theorem for vacuum, Newton, and Schwarzschi
 | Sector | Status |
 |---|---|
 | Gravity — field equation | ✅ **Derived** (Task 4); strong-field pressure sector open |
-| Gravity — a₀ / MOND / SPARC | ✅ Solid (RMS 15.6%, 87 galaxies), now on a derived foundation |
+| Gravity — a₀ / MOND / SPARC | ✅ Solid (RMS 15.6%, 87 galaxies); a₀ reframed as a horizon quantity, a₀ ≈ c·H — 13 Jul 2026 doctrine, exact prefactor open |
 | Gravity — EHT / Λ / LISA (local tilt) | ⚠️ Consistent (0.00σ / ratio 1.0000 / 49.2σ); *deviation* claims conditional — see note |
 | Cosmology — honest best | ✅ Λ (imported constant), ties ΛCDM (1.92); residual sector provably empty (Phase 2) |
 | Growth of structure (A1′) | ✅ D₊ reproduces GR linear growth; f(z=0.5) = 0.76 (DESI-consistent) |
 | Gravitational waves (A1′) | ✅ c_gw = c **derived** (C-15 closed, RHAC-008, 12 Jul); GW & light share the null cone; GW170817-consistent |
 | Cosmology — tilt Ω_tilt(z) | 🔴 Retired (fits worse than the Λ limit under it) |
 | Dark matter | 🟡 Analytical phase complete; N-body wall |
-| Ωm bootstrap (conditional on P) | 🔶 Unique root 0.31408 (0.53σ); a₀ → 0.66%. Part B **closed** (RHAC-009): P not derivable as a law — Ωm "fixed by postulate P," not derived |
+| Ωm bootstrap (conditional on P) | 🔶 Unique root 0.31408 (0.53σ); a₀ → 0.66% (magnitude improvement, not a derivation — a₀ is horizon-set, see below). Part B **closed** (RHAC-009): P not derivable as a law — Ωm "fixed by postulate P," not derived |
 
 > ⚠️ **Conditional (C1).** The ESTIF vacuum is exactly Schwarzschild (Task 4), so any
 > *deviation* from GR in shadows or GW propagation must be sourced by the non-vacuum
@@ -96,6 +96,12 @@ python3 tests/estif_task5_desi_selfconsistent.py    # DESI DR2: 10.8 (circular) 
 python3 tests/estif_task5b_cosmo_eos.py             # DESI-preferred w(z); tilt tracks it
 python3 tests/estif_task6_eddy_eos.py               # frozen eddy (1.92) beats tilt (3.35)
 
+# a₀-horizon doctrine (13 Jul 2026): a0 is horizon-set, not locally derived
+python3 tests/a0_horizon_test.py                    # algebraic equivalence, sqrt(Lambda) vs Hubble form
+python3 tests/a0_prefactor_derivation.py            # target band; prefactor not derived
+python3 tests/estif_flow_sim.py                     # local flow cannot make a0
+python3 tests/estif_horizon.py                      # horizon background: flat curves, BTFR, magnitude
+
 # Housekeeping: which axioms are actually written into the theory
 python3 tests/estif_fidelity_audit.py
 
@@ -114,7 +120,14 @@ python3 src/estif_ec_gr_run_simulation.py           # 21/21
    cosmological constant (ties ΛCDM); the evolving-dark-energy version is Path Two.
 3. **No dark matter / dark energy.** Ωm = x₀ = (c/H₀)/r_universe holds to 0.12%, but
    this is a **consistency relation** (C2): r_universe is the ΛCDM particle horizon,
-   which itself depends on Ωm. **The bootstrap (v6.3.2)** addresses that circularity
+   which itself depends on Ωm.
+   ⚠️ **a₀-horizon doctrine (13 Jul 2026).** a₀ is a horizon-scale acceleration,
+   a₀ ≈ c·H (de Sitter surface gravity) — flat rotation curves, mass-independence,
+   and the BTFR follow from this alone. The √3 prefactor below and any language
+   calling the full a₀ coefficient "derived" are **retired**; the exact O(1)
+   prefactor remains open. See RHAC-010. The Ωm bootstrap below is a separate,
+   unaffected result about Ωm, not about a₀'s derivation status.
+   **The bootstrap (v6.3.2)** addresses that circularity
    *conditionally*: adopting principle P (Ωm = R_H/r_p) closes it into Ωm·I(Ωm) = 1,
    whose unique root is **0.31408** — 0.96% from Planck, 0.53σ — from three measured
    inputs {H₀, T_CMB, N_eff}. Closure: a₀ → 1.1920×10⁻¹⁰ (**0.66%** from MOND),
@@ -139,7 +152,6 @@ python3 src/estif_ec_gr_run_simulation.py           # 21/21
   null); Λ enters imported, as in ΛCDM. `docs/plan/PHASE2_DECLARATION.md`, RHAC-004.
 - **C-11 discriminator:** A1′ reproduces GR at linear order; registered kill-shot —
   mean spatial curvature ≡ 0 exactly, forever (current: 0.0007 ± 0.0019).
-| Gravitational waves (A1′) | ✅ c_gw = c **derived** (C-15 closed, RHAC-008, 12 Jul); GW & light share the null cone; GW170817-consistent |
 - ~~Writing tasks (Path One)~~ — **done in v6.3.** A2 and A3 are now stated in
   `ESTIF_CONCEPT.md`; the shrinking-ruler narrative is retired; v_flow = cx₀ is
   relabelled as the sideways component of a total-c flow.
@@ -147,14 +159,30 @@ python3 src/estif_ec_gr_run_simulation.py           # 21/21
 
 ---
 
+## OPEN PROBLEMS (a0 / gravity):
+
+  1. The a0 prefactor — the O(1) number. CENTRAL. Needs derivation from horizon geometry
+     with zero fit freedom (the former "sqrt(3)" slot).
+  2. x_c = 0.272 derivation from black-hole-edge physics (clean strong-field problem).
+  3. Whether the x_c-edge and the a0-edge are the same surface (§6).
+  4. The LOCAL mechanism: what makes the horizon scale c·H act at galaxy radii? Every
+     emergent-gravity theory (Verlinde, Padmanabhan) ASSUMES this; deriving it from the
+     4D inward flow would be ESTIF's genuine contribution.
+  5. Interior / pressure solution (gravity inside a star) — still a hole.
+  6. Relativistic-consistency section (does "flowing space" break GR?) — blocks the gravity letter.
+
+---
+
+
+
 ## Citation
 
 ```bibtex
 @software{angelov2026estif,
   author  = {Angelov, Peter},
-  title   = {ESTIF: Emergent Spacetime from Inward Flow — v6.4.0},
+  title   = {ESTIF: Emergent Spacetime from Inward Flow — v6.4.1},
   year    = {2026},
-  version = {6.4.0},
+  version = {6.4.1},
   url     = {https://github.com/tervion/estif-publication},
   doi     = {10.5281/zenodo.17261724}
 }

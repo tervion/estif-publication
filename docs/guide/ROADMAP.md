@@ -1,6 +1,6 @@
 # ESTIF Development Roadmap
 
-**Version:** 6.4.0
+**Version:** 6.4.1
 **Last Updated:** 12 July 2026
 **Status:** v6.4.0 — A1→A1′; Phase 2 null; Fronts 1–3; C-15 (GW sector) DERIVED; Principle P proven non-derivable as a law (RHAC-009). Gravity letter ready.
 
@@ -771,5 +771,5 @@ revealed the tilt shape is the problem; Task 6 then showed the frozen-eddy limit
 
 ---
 
-**Roadmap Version:** 6.4.0
+**Roadmap Version:** 6.4.1
 **Last Updated:** 12 July 2026

@@ -1,6 +1,6 @@
 # ESTIF Validation Report
 
-**Model Version:** ESTIF v6.3 — "The Split"
+**Model Version:** ESTIF v6.4.1 — "The Split"
 **Date:** 8 July 2026
 **Status:** Gravity field equation DERIVED (not matched to Schwarzschild). Strong-field complete. MOND derived, SPARC validated. Cosmology reframed: frozen eddy = cosmological constant ties ΛCDM; Ω_tilt(z) retired. Project split into Path One (Core) and Path Two (Extended). Gravity letter ready and strengthened.
 
@@ -471,4 +471,4 @@ independence) stand unchanged. The v6.2 DESI entry (`test_desi_wz_consistency.py
 
 ---
 
-**Validation Report Version:** 6.4.0 / 12 July 2026 (A1′ banner; P closed; GW sector added).
+**Validation Report Version:** 6.4.1 / 12 July 2026 (A1′ banner; P closed; GW sector added).

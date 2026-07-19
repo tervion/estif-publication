@@ -1,7 +1,7 @@
 # ESTIF Development Status
 
 **Last Updated:** 12 July 2026
-**Version:** 6.4.0
+**Version:** 6.4.1
 **Status:** Gravity letter ready (and strengthened). Project split into Path One (ESTIF-Core, clean) and Path Two (ESTIF-Extended, hard). See `MILESTONE_v6.3_THE_SPLIT.md`.
 
 ---
@@ -147,5 +147,6 @@ The a₀ derivation now sits on a *derived* field equation (Task 4) rather than 
 
 ---
 **Status Document Version:** 6.4.1 / **Last Updated:** 12 July 2026 (Phase 2 null + A1′ fork; RHAC-008 GW c_gw=c / C-15 closed; RHAC-009 Part B closed).
+
 Sections predating the v6.4.0 header block have been reconciled: "frozen eddy" → "constant
 cosmic term (imported Λ)" per RHAC-004; Path Two marked closed.

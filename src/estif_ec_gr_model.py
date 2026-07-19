@@ -3,7 +3,20 @@
 """
 Emergent Spacetime from Inward Flow (ESTIF)
 
-Core Principles (v6.2 — March 2026):
+v6.4.1 status (July 2026): this module is the frozen v6.2 analytical suite,
+computationally unchanged, kept as a runnable receipt (21/21 via
+estif_ec_gr_run_simulation.py). The claim status of what it computes has
+moved since v6.2:
+  - Ω_tilt(z) cosmology (Option A): RETIRED as a cosmology claim (v6.3,
+    Task 6). Honest cosmology = imported cosmological constant, w = −1
+    (RHAC-004). The functions below remain as historical receipts.
+  - Ωm = x₀: consistency relation, not a prediction (C2; final per RHAC-009).
+  - a₀ = H₀cx₀/√3: a₀ is horizon-set (a₀ ≈ c·H); the √3 prefactor is a
+    working form, NOT derived (doctrine of 13 Jul 2026). Value unchanged.
+  - Strong-field tilt (EHT / Λ / LISA): consistent; deviation-from-GR claims
+    conditional on the un-derived eddy-stress sector (C1).
+
+Core Principles as written in v6.2 (historical):
 1. ΛCDM matter sector retained (Ωm, radiation)
 2. Dark energy (ΩΛ) replaced by tilt geometry: Ω_tilt(z)
 3. Combined formula calibrated to EHT, Planck Λ, and LISA simultaneously
@@ -418,7 +431,7 @@ def t_from_z(z: float, t_obs: float = 4.35e17, H0=None, A=None, beta_drag=None):
 # ============================================================================
 
 # ============================================================================
-# ESTIF COSMOLOGY (Option A — Geometric Dark Energy Replacement, v6.0)
+# ESTIF COSMOLOGY (Option A, v6.0) — RETIRED as a cosmology claim (v6.3); historical receipt
 # ============================================================================
 # Replaces ΩΛ with Ω_tilt(z) derived from the tilt geometry.
 # Matter sector (Ωm) retained from ΛCDM.
@@ -438,7 +451,7 @@ def t_from_z(z: float, t_obs: float = 4.35e17, H0=None, A=None, beta_drag=None):
 #   Model is valid at z < 2. CMB extension is future work.
 #   All SN, BAO, age results are UNCHANGED by this cutoff.
 #
-# Six low-redshift tests pass simultaneously:
+# Six low-redshift tests passed at v6.2 (historical — sector retired v6.3):
 #   Pantheon+ SN: 2.08–2.33σ improvement
 #   BAO scale:    5/5 redshifts improved
 #   Age:          13.63 Gyr (oldest stars ≥ 13.5 Gyr)
@@ -459,6 +472,7 @@ _Z_EFF_MAX = 2.0                           # High-z cutoff for Ω_tilt validity
 def omega_tilt(z):
     """
     ESTIF dark energy density parameter at redshift z (v6.0).
+    RETIRED as a cosmology claim (v6.3) — kept as a historical receipt.
 
     Replaces ΩΛ in the Friedmann equation with a geometrically
     derived quantity from the tilt formula.
@@ -583,7 +597,9 @@ def distance_modulus_estif(z):
 # Goal 3: No dark matter — the background eddy of the 4D inward flow
 # accounts for what we measure as dark matter.
 #
-# KEY RESULTS (all analytically confirmed):
+# KEY RESULTS (analytically confirmed; claim status v6.4.1: Ωm = x₀ is a
+# consistency relation (C2), and the a₀ √3 prefactor is a working form,
+# not derived — a₀ is horizon-set):
 #
 # 1. Ωm = x₀ = R_H/r_universe = 0.3107  ≈  Planck Ωm = 0.3111  (0.12%)
 #    x₀ − Ωb = 0.2617  ≈  Ωdm = 0.262  (0.10%)

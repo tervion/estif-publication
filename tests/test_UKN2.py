@@ -1,3 +1,5 @@
+"""Draft duplicate (AST-identical) of phase2_a1prime/estif_a1prime_deepen_exact.py.
+Kept as the filename cited in RHAC-005/006; the canonical documented copy supersedes. (v6.4.2)"""
 import sympy as sp
 
 a,H0,Om,G = sp.symbols('a H0 Om G', positive=True)

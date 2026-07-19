@@ -125,16 +125,15 @@ print()
 print("-" * 74)
 print("  MODEL E1: eddy with conserved specific angular momentum")
 print("-" * 74)
-print("""  Physical picture: the cosmic eddy is bulk rotation. For a rotating
-  shell of comoving radius scaling as a, angular momentum L = I omega with
-  moment of inertia I ~ M a^2. Conserving L per comoving patch as a grows
-  gives omega ~ a^-2. Rotational energy density:
-      rho_rot = (1/2) I omega^2 / Volume ~ (M a^2)(a^-2)^2 / a^3 = M a^-5.
-  Wait -- per unit PROPER volume (~a^3) and with the a^2 in I absorbed into
-  the comoving mass, the invariant scaling of ROTATIONAL energy density is
-  rho_rot ~ a^-6  (the classic 'stiff' spin-energy scaling: L=const, E~L^2/I,
-  I~a^2 per patch, energy density ~ (a^-2)^2 * a^? ...). The engine-agnostic
-  robust statement: conserved-L rotation is a STIFF component.""")
+print("""  Physical picture: the cosmic eddy is bulk rotation. A rotating patch of
+  comoving size ~a has moment of inertia I ~ M a^2; conserving angular momentum
+  L = I*omega per comoving patch gives omega ~ a^-2. The rotational energy density
+  rho_rot ~ I omega^2 / a^3 then scales as a steep NEGATIVE power of a -- a
+  "stiff"/blueshifting component (w > 0). The exact exponent depends on how the
+  comoving mass and volume factors are booked, but for ANY such conserved-L
+  reduction the exponent is >= 5, i.e. w >= 2/3: the component GROWS toward the
+  past and is negligible today. It behaves as extra early matter/stiff fluid,
+  NOT as dark energy. We take the representative stiff case w = +1 below.""")
 m_E1 = 6
 w_E1_val = float(w_of_m.subs(m_sym, m_E1))
 print(f"  => E1 scaling m = {m_E1}  ->  w_E1 = {w_E1_val:+.3f} (stiff; blueshifts)")

@@ -1,8 +1,8 @@
 # Rabbit Holes and Crossroads — Decision Tree Archive
 
-**ESTIF v6.3 Decision History**
-**Last Updated:** 12 July 2026
-**Status:** Active — v6.4.0. Gravity letter ready. Fronts 1–3 + C-15 filed (RHAC-007/008); Principle P closed as non-derivable (RHAC-009).
+**ESTIF v6.4.1 Decision History**
+**Last Updated:** 13 July 2026
+**Status:** Active — v6.4.1. Gravity letter ready. Fronts 1–3 + C-15 filed (RHAC-007/008 — receipt filenames unverified, see note below); Principle P closed as non-derivable (RHAC-009); a₀ reframed as a horizon quantity (RHAC-010).
 
 This file catalogs potential rabbit holes (deep, distracting sub-problems) and
 crossroads (decision points) in ESTIF development. Use it to avoid getting lost:
@@ -19,7 +19,7 @@ if a task risks a detour, check here for pre-mapped options and resolutions.
 
 ---
 
-## Active Scenarios (Relevant to v4.0)
+## Historical Scenarios (originally filed under v4.0 — resolved or superseded below)
 
 ### Scenario A: External Critique — Metaphysical Foundations
 
@@ -825,9 +825,12 @@ GW170817: predicts |c_gw/c - 1| = 0 exactly (measured bound ~1e-15). PASS
   STRUCTURALLY -- no dial exists to break it (the extra field every c_gw != c
   theory needs is forbidden by A3 + the empty residual sector).
 A1' HINGE: strict A1 froze the TT sector (a ripple = a local deviation from exact
-  evenness, forbidden) -- the SAME over-constraint that killed the growing mode
-  (RHAC-005). A1' opened growth and radiation together, one mechanism, one fork.
+evenness, forbidden) -- the SAME over-constraint that killed the growing mode
+(RHAC-005). A1' opened growth and radiation together, one mechanism, one fork.
 Receipt: tests/estif_C15_gw_sector.py. Checklist item C-15 -> DONE.
+NOTE (13 Jul 2026): this receipt filename, and estif_front3_second_discriminator.py
+cited under RHAC-007, were not found in the repository as of the last audit.
+Locate and commit them, or amend both RHAC entries to the actual filenames.
 
 ## RHAC-009 · 2026-07-12 · Principle P is NOT derivable as a law (obstruction proven)
 QUESTION (Scenario Q Part B / checklist B-4c / SUMMARY reviewer Q9): can P
@@ -853,9 +856,46 @@ STATUS: P is a PREDICTIVE POSTULATE (route c) -- honest, publishable as such,
   VALUE are x_c = 0.272 (pure Schwarzschild geometry) and the sqrt(3)/cH0
   acceleration scale.
 Receipt: tests/estif_P_derivation_attempt.py. Downgrades Scenario Q Part B and
-  Scenario H from "open upgrade" to "closed as a derivation."
+Scenario H from "open upgrade" to "closed as a derivation."
 
-### Updated Summary Statistics (v6.3)
+---
+
+## RHAC-010 · 2026-07-13 · a₀ reframed as a horizon quantity (doctrine adopted)
+CONTEXT: a dedicated derivation pass (13 July 2026) asked whether a₀ = H₀cx₀/√3
+  can be tightened beyond the existing consistency-relation status of x₀ (C2).
+RESULT: a₀ is a horizon-scale acceleration, a₀ ≈ c·H (de Sitter surface gravity).
+  From this ALONE follow: flat rotation curves, mass-independent a₀, the
+  Baryonic Tully-Fisher relation v⁴ = GMa₀, and the correct order of magnitude
+  (cH/2π ≈ 1.0×10⁻¹⁰ vs observed 1.2×10⁻¹⁰ m/s²). Equivalence shown: c²√Λ =
+  √3·√Ω_Λ·cH₀, so any "Λ-native" form of a₀ is algebraically the Hubble-scale
+  form up to an O(1) factor; Ωm is absorbed into H₀ via Friedmann, not
+  eliminated.
+STILL OPEN: the exact O(1) prefactor (cH vs cH/2π vs the data-preferred
+  k≈0.128 in a₀=k·c²√Λ) is constrained to O(1) and known to be horizon-set,
+  but the precise number is NOT derived.
+RETIRED: any language stating the √3 factor, or the full a₀ coefficient, is
+  *derived* from local flow/matter dynamics — the flow picture cannot make a₀
+  locally; the horizon can, and does. This does not touch the Ωm bootstrap
+  (Scenario Q) or Part B's closure (RHAC-009) — those concern Ωm, not a₀'s
+  own derivation status.
+FLAGGED: x_c = 0.272 is used in two different roles across the corpus — as
+  the GR-crossover tilt exponent (n=½) AND informally as a horizon-adjacent
+  scale. The double duty is unresolved; sort by SETTLED vs OPEN status before
+  next use. See `docs/plan/ESTIF_document_update_guide.md` §6.
+Receipts: tests/a0_horizon_test.py (§2, algebraic equivalence) ·
+  tests/a0_prefactor_derivation.py (§3, target band / numerology floor) ·
+  tests/estif_flow_sim.py (§4, local flow fails to make a₀) ·
+  tests/estif_horizon.py (§5, horizon background reproduces flat curves,
+  BTFR, mass-independence, magnitude).
+Source: `docs/plan/ESTIF_document_update_guide.md` (13 Jul 2026), adopted in
+  full as of this entry.
+
+---
+
+### Updated Summary Statistics (v6.4.1)
+
+*Counts below predate RHAC-007–010 and Scenario H's closure — recount before
+citing; not revised here to avoid asserting an unverified figure.*
 
 | Category | Count |
 |---|---|
@@ -868,7 +908,7 @@ Receipt: tests/estif_P_derivation_attempt.py. Downgrades Scenario Q Part B and
 
 ---
 
-**Document Version:** 6.4.0 (+ Fronts 1–3, C-15 GW sector derived, P non-derivable)
-**Last Updated:** 12 July 2026
+**Document Version:** 6.4.1 (+ RHAC-010: a₀ reframed as a horizon quantity)
+**Last Updated:** 13 July 2026
 
-#14070125
+#15071442 - Unique ID STAMP

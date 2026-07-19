@@ -2,7 +2,7 @@
 
 **Document type:** Conceptual framework — not a mathematical derivation
 **Purpose:** Explains the physical intuition behind ESTIF before any equations
-**Version:** 6.4.0 (12 July 2026) — A1 amended to A1′; Phase 2 closed; Part B (derive P) closed
+**Version:** 6.4.1 (12 July 2026) — A1 amended to A1′; Phase 2 closed; Part B (derive P) closed
 
 >
 > **What changed in v6.3 (read this first):**

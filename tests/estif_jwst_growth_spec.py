@@ -132,6 +132,25 @@ for target in [2, 5, 10]:
           f"({(g_needed-1)*100:.0f}% enhancement of D at z=9.1)")
 print()
 
+print("-" * 74)
+print("[3] HARD FILTER - sigma8/S8 (the low-z structure constraint)")
+print("    A growth boost that PERSISTS to z=0 overproduces present-day structure.")
+print("-" * 74)
+sigma8_planck = 0.8111; err8 = 0.0060; S8_lens = 0.766
+print(f"  Planck sigma8 = {sigma8_planck:.4f} +/- {err8:.4f};  KiDS lensing S8 ~ {S8_lens}")
+print("  If the growth enhancement g at z=9 PERSISTS unchanged to z=0 (scale-indep):")
+print(f"  {'g':<6}{'sigma8(z=0)':>14}{'sigma above Planck':>20}")
+for g in [1.05, 1.13, 1.20]:
+    s8 = sigma8_planck * g; nsig = (s8 - sigma8_planck) / err8
+    print(f"  {g:<6.2f}{s8:>14.3f}{nsig:>18.0f}")
+print("  -> a persistent 13% boost gives sigma8 ~ 0.92 (~18 sigma above Planck) and")
+print("     the WRONG sign for lensing (which mildly prefers SUPPRESSED low-z growth).")
+print("  REQUIREMENT: D_ESTIF(z) enhancement must be TRANSIENT (high-z only, -> 1 by")
+print("  z <~ 2) and/or SCALE-DEPENDENT (small-scale/high-k only, leaving the 8 Mpc/h")
+print("  scale that sets sigma8 ~ unchanged). This is a TWO-SIDED constraint: enough")
+print("  early growth for JWST, ~standard late growth for sigma8. It sharpens the")
+print("  D_ESTIF target -- more specific, not merely larger.")
+print()
 print("=" * 74)
 print("SPECIFICATION SUMMARY")
 print("=" * 74)
@@ -149,10 +168,12 @@ print("""  OBSERVABLE TO PREDICT:
     laptop-tractable, NOT N-body. This is the natural extension of the
     derived field equation (Task 4) to linear perturbations.
 
-  TARGET:
+  TARGET (two-sided):
     D_ESTIF(9.1) must exceed D_LCDM(9.1) by ~13% to yield a 5x reservoir
-    boost -- comfortably relieving the JWST tension. A ~20% enhancement
-    gives 10x. These are SMALL, plausible growth modifications.
+    boost at high z (relieving JWST), WHILE the enhancement must be transient
+    or scale-dependent so that sigma8(z=0) stays ~Planck (a persistent 13%
+    boost gives sigma8 ~ 0.92, ~18 sigma excluded). So the target is a
+    high-z-localised or small-scale growth enhancement, not a monotonic one.
 
   WHAT IS LAPTOP-TRACTABLE vs BLOCKED:
     Laptop:  D_ESTIF(z) derivation (perturbed field eq) + spherical-collapse

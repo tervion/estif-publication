@@ -1,15 +1,20 @@
 # estif_ec_gr_constants.py
 
 """
-ESTIF Physical Constants (v6.2 — March 2026)
+ESTIF Physical Constants (v6.4.1 — July 2026)
 
 Contains all fundamental constants used by the ESTIF model.
 Grouped by type: physical, cosmological, ESTIF-derived.
+All numerical values are unchanged since v6.2 — this file is part of the
+frozen v6.2 analytical receipt suite. Claim-status labels updated to v6.4.1.
 
 Key derived constants:
-    x₀ = R_H / R_UNIVERSE_0 = 0.3107 ≈ Ωm  (eddy dark matter identity)
-    a₀ = H_0 × c × x₀ / √3 = 1.179×10⁻¹⁰ m/s²  (MOND acceleration)
-    N_MAX ≈ 5/7 × ln(r_e / l_P)  (electron radius connection)
+    x₀ = R_H / R_UNIVERSE_0 = 0.3107 ≈ Ωm  (consistency relation, C2 — not an
+        independent prediction: R_UNIVERSE_0 is the ΛCDM particle horizon)
+    a₀ = H_0 × c × x₀ / √3 = 1.179×10⁻¹⁰ m/s²  (horizon-scale acceleration,
+        a₀ ≈ c·H; the √3 prefactor is a working form, NOT derived — 13 Jul 2026)
+    N_MAX ≈ 5/7 × ln(r_e / l_P)  (electron radius connection; 5/7 conditional
+        on the open x_c = 0.272 derivation)
 """
 
 import numpy as np
@@ -55,8 +60,8 @@ L_PLANCK = 1.616255e-35        # Planck length [m]
 # Hubble constant — Planck 2018 (67.66 km/s/Mpc)
 H_0: float = 2.1927e-18       # Hubble constant [s⁻¹]
 
-# Observable universe radius today
-# Used for x₀ = R_H / R_UNIVERSE_0 = Ωm (eddy dark matter identity)
+# Observable universe radius today — the ΛCDM particle horizon (an import
+# that itself contains Ωm; hence Ωm = x₀ is a consistency relation, C2)
 R_UNIVERSE_0 = 4.4e26          # Observable universe radius [m]
 
 # ============================================================================
@@ -79,11 +84,13 @@ B_COMBINED     = 15.429        # Exponential decay rate
 
 # Planck 2018 matter density — equals x₀ to 0.12%
 OMEGA_M      = 0.3111          # Total matter density (Ωb + Ωdm)
-OMEGA_LAMBDA = 0.6889          # Dark energy density (replaced by Ω_tilt)
+OMEGA_LAMBDA = 0.6889          # Dark energy density (imported Λ; the Ω_tilt replacement was retired in v6.3)
 OMEGA_B      = 0.049           # Baryonic matter density (BBN measured)
 OMEGA_DM     = 0.262           # Dark matter density (= x₀ − Ωb to 0.10%)
 
-# Tilt exponent for dark energy evolution (geometrically derivable)
+# Tilt exponent for dark energy evolution — RETIRED sector (v6.3): the
+# Ω_tilt(z) cosmology claim is withdrawn; the constant is kept for the
+# historical receipts.
 # Exact formula: x(z) = x₀ × (1+z) × H₀/H_ΛCDM(z) gives α ≈ 0.077–0.089
 ALPHA_COSMO  = 0.1036          # Best-fit tilt exponent (within 2σ of geometric range)
 
@@ -92,7 +99,7 @@ ALPHA_COSMO  = 0.1036          # Best-fit tilt exponent (within 2σ of geometric
 # ============================================================================
 
 # Cosmological curvature ratio x₀ = R_H / R_universe
-# This equals Ωm to 0.12% — the eddy dark matter identity
+# Equals Ωm to 0.12% — a consistency relation (C2), not an independent prediction
 # x₀ = (c/H₀) / R_UNIVERSE_0
 X_0 = (c / H_0) / R_UNIVERSE_0   # ≈ 0.3107
 
@@ -102,10 +109,11 @@ RHO_CRIT_0 = 3 * H_0**2 / (8 * np.pi * G)   # ≈ 8.60e-27 kg/m³
 # Eddy background density = x₀ × ρ_crit (equals Ωm × ρ_crit)
 RHO_EDDY_0 = X_0 * RHO_CRIT_0               # ≈ 2.67e-27 kg/m³
 
-# MOND acceleration constant derived from ESTIF geometry
-# a₀ = H₀ × c × x₀ / √3
-# Derivation: 3D projection of 4D eddy kinetic energy (factor 1/√3)
-# Agreement with MOND empirical value 1.2×10⁻¹⁰ m/s²: 1.72%
+# MOND acceleration constant — horizon-scale form (doctrine of 13 Jul 2026):
+# a₀ is a horizon quantity, a₀ ≈ c·H (de Sitter surface-gravity scale). Flat
+# rotation curves, mass-independence, the BTFR and the magnitude follow from
+# that alone. The exact O(1) prefactor (written here as x₀/√3) is a working
+# form, NOT derived. Numerical value unchanged: 1.72% from MOND's 1.2×10⁻¹⁰.
 A0_MOND_ESTIF = H_0 * c * X_0 / np.sqrt(3)  # ≈ 1.179×10⁻¹⁰ m/s²
 
 # ============================================================================
@@ -158,7 +166,8 @@ def hubble_radius():
 def x0_value():
     """
     Cosmological curvature ratio x₀ = R_H / R_universe.
-    Equals Ωm to 0.12% — the eddy dark matter identity.
+    Equals Ωm to 0.12% — a consistency relation (C2), not an
+    independent prediction.
 
     Returns:
         x₀ (dimensionless)

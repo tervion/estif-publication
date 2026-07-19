@@ -1,6 +1,96 @@
 # ESTIF Changelog
 
+# ESTIF Changelog
+
 All notable changes to this project are documented in this file.
+
+---
+
+## [6.4.1] — 2026-07-13 — Fronts 1–3, four-lock ledger, a₀-horizon doctrine, repo reorg
+
+Housekeeping and one doctrine change. No axiom, derivation, or closed-result
+status changes since 6.4.0 — RHAC-004 through RHAC-009 stand as closed. What's
+new: three growth/structure fronts executed and filed, a fourth discriminator
+lock recorded, the a₀ interpretation is reframed per a dedicated derivation
+pass, and the repository layout is cleaned up.
+
+### Added — Fronts 1–3 and the four-lock ledger (RHAC-007)
+- Front 1 (growth under A1′): D+ clumping history computed; f(z=0.5)=0.7603
+  matches the DESI RSD anchor; JWST verdict is an honest null (tension
+  inherited from ΛCDM, neither relieved nor worsened).
+- Front 2 (first black holes): fold-back rule ν·σ(M,0)·D(z)=δ_c established;
+  star-channel and direct-collapse (no-star) channels characterized;
+  primordial channel closed under the ζ=10⁻⁵ passport.
+- Front 3 (second discriminator): growth index γ forced to ≈0.55 by the empty
+  residual sector plus GR-equivalent D+ (computed 0.5455–0.5544 over z=0–5,
+  pull −0.23σ from DESI); companion slip lock (Σ,η,μ)=(1,1,1) confirmed exact.
+- **Four-lock ledger** separating ESTIF-Core from GR's extra freedoms: Ω_k=0
+  (kill-shot), γ≈0.55 & slip=1 (Front 3), w=−1 (RHAC-004), c_gw=c (RHAC-008).
+  None of the four separates ESTIF-Core from flat ΛCDM at linear order —
+  distinguishing content lives off the linear sheet (nonlinear halos, N-body
+  wall).
+- Receipts: `tests/estif_front1_growth_sigma8_jwst.py`,
+  `tests/estif_front2_first_hole_recipe.py`,
+  `tests/estif_front3_second_discriminator.py`.
+
+### Added — GW sector closed (RHAC-008, C-15)
+- c_gw = c derived: under A1′+A2 the world is one Lorentzian geometry; TT
+  waves and light share the same null cone for arbitrary flow. GW170817
+  passes structurally (predicted deviation = 0 exactly). Receipt:
+  `tests/estif_C15_gw_sector.py`.
+
+  ⚠️ Both receipt filenames above are cited in RHAC-007/008 but were not
+  located in the repository as of this writing. Locate and commit them, or
+  amend the RHAC-007/008 lines to the actual filenames, before treating this
+  entry as closed.
+
+### Changed — a₀ reframed as a horizon quantity (13 July 2026 doctrine)
+- **a₀ is a horizon-scale acceleration, a₀ ≈ c·H** (de Sitter surface
+  gravity) — not a quantity derived from local matter density or from
+  principle P. Mass-independence of a₀, flat rotation curves, the Baryonic
+  Tully–Fisher relation, and the correct magnitude all follow from this
+  alone; the numerical value (1.72% from MOND empirical) is unchanged.
+- **Retired:** any language stating the √3 prefactor, or the full numerical
+  a₀ coefficient, is *derived*. The prefactor is constrained to O(1) and
+  known to be horizon-set, but the precise number is open.
+- **Not touched:** the empirical fits, the black-hole exterior solution, or
+  the Ωm bootstrap (RHAC Scenario Q) — this changes only the
+  *interpretation* of a₀ and any claim that it is derived.
+- Receipts: `tests/a0_horizon_test.py`, `tests/a0_prefactor_derivation.py`,
+  `tests/estif_flow_sim.py`, `tests/estif_horizon.py`.
+- Flagged open: x_c = 0.272 is used in two different roles across the corpus
+  (the GR-crossover exponent value, and informally as a horizon-adjacent
+  scale); the double duty is unresolved. See
+  `docs/plan/ESTIF_document_update_guide.md` §6.
+- Record: RHAC-010, `docs/plan/RHAC.md`.
+
+### Changed — src/ suite relabeled to v6.4.1
+- `estif_ec_gr_constants.py`, `estif_ec_gr_model.py`,
+  `estif_ec_gr_run_simulation.py`: version strings and claim-status comments
+  updated to v6.4.1. **No computational change** — all three files remain
+  the frozen v6.2 analytical suite; the full run still passes 21/21 with
+  identical numbers (x₀=0.3107, a₀=1.1793×10⁻¹⁰). Updated: Ω_tilt(z)
+  cosmology flagged RETIRED (historical receipt only, per v6.3 Task 6);
+  Ωm = x₀ relabeled a consistency relation (C2); a₀ commentary updated per
+  the horizon doctrine above.
+
+### Repository structure
+- `PATH_ONE_CHECKLIST.md` moved from `archive/` to `docs/plan/` (the
+  ROADMAP v6.4.0 banner already pointed here; the path did not exist until
+  this move).
+- `docs/LaTeX ` (trailing space in dirname) renamed to `docs/latex`;
+  `ESTIF_arXiv_Paper.zip` unzipped in place.
+- `tests/Computing growth history against DESI and JWST data/` (a
+  doc-staging folder inside `tests/`) emptied and removed:
+  `ESTIF_document_update_guide.md` moved to `docs/plan/`;
+  `estif_field_dynamics.tex` and its preview PDF moved to `docs/latex/`;
+  duplicate copies of `GAZTANAGA_COMPARISON.md` and `PHASE2_DECLARATION.md`
+  (byte-identical to the `docs/plan/` originals) deleted.
+
+### Still pending
+- Script-side C2 (`estif_pathone_cosmology.py`), C4
+  (`estif_pathone_aic_bic.py`), and C5 (`estif_task6_eddy_eos.py`) remain
+  unapplied.
 
 ---
 
@@ -57,7 +147,17 @@ now called an **imported cosmological constant**; the "frozen eddy" label is ret
 ### Added — documents
 - `docs/plan/PHASE2_DECLARATION.md` (the honorable-null record; referenced across the repo).
 - `docs/plan/GAZTANAGA_COMPARISON.md` — verdict 🔴 **no Ωm novelty**: the causal-horizon →
-  Ωm ≈ 0.3 / no-dark-energy result is Gaztañaga's (peer-reviewed,
+  Ωm ≈ 0.3 / no-dark-energy result is Gaztañaga's (peer-reviewed, 2019–2023;
+  headline Ω_Λ ≈ 0.70 ⇒ Ω_m ≈ 0.30). Cite him prominently; lead with the a₀ link.
+
+---
+
+## [6.3.2] — 2026-07-09 — Ωm bootstrap (Door 2, conditional)
+
+> **Superseded status note (added retroactively, 6.4.0):** the "Part B open" flag
+> below was accurate at the time. RHAC-009 (12 July 2026) closed Part B: P is not
+> derivable as a law. This entry is preserved as written, dated to when it was
+> true.
 
 ### Added
 

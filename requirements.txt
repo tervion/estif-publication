@@ -1,5 +1,5 @@
 # requirements.txt
-# ESTIF v6.1 — Emergent Spacetime from Inward Flow
+# ESTIF v6.4.2 — Emergent Spacetime from Inward Flow
 # Tested: Python 3.8–3.12, macOS (Apple Silicon + Intel), Linux
 
 # ============================================================================
@@ -10,6 +10,8 @@ numpy>=1.24.0,<2.0.0
 scipy>=1.10.0,<2.0.0
 matplotlib>=3.7.0,<4.0.0
 astropy>=5.2.0,<7.0.0
+sympy>=1.12,<2.0.0
+colossus>=1.3.0
 
 # ============================================================================
 # Notes on version constraints
@@ -20,6 +22,14 @@ astropy>=5.2.0,<7.0.0
 #   numpy 1.x conventions throughout. Constraint is intentional.
 #   Warning: some unrelated system packages (e.g. opencv) may flag this as
 #   incompatible. That warning is harmless — opencv is not used by ESTIF.
+#   Scope: the pin protects src/ model code. tests/ receipts have also run
+#   green on numpy 2.x (audit machines, Jul 2026); the pin stays for
+#   reproducibility of src/.
+#
+# sympy / colossus (added v6.4.2)
+#   sympy: required by the phase2_a1prime suite, test_UKN*.py, and
+#   estif_C15_gw_sector.py. colossus: required by estif_front1_*,
+#   estif_front2_*, and estif_jwst_growth_spec.py (mass-function receipts).
 #
 # scipy<2.0.0
 #   Maintains stable API for integrate.quad and optimize.minimize.

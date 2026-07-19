@@ -107,7 +107,7 @@ def test_single_drain():
               title="Radial Acceleration Relation")
     ax[2].legend(fontsize=8); ax[2].grid(alpha=.3, which="both")
 
-    fig.tight_layout(); fig.savefig("/home/claude/fig1_single_drain.png", dpi=110)
+    fig.tight_layout(); fig.savefig("fig1_single_drain.png", dpi=110)
     plt.close(fig)
 
 # =====================================================================
@@ -124,7 +124,7 @@ def test_mass_independence():
     ax.set(xlabel="galaxy mass [Msun]", ylabel="crossover accel a0 [m/s^2]",
            title=f"MASS-INDEPENDENCE TEST\nRule A: a0 proportional to M^{slope:+.2f}  (need 0.00  ->  FAILS)")
     ax.legend(fontsize=9); ax.grid(alpha=.3, which="both")
-    fig.tight_layout(); fig.savefig("/home/claude/fig2_mass_independence.png", dpi=110)
+    fig.tight_layout(); fig.savefig("fig2_mass_independence.png", dpi=110)
     plt.close(fig)
     return slope
 
@@ -142,7 +142,7 @@ def test_H_tracking():
     ax.set(xlabel="H / H0", ylabel="acceleration [m/s^2]",
            title="H-TRACKING TEST\na0 DOES move with the 'moment' (good) —\nbut scale is H*v_gal, not c*H (magnitude wrong)")
     ax.legend(fontsize=9); ax.grid(alpha=.3, which="both")
-    fig.tight_layout(); fig.savefig("/home/claude/fig3_H_tracking.png", dpi=110)
+    fig.tight_layout(); fig.savefig("fig3_H_tracking.png", dpi=110)
     plt.close(fig)
     return slope
 
@@ -169,7 +169,7 @@ def test_magnitude_gap():
     ax[1].set(xlabel="galaxy mass [Msun]", ylabel="a0 [m/s^2]",
               title="Absolute scale: sim undershoots by ~1000x\nbecause a0 wants c, not v_gal")
     ax[1].legend(fontsize=8); ax[1].grid(alpha=.3, which="both")
-    fig.tight_layout(); fig.savefig("/home/claude/fig4_magnitude_gap.png", dpi=110)
+    fig.tight_layout(); fig.savefig("fig4_magnitude_gap.png", dpi=110)
     plt.close(fig)
 
 # =====================================================================

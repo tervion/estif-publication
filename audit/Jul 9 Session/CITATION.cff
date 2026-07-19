@@ -1,0 +1,122 @@
+cff-version: 1.2.0
+message: "If you use this software in your research, please cite it as below."
+title: "ESTIF: Emergent Spacetime from Inward Flow — Geometric Tilt Model for Gravity, Dark Energy, and Dark Matter"
+abstract: >-
+  ESTIF v6.3 ("The Split") derives gravity from a single geometric claim: 3D
+  space is a flat hypersurface carried through a 4D bulk, with everything moving
+  through the bulk at the speed of light.
+
+  HEADLINE MILESTONE (v6.3): The gravitational field equation is now DERIVED
+  rather than matched to the Schwarzschild solution. Starting only from the flow
+  axioms — flat 3-slices, universal speed c, and "empty space is not a source" —
+  the Gauss-Codazzi (ADM) engine forces rho_eff = m'(r)/(4 pi r^2), i.e. mass
+  continuity / Poisson's equation in integrated form. Consequences (engine-
+  verified): vacuum gives v^2 = 2GM/r uniquely and exact Schwarzschild; a
+  uniform-density source returns rho0 exactly. The former "Poisson postulate" is
+  now a theorem for vacuum, Newton, and Schwarzschild. Lorentzian signature and
+  special-relativistic kinematics also emerge from a Euclidean bulk plus the
+  universal speed-c constraint. Scripts: estif_task4_field_equation.py,
+  estif_flow_signature_dynamics.py, estif_converse_flow_law.py,
+  estif_tmunu_gauss_codazzi.py.
+
+  PROJECT SPLIT (v6.3): the project forks into Path One (ESTIF-Core, clean) and
+  Path Two (ESTIF-Extended, hard). Path One: gravity on the derived field
+  equation; cosmology as a frozen cosmic eddy = cosmological constant, which ties
+  LCDM on DESI DR2 (chi^2/N = 1.92). Path Two: derive a small thawing correction
+  to w = -1 from the full rotating-shear/vorticity stress tensor.
+
+  COSMOLOGY REFRAME (v6.3): the Omega_tilt(z) sector's DESI DR2 failure was traced
+  to circularity (x(z) used H_LCDM as its own ruler). A self-consistent
+  fixed-point solve (estif_task5_desi_selfconsistent.py) drops chi^2/N from 10.8
+  to 3.35, but the frozen-eddy limit (w = -1) ties LCDM at 1.92 and beats the
+  tilt formula's 3.35. Attempts to derive the eddy equation of state
+  (estif_task6_eddy_eos.py) show the two natural reductions fail badly (stiff
+  spin chi^2/N = 3232; expansion tracker 754), so the Omega_tilt apparatus is
+  retired from the cosmology claim; its local strong-field use is unaffected.
+
+  Prior gravity results carried forward and now on a derived foundation:
+  MOND a0 = H0*c*x0/sqrt(3) = 1.179e-10 m/s^2 (1.72% from empirical), validated
+  against 87 quality-1 SPARC galaxies (RMS 15.6%); a0 redshift constancy proved
+  (H(z) cancels in the comoving frame); parameter independence across 3,600
+  H0/Omega_m combinations. Strong-field local tilt: EHT M87* shadow 0.00 sigma,
+  Planck Lambda ratio 1.0000, LISA GW delay 491 us at S/N 49.2 sigma; GR time
+  dilation is the special case at n=1/2 (x=0.272).
+
+  Dark matter analytical results: Omega_m = x0 = R_H/r_universe to 0.12%,
+  Omega_dm = x0 - Omega_b to 0.10%. N-body simulation needed for halo structure.
+
+  A fidelity audit (estif_fidelity_audit.py) found that the axioms of universal
+  speed c and "empty space is not a source" currently live only in the derivation
+  scripts, and that the concept document runs a competing shrinking-ruler
+  narrative; writing these into the theory is a Path One consolidation task.
+
+type: software
+authors:
+  - family-names: "Angelov"
+    given-names: "Peter"
+    email: tervion@gmail.com
+    affiliation: "Independent Researcher"
+version: 6.3.0
+date-released: "2026-07-08"
+license: MIT
+repository-code: "https://github.com/tervion/estif-publication"
+doi: "10.5281/zenodo.17261724"
+url: "https://zenodo.org/records/17261724"
+keywords:
+  - general-relativity
+  - modified-gravity
+  - dark-energy
+  - dark-matter
+  - 4D-geometry
+  - hypersurface
+  - Painleve-Gullstrand
+  - ADM-formalism
+  - Gauss-Codazzi
+  - field-equation-derivation
+  - tilt-formula
+  - gravitational-waves
+  - LISA
+  - event-horizon-telescope
+  - MOND
+  - Tully-Fisher
+  - SPARC
+  - cosmological-constant
+  - dark-energy-equation-of-state
+  - DESI
+  - emergent-spacetime
+references:
+  - type: software
+    title: "ESTIF v6.2 — a0 Redshift Constancy Proved, Parameter Independence, Letter Drafted"
+    authors:
+      - family-names: "Angelov"
+        given-names: "Peter"
+    year: 2026
+    version: "6.2.0"
+    notes: "Previous version. Derived a0 = H0*c*x0/sqrt(3), validated against 87 SPARC galaxies (RMS 15.6%), tested against DESI DR2 (Omega_tilt sector fails chi^2/N = 10.8), proved a0 redshift constancy and parameter independence. Superseded by v6.3, which derives the gravity field equation (mass continuity = Poisson) from the flow axioms, fixes the cosmology circularity, and splits the project into Path One (Core) and Path Two (Extended)."
+  - type: software
+    title: "ESTIF-FD v1.0 — Emergent Spacetime from Inward Flow (Original)"
+    authors:
+      - family-names: "Angelov"
+        given-names: "Peter"
+    year: 2024
+    version: "1.0.0"
+    repository-code: "https://zenodo.org/records/17261724"
+    notes: "Original cosmology version — S(t) = exp(-int H dt) ruled out by supernova data. Concept retained, equation abandoned."
+preferred-citation:
+  type: software
+  title: "ESTIF: Emergent Spacetime from Inward Flow v6.3 'The Split' — Gravity Field Equation Derived; Frozen-Eddy Cosmology"
+  authors:
+    - family-names: "Angelov"
+      given-names: "Peter"
+  year: 2026
+  version: "6.3.0"
+  repository-code: "https://github.com/tervion/estif-publication"
+  doi: "10.5281/zenodo.17261724"
+  notes: >-
+    ESTIF v6.3 — the gravitational field equation is derived from the flow axioms
+    (mass continuity = Poisson) via Gauss-Codazzi, giving exact Schwarzschild in
+    vacuum and Newtonian rho0 for a source, with no Poisson postulate. The
+    cosmology circularity is fixed (self-consistent x(z)); the frozen-eddy limit
+    (w=-1) ties LCDM on DESI DR2 (chi^2/N = 1.92) and the Omega_tilt apparatus is
+    retired. The project splits into Path One (Core, clean) and Path Two
+    (Extended, hard). Run: python3 tests/estif_task4_field_equation.py

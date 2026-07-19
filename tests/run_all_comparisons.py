@@ -1,14 +1,41 @@
 # run_all_comparisons.py
 
 """
-Master script to run all ESTIF-Gravity observational comparisons.
+RETIRED 15 July 2026 - HISTORICAL RECEIPT. DOES NOT RUN.
+========================================================
+Kept per RHAC discipline ("mark, never delete"). This file is the runnable
+record of the ESTIF-Gravity fork's observational suite. It is NOT a runner for
+the current test suite and never was.
 
-Executes:
-1. compare_eht_m87.py - Black hole shadow lensing
-2. compare_ligo_gw.py - Gravitational wave damping
-3. compare_jwst_galaxies.py - High-z galaxy asymmetries
+WHAT IT DID: executed three ESTIF-Gravity fork comparisons --
+    observational/compare_eht_m87.py       - black hole shadow lensing
+    observational/compare_ligo_gw.py       - gravitational wave delay
+    observational/compare_jwst_galaxies.py - high-z galaxy asymmetries
 
-Generates comprehensive assessment of ESTIF testability.
+WHY IT IS RETIRED:
+  1. Its three targets no longer exist. They were moved tests/ -> archive/ in
+     9080b49 (21 Mar 2026), then deleted with the rest of archive/ in c971ab8
+     (21 Mar 2026, 05:24) -- collateral to a wholesale archive wipe, NOT a
+     decision to retire the tests. This runner was never updated. It has failed
+     on every invocation since. Final state of the targets is recoverable at
+     c971ab8^ if ever needed.
+  2. It never ran the receipt suite. TEST_INDEX.md described it as a "batch
+     runner over the test suite"; that description was wrong. It touched none
+     of the indexed receipts.
+  3. It reported success at the shell level regardless of outcome: main()
+     returned no status, so the process exited 0 even with 3/3 failures.
+  4. The fork it served is superseded. Its headline claim -- a 32 us GW
+     propagation delay, "the strongest prediction of ESTIF-Gravity", LISA-
+     testable at 3.2 sigma -- is a c_gw != c effect. C-15 (RHAC-008) derives
+     |c_gw/c - 1| = 0 exactly on the ESTIF geometry, for arbitrary flow, with
+     no free parameter. See archive/observational/README.md at c971ab8^.
+
+DO NOT "FIX" THIS FILE. If a runner over the current receipt suite is wanted,
+write a new one against TEST_INDEX.md. Restoring these three targets requires
+first resolving their claims against C-15.
+
+Superseded-by: TEST_INDEX.md (the suite's actual index)
+Recover targets: git show c971ab8^:archive/observational/README.md
 """
 
 import sys
@@ -52,8 +79,29 @@ def run_comparison(script_name, description):
         print(f"Exception: {e}")
         return False
 
+RETIRED = True
+
+def _retirement_notice():
+    print("=" * 78)
+    print("run_all_comparisons.py - RETIRED 15 July 2026 - HISTORICAL RECEIPT")
+    print("=" * 78)
+    print()
+    print("  This runner does not execute. Its three targets were deleted on")
+    print("  21 Mar 2026 (c971ab8) as collateral to an archive wipe, and it")
+    print("  never ran the receipt suite in any case.")
+    print()
+    print("  Nothing was written. validation_summary.txt is NOT regenerated.")
+    print()
+    print("  See the module docstring for the full record, and TEST_INDEX.md")
+    print("  for the actual suite.")
+    print()
+    print("=" * 78)
+    return 2
+
 def main():
-    """Run all three comparison scripts."""
+    """Retired. Prints the retirement notice and exits nonzero."""
+    if RETIRED:
+        return _retirement_notice()
     print("="*80)
     print("ESTIF-GRAVITY: COMPREHENSIVE OBSERVATIONAL VALIDATION")
     print("="*80)
@@ -125,7 +173,7 @@ def main():
     print("Summary saved to: validation_summary.txt\n")
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
     
 
 #APPROVED-FORK-CONVERSION-SYNTAX-PROVEN-15-10-25-V-2

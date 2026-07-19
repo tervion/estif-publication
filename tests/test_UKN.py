@@ -1,3 +1,5 @@
+"""Draft duplicate (AST-identical) of phase2_a1prime/estif_p2_door3_swirl_ledger.py.
+Kept as the filename cited in RHAC-004; the canonical documented copy supersedes. (v6.4.2)"""
 import sympy as sp
 x,y,z,G,A,B,C,H = sp.symbols('x y z G A B C H', positive=True)
 X=(x,y,z)
