@@ -1,1 +1,0 @@
-../../../test_a0_redshift.py

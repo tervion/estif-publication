@@ -1,1 +1,0 @@
-../../../derive_mond_from_geometry.py

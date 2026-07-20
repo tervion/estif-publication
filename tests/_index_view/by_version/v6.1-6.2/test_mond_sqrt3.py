@@ -1,1 +1,0 @@
-../../../test_mond_sqrt3.py

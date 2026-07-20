@@ -1,1 +1,0 @@
-../../../test_alpha_from_geometry.py

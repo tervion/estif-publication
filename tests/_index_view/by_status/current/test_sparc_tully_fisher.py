@@ -1,1 +1,0 @@
-../../../test_sparc_tully_fisher.py

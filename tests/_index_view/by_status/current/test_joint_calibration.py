@@ -1,1 +1,0 @@
-../../../test_joint_calibration.py

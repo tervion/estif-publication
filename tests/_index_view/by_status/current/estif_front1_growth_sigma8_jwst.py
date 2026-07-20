@@ -1,1 +1,0 @@
-../../../estif_front1_growth_sigma8_jwst.py

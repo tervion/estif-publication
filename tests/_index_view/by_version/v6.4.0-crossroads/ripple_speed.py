@@ -1,1 +1,0 @@
-../../../ripple_speed.py

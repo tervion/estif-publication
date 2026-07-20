@@ -1,2 +1,0 @@
-MISSING: estif_front3_second_discriminator.py  (cited: v6.4.0 / current)
-MISSING: estif_C15_gw_sector.py  (cited: v6.4.0 / current)

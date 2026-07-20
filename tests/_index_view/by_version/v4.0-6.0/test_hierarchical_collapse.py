@@ -1,1 +1,0 @@
-../../../test_hierarchical_collapse.py
