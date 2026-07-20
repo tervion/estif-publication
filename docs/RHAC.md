@@ -1,0 +1,971 @@
+# Rabbit Holes and Crossroads — Decision Tree Archive
+
+**ESTIF v6.4.1 Decision History**
+**Last Updated:** 13 July 2026
+**Status:** Active — v6.4.2. Gravity letter ready (send gated on the Bullet Cluster response, B-8). Fronts 1–3 + C-15 filed with receipts verified in-repo (RHAC-007/008/011); Principle P closed as non-derivable (RHAC-009); a₀ reframed as a horizon quantity (RHAC-010); repository restructured and documentation consolidated to four files (RHAC-011).
+
+This file catalogs potential rabbit holes (deep, distracting sub-problems) and
+crossroads (decision points) in ESTIF development. Use it to avoid getting lost:
+if a task risks a detour, check here for pre-mapped options and resolutions.
+
+---
+
+## General Guidelines
+
+- **What If Trigger:** If a task exceeds one week or spawns more than two sub-questions, consult this file
+- **Avoidance:** Prioritize data and testability; table metaphysics ("why does 4D flow exist?")
+- **Focus:** Classical mechanics only — no quantum rabbit holes
+- **Pattern:** Validate each floor before building the next (the lesson from ESTIF-FD)
+
+---
+
+## Historical Scenarios (originally filed under v4.0 — resolved or superseded below)
+
+### Scenario A: External Critique — Metaphysical Foundations
+
+**What If:** ArXiv feedback questions "why does 4D flow exist?"
+
+**Options:**
+1. **Ignore metaphysics (recommended):** Refocus on testable predictions
+   - Response: "Model makes falsifiable predictions. The mechanism's origin is secondary."
+   - Point to LISA, EUCLID, and DESI as definitive tests
+2. Strengthen analogies: Update ESTIF_CONCEPT.md with clearer explanations
+   - Only if reviewer is genuinely confused, not philosophically opposed
+
+**Decision:** Focus on empirical predictions over philosophical foundations.
+
+---
+
+### Scenario B: Quantum Temptation
+
+**What If:** Reviewer suggests "this needs quantum treatment"?
+
+**Options:**
+1. **Stick to classical (recommended):** ESTIF is explicitly classical
+   - Response: "Testing classical limit first; quantum extensions are future work"
+   - Cite success of classical GR before quantum gravity attempts
+2. Brief appendix speculation — time-box to one week maximum
+
+**Decision:** Maintain classical framework; defer quantum to future work.
+
+---
+
+### Scenario C: Parameter Degeneracy (N_MAX and B)
+
+**What If:** Reviewer claims N_MAX and B are degenerate fitting artifacts?
+
+**Options:**
+1. **Point to physical origin (recommended):** Both emerge from ln(r_e/l_P)
+   - N_MAX ≈ 5/7 × ln(r_e/l_P) and B ≈ 1/3 × ln(r_e/l_P) to within 0.7%
+   - Not two free parameters — one scale, two fractions
+2. MCMC analysis: Show how the parameters are constrained by different observations
+   - EHT constrains the photon sphere region (high x)
+   - Λ constrains the cosmological region (moderate x)
+   - The two cannot be degenerate because they constrain different curvature regimes
+
+**Decision:** Point to electron radius connection first; offer MCMC if reviewer insists.
+
+---
+
+### Scenario D: Ω_tilt Divergence at High Redshift
+
+**What If:** CMB experts immediately reject the model because Ω_tilt → ∞ at z ~ 1100?
+
+**Options:**
+1. **Hard cutoff (pragmatic):** Cap z_eff = min(z, 2) in omega_tilt()
+   - Honest about scope limitation
+   - Paper explicitly states: "valid at z < 2, CMB extension is future work"
+2. **Physical decay (principled):** Derive why tilt geometry weakens at early times
+   - More work but stronger scientifically
+   - If the 4D flow was slower in the early universe, formula should naturally decay
+
+**Current status:** 🟢 Option 1 implemented — Phase 5.1 complete.
+**Recommendation:** Investigate Option 2 as Phase 6 prep.
+
+---
+
+### Scenario E: DESI w(z) Conflict
+
+**What If:** ESTIF's predicted w = −1.08 contradicts published DESI DR2 measurements?
+
+**Options:**
+1. **Accept constraint:** ESTIF w(z) is a prediction — if it disagrees with DESI it narrows the model
+2. **Check ALPHA_COSMO:** The effective w depends on ALPHA_COSMO = 0.1036. A joint fit
+   including DESI might prefer a different value.
+3. **Reframe:** DESI reports hints of w < −1 in some bins — ESTIF is consistent with
+   the direction even if the magnitude differs.
+
+**Current status:** 🔴 Resolved as failure. See Scenario E update below.
+
+---
+
+### ✅ Scenario F: Dark Matter Analytical Phase — Complete
+
+**Resolution:** ANALYTICAL PHASE COMPLETE, SIMULATION REQUIRED (March 2026)
+
+Five results confirmed:
+1. Ωm = x₀ = R_H/r_universe to 0.12% — not a coincidence
+2. Ωdm = x₀ − Ωb to 0.10%
+3. σ/v_escape = 0.5 exactly — virial condition automatic
+4. λ_Jeans = 2.565 × r — self-similar at every scale
+5. Free-fall time at z=10: ~1 Gyr — correct epoch
+
+**The wall:** v_flat = 220 km/s requires δ ~ 50,000–100,000. Only N-body gives this.
+**Decision:** Document analytically, seek simulation collaboration.
+**Status:** 🟢 Analytically resolved — 🔴 Simulation wall acknowledged
+
+---
+
+## Resolved Scenarios (Historical Record)
+
+### ✅ Scenario 1: H(t) Derivation Gets Too Complex
+
+**What If:** Adding friction terms to H(t) leads to overfit or instabilities?
+
+**Resolution:** ABANDONED H(t) DERIVATION (January 2025)
+- CMB age discrepancies (~1%), numerical instabilities at high-z
+- Pivot: Use standard ΛCDM cosmology, focus on gravity modifications only
+- **Lesson:** Isolate variables — test gravity before attempting cosmology derivation
+
+---
+
+### ✅ Scenario 2: ΛCDM vs Independent Cosmology
+
+**What If:** The model needs to choose between accepting ΛCDM or replacing it?
+
+**Resolution:** BOTH — sequentially (March 2026)
+- v3.0: Accept ΛCDM entirely, test strong-field gravity
+- v4.0: Replace dark energy sector (Ω_tilt), retain matter sector (Ωm)
+- The question became: replace all of ΛCDM or just what the tilt geometry can derive?
+- **Current answer:** Replace ΩΛ first (done), address CMB and dark matter separately
+- **Lesson:** Partial replacement is valid science. Don't wait for the complete model.
+
+---
+
+### ✅ Scenario 3: The n Gap (EHT vs Λ)
+
+**What If:** The tilt exponent n required for EHT (n ≈ 0.1) differs from n required for Λ (n ≈ 0.5)?
+
+**Resolution:** DYNAMIC n — the combined formula (March 2026)
+- n is not a constant — it varies with local curvature: n(x) = N_MAX × exp(−B × x)
+- At M87* photon sphere (x = 0.667): n = 0.001
+- At cosmological scale (x = 0.311): n = 0.275
+- Both are satisfied simultaneously by the same exponential formula
+- Joint calibration gave N_MAX = 33.265, B = 15.429 — all three tests pass
+- **Lesson:** The gap was not a conflict. It was evidence that n must be dynamic.
+
+---
+
+### ✅ Scenario 4: The Observable — β or √β?
+
+**What If:** The 3D observable is β rather than √β?
+
+**Resolution:** OBSERVABLE = √β (March 2026)
+- H1/H2 investigation showed a scale factor of ~0.5 was needed
+- √β emerges naturally from wave physics: intensity ∝ amplitude², so amplitude = √(intensity)
+- The 4D correction has amplitude β. The 3D measurement captures √β.
+- At the GR crossover (x = 0.272, n = ½): Observable = √β = τ^(¼), connecting to
+  black hole thermodynamics through the Stefan-Boltzmann fourth-root relationship
+- **Lesson:** The H1/H2 hypotheses were not failures — they identified the correct projection.
+
+---
+
+### ✅ Scenario 5: N_MAX Physical Meaning
+
+**What If:** N_MAX = 33.265 is a meaningless fitting artifact?
+
+**Resolution:** CONNECTED TO ELECTRON RADIUS (March 2026)
+- Extensive search found: N_MAX ≈ 5/7 × ln(r_e/l_P) (0.08% agreement)
+- B ≈ 1/3 × ln(r_e/l_P) (0.69% agreement)
+- Both emerge from the classical electron radius in Planck units
+- r_e is the scale where electromagnetic self-energy equals rest mass energy
+- This partially solves the dynamic ruler problem
+- **Open question remaining:** Why specifically 5/7 and 1/3?
+
+---
+
+### ✅ Scenario 6: The Dynamic Ruler Problem
+
+**What If:** N_MAX = ln(r_universe/Rs_m87) but r_universe is growing, making N_MAX time-dependent?
+
+**Resolution:** ELECTRON RADIUS AS RIGID RULER (March 2026)
+- r_universe is a bent ruler — it changes as the universe expands
+- The classical electron radius r_e and Planck length l_P are fixed fundamental constants
+- N_MAX ≈ 5/7 × ln(r_e/l_P) uses only constants — immune to cosmic expansion
+- Λ drift (0.023%/Gyr) is now understood as a separate prediction, not a parameter problem
+- **Lesson:** When the ruler bends, find a rigid one.
+
+---
+
+### ✅ Scenario 7: Supernova Pipeline Suppression
+
+**What If:** The ESTIF signal disappears when using Pantheon+ data?
+
+**Resolution:** PIPELINE SUPPRESSION IDENTIFIED AND BYPASSED (March 2026)
+- Pantheon+ MU_SH0ES column is bias-corrected against ΛCDM — signal collapsed to 0.00σ
+- Raw magnitudes (mB, x1, c via Tripp formula) recovered the signal at 2.09σ
+- 4/4 redshift bins improved with raw data
+- **Lesson:** When a signal disappears in a preprocessed dataset, check what the preprocessing removed.
+
+---
+
+### ✅ Scenario 8: Ω_tilt Sign
+
+**What If:** Ω_tilt = Ω_Λ × (obs_z/obs_now)² makes the fit worse?
+
+**Resolution:** INVERTED TO (obs_now/obs_z)² (March 2026)
+- First attempt used obs_z/obs_now — dark energy decreasing with z
+- Data preferred dark energy increasing with z (consistent with DESI 2024 hints)
+- One-line fix: swap numerator and denominator
+- DESI DR2 2024 reports hints of w < −1 — ESTIF now predicts w = −1.08
+- **Lesson:** When the formula points in the wrong direction, flip it and check the data.
+
+---
+
+### Scenario G: Eddy Dark Matter — Galactic Halo Mechanism
+
+**Context:** Collisionless dynamics (not fluid) is the correct framework.
+σ(r) ∝ r, not a single sound speed. Virial condition exact. Self-similar Jeans.
+Background eddy density 10¹⁶× too dilute at galactic scales — but halos form
+via collapse and virialization to δ ~ 50,000–100,000 × background.
+
+**Tully-Fisher:** ESTIF gives v_flat ∝ M^(1/3). Observed: M^(1/4).
+One analytical test remains: does obs(x_local) at r_virial add M-dependent
+factor closing 1/3 → 1/4? Script: `test_tully_fisher_correction.py`.
+
+**The wall:** Beyond Tully-Fisher correction, N-body simulation is required.
+No formula covers all scales simultaneously — the three-body problem has no
+closed-form solution (mathematical theorem, not a limitation of ESTIF).
+
+**Options:**
+1. **Write Tully-Fisher correction script (Mac-doable):** One remaining test.
+2. **Seek simulation collaboration:** University cluster or cloud HPC.
+3. **Publish with explicit simulation prediction:** δ_halo ~ 50,000–100,000 is
+   the falsifiable prediction. If simulation gives this, the eddy is confirmed.
+
+**Current status:** 🟡 Active — Tully-Fisher test pending, then simulation wall
+**Decision:** Option 1 immediately, Option 2/3 for publication.
+
+---
+
+### Scenario H: Ωm = x₀ — Is It Derivable or Coincidence?
+
+**What If:** x₀ = R_H/r_universe ≈ Ωm (0.12% agreement) is a genuine
+physical identity rather than a coincidence. Can it be derived from the
+4D stress-energy tensor?
+
+**Context:** x₀ − Ωb = 0.2617 ≈ Ωdm = 0.262 to 0.10%. Both total matter
+and dark matter component match to within Planck's 1σ uncertainty.
+The baryons-only test failed (BAO χ² = 409, vs ΛCDM = 2.56) — confirming
+x₀ cannot replace Ωm as Ω_tilt, but may work as a separate matter-like term.
+
+**Options:**
+1. **Derive from first principles:** Compute the projection of the 4D kinetic
+   energy of a rotating hypersurface onto the 3D stress-energy tensor.
+   If ρ_eddy = x₀ × ρ_crit emerges, the identity is derived.
+2. **Accept as input with prediction:** Accept Ωm = x₀ as the ESTIF
+   formula for matter density. This makes a prediction: Ωm drifts as
+   x₀ = R_H/r_universe evolves — at ~0.01%/Gyr. Testable.
+3. **Treat as coincidence:** The 0.12% agreement is within 1σ of Planck's
+   uncertainty. Wait for more precise Ωm measurements before claiming identity.
+
+**Current status:** 🟡 Active — open theoretical question
+**Recommendation:** Pursue Option 1 alongside Phase 7.1. If the stress-energy
+projection gives ρ_eddy ≠ x₀ × ρ_crit, that resolves it. If it gives
+exactly x₀ × ρ_crit, this becomes the most important result in the project.
+
+---
+
+### Scenario I: Tully-Fisher Exponent — 1/3 vs 1/4
+
+**What If:** ESTIF gives v_flat ∝ M^(1/3) but observations show M^(1/4).
+Can the tilt geometry supply the missing M-dependent factor?
+
+**Context:** v_flat² = 4πG × ρ_halo × r₀² where r₀ = x₀ × r_virial.
+Since r_virial ∝ M^(1/3), this gives v_flat ∝ M^(1/3).
+For M^(1/4), need an additional M^(−1/12) factor from somewhere.
+
+**Candidate:** obs(x_local) at r_virial, where x_local = Rs_galaxy/r_virial.
+As M increases, Rs grows faster than r_virial → x_local increases →
+obs(x_local) decreases → ρ_effective = ρ_halo/obs increases.
+Whether this supplies exactly M^(−1/12) is the test.
+
+**Options:**
+1. **Test numerically (Mac-doable):** `test_tully_fisher_correction.py` — 1 hour.
+2. **Accept 1/3:** ESTIF gives the right trend, wrong exponent. Note as limitation.
+3. **Derive analytically:** dlog(v)/dlog(M) = 1/4 requires specific x_local(M) scaling.
+
+**Current status:** 🟢 Resolved — see Scenario I update below.
+
+---
+
+### Scenario J: CMB Acoustic Scale — Pass or Fail?
+
+**What If:** ESTIF's modified H(z) shifts the CMB acoustic scale θ_s by more
+than 0.5%, which would rule out the model against Planck's 0.1% precision?
+
+**Context:** θ_s = r_s / D_A(z_rec). ESTIF modifies D_A via modified H(z).
+The Ω_tilt hard cutoff at z=2 means H(z) at z>2 is identical to ΛCDM.
+So D_A(z_rec) should be nearly unchanged.
+
+**Options:**
+1. **Check immediately (Mac-doable):** `test_cmb_angle_estimate.py` — 2 hours.
+   If θ_s offset < 0.5% → safe to proceed to CMB.
+   If θ_s offset > 0.5% → the z_max cutoff needs adjustment.
+2. **Argue by construction:** Since Ω_tilt is capped at z=2, the expansion history
+   at z>2 is pure ΛCDM, so D_A cannot differ significantly.
+
+**Current status:** 🟡 Active — Phase 6.1 — blocked by cosmology sector failure
+**Decision:** Option 1 — verify rather than argue. But must fix Ω_tilt(z) first.
+
+---
+
+## Decision Framework for New Scenarios
+
+### Step 1: Classify
+
+- **Rabbit Hole:** Leads to endless sub-questions → time-box and simplify
+- **Crossroads:** Clear choice between two options → choose based on testability
+- **Blocker:** Fundamental flaw → pivot major approach
+
+### Step 2: Apply Filters
+
+1. Does this lead to a falsifiable prediction?
+2. Can it be completed in one to two weeks?
+3. Does it maintain the classical framework?
+4. Does it improve agreement with observations?
+
+### Step 3: Document
+
+1. Add scenario to this file with options and rationale
+2. Update ROADMAP.md with a one-line decision note
+3. Mark 🟢 Resolved, 🟡 Active, or 🔴 Blocker
+
+---
+
+## RHAC UPDATE — v6.1 (18 March 2026)
+
+---
+
+### ✅ Scenario E: DESI w(z) Conflict — RESOLVED (FAILS)
+
+**Resolution:** FAILS — 3.5σ TENSION WITH DESI DR2 (March 2026)
+
+ESTIF Ω_tilt(z) tested against DESI DR2 BAO data (arXiv:2503.14738).
+chi²/N = 10.8. Pre-existing prediction w_eff ≈ −1.08 falsified at 3.5σ.
+The shape of w(z) is wrong — ESTIF rises through −1 from below while
+DESI DR2 prefers w > −1 at low z, falling.
+
+Root cause: x(z) formula is circular (uses H_ΛCDM as its own ruler).
+
+**Decision:** Fix Ω_tilt(z) with self-consistent H_ESTIF (Phase 5.4). Do NOT
+claim dark energy replacement until re-tested against DESI DR2. The
+gravity sector results are independent and unaffected.
+
+**Status:** 🔴 Resolved as failure → 🟡 Active fix (Phase 5.4)
+
+---
+
+### ✅ Scenario I: Tully-Fisher Exponent — 1/3 vs 1/4 — RESOLVED (v6.1)
+
+**Resolution:** MOND LIMIT GIVES 1/4 EXACTLY FROM GEOMETRY (March 2026)
+
+The tilt correction to ρ_halo at r_virial adds zero M-dependent factor
+(test_tully_fisher_correction.py confirmed this). ESTIF pure geometry gives 1/3.
+
+However, the MOND limit v_flat⁴ = G × M × a₀ with a₀ = H₀cx₀/√3 gives
+exactly the observed M^(1/4) Tully-Fisher scaling. ESTIF derives a₀ from
+geometry; the 1/4 exponent follows from the MOND formula, not from the
+tilt geometry directly. This is the correct interpretation.
+
+**Status:** 🟢 Resolved — MOND limit gives M^(1/4); confirmed by SPARC (RMS 15.6%)
+
+---
+
+### Scenario K: Publication Scope (NEW — v6.1)
+
+**What if:** Reviewers ask "why isn't this a complete theory of everything?"
+
+**Context:** The gravity sector passes. The cosmology sector fails DESI DR2. The paper
+cannot claim to replace dark energy and pass DESI DR2 simultaneously.
+
+**Options:**
+1. **Gravity letter (recommended):** Publish the MOND derivation + SPARC result as a standalone letter. Make no claims about dark energy replacement. Title: "Geometric Derivation of the MOND Critical Acceleration from 4D Hypersurface Tilt Geometry."
+2. **Wait for cosmology fix:** Fix Ω_tilt(z) self-consistently, retest against DESI DR2, publish only if chi²/N < 2. Longer timeline but more complete.
+3. **Two-paper strategy:** Gravity letter now (paper 1). Cosmology paper after rework (paper 2).
+
+**Decision:** Option 1 immediately. Option 3 as follow-up.
+**Status:** 🟢 Letter drafted (v6.2) — ready for submission.
+
+---
+
+### Scenario L: SPARC Υ* Calibration (NEW — v6.1)
+
+**What if:** Reviewers flag that the zero-bias Υ* = 0.85 is too far from the McGaugh+2014 standard of 0.50?
+
+**Context:** The zero-bias Υ* = 0.85 is 70% above the standard, which is outside the
+quoted 0.1 dex uncertainty. At Υ* = 0.65 (within the plausible range), bias is ~3–4%.
+
+**Options:**
+1. **Honest caveat in paper (recommended):** State that Υ* = 0.50 gives −7.6% bias and the zero-bias value of 0.85 is higher than the standard. Note that individual per-galaxy Υ* would reduce this.
+2. **Use Υ* = 0.65 as default:** Literature supports this range. Reduces bias to ~4%.
+3. **Per-galaxy Υ* from SED fitting:** Uses the correct mass for each galaxy. Computationally modest. Would likely reduce RMS to 12%.
+
+**Decision:** Option 1 for the letter (honesty first). Option 3 for strengthening before full paper.
+**Status:** 🟡 Active — for current state, use honest caveat. Consider Option 3 for paper 2.
+
+---
+
+### ✅ Scenario M: Pre-publication Blockers — RESOLVED (v6.2)
+
+**Two blockers identified by peer review:**
+
+**Blocker 1 — a₀ redshift evolution:** If a₀ = H₀cx₀/√3 uses today's H₀, does ESTIF predict a₀ ∝ H(z)?
+
+**Resolution:** NO — algebraic identity. In the comoving frame (correct for galaxy dynamics),
+x(z) = c / [H(z) × r_universe_comoving], so H(z) cancels exactly.
+a₀(z) = c² / (r_universe_comoving × √3) = constant.
+Maximum deviation: floating-point epsilon (2.22×10⁻¹⁶).
+Confirmed: Di Teodoro+2021, Übler+2017, Tiley+2019 all consistent at ≤ 2σ.
+
+**Blocker 2 — 1/√3 microscopic foundation:** "You borrowed a result from a different physical context."
+
+**Resolution:** Language reframed across all documents. Now states: "motivated by 3D spatial
+isotropy and consistent with the equipartition theorem; a complete kinetic theory of the eddy
+background is identified as future theoretical work. The factor is physically motivated, not fitted."
+This framing is honest, defensible, and what reviewers will accept.
+
+**Status:** 🟢 Both blockers resolved — letter ready for submission.
+
+---
+
+## Updated Summary Statistics
+
+| Category | Count |
+|---|---|
+| Total scenarios documented | 21 |
+| Resolved | 13 ✅ |
+| Active | 7 🟡 |
+| Budget wall (simulation) | 1 🔴 |
+| Major pivots | 5 (H(t), dynamic n, Ω_tilt inversion, fluid→collisionless, cosmology→gravity letter) |
+
+---
+
+## RHAC UPDATE — v6.3 "THE SPLIT" (8 July 2026)
+
+**Major milestone. The project forks into two tracks.** See
+`MILESTONE_v6.3_THE_SPLIT.md` in the repo root. Summary of what changed and the
+scenarios it resolves.
+
+---
+
+### 🏁 MILESTONE: Project split — Path One (Core) and Path Two (Extended)
+
+Applying this file's own decision filter (Step 2, filter 4: *"Does it improve
+agreement with observations?"*), the tilt-based cosmology fails against its own
+frozen-eddy limit and is marked 🔴 pivot. The project forks:
+
+- **Path One — ESTIF-Core (clean) ✅ recommended default.** Gravity on a derived
+  field equation; cosmology = frozen cosmic eddy → cosmological constant
+  (χ²/N = 1.92, ties ΛCDM). Tilt apparatus retired to an appendix. Gravity
+  letter stands and is strengthened.
+- **Path Two — ESTIF-Extended (hard) 🔬 high-risk.** Derive the leading w(z)
+  correction to w = −1 from the full rotating-shear/vorticity stress tensor,
+  targeting the mild DESI thawing (χ²/N ≈ 0.66).
+
+---
+
+### ✅ Scenario N: Is gravity DERIVED or borrowed from Schwarzschild? — RESOLVED (DERIVED)
+
+**What if:** the ESTIF force law only reproduces Newton because the flow profile
+is matched to the Schwarzschild solution (n = ½ ⇒ β = √(1−x)) and then
+differentiated — i.e. the answer is assumed, not derived.
+
+**Resolution:** DERIVED (Task 4, July 2026). Starting only from the flow axioms
+(A1 flat slices, A2 universal speed c, A3 empty space is not a source), the
+Gauss–Codazzi engine FORCES `rho_eff = m′(r)/(4πr²)` — mass continuity, i.e.
+Poisson in integrated form. Vacuum ⇒ v² = 2GM/r uniquely ⇒ exact Schwarzschild;
+uniform ball ⇒ rho0 exactly. The old "D2 Poisson postulate" is now a theorem for
+vacuum, Newton, and Schwarzschild. Scripts: `estif_task4_field_equation.py`
+(5/5), `estif_flow_signature_dynamics.py` (18/18), `estif_converse_flow_law.py`
+(Birkhoff in flow variables), `estif_tmunu_gauss_codazzi.py` (engine validated).
+
+**Remaining:** strong-field pressure/stress sector (full off-diagonal T_μν).
+Needed for none of {vacuum, Newton, Schwarzschild}.
+
+**Status:** 🟢 Resolved — gravity field equation derived.
+
+---
+
+### ✅ Scenario O: Fidelity — are the flow axioms actually IN the theory? — RESOLVED (partially; writing task)
+
+**What if:** the derivation in Scenario N proves a *neighbouring* principle, not
+the one v6.2 actually states.
+
+**Resolution:** audit run (`estif_fidelity_audit.py`, 71 files). Findings:
+- A1 (flow, not stretch): **CONTESTED** — the flow picture is load-bearing, but
+  `ESTIF_CONCEPT.md` also runs a competing "shrinking-ruler" narrative
+  (lines ~49–57). Must be resolved in favour of flow.
+- A2 (universal speed c): **absent from theory docs** — present only in the
+  derivation scripts. The existing v_flow = cx₀ ≈ 0.31c is the *sideways
+  component* of a total-c motion, not the full speed (a mislabel to fix).
+- A3 (empty space is not a source): **absent from theory docs** — present only
+  in scripts.
+
+Author confirmed A2 and A3 match the intended physical picture. Therefore this
+is a **writing/consolidation task**, not new physics: Path One must (i) write A2
+and A3 into the theory documents, (ii) retire the shrinking-ruler narrative,
+(iii) relabel 0.31c as the sideways component of a total-c flow.
+
+**Status:** 🟡 Active (Path One writing task).
+
+---
+
+### ✅ Scenario E (re-update): DESI w(z) — circularity FIXED, tilt shape is the real problem
+
+**Update to the v6.1 resolution.** Scenario E called for a self-consistent
+Ω_tilt(z). Done (Task 5): `x(z) = x₀(1+z)H₀/H_ESTIF(z)` via fixed-point solve,
+no ΛCDM. Result on real DESI DR2: χ²/N 10.80 → **3.35**. Large correctness
+improvement, still short of ΛCDM (1.92). Task 5b localized the residual to the
+tilt *shape* at low-to-mid z (not the ruler); ESTIF's self-consistent tilt w(z)
+already thaws toward the DESI-preferred curve (within ~0.05), and 3.35 is where
+DESI's own published w0,wa sit on the BAO-only subset (3.09).
+
+**Status:** 🟢 Circularity resolved → 🔴 tilt shape superseded by frozen-eddy
+(see Scenario P). Scripts: `estif_task5_desi_selfconsistent.py`,
+`estif_task5b_cosmo_eos.py`.
+
+---
+
+### ✅ Scenario P: Can the eddy EoS be derived? — RESOLVED (naive routes fail; frozen-eddy reframe)
+
+**What if:** the cosmic eddy's equation of state w(z) can be derived from the
+rotating-hypersurface kinetic energy, reproducing the DESI-preferred thawing.
+
+**Resolution (Task 6):** the two natural reductions FAIL badly against DESI DR2:
+- E1 conserved-angular-momentum spin → w = +1 (stiff), χ²/N = 3232;
+- E2 expansion tracker → thaws to ~0, χ²/N = 754.
+Both dilute/blueshift the wrong way. **But** the comparison exposed the decisive
+fact: the **frozen-eddy limit** (constant eddy density → de Sitter → w = −1,
+which Task 4 derives for free) scores **χ²/N = 1.92, tying ΛCDM and beating the
+tilt formula's 3.35**. On DESI the entire tilt apparatus is a net negative.
+
+**Decision:** retire Ω_tilt(z) from the cosmology claim (Path One). The correct
+first-principles route (Path Two) is to derive the *leading correction* to
+w = −1 from the full vorticity stress tensor — a small perturbation, not the
+strong evolution E1/E2 produce. Script: `estif_task6_eddy_eos.py`.
+
+**Status:** 🟢 Resolved — frozen eddy is the honest cosmology; tilt retired;
+Path Two is the remaining hard derivation.
+
+---
+
+### Scenario D (re-update): Ω_tilt high-z cutoff — moot under the reframe
+
+The z < 2 hard cutoff was scaffolding for the tilt term. Under Path One the tilt
+term is retired, so the cutoff is moot. Under Path Two the frozen w = −1 limit
+does not diverge, so no cutoff is needed; only the leading correction must be
+kept well-behaved. **Status:** 🟢 Superseded.
+
+---
+
+### Scenario H (re-update): Ωm = x₀ — sharpened, and reduced to deriving principle P
+
+The Task 4 result derives the *local* field equation (rho_eff = m′/4πr²) from the
+flow metric. The homogeneous version of the same calculation is the natural route
+to test whether ρ_eddy = x₀ρ_crit emerges. Errata C2 then showed the identity as
+stated is circular — r_universe is the ΛCDM horizon, which contains Ωm. Scenario Q
+below breaks that circularity *conditionally*, and in doing so reduces this whole
+scenario to one question: **can principle P be derived from A1–A3?**
+
+Three candidate routes to P, none yet attempted in earnest:
+1. **Flow-budget amplitude** — fix the sideways component of the cosmic flow from
+   the axioms rather than reading it off Ωm.
+2. **Horizon-acceleration balance** — P is equivalent to the statement that the mean
+   matter pull at the horizon equals cH₀/2. Note this is the *same* cH₀ that sets a₀;
+   the ratio computes to 1.00000. That is either the mechanism or a coincidence, and
+   deciding which is the shortest path.
+3. **Homogeneous field equation** — requires the vorticity attachment, which is the
+   same structural extension Path Two needs. If Path Two moves, this route opens.
+
+**Status:** 🔴 CLOSED as a derivation (RHAC-009): it reduces to Scenario Q Part B, now proven non-derivable. Ωm = x₀ remains a consistency relation / predictive postulate, never a theorem.
+
+---
+
+### 🔶 Scenario Q: The Ωm bootstrap — can the C2 circularity be inverted? (Door 2)
+
+**What if** the circularity C2 identifies is not a flaw to be removed but an equation
+to be *solved*? x₀ = (c/H₀)/r_universe is circular because r_universe depends on Ωm.
+So close the loop: demand self-consistency and see whether it has a unique solution.
+
+**Principle P (adopted, not derived):** Ωm = R_H/r_p, where r_p is the particle
+horizon. Substituting the horizon integral turns the circularity into Ωm · I(Ωm) = 1
+**Resolution (Part A — the computation, done):** the equation has a **unique** root.
+- Pure matter + Λ, **zero measured inputs**: Ωm = **0.3043** (2.2% from Planck).
+- With radiation (inputs = measured T_CMB, N_eff, h): Ωm = **0.31408** — **0.96% from
+  Planck, 0.53σ inside Planck's error bar**.
+- Back-predicts r_universe = 4.353×10²⁶ m (−1.07% against the 4.4×10²⁶ import).
+- Identity: P ⇔ mean-matter pull at the horizon = cH₀/2 — the same cH₀ that sets a₀
+  (ratio computes to 1.00000).
+
+**Closure (propagating the bootstrap Ωm):**
+- a₀ = 1.1920×10⁻¹⁰ m/s² — MOND agreement improves **1.72% → 0.66%**. SPARC is
+  insensitive (v_flat × 1.00269).
+- DESI DR2: χ²/N = **1.618** vs ΛCDM's 1.919 — *within the fixed-(H₀, rd) test*.
+- **Input ledger after adopting P:** measured = {H₀, T_CMB, N_eff}; computed =
+  {Ωm, Ω_Λ, x₀, r_universe, a₀}.
+
+Scripts: `estif_omega_bootstrap.py`, `estif_bootstrap_closure.py`.
+
+**Why this is 🔶 and not 🟢 — the honest flags:**
+1. **Everything above is conditional on P.** P is *not* derived from A1–A3. That is
+   Part B, and it is untouched. Without it the bootstrap is a reparametrization of
+   the circularity, not an escape from it.
+2. **Gaztañaga adjacency.** The causal-universe scale (≈ 0.3176 H₀, reached via
+   inflation) sits next to this root. A comparison memo is a **prerequisite for any
+   novelty claim** — see checklist B-4b. Until it exists, no priority is asserted.
+3. **DESI 1.618 is a fixed-ruler result.** Under C4-style marginalization over rd,
+   H₀, and Ωm the ordering against ΛCDM could change.
+4. **a₀'s empirical target carries ~10% scatter.** 0.66% is pleasing, not decisive;
+   improving 1.72% → 0.66% inside a 10% band is not a detection.
+
+**Decision:** report the bootstrap as an explicitly conditional result. Do not
+upgrade any Ωm language from "consistency relation" (C2) until *both* Part B lands
+and the Gaztañaga memo clears. Applying this file's own Step 2 filter — *"does this
+lead to a falsifiable prediction?"* — Part B is the only step that converts a yes-in-
+principle into a yes-in-fact.
+
+**Status:** 🔶 Part A resolved (conditional); **Part B CLOSED 12 Jul 2026 (RHAC-009) — P is not derivable as a law (epoch-dependence obstruction). P is a predictive postulate; the "Ωm derived" path is retired.**
+
+---
+
+## RHAC-001 · 2026-07-10 · The Two-Machine Crossroads
+Finding: tilt sector (dynamic n) read locally gives g/g_N → 0 below x≈0.2
+(mu_extraction.py); Newton limit requires frozen n. No rule exists for
+where n is evaluated. μ(a/a₀) confirmed underived.
+Roads:
+  R1 per-system n rule — heals inconsistency, yields no μ — PARKED
+  R2 background-curvature composition — slope wrong (~r^-0.27 sag),
+     pencil check only, never run — CLOSED
+  R3 vorticity T_μν → field equation — one machine; μ and the Path Two
+     thawing term come from the same object — TAKEN
+Rule adopted (single-dial rule): no per-gradient formulas. Behaviour
+gradients must emerge as term-dominance of a single equation
+("gradient dial"). Road R1 (per-system n rule) stays PARKED under it.
+
+---
+
+## RHAC-002 · 2026-07-10 · The Unification Fence — mapped, not razed
+Claim 2 splits into two very different sub-claims after Peter's
+"modify" clarification (gravity does not alter the other forces;
+gravity arranges the meeting at which the other forces act):
+
+Claim 2-WEAK — gravity as arranger. Gravity delivers masses to
+close range; nuclear/electric interactions then proceed by their
+own laws. Already inherited by ESTIF for free the moment its
+gravity sector works. No new machinery, no fence, no work.
+Example: stars — gravity crushes hydrogen, nuclear force fuses.
+
+Claim 2-STRONG — one machine for all forces. Blocked by three
+missing parts:
+  P1 no +/- label — flow carries one unsigned currency (energy);
+     charge needs a second, signed one, born only in cancelling pairs
+  P2 no internal knob-shapes — EM = 1-handed dial, strong = 3-handed;
+     ESTIF owns one knob: spacetime bending
+  P3 classical engine — other forces are irreducibly quantum; and the
+     ratio chasm (grav/EM ~ 1e-36 protons, 1e-43 electrons) unexplained
+Gates (far shelf, post-Path-Two at the earliest, 2-STRONG only):
+  G1 Kaluza slot — does the flow's shift vector obey Maxwell-form eqs?
+     Expected best case: gravitomagnetism analog, NOT electromagnetism.
+     One bounded symbolic session. Magnetars = test bed IF G1 yields.
+  G2 Kelvin gate — CLOSED 2026-07-11 by AUTHOR DECISION (declared
+     no-go zone). Not a physics verdict. Not to be explored.
+
+Audit of the particle-ladder idea: principle right (mass = trapped
+energy; proton is 99% cage-energy, confirmed by pair production
+bookkeeping), mechanism wrong (nature converts at quantum thresholds;
+gravity is a spectator at particle scale), bottom rungs not composite
+(three generations, masses underived by anyone). Kept: the instinct.
+Discarded: gravitational clumping as the particle-maker.
+
+---
+
+## RHAC-003 · 2026-07-11 · Time, decay, and the far future (v2)
+AUTHOR POSITION: the flow (3D through 4D) drives decay; gravity sets
+  the local flow rate (deeper well -> slower flow -> slower decay,
+  consistent with observed time dilation). Maintained.
+AUDITOR POSITION: flow supplies proper time (necessary condition);
+  nuclear structure sets rates. Same-conditions spread (Po-214 164 us
+  vs U-238 4.5 Gyr) attributed to tunneling barriers, not flow.
+  DISAGREEMENT OPEN.
+CORRECTED (author's bet, won): Fe-56 is breakable by energy input —
+  photodisintegration at ~1e10 K drives core-collapse supernovae;
+  e-capture at NS-crust pressure transmutes it. Defensible claim is
+  only: no SPONTANEOUS channel (waiting alone never breaks it).
+KEPT: mass <-> proper time; massless particles do not age or decay;
+  muon lifetime dilation (CERN) confirms decay runs on proper time.
+RETRACTED (auditor): earlier gravity-as-hammer sign argument.
+FAR FUTURE: author rejects heat-death endpoint; instinct = vacuum
+  flow itself produces a product (post-ESTIF project, no mechanism,
+  no paper contact). Auditor notes: (a) forecast is conditional on
+  w = -1 forever + no new vacuum physics; (b) mainstream cousin
+  exists (de Sitter horizon temperature ~1e-30 K, Gibbons-Hawking);
+  (c) ESTIF Path One (frozen eddy = Lambda) is already a vacuum-
+  flow-product claim; (d) the operational handle is w(a) = Path Two.
+  First battle already scheduled and pre-registered.
+
+---
+
+## RHAC-004 · 2026-07-11 · Phase 2 executed — honorable null (strong form)
+Binding declaration (pre-derivation): total residual stress from A1–A3,
+submitted unmodified; no post-hoc sector selection.
+Census: shape FORBIDDEN (A1) · rate FORBIDDEN (A2; lapse carries no stress)
+· slosh ZERO (pure-divergence theorem) · swirl FORBIDDEN free /
+NEGATIVE sourced (<drho> = -<omega^2>/32piG, slaved, ~1e11 below rho_L).
+VERDICT: residual sector EMPTY. w = -1 exactly. Lambda = bare imported
+constant. Path One 1.92 parity unaffected. 0.66 thawing ambition dead.
+RETRACTED: "frozen eddy" interpretation — auditor-introduced, author
+objected pre-derivation ("whatever motion it is, it is most certainly
+not spinning"), falsified by the constraint algebra. Constant survives.
+FLAGGED: strict flow sector carries no free radiative modes (vs LIGO).
+Census scope: FOUR sectors under strict A1 (shape axiomatic; rate/slosh/swirl
+scripted — tests/scripts/phase2_a1prime/estif_p2_door1_rate_dial.py,
+_door2_slosh_divergence.py, _door3_swirl_ledger.py).
+Receipts: archive/6-4-2 diagnostics/test_UKN.py (strict-A1 census) · full record
+absorbed into docs/SCIENCE.md (Phase 2 declaration archived).
+
+---
+
+## RHAC-005 · 2026-07-11 · Strict-A1 growth no-go theorem (audited)
+THEOREM: with matter, A1–A3 force delta-dot = -(3/2)*Om(a)*H*delta;
+unique solution delta = H(a)/H0 (decaying). f(0.5) = -0.91 vs +0.76
+measured. Structure disperses; galaxies cannot form under strict A1.
+AUDIT (5 attacks, all bounced): gate identity + force-free riders;
+DOF counting (3 constraints vs 2 gauge freedoms -> first-order eq,
+no hidden growing configuration); LTB correspondence (even-grid
+condition == E(r) = 0, the known growing-mode container); Raychaudhuri
+closure; nonlinear + swirl escapes shut.
+C-11 SHARPENED: strict ESTIF = GR minus exactly one configuration —
+provably NOT a repaint, and falsified in the growth sector.
+Receipts: archive/6-4-2 diagnostics/test_UKN2.py (prints [0,0,0], 0, 0, 0) ·
+tests/scripts/phase2_a1prime/estif_growth_nogo_law.py + estif_growth_nogo_audit.py.
+
+---
+
+## RHAC-006 · 2026-07-11 · Fork decision: A1 → A1′ (author decision)
+A1': slices even ON AVERAGE; matter may dent locally; unsourced
+evenness returns. Pulls exactly the one over-constraining nail.
+BUYS (one purchase, three items): growth (D+ = H*Int da/(aH)^3,
+f(0.5) = 0.76 = DESI RSD; strict solution embedded as the fade mode),
+gravitational waves (speed = c forced by A2; GW170817-consistent),
+and a container for the zeta = 1e-5 seed (value still imported).
+COSTS: C-11 repaint question live again at linear order; July
+uniqueness softens to "banked solutions + radiating transients";
+naming batch owed (lineage tag; old tag carries a taboo term).
+KILL-SHOT REGISTERED: mean spatial curvature == 0 exactly, all epochs
+(current 0.0007 +/- 0.0019); confirmed nonzero mean falsifies A1'.
+PHASE-2 RE-AUDIT under A1': FIVE sectors (the four strict doors + the
+dent/shape-average channel A1' opens), no Lambda-printer — null stands.
+Receipts: tests/scripts/phase2_a1prime/estif_a1prime_recensus.py (PASS 5/5) ·
+archive/6-4-2 diagnostics/test_UKN2.py ·
+tests/scripts/phase2_a1prime/estif_a1prime_growth_restored.py +
+estif_a1prime_deepen_exact.py (growth restoration, numeric + exact symbolic).
+
+
+---
+
+## AXIOM AMENDMENT · 2026-07-11 · A1 → A1′
+
+OLD A1: the 3D hypersurface is exactly flat (even internal grid),
+everywhere, at all times.
+
+NEW A1′: the 3D hypersurface is even ON AVERAGE. Matter may source
+local deviations (dents) in the slice geometry; where nothing
+sources a dent, exact evenness returns. The spatial average of the
+curvature is identically zero at all epochs — this is law, not an
+initial condition, and it is the registered falsifier
+(current measurement: 0.0007 ± 0.0019).
+
+UNCHANGED: A2 (universal speed c through the bulk) and A3 (empty
+space is not a source).
+
+SCOPE: all strict-A1 results survive as the exact-evenness limit
+(vacuum Schwarzschild, a₀ chain, Friedmann background, Phase 2 null).
+What A1′ adds: the growing density mode and the radiative sector.
+Record of decision and consequences: RHAC-005, RHAC-006.
+
+---
+
+## RHAC-007 · 2026-07-12 · Fronts 1–3 executed — growth, first holes, second lock
+FRONT 1 (growth under A1'): D+ clumping history computed; f(0.5)=0.7603 = DESI
+  RSD anchor; fsigma8 pulls -0.12 / +1.03 sigma (PV z=0.07; FS BGS z=0.295).
+  JWST verdict = OUTCOME 4 (honest null): g(9.1)=0.998, too-big-too-early tension
+  INHERITED from LCDM, not relieved, not worsened. Strict-A1 counterfactual would
+  have scored outcome 5 (falsified) — the fork rescued this test.
+FRONT 2 (first-black-hole recipe): fold-back rule nu*sigma(M,0)*D(z)=delta_c.
+  Star channel -> ~1e2 Msun hole at t~28 Myr (earliest-in-volume) / ~212 Myr
+  (typical 3-sigma). Direct-collapse (no-star) channel -> 1e4-1e6 Msun holes;
+  the only comfortable route to 1e9 Msun by z=7 (heavy seed OK, light strained).
+  Primordial channel CLOSED under the zeta=1e-5 passport. All numbers inherited
+  (LCDM growth); ESTIF content is structural (strict A1 forms NO hole).
+FRONT 3 (second differing number): growth index gamma forced to ~0.55 by the
+  empty residual sector + GR-equivalent D+; computed 0.5455-0.5544 over z=0-5;
+  measured 0.58+/-0.11 (DESI PV+ShapeFit), pull -0.23 sigma, PASS. Companion
+  slip lock (Sigma,eta,mu)=(1,1,1) exact.
+FOUR-LOCK LEDGER (ESTIF-Core forces a POINT; GR family fits a REGION, 0 free
+  dark params vs 1-3 fitted): Omega_k=0 (kill-shot) . gamma~0.55 & slip=1
+  (Front 3) . w=-1 (RHAC-004) . c_gw=c (RHAC-008). HONEST: none separates
+  ESTIF-Core from LCDM at Omega_k = 0 at linear order; all separate it from GR's extra
+  freedoms. Distinguishing content lives OFF the linear sheet (nonlinear halos,
+  N-body wall) + the exactness-as-law structure.
+Receipts: tests/scripts/estif_front1_growth_sigma8_jwst.py,
+  tests/scripts/estif_front2_first_hole_recipe.py,
+  tests/scripts/estif_front3_second_discriminator.py.
+
+## RHAC-008 · 2026-07-12 · C-15 closed — GW sector derived (c_gw = c)
+CLAIM (asserted RHAC-006, now DERIVED): gravitational waves propagate at c.
+DERIVATION: under A1'+A2 the world is ONE Lorentzian geometry (even-on-average
+  slices + a flow); A3 + the empty residual sector (RHAC-004) forbid any second
+  metric/field. TT waves are ripples OF that geometry; light rides null cones OF
+  that geometry; the vacuum wave operator's PRINCIPAL SYMBOL is g^{mu nu} k_mu
+  k_nu = the light cone. Shown symbolically for an ARBITRARY flow v: radial null
+  speed u = v +/- c, identical for GW and light (flow tilts both cones the same).
+  Flow friction (~H) and dent curvature are lower-order and cannot move the
+  characteristic speed.
+GW170817: predicts |c_gw/c - 1| = 0 exactly (measured bound ~1e-15). PASS
+  STRUCTURALLY -- no dial exists to break it (the extra field every c_gw != c
+  theory needs is forbidden by A3 + the empty residual sector).
+A1' HINGE: strict A1 froze the TT sector (a ripple = a local deviation from exact
+evenness, forbidden) -- the SAME over-constraint that killed the growing mode
+(RHAC-005). A1' opened growth and radiation together, one mechanism, one fork.
+Receipt: tests/scripts/estif_C15_gw_sector.py. Checklist item C-15 -> DONE.
+NOTE RESOLVED (21 Jul 2026, RHAC-011): both receipt files flagged on 13 Jul
+(this one and estif_front3_second_discriminator.py under RHAC-007) are located,
+committed, and live at tests/scripts/.
+
+## RHAC-009 · 2026-07-12 · Principle P is NOT derivable as a law (obstruction proven)
+QUESTION (Scenario Q Part B / checklist B-4c / SUMMARY reviewer Q9): can P
+  (Omega_m = R_H/r_p) be derived from A1-A3? Prior status: OPEN, billed as "the
+  single largest available upgrade to Path One's claims."
+RESULT: NO -- structural obstruction, not a cleverness gap. P's core equality
+  (instantaneous Omega_m(a) = R_H(a)/d_p(a)) holds ONLY at a~=1; both quantities
+  fall monotonically through cosmic history and CROSS ONCE, at today. High-z
+  limit: Omega_m -> 1 while R_H/d_p -> 1/2 (EdS Schwarzschild-horizon value). A
+  law derivable from time-symmetric axioms must hold at EVERY epoch; P does not;
+  therefore P is not a theorem of A1-A3. The repo's own Route (ii) (g_horizon =
+  cH0/2) IS this today-condition, re-expressed.
+ESCAPE ROUTES (both closed): (a) ATTRACTOR -- fixing a preferred Omega_m ratio
+  needs dynamical/coupled dark energy, FORBIDDEN by the Phase-2 null (RHAC-004:
+  residual sector empty, w=-1 exactly); pursuing it breaks a locked result.
+  (b) ANTHROPIC -- explains the O(1) coincidence in the weak sense but CANNOT
+  reproduce P's 0.3141 precision (broad window), and is not ESTIF-specific (same
+  move available to LCDM). It restates the coincidence, does not solve it.
+STATUS: P is a PREDICTIVE POSTULATE (route c) -- honest, publishable as such,
+  with the falsifiable number Omega_m = 0.3141 (0.53 sigma from Planck). The
+  claim "Omega_m derived from the axioms" is RETIRED. Priority redirect: derive-P
+  is CLOSED; the tractable foundational targets that actually underwrite a0's
+  VALUE are x_c = 0.272 (pure Schwarzschild geometry) and the sqrt(3)/cH0
+  acceleration scale.
+Receipt: tests/scripts/estif_P_derivation_attempt.py. Downgrades Scenario Q Part B and
+Scenario H from "open upgrade" to "closed as a derivation."
+
+---
+
+## RHAC-010 · 2026-07-13 · a₀ reframed as a horizon quantity (doctrine adopted)
+CONTEXT: a dedicated derivation pass (13 July 2026) asked whether a₀ = H₀cx₀/√3
+  can be tightened beyond the existing consistency-relation status of x₀ (C2).
+RESULT: a₀ is a horizon-scale acceleration, a₀ ≈ c·H (de Sitter surface gravity).
+  From this ALONE follow: even (asymptotically constant) rotation curves, mass-independent a₀, the
+  Baryonic Tully-Fisher relation v⁴ = GMa₀, and the correct order of magnitude
+  (cH/2π ≈ 1.0×10⁻¹⁰ vs observed 1.2×10⁻¹⁰ m/s²). Equivalence shown: c²√Λ =
+  √3·√Ω_Λ·cH₀, so any "Λ-native" form of a₀ is algebraically the Hubble-scale
+  form up to an O(1) factor; Ωm is absorbed into H₀ via Friedmann, not
+  eliminated.
+STILL OPEN: the exact O(1) prefactor (cH vs cH/2π vs the data-preferred
+  k≈0.128 in a₀=k·c²√Λ) is constrained to O(1) and known to be horizon-set,
+  but the precise number is NOT derived.
+RETIRED: any language stating the √3 factor, or the full a₀ coefficient, is
+  *derived* from local flow/matter dynamics — the flow picture cannot make a₀
+  locally; the horizon can, and does. This does not touch the Ωm bootstrap
+  (Scenario Q) or Part B's closure (RHAC-009) — those concern Ωm, not a₀'s
+  own derivation status.
+FLAGGED: x_c = 0.272 is used in two different roles across the corpus — as
+  the GR-crossover tilt exponent (n=½) AND informally as a horizon-adjacent
+  scale. The double duty is unresolved (under the simplest edge law the galaxy
+  data prefer x_c ≈ 0.221, not 0.272 — possibly two conflated surfaces); sort by
+  SETTLED vs OPEN status before next use. Flag carried in docs/SCIENCE.md.
+Receipts: tests/scripts/a0_horizon_test.py (§2, algebraic equivalence) ·
+  tests/scripts/a0_prefactor_derivation.py (§3, target band / numerology floor) ·
+  tests/scripts/estif_flow_sim.py (§4, local flow fails to make a₀) ·
+  tests/scripts/estif_horizon.py (§5, horizon background reproduces even
+  rotation curves, BTFR, mass-independence, magnitude).
+Source: the 13 Jul 2026 doctrine memo (document-update guide), adopted in full
+  as of this entry; the memo is archived — its operative content, including the
+  x_c double-duty flag, is carried in docs/SCIENCE.md.
+
+---
+
+## RHAC-011 · 2026-07-21 · Repository restructure + documentation consolidation (v6.4.2)
+
+STRUCTURE: tests/ reorganized to exactly three folders — scripts/ (all .py,
+  with phase2_a1prime/ kept whole inside), docs/ (TEST_INDEX.md + all cached
+  data .txt), plots/. Zero loose files. _index_view/ deleted (redundant with
+  TEST_INDEX.md, the single source of truth). src/files.zip deleted. All 85
+  scripts repointed in one idempotent pass (63 edits / 54 files; second run 0):
+  sys.path hops recomputed depth-aware; every CACHE_DIR now targets tests/docs
+  (uniform policy — scripts/ stays pure .py, no duplicate downloads); dead
+  container paths (/home/claude/...) repaired in test_desi_wz_consistency.py,
+  test_sparc_bias_analysis.py, test_sparc_tully_fisher.py — the first two had
+  been hard-broken outside the original container; both SPARC scripts now share
+  one cache (tests/docs/SPARC_Lelli2016c.xml); test_tilt_models.py no longer
+  escapes the repo through the parent folder's name. End-state receipt 6/6 PASS.
+DOCS: seven-plus documents consolidated to four — docs/PROJECT.md (status,
+  checklist, roadmap, structure), docs/SCIENCE.md (framework + evidence,
+  absorbing the concept, validation report, review summary, Phase 2
+  declaration, Gaztañaga memo, JWST spec, and the 13 Jul doctrine memo),
+  docs/plan/RHAC.md -> docs/RHAC.md (this file), CHANGELOG.md. Root README
+  slimmed to a landing page. The absorbed originals are superseded and queued
+  for archive/deletion by the author; nothing in them was dropped —
+  operative content lives in the four, history lives in the changelog.
+NAMING: the owed rename batch (RHAC-006; pending NAMING.md) is delivered at
+  the document layer by this consolidation — the two taboo terms are out of
+  all new and consolidated prose across the four living docs; carried
+  historical records that quote superseded statements (the OLD-A1 text in the
+  axiom amendment, v4-era scenario wording, changelog history) retain their
+  original wording, as records should.
+  Script-internal prose is untouched (future pass, low priority; no NAMING.md
+  file is needed).
+RECEIPT CANON: UKN pair lives at archive/6-4-2 diagnostics/ (test_UKN.py,
+  test_UKN2.py); door suite + re-census + growth pair live at
+  tests/scripts/phase2_a1prime/; fronts 1–3, C-15, P-derivation, and the four
+  a₀-doctrine scripts live at tests/scripts/ (RHAC-008's locate-note resolved).
+RECONCILED: Scenario O's outstanding writing task was completed in the v6.3
+  concept rewrite (roadmap items P1.1/P1.2 DONE) — status set ✅. Checklist
+  B-7 (weak-lensing BTFR) was executed 11 Jul 2026:
+  tests/scripts/btfr_lensing.py (Mistele+2024 lensing BTFR vs the derived
+  a₀ = 1.192e-10, zero free parameters) — predictions run ~5–13% low;
+  χ²/N ≈ 1.5 once the 0.1 dex correlated M*/L systematic is included
+  (5.6–8.0 stat-only), i.e. consistent within systematics, degenerate with
+  the stellar-mass calibration. Companion tests/scripts/a0_tension_corrected.py
+  (systematic treated as fully correlated, not √N-diluted): implied a₀ runs
+  +0.7σ to +2.0σ above the derived value (ETG worst) — mild tension, honest.
+  Recorded here; the v6.4 letter carries the numbers.
+
+---
+
+### Updated Summary Statistics (v6.4.2 — recounted, enumerated)
+
+| Category | Count | Members |
+|---|---|---|
+| Total scenarios documented | 25 | A–Q + numbered 1–8 |
+| Resolved / superseded / closed | 17 | 1–8, D, E, F (analytical; wall → G), H (closed as derivation), I, M, N, O, P |
+| Conditional | 1 🔶 | Q (Part A; Part B closed, RHAC-009) |
+| Active | 4 🟡 | G (halo mechanism — N-body wall 🔴, budget), J (CMB spectrum; background inherited/passes), K (publication scope), L (Υ* calibration) |
+| Standing guidance (v4-era, no status) | 3 | A, B, C |
+| Decision records | 11 | RHAC-001…011, all closed/adopted |
+| Major pivots | 6 | H(t), dynamic n, Ω_tilt inversion, fluid→collisionless, cosmology→gravity letter, tilt→constant-Λ split |
+
+---
+
+**Document Version:** 6.4.2 (repository restructure + documentation consolidation; RHAC-011)
+**Last Updated:** 21 July 2026
