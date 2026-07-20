@@ -3,7 +3,7 @@
 """
 Emergent Spacetime from Inward Flow (ESTIF)
 
-v6.4.2 status (July 2026): this module is the frozen v6.2 analytical suite,
+v6.4.1 status (July 2026): this module is the frozen v6.2 analytical suite,
 computationally unchanged, kept as a runnable receipt (21/21 via
 estif_ec_gr_run_simulation.py). The claim status of what it computes has
 moved since v6.2:
@@ -111,8 +111,8 @@ EPS = 1e-12  # Numerical stability epsilon
 #   Observable(r) = √β(x_local) × √β(x_galactic) × √β(x_cosmic)
 #   x_cosmic = x₀ = R_H/r_universe ≈ Ωm (dark matter = cosmic eddy)
 #
-# See: tests/scripts/test_joint_calibration.py, tests/scripts/test_gravity_time_connection.py
-#      tests/scripts/test_eddy_time_gravity.py, tests/scripts/test_eddy_dark_matter.py
+# See: tests/test_joint_calibration.py, tests/test_gravity_time_connection.py
+#      tests/test_eddy_time_gravity.py, tests/test_eddy_dark_matter.py
 # ============================================================================
 
 # Calibrated parameters (do not modify without re-running test_joint_calibration.py)
@@ -597,7 +597,7 @@ def distance_modulus_estif(z):
 # Goal 3: No dark matter — the background eddy of the 4D inward flow
 # accounts for what we measure as dark matter.
 #
-# KEY RESULTS (analytically confirmed; claim status v6.4.2: Ωm = x₀ is a
+# KEY RESULTS (analytically confirmed; claim status v6.4.1: Ωm = x₀ is a
 # consistency relation (C2), and the a₀ √3 prefactor is a working form,
 # not derived — a₀ is horizon-set):
 #
@@ -622,8 +622,8 @@ def distance_modulus_estif(z):
 #    v_flat = 220 km/s requires internal halo δ ~ 50,000–100,000 × ρ_eddy
 #    → Falsifiable prediction for future simulation collaboration
 #
-# See: tests/scripts/test_eddy_dark_matter.py, tests/scripts/test_collisionless_eddy.py
-#      tests/scripts/test_tully_fisher_correction.py, tests/scripts/test_mond_sqrt3.py
+# See: tests/test_eddy_dark_matter.py, tests/test_collisionless_eddy.py
+#      tests/test_tully_fisher_correction.py, tests/test_mond_sqrt3.py
 # ============================================================================
 
 _RHO_CRIT_0 = 3 * const.H_0**2 / (8 * np.pi * const.G)   # Critical density today

@@ -1,0 +1,94 @@
+% =====================================================================
+%  GRAVITATIONAL-WAVE SECTOR (C-15)  --  insert into main.tex
+%  v6.4.2, 21 July 2026. This section REPLACES estif_field_dynamics.tex
+%  as the load-bearing statement of the GW sector: c_gw = c is DERIVED
+%  (RHAC-008), not assumed. estif_field_dynamics.tex is retained as the
+%  historical record of the pre-C-15 route (Assumption A).
+%  NOTE: requires one bibliography entry, cited as \cite{LIGO2017GW170817}
+%  (GW170817 / GRB 170817A, |c_gw - c|/c < ~1e-15).
+%  Receipt: tests/scripts/estif_C15_gw_sector.py
+% =====================================================================
+
+\section{Gravitational-Wave Sector: $c_\text{gw} = c$ Derived}
+\label{sec:gwsector}
+
+Earlier versions of this framework obtained a luminal wave speed for the flow
+field only under an explicit hypothesis (``Assumption A'': a relativistic locking
+$\mu = \kappa/c^2$ of inertia to stiffness). That assumption is no longer needed.
+Under the amended axioms the propagation speed of gravitational waves is a
+\emph{derived} quantity, with no free parameter.
+
+\subsection{Setup}
+
+Axiom A1$'$ states that the 3D slices are even on average, with matter sourcing
+local deviations; A2 states that everything moves through the 4D bulk at the
+universal speed $c$. From these, the derivation of the field equation
+(Gauss--Codazzi / ADM in Painlev\'e--Gullstrand gauge) produces a \emph{single
+Lorentzian geometry}: the Lorentzian signature is an output of the construction,
+not an input. Axiom A3 (vacuum sources nothing), together with the Phase-2
+result that the residual stress sector permitted by the axioms is empty, forbids
+any second metric, field, or medium on which waves could propagate at a
+different speed.
+
+\subsection{Statement and derivation}
+
+Transverse-traceless perturbations are ripples \emph{of} that one geometry, and
+light propagates \emph{on} its null cones. The principal symbol of the vacuum TT
+wave operator is $g^{\mu\nu}k_\mu k_\nu$ --- the same null cone that governs
+photon propagation. This is shown symbolically for an \emph{arbitrary} flow
+profile: the radial null speed is $u = v \pm c$, identical for gravitational
+waves and for light, for any $v(r,t)$. Hence
+
+\begin{center}
+\fbox{\ \ \parbox{0.85\textwidth}{\centering
+\textbf{Result (C-15, derived).}\\[2pt]
+$\displaystyle c_\text{gw} = c$ \quad exactly, for arbitrary flow, with no free
+parameter.}\ \ }
+\end{center}
+
+\noindent
+No dial exists in the framework that could produce $c_\text{gw} \neq c$: the
+structure that would be required (a second metric or an independent propagation
+medium) is exactly what A3 plus the empty residual sector forbid.
+
+\subsection{Confrontation with observation}
+
+The multimessenger bound from GW170817/GRB\,170817A,
+$|c_\text{gw} - c|/c \lesssim 10^{-15}$ \cite{LIGO2017GW170817}, is therefore
+passed \emph{structurally}: the predicted deviation is exactly zero. This is a
+stronger statement than consistency within errors --- the framework cannot
+produce a violation of this bound at any parameter values.
+
+\subsection{Relation to conditional strong-field figures}
+
+Because the derived ESTIF vacuum is exactly Schwarzschild and $c_\text{gw} = c$
+holds in vacuum, any \emph{deviation} from General Relativity in vacuum
+gravitational-wave propagation --- including the LISA Shapiro-type delay figure
+quoted elsewhere in this document --- cannot arise from the vacuum sector. Such
+figures are conditional on the un-derived non-vacuum sector (limitation C1). The
+zero-deviation result of this section is unconditional.
+
+\subsection{What is derived, adopted, and open}
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Status & Statement \\
+\midrule
+Derived & Single Lorentzian geometry from A1$'$+A2 (signature an output) \\
+Derived & TT waves and light share the null cone for arbitrary flow \\
+Derived & $c_\text{gw} = c$ exactly; GW170817 deviation $= 0$, structurally \\
+\midrule
+Adopted & The gravitational coupling $8\pi G$ (Einstein--Hilbert; C6) \\
+\midrule
+Open & The non-vacuum sector sourcing any deviation-from-GR figures (C1) \\
+Open & Nonlinear / strong-field wave generation (beyond the linearised sector) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Receipt: \texttt{tests/scripts/estif\_C15\_gw\_sector.py}. The historical
+pre-C-15 route, in which $c_\text{eddy} = c$ was a hypothesis, is preserved in
+\texttt{estif\_field\_dynamics.tex} for the record; its conclusions are
+subsumed by the derivation above.

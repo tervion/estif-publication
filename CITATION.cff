@@ -1,84 +1,97 @@
 cff-version: 1.2.0
 message: "If you use this software in your research, please cite it as below."
-title: "ESTIF: Emergent Spacetime from Inward Flow — Geometric Tilt Model for Gravity, Dark Energy, and Dark Matter"
+title: "ESTIF: Emergent Spacetime from Inward Flow — Flow-Derived Gravity, Horizon-Scale MOND Acceleration, and the Dark-Energy Null"
 abstract: >-
-  ESTIF v6.3 ("The Split") derives gravity from a single geometric claim: 3D
-  space is a flat hypersurface carried through a 4D bulk, with everything moving
-  through the bulk at the speed of light.
+  ESTIF v6.4.2 derives gravity from three geometric axioms about a 3D
+  hypersurface carried through a 4D bulk: A1' (slices are even on average;
+  matter sources local dents; where nothing sources a dent, exact evenness
+  returns; the spatial average of curvature is identically zero at all epochs
+  -- the registered falsifier Omega_k = 0, current 0.0007 +/- 0.0019), A2
+  (everything moves through the bulk at universal speed c), and A3 (vacuum
+  sources nothing).
 
-  HEADLINE MILESTONE (v6.3): The gravitational field equation is now DERIVED
-  rather than matched to the Schwarzschild solution. Starting only from the flow
-  axioms — flat 3-slices, universal speed c, and "empty space is not a source" —
-  the Gauss-Codazzi (ADM) engine forces rho_eff = m'(r)/(4 pi r^2), i.e. mass
-  continuity / Poisson's equation in integrated form. Consequences (engine-
-  verified): vacuum gives v^2 = 2GM/r uniquely and exact Schwarzschild; a
-  uniform-density source returns rho0 exactly. The former "Poisson postulate" is
-  now a theorem for vacuum, Newton, and Schwarzschild. Lorentzian signature and
-  special-relativistic kinematics also emerge from a Euclidean bulk plus the
-  universal speed-c constraint. PRECISION: what the axioms establish is that they
-  uniquely select the constraint (energy) sector of General Relativity in
-  Painleve-Gullstrand gauge, without matching to the Schwarzschild solution. The
-  gravitational coupling (geometric constraint scalar to 8*pi*G times energy
-  density) is adopted from Einstein-Hilbert, not derived from below. Scripts:
-  estif_task4_field_equation.py, estif_flow_signature_dynamics.py,
-  estif_converse_flow_law.py, estif_tmunu_gauss_codazzi.py.
+  DERIVED GRAVITY (v6.3, carried forward): the axioms uniquely select the
+  constraint (energy) sector of General Relativity in Painleve-Gullstrand
+  gauge, forcing rho_eff = m'(r)/(4 pi r^2) -- mass continuity / Poisson in
+  integrated form. Vacuum gives v^2 = 2GM/r uniquely and exact Schwarzschild;
+  a uniform-density source returns rho0 exactly; Lorentzian signature and
+  special-relativistic kinematics emerge from a Euclidean bulk plus the
+  universal speed-c constraint. The gravitational coupling (geometric
+  constraint scalar to 8*pi*G times energy density) is adopted from
+  Einstein-Hilbert, not derived from below.
 
-  PROJECT SPLIT (v6.3): the project forks into Path One (ESTIF-Core, clean) and
-  Path Two (ESTIF-Extended, hard). Path One: gravity on the derived field
-  equation; cosmology as a frozen cosmic eddy = cosmological constant, which ties
-  LCDM on DESI DR2 (chi^2/N = 1.92). Path Two: derive a small thawing correction
-  to w = -1 from the full rotating-shear/vorticity stress tensor.
+  PHASE 2 NULL (v6.4.0, RHAC-004): the entire residual dark-energy stress the
+  axioms permit was computed under a pre-registered binding declaration and
+  submitted unmodified. It is EMPTY: shape and rate forbidden (A1, A2); slosh
+  zero (pure-divergence theorem); swirl forbidden free and, if sourced,
+  negative and slaved (~10^11 below rho_Lambda). w = -1 exactly; Lambda enters
+  as a bare imported constant, exactly as in LCDM. ESTIF does not derive dark
+  energy, and it is proven these axioms cannot. The former "frozen eddy"
+  reading of the constant is retracted. The pre-registered chi^2/N ~ 0.66
+  thawing target stands as the bar any outside-the-axioms evolving-w proposal
+  must beat under honest marginalization.
 
-  COSMOLOGY REFRAME (v6.3): the Omega_tilt(z) sector's DESI DR2 failure was traced
-  to circularity (x(z) used H_LCDM as its own ruler). A self-consistent
-  fixed-point solve (estif_task5_desi_selfconsistent.py) drops chi^2/N from 10.8
-  to 3.35, but the frozen-eddy limit (w = -1) ties LCDM at 1.92 and beats the
-  tilt formula's 3.35. Attempts to derive the eddy equation of state
-  (estif_task6_eddy_eos.py) show the two natural reductions fail badly (stiff
-  spin chi^2/N = 3232; expansion tracker 754), so the Omega_tilt apparatus is
-  retired from the cosmology claim; its local strong-field use is unaffected.
+  AXIOM AMENDMENT A1 -> A1' (RHAC-005/006): strict A1 was proven to forbid
+  the growing density mode (unique solution decaying; f(z=0.5) = -0.91 vs
+  measured +0.76 -- structure could not form) and the free radiative sector
+  (vs LIGO). A1' (even on average) restores GR-equivalent linear growth
+  D+ = H * int da/(aH)^3 with f(z=0.5) = 0.7603 (DESI RSD-consistent), the
+  gravitational-wave sector, and a container for the zeta = 1e-5 seed (value
+  imported). All strict-A1 results survive as the exact-evenness limit; the
+  Phase 2 null was re-audited under A1' across five sectors and stands.
 
-  Prior gravity results carried forward and now on a derived foundation:
-  MOND a0 = H0*c*x0/sqrt(3) = 1.179e-10 m/s^2 (1.72% from empirical), validated
-  against 87 quality-1 SPARC galaxies (RMS 15.6%); a0 redshift constancy proved
-  (H(z) cancels in the comoving frame); parameter independence across 3,600
-  H0/Omega_m combinations. Strong-field local tilt: EHT M87* shadow 0.00 sigma,
-  Planck Lambda ratio 1.0000, LISA GW delay 491 us at S/N 49.2 sigma; GR time
-  dilation is the special case at n=1/2 (x=0.272). CAVEAT: because the derived
-  ESTIF vacuum is exactly Schwarzschild, any predicted DEVIATION from GR in
-  black-hole shadows or in vacuum gravitational-wave propagation must be sourced
-  by the non-vacuum eddy background, a sector not yet derived. The observations
-  above are consistent with ESTIF; the deviation-from-GR figures are conditional
-  on that open derivation. The Planck Lambda entry is a calibration match, not a
-  vacuum deviation, and is unaffected.
+  GW SECTOR DERIVED (RHAC-008, C-15): under A1'+A2 the world is a single
+  Lorentzian geometry; A3 plus the empty residual sector forbid any second
+  metric or field. TT waves and light share the null cone for arbitrary flow,
+  so c_gw = c with no free parameter. GW170817 is passed structurally
+  (predicted deviation exactly zero).
 
-  Dark matter analytical results: Omega_m = x0 = R_H/r_universe to 0.12%,
-  Omega_dm = x0 - Omega_b to 0.10%. These are CONSISTENCY RELATIONS, not
-  Omega_m-independent predictions: r_universe is here the LCDM particle horizon,
-  an integral that itself depends on Omega_m. The numerical agreement stands; an
-  independent prediction requires deriving r_universe from the flow framework.
-  N-body simulation needed for halo structure.
+  a0 HORIZON DOCTRINE (RHAC-010): a0 is a horizon-scale acceleration,
+  a0 ~ c*H (de Sitter surface gravity). Mass-independence, asymptotically
+  constant rotation curves, the baryonic Tully-Fisher relation, and the
+  correct magnitude follow from this alone. Language stating the sqrt(3)
+  prefactor, or the full numerical a0 coefficient, is derived: retired. The
+  scale of a0 is derived; the O(1) prefactor is open. The working form
+  a0 = H0*c*x0/sqrt(3) = 1.179e-10 m/s^2 (1.72% from the MOND empirical
+  value; 1.1920e-10 and 0.66% with the conditional bootstrap Omega_m) remains
+  operational: validated against 87 quality-1 SPARC galaxies (RMS 15.6%),
+  redshift constancy proved as an algebraic identity (H(z) cancels in the
+  comoving frame), and robust across 3,600 H0/Omega_m combinations.
 
-  OMEGA_M BOOTSTRAP (v6.3.2, CONDITIONAL): adopting principle P (Omega_m = R_H/r_p)
-  closes the C2 circularity into Omega_m * I(Omega_m) = 1, which has a unique root:
-  0.3043 with zero measured inputs, 0.31408 with radiation (inputs T_CMB, N_eff, h)
-  -- 0.96% from Planck, 0.53 sigma inside its error bar. It back-predicts
-  r_universe = 4.353e26 m (-1.07%). Closure: a0 = 1.1920e-10 m/s^2 (MOND agreement
-  1.72% -> 0.66%); DESI DR2 chi^2/N = 1.618 (fixed-ruler). Input ledger: measured =
-  {H0, T_CMB, N_eff}; computed = {Omega_m, Omega_Lambda, x0, r_universe, a0}.
-  Identity: P is equivalent to mean matter pull at the horizon = c*H0/2, the same
-  c*H0 that sets a0. CONDITIONAL: P is not derived from the flow axioms (open); a
-  comparison with Gaztanaga's causal-universe scale (~0.3176 H0) is a prerequisite
-  for any novelty claim. Scripts: estif_omega_bootstrap.py, estif_bootstrap_closure.py.
+  GROWTH AND THE FOUR LOCKS (RHAC-007, v6.4.1): fronts 1-3 computed the
+  growth history D+(z), f(z), sigma8(z), f*sigma8(z) (JWST verdict: honest
+  null -- the too-big-too-early tension is inherited from LCDM, neither
+  relieved nor worsened), the first-black-hole fold-back rule
+  nu*sigma(M,0)*D(z) = delta_c (star and direct-collapse channels
+  characterized; primordial channel closed under the zeta = 1e-5 passport),
+  and the growth index gamma = 0.5455-0.5544 over z = 0-5 (pull -0.23 sigma
+  from DESI) with the slip lock (Sigma, eta, mu) = (1,1,1) exact. FOUR-LOCK
+  LEDGER separating ESTIF-Core from GR's extra freedoms: Omega_k = 0
+  (registered falsifier), gamma ~ 0.55 with slip = 1, w = -1, c_gw = c. None
+  of the four separates ESTIF-Core from LCDM at Omega_k = 0 at linear order;
+  the distinguishing content lives off the linear sheet (nonlinear halos --
+  the N-body wall).
 
-  A fidelity audit (estif_fidelity_audit.py) found that the axioms of universal
-  speed c (A2) and "empty space is not a source" (A3) lived only in the derivation
-  scripts, and that the concept document ran a competing shrinking-ruler
-  narrative. Both were corrected in the v6.3 concept rewrite: A1-A3 are now stated
-  explicitly in ESTIF_CONCEPT.md, the shrinking-ruler picture is retired in favour
-  of the flat-slice flow (Painleve-Gullstrand) picture, and v_flow = c*x0 is
-  relabelled as the sideways component of a total-c motion rather than the full
-  flow speed.
+  COSMOLOGY (Path One): the constant-Lambda limit ties LCDM on DESI DR2 at
+  chi^2/N = 1.965 (13-bin pipeline; supersedes the earlier 1.92 figure). The
+  Omega_tilt(z) apparatus remains retired from the cosmology claim; its local
+  strong-field use is unaffected, but deviation-from-GR figures (EHT shadow,
+  LISA delay) are conditional on the un-derived non-vacuum sector (C1).
+
+  OMEGA_M STATUS (RHAC-009): principle P (Omega_m = R_H/r_p) is proven
+  non-derivable as a law -- the equality holds only near a = 1 (the two
+  quantities cross once, today; at high z Omega_m -> 1 while R_H/d_p -> 1/2),
+  so it cannot follow from the time-symmetric axioms. P is a predictive
+  postulate; the conditional bootstrap (unique root 0.31408 with radiation,
+  inputs {H0, T_CMB, N_eff}; 0.96% from Planck, 0.53 sigma) stands as
+  conditional on P, and the "Omega_m derived" claim is retired. Prior art:
+  the causal-horizon Omega_m ~ 0.3 result is Gaztanaga's (peer-reviewed,
+  2019-2023); no priority is asserted on Omega_m.
+
+  v6.4.2 HOUSEKEEPING: tests/ restructured to scripts/docs/plots with all
+  paths repaired; documentation consolidated to four living files
+  (PROJECT.md, SCIENCE.md, RHAC.md, CHANGELOG.md). Reproduce the headline
+  result: python3 tests/scripts/estif_task4_field_equation.py
 
 type: software
 authors:
@@ -86,10 +99,14 @@ authors:
     given-names: "Peter"
     email: tervion@gmail.com
     affiliation: "Independent Researcher"
-version: 6.3.2
-date-released: "2026-07-09"
+version: 6.4.2
+date-released: "2026-07-21"
 license: MIT
 repository-code: "https://github.com/tervion/estif-publication"
+# 10.5281/zenodo.17261724 is the concept (all-versions) DOI: it always
+# resolves to the latest published version, so it stays correct after the
+# v6.4.2 Zenodo release. If you want a version-pinned citation, add the new
+# version DOI here after Zenodo mints it at publish time.
 doi: "10.5281/zenodo.17261724"
 url: "https://zenodo.org/records/17261724"
 keywords:
@@ -105,6 +122,8 @@ keywords:
   - field-equation-derivation
   - tilt-formula
   - gravitational-waves
+  - gravitational-wave-speed
+  - GW170817
   - LISA
   - event-horizon-telescope
   - MOND
@@ -113,8 +132,29 @@ keywords:
   - cosmological-constant
   - dark-energy-equation-of-state
   - DESI
+  - growth-index
+  - structure-formation
+  - spatial-curvature
   - emergent-spacetime
 references:
+  - type: software
+    title: "ESTIF v6.3.2 — The Split; Field Equation Derived; Omega_m Bootstrap (Conditional)"
+    authors:
+      - family-names: "Angelov"
+        given-names: "Peter"
+    year: 2026
+    version: "6.3.2"
+    notes: >-
+      Previous version. Derived the gravity field equation from the flow
+      axioms (mass continuity = Poisson, via Gauss-Codazzi), fixed the
+      cosmology circularity, split the project into Path One (Core) and Path
+      Two (Extended), and added the conditional Omega_m bootstrap under
+      principle P. Superseded by v6.4.x: Phase 2 closed as an honorable null
+      (w = -1 exactly; Lambda a bare imported constant), axiom A1 amended to
+      A1' (restoring linear growth and the radiative sector; Omega_k = 0
+      registered as the falsifier), c_gw = c derived (C-15), principle P
+      proven non-derivable (RHAC-009), and the a0 horizon doctrine adopted
+      (RHAC-010).
   - type: software
     title: "ESTIF v6.2 — a0 Redshift Constancy Proved, Parameter Independence, Letter Drafted"
     authors:
@@ -122,7 +162,12 @@ references:
         given-names: "Peter"
     year: 2026
     version: "6.2.0"
-    notes: "Previous version. Derived a0 = H0*c*x0/sqrt(3), validated against 87 SPARC galaxies (RMS 15.6%), tested against DESI DR2 (Omega_tilt sector fails chi^2/N = 10.8), proved a0 redshift constancy and parameter independence. Superseded by v6.3, which derives the gravity field equation (mass continuity = Poisson) from the flow axioms, fixes the cosmology circularity, and splits the project into Path One (Core) and Path Two (Extended)."
+    notes: >-
+      Derived a0 = H0*c*x0/sqrt(3), validated against 87 SPARC galaxies
+      (RMS 15.6%), tested against DESI DR2 (Omega_tilt sector fails
+      chi^2/N = 10.8), proved a0 redshift constancy and parameter
+      independence. Superseded by v6.3, which derives the gravity field
+      equation from the flow axioms.
   - type: software
     title: "ESTIF-FD v1.0 — Emergent Spacetime from Inward Flow (Original)"
     authors:
@@ -130,24 +175,30 @@ references:
         given-names: "Peter"
     year: 2024
     version: "1.0.0"
-    repository-code: "https://zenodo.org/records/17261724"
-    notes: "Original cosmology version — S(t) = exp(-int H dt) ruled out by supernova data. Concept retained, equation abandoned."
+    doi: "10.5281/zenodo.17261725"
+    notes: >-
+      Original cosmology version — S(t) = exp(-int H dt) ruled out by
+      supernova data. Concept retained, equation abandoned.
 preferred-citation:
   type: software
-  title: "ESTIF: Emergent Spacetime from Inward Flow v6.3 'The Split' — Gravity Field Equation Derived; Frozen-Eddy Cosmology"
+  title: "ESTIF v6.4.2 — Derived Flow Gravity; Phase-2 Dark-Energy Null (w = -1); A1' Growth; c_gw = c; Horizon-Scale a0"
   authors:
     - family-names: "Angelov"
       given-names: "Peter"
   year: 2026
-  version: "6.3.2"
+  version: "6.4.2"
   repository-code: "https://github.com/tervion/estif-publication"
   doi: "10.5281/zenodo.17261724"
   notes: >-
-    ESTIF v6.3 — the gravitational field equation is derived from the flow axioms
-    (mass continuity = Poisson) via Gauss-Codazzi, giving exact Schwarzschild in
-    vacuum and Newtonian rho0 for a source, with no Poisson postulate and no
-    match to the Schwarzschild solution; the matter coupling (8*pi*G) is adopted,
-    not derived. The cosmology circularity is fixed (self-consistent x(z)); the frozen-eddy limit
-    (w=-1) ties LCDM on DESI DR2 (chi^2/N = 1.92) and the Omega_tilt apparatus is
-    retired. The project splits into Path One (Core, clean) and Path Two
-    (Extended, hard). Run: python3 tests/estif_task4_field_equation.py
+    ESTIF v6.4.2 — gravity derived from three flow axioms (constraint sector
+    of GR in Painleve-Gullstrand gauge; exact Schwarzschild in vacuum; the
+    8*pi*G coupling adopted, not derived). Phase 2 closed as an honorable
+    null: the residual dark-energy sector permitted by the axioms is empty,
+    w = -1 exactly, Lambda a bare imported constant. A1 amended to A1' (even
+    on average), restoring GR-equivalent growth (f(0.5) = 0.76,
+    DESI-consistent) and the radiative sector, with Omega_k = 0 as the
+    registered falsifier. c_gw = c derived (C-15); GW170817 passed
+    structurally. a0 is horizon-scale (a0 ~ c*H): the scale is derived, the
+    O(1) prefactor open; working form 1.179e-10 m/s^2, SPARC-validated.
+    Four-lock ledger: Omega_k = 0, gamma ~ 0.55 with slip = 1, w = -1,
+    c_gw = c. Run: python3 tests/scripts/estif_task4_field_equation.py

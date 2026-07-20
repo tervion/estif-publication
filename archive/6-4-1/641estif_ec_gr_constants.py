@@ -1,12 +1,12 @@
 # estif_ec_gr_constants.py
 
 """
-ESTIF Physical Constants (v6.4.2 — July 2026)
+ESTIF Physical Constants (v6.4.1 — July 2026)
 
 Contains all fundamental constants used by the ESTIF model.
 Grouped by type: physical, cosmological, ESTIF-derived.
 All numerical values are unchanged since v6.2 — this file is part of the
-frozen v6.2 analytical receipt suite. Claim-status labels updated to v6.4.2.
+frozen v6.2 analytical receipt suite. Claim-status labels updated to v6.4.1.
 
 Key derived constants:
     x₀ = R_H / R_UNIVERSE_0 = 0.3107 ≈ Ωm  (consistency relation, C2 — not an
@@ -68,7 +68,7 @@ R_UNIVERSE_0 = 4.4e26          # Observable universe radius [m]
 # ESTIF FORMULA PARAMETERS
 # ============================================================================
 
-# Calibrated parameters — do NOT modify without re-running tests/scripts/test_joint_calibration.py
+# Calibrated parameters — do NOT modify without re-running test_joint_calibration.py
 # All three (EHT, Planck Λ, LISA) must pass simultaneously after any change.
 N_MAX_COMBINED = 33.265        # Tilt exponent in flat space
 B_COMBINED     = 15.429        # Exponential decay rate

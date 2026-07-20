@@ -1,10 +1,10 @@
 # estif_ec_gr_run_simulation.py
 
 """
-ESTIF Validation Suite (v6.4.2 — July 2026)
+ESTIF Validation Suite (v6.4.1 — July 2026)
 
 Frozen v6.2 analytical receipt suite — computations unchanged; 21/21 must
-pass identically. Claim-status labels updated to v6.4.2:
+pass identically. Claim-status labels updated to v6.4.1:
     Goal 2 (Ω_tilt dark energy) is RETIRED as a cosmology claim (v6.3,
     Task 6; honest cosmology = imported Λ, RHAC-004) — its tests run as
     historical receipts. Ωm = x₀ is a consistency relation (C2). a₀ is
@@ -298,7 +298,7 @@ def test_goal2():
     # Test 2.6: Λ drift prediction (0.023%/Gyr — confirmed by test_nmax_drift.py)
     # -----------------------------------------------------------------------
     print("\n2.6 — Λ drift prediction (0.023%/Gyr — from tilt geometry)")
-    print("     Confirmed by tests/scripts/test_nmax_drift.py")
+    print("     Confirmed by tests/test_nmax_drift.py")
     print("     Λ ∝ observable² ∝ (R_H/r_universe)^(2n) — evolves as universe grows.")
 
     # The drift is derived analytically in test_nmax_drift.py:
@@ -489,7 +489,7 @@ def test_goal3():
    → v_flat = 220 km/s (needs δ ~ 50,000–100,000, N-body simulation)
    → Halo concentration parameter (university cluster or cloud HPC)
    → Bullet Cluster spatial offset (N-body + hydrodynamics)
-   This is documented in docs/PROJECT.md (B-9) as a collaboration target.""")
+   This is documented in ROADMAP.md Phase 7.2 as a collaboration target.""")
 
     return all(results)
 
@@ -582,7 +582,7 @@ def quick_diagnostic():
 def plot_summary():
     """Generate a one-page summary plot of all three goals."""
     fig, axes = plt.subplots(1, 3, figsize=(18, 6))
-    fig.suptitle('ESTIF v6.4.2 — Three Goals Summary (frozen v6.2 receipts)', fontsize=14, fontweight='bold')
+    fig.suptitle('ESTIF v6.4.1 — Three Goals Summary (frozen v6.2 receipts)', fontsize=14, fontweight='bold')
 
     RHO_CRIT = 3 * const.H_0**2 / (8 * np.pi * const.G)
     x0 = estif._x_0
@@ -649,7 +649,7 @@ def plot_summary():
 
 def run_all():
     print("\n" + "█"*70)
-    print("ESTIF v6.4.2 — COMPLETE VALIDATION SUITE")
+    print("ESTIF v6.4.1 — COMPLETE VALIDATION SUITE")
     print("(frozen v6.2 analytical receipts — claim status: see module docstring)")
     print("█"*70)
 
@@ -672,7 +672,7 @@ def run_all():
 
    N-body simulation required for:
    → v_flat = 220 km/s (δ ~ 50,000–100,000 halo overdensity)
-   → Documented in docs/PROJECT.md (B-9)
+   → Documented in ROADMAP.md Phase 7.2
 """)
 
     try:
