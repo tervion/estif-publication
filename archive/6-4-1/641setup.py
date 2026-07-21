@@ -1,26 +1,17 @@
 # setup.py
 """
-ESTIF v6.4.2 — Emergent Spacetime from Inward Flow
-Flow-derived gravity, the dark-energy null, and horizon-scale MOND acceleration.
+ESTIF v6.1 — Emergent Spacetime from Inward Flow
+Geometric derivation of gravity, dark matter, and the MOND acceleration constant.
 
-Key results (v6.4.2):
-  - Gravity DERIVED: the three flow axioms (A1′, A2, A3) uniquely select the
-    constraint sector of GR in Painlevé–Gullstrand gauge — exact Schwarzschild
-    in vacuum; the 8πG coupling is adopted from Einstein–Hilbert, not derived
-  - Phase 2 null (RHAC-004): the entire residual dark-energy sector the axioms
-    permit is EMPTY — w = −1 exactly; Λ enters as a bare imported constant
-  - A1 → A1′ (RHAC-006): GR-equivalent linear growth restored, f(z=0.5) = 0.7603
-    (DESI RSD-consistent); Ω_k = 0 is the registered falsifier (0.0007 ± 0.0019)
-  - c_gw = c DERIVED (RHAC-008, C-15): TT waves and light share one null cone;
-    GW170817 passed structurally (predicted deviation exactly zero)
-  - a₀ is horizon-scale, a₀ ≈ cH (RHAC-010): the scale is derived, the O(1)
-    prefactor open; working value 1.179×10⁻¹⁰ m/s² (1.72% from MOND empirical),
-    validated on 87 quality-1 SPARC galaxies (RMS 15.6%)
-  - Four-lock ledger: Ω_k = 0, γ ≈ 0.55 with slip = 1, w = −1, c_gw = c;
-    constant-Λ limit ties ΛCDM on DESI DR2 at χ²/N = 1.965
+Key results (v6.1):
+  - a₀ = H₀cx₀/√3 derived from geometry, zero free parameters, 1.72% from MOND empirical
+  - 87 SPARC galaxies: RMS 15.6%, within observed baryonic Tully-Fisher scatter
+  - B = L/3 multiplier derived from 3D spatial isotropy
+  - DESI DR2 constraint: Ω_tilt(z) fails at chi²/N=10.8 — cosmology sector under revision
+  - Gravity sector (EHT, Planck Λ, LISA): all pass, 0 free parameters
 """
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -30,20 +21,16 @@ core_requirements = [
     "scipy>=1.10.0,<2.0.0",
     "matplotlib>=3.7.0,<4.0.0",
     "astropy>=5.2.0,<7.0.0",
-    "sympy>=1.12,<2.0.0",
-    "colossus>=1.3.0",
 ]
 
 setup(
     name="estif-gravity",
-    version="6.4.2",
+    version="6.1.0",
     author="Peter Angelov",
     author_email="tervion@gmail.com",
     description=(
-        "ESTIF v6.4.2: flow-derived gravity (constraint sector of GR, exact "
-        "Schwarzschild in vacuum), Phase-2 dark-energy null (w = -1), A1' "
-        "growth, c_gw = c, and horizon-scale a0 from a 3D hypersurface "
-        "carried through a 4D bulk"
+        "ESTIF: Geometric derivation of MOND acceleration, dark matter identity, "
+        "and strong-field gravity from 4D hypersurface tilt"
     ),
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -52,14 +39,10 @@ setup(
         "Bug Tracker":   "https://github.com/tervion/estif-publication/issues",
         "Documentation": "https://github.com/tervion/estif-publication/tree/main/docs",
         "Source Code":   "https://github.com/tervion/estif-publication",
-        "Zenodo (concept DOI, resolves to latest)": "https://zenodo.org/records/17261724",
+        "Zenodo":        "https://zenodo.org/records/17418087",
         "Previous Version (ESTIF-FD v1.0)": "https://zenodo.org/records/17261725",
     },
-    py_modules=[
-        "estif_ec_gr_constants",
-        "estif_ec_gr_model",
-        "estif_ec_gr_run_simulation",
-    ],
+    packages=find_packages(where="src"),
     package_dir={"": "src"},
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -95,34 +78,27 @@ setup(
             "estif-run=estif_ec_gr_run_simulation:main",
         ],
     },
+    include_package_data=True,
+    package_data={
+        "": ["data/*.txt", "data/*.tsv"],
+    },
     zip_safe=False,
     keywords=[
         "general-relativity",
         "modified-gravity",
-        "dark-energy",
+        "MOND",
         "dark-matter",
-        "4D-geometry",
-        "hypersurface",
-        "Painleve-Gullstrand",
-        "ADM-formalism",
-        "Gauss-Codazzi",
-        "field-equation-derivation",
-        "tilt-formula",
+        "dark-energy",
+        "SPARC",
+        "baryonic-Tully-Fisher",
         "gravitational-waves",
-        "gravitational-wave-speed",
-        "GW170817",
         "LISA",
         "event-horizon-telescope",
-        "MOND",
-        "Tully-Fisher",
-        "SPARC",
-        "cosmological-constant",
-        "dark-energy-equation-of-state",
-        "DESI",
-        "growth-index",
-        "structure-formation",
-        "spatial-curvature",
+        "4D-geometry",
+        "hypersurface",
         "emergent-spacetime",
+        "cosmological-constant",
+        "DESI",
     ],
 )
 
